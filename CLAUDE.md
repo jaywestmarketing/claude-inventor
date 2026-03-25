@@ -33,10 +33,15 @@ AutomateHub is a collection of free, browser-based business automation tools tar
 1. **Smart Invoice Generator** (2026-03-25) — `public/tools/smart-invoice-generator/`
    - Target cities: Boise ID, Greenville SC, Huntsville AL, Provo UT, Fayetteville AR
    - Status: Demo
+2. **AI Meeting Notes Summarizer** (2026-03-25) — `public/tools/ai-meeting-notes/`
+   - Target cities: Boise ID, Huntsville AL, Wilmington NC, Provo UT, Lakeland FL
+   - Status: Demo
+   - Key differentiator: No bot joins meetings (unlike Otter.ai, Fireflies, Read.ai)
+   - Competitor revenue validation: Otter.ai $100M ARR, Fireflies $1B valuation, Fathom $18.8M ARR
 
 ## Queued Tools (Research Next)
-- AI Meeting Notes Summarizer (target: office managers, executives)
 - Employee Onboarding Checklist Generator (target: HR managers)
+- AI Business Proposal/Quote Builder (target: sales, freelancers, business owners)
 - Lead Follow-up Sequence Builder (target: sales teams)
 - Social Media Content Calendar (target: marketing teams)
 
