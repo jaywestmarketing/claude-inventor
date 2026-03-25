@@ -21,7 +21,18 @@
   <meta name="twitter:title" content="AutomateHub — Free Business Automation Tools">
   <meta name="twitter:description" content="Browser-based automation tools for business professionals. Save hours every week.">
 
-  <!-- JSON-LD Schema -->
+  <!-- JSON-LD: Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AutomateHub",
+    "url": "https://automatehub.tools/",
+    "description": "Free browser-based automation tools for business professionals including HR, office managers, small business owners, and teams.",
+    "foundingDate": "2026"
+  }
+  </script>
+  <!-- JSON-LD: WebApplication Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,16 +42,38 @@
     "url": "https://automatehub.tools/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "150"
-    }
+    "featureList": [
+      "Invoice generation",
+      "Meeting scheduling",
+      "Employee onboarding checklists",
+      "Lead tracking and follow-up",
+      "Expense reporting",
+      "Content calendar management"
+    ]
+  }
+  </script>
+  <!-- JSON-LD: ItemList (for GEO triple stack) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Free Business Automation Tools",
+    "description": "A collection of free browser-based automation tools for business professionals.",
+    "numberOfItems": 1,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Smart Invoice Generator",
+        "url": "https://automatehub.tools/tools/smart-invoice-generator/"
+      }
+    ]
   }
   </script>
   <script type="application/ld+json">
@@ -88,7 +121,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Preload critical CSS, defer non-critical -->
   <link rel="stylesheet" href="/css/main.css">
+
+  <!-- Locale -->
+  <meta property="og:locale" content="en_US">
+  <link rel="alternate" hreflang="en" href="https://automatehub.tools/">
 </head>
 <body>
   <!-- Header -->
