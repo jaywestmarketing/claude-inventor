@@ -31,16 +31,48 @@
             "Clean minimal UI",
             "Professional templates"
           ]
+        },
+        {
+          "id": "ai-meeting-notes",
+          "name": "AI Meeting Notes Summarizer",
+          "status": "demo",
+          "targetCities": ["Boise, ID", "Huntsville, AL", "Wilmington, NC", "Provo, UT", "Lakeland, FL"],
+          "topKeywords": [
+            "ai meeting notes",
+            "meeting summarizer",
+            "ai meeting summary",
+            "meeting notes generator",
+            "free meeting summarizer no signup",
+            "meeting action items generator",
+            "meeting minutes ai generator",
+            "private meeting notes tool"
+          ],
+          "competitors": ["Otter.ai ($100M ARR)", "Fireflies.ai ($1B valuation)", "Fathom AI ($18.8M ARR)", "Read.ai", "tl;dv ($4.5M ARR)"],
+          "competitorPainPoints": [
+            "Bots join meetings uninvited — major privacy violation",
+            "Surprise billing / dark pattern subscription charges",
+            "Poor transcription accuracy with accents and multiple speakers",
+            "Cannot delete accounts / virus-like behavior (Read.ai banned by universities)",
+            "Visible bot participants embarrass users in meetings"
+          ],
+          "ourDifferentiators": [
+            "No bot — users paste/upload their own transcript text",
+            "100% browser-based — no data leaves the device",
+            "No signup, no billing, no subscriptions",
+            "Works on any device with a browser",
+            "User controls speaker attribution — 100% accuracy"
+          ]
         }
       ],
       "toolsUpdated": [],
-      "researchNotes": "First session. Built main dashboard, CSS framework, tools registry, and first tool (Smart Invoice Generator). SEO optimized with schema markup, FAQ sections, and city-specific content.",
+      "researchNotes": "Session 1. Built main dashboard, CSS framework, tools registry, Smart Invoice Generator, and AI Meeting Notes Summarizer. Applied SEO/AEO/GEO research: triple stack schema, AI-aware robots.txt, local SEO city targeting. Research validated: Otter.ai $100M ARR, Fireflies.ai $1B valuation, Fathom $18.8M ARR — massive market with clear privacy pain point we solve.",
       "nextSessionTasks": [
-        "Research and build Tool #2 (AI Meeting Notes Summarizer or similar)",
-        "Check for trending keywords updates",
-        "Add 5 new target cities for existing tools",
-        "Review competitor updates for invoice generators",
-        "Validate SEO markup with structured data testing"
+        "Research and build Tool #3 (Employee Onboarding Checklist Generator)",
+        "Research and build Tool #4 (AI Business Proposal/Quote Builder)",
+        "Check for trending keywords updates for invoice + meeting notes tools",
+        "Add 5 new target cities for each existing tool",
+        "Review competitor updates and new negative reviews",
+        "Refresh content on existing pages (quarterly freshness for AEO)"
       ]
     }
   ],
@@ -50,29 +82,73 @@
       "dateAdded": "2026-03-25",
       "lastUpdated": "2026-03-25",
       "status": "demo"
+    },
+    {
+      "id": "ai-meeting-notes",
+      "dateAdded": "2026-03-25",
+      "lastUpdated": "2026-03-25",
+      "status": "demo"
     }
   ],
   "queuedTools": [
-    "AI Meeting Notes Summarizer",
     "Employee Onboarding Checklist Generator",
+    "AI Business Proposal/Quote Builder",
     "Lead Follow-up Sequence Builder",
     "Social Media Content Calendar",
     "Expense Report Generator",
     "PTO / Time-Off Tracker",
-    "Client Proposal Builder",
     "Email Signature Generator",
     "Business Card Designer",
     "KPI Dashboard Builder"
   ],
   "seoTracking": {
     "targetedCities": {
-      "smart-invoice-generator": ["Boise, ID", "Greenville, SC", "Huntsville, AL", "Provo, UT", "Fayetteville, AR"]
+      "smart-invoice-generator": ["Boise, ID", "Greenville, SC", "Huntsville, AL", "Provo, UT", "Fayetteville, AR"],
+      "ai-meeting-notes": ["Boise, ID", "Huntsville, AL", "Wilmington, NC", "Provo, UT", "Lakeland, FL"]
     },
     "keywordsTracked": [
       "free invoice generator",
       "business automation tools",
       "office automation software",
-      "small business tools free"
+      "small business tools free",
+      "ai meeting notes",
+      "meeting summarizer",
+      "ai meeting summary",
+      "free meeting summarizer no signup",
+      "meeting notes generator",
+      "private meeting notes tool"
     ]
+  },
+  "competitorIntelligence": {
+    "otter-ai": {
+      "lastChecked": "2026-03-25",
+      "revenue": "$100M ARR",
+      "users": "25M+",
+      "traffic": "5.9M monthly visits",
+      "topComplaints": ["transcription accuracy (52 G2 mentions)", "billing dark patterns", "privacy invasion / uninvited bot"]
+    },
+    "fireflies-ai": {
+      "lastChecked": "2026-03-25",
+      "revenue": "$10.9M+ ARR",
+      "valuation": "$1B",
+      "users": "20M+",
+      "traffic": "3.5M monthly visits",
+      "topComplaints": ["surprise billing ($228 charge)", "bot joins unannounced", "poor speaker identification"]
+    },
+    "fathom-ai": {
+      "lastChecked": "2026-03-25",
+      "revenue": "$18.8M ARR",
+      "users": "500K+",
+      "topComplaints": ["visible bot in meetings", "no mobile app", "hidden AI caps on free plan"]
+    },
+    "read-ai": {
+      "lastChecked": "2026-03-25",
+      "topComplaints": ["virus-like behavior (banned by universities)", "cannot delete account", "non-transparent pricing"]
+    },
+    "tl-dv": {
+      "lastChecked": "2026-03-25",
+      "revenue": "$4.5M ARR",
+      "topComplaints": ["messy video library", "misleading integrations", "poor accent transcription"]
+    }
   }
 }

@@ -128,6 +128,117 @@ const TOOLS_REGISTRY = [
         'Due date tracking and payment terms'
       ]
     }
+  },
+  {
+    id: 'ai-meeting-notes',
+    name: 'AI Meeting Notes Summarizer',
+    icon: '📝',
+    description: 'Paste your meeting transcript and get AI-structured summaries with action items, key decisions, and follow-ups. No bot joins your calls. 100% private and browser-based.',
+    tags: ['Office Managers', 'Executives', 'Sales', 'HR'],
+    status: 'demo',
+    path: '/tools/ai-meeting-notes/',
+    dateAdded: '2026-03-25',
+    keywords: [
+      'ai meeting notes',
+      'meeting summarizer',
+      'ai meeting summary',
+      'ai notetaker',
+      'meeting notes generator',
+      'ai meeting assistant',
+      'free meeting notes tool',
+      'meeting minutes generator',
+      'meeting action items generator',
+      'automated meeting notes',
+      'meeting recap tool',
+      'ai meeting notes free',
+      'meeting summary tool online',
+      'business meeting summarizer',
+      'meeting minutes ai generator',
+      'free meeting summarizer no signup',
+      'private meeting notes tool',
+      'meeting notes summarizer browser',
+      'no bot meeting notes',
+      'meeting transcript summarizer'
+    ],
+    targetCities: [
+      'Boise, ID',
+      'Huntsville, AL',
+      'Wilmington, NC',
+      'Provo, UT',
+      'Lakeland, FL'
+    ],
+    competitors: {
+      topCompetitors: [
+        {
+          name: 'Otter.ai',
+          estimatedRevenue: '$100M+ ARR',
+          negativeReviews: [
+            'Transcription accuracy issues with accents and multiple speakers',
+            'Billing dark patterns — users charged $210 without receipts',
+            'Bot joins uninvited meetings, auto-emails transcripts to all participants'
+          ],
+          ourFix: [
+            'No transcription needed — users paste their own text for 100% accuracy',
+            'Completely free, no billing, no accounts',
+            'No bot at all — tool works after the meeting with user-supplied text'
+          ]
+        },
+        {
+          name: 'Fireflies.ai',
+          estimatedRevenue: '$10.9M+ ARR ($1B valuation)',
+          negativeReviews: [
+            'Surprise billing — users charged $228 after clicking "free trial"',
+            'Bot joins meetings unannounced, difficult to disable',
+            'Poor speaker identification with technical jargon'
+          ],
+          ourFix: [
+            'No billing, no accounts, no subscriptions',
+            'No bot — works post-meeting on user-supplied text',
+            'User labels speakers themselves — 100% accurate attribution'
+          ]
+        },
+        {
+          name: 'Fathom AI',
+          estimatedRevenue: '$18.8M ARR',
+          negativeReviews: [
+            'Visible "Fathom Notetaker" bot appears as participant',
+            'No mobile app (no iOS, Android, Chromebook, or Linux)',
+            'Hidden AI caps — summaries limited to 5/month on free plan'
+          ],
+          ourFix: [
+            'No bot presence at all — invisible to meeting participants',
+            'Browser-based — works on any device',
+            'No artificial caps on free tier'
+          ]
+        }
+      ],
+      similarServices: [
+        'Otter.ai', 'Fireflies.ai', 'Fathom AI', 'Read.ai', 'tl;dv',
+        'Granola AI', 'Notion AI Meeting Notes', 'Jamie (meetjamie.ai)',
+        'Sembly AI', 'MeetGeek'
+      ]
+    },
+    research: {
+      marketSize: 'AI meeting assistant market — Otter alone at $100M ARR, 75% of knowledge workers use AI note-takers',
+      growthRate: 'Rapid growth — Fireflies hit $1B valuation in 2025',
+      painPoints: [
+        'Bots join meetings uninvited — major privacy violation',
+        'Surprise billing and dark pattern subscriptions',
+        'Poor accuracy with accents and overlapping speakers',
+        'Read.ai banned by universities for virus-like data harvesting',
+        'Visible bot participants embarrass users'
+      ],
+      keyFeatures: [
+        'No signup required — instant use in browser',
+        'Paste-in transcript support',
+        'AI-powered structured summary with decisions and action items',
+        'Speaker attribution',
+        'Multiple meeting templates (standup, 1-on-1, board, sales call)',
+        'Export to PDF, Markdown, plain text',
+        '100% browser-based privacy',
+        'Save/load locally'
+      ]
+    }
   }
 ];
 
