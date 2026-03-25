@@ -1,79 +1,55 @@
-# AutomateHub — Claude Session Context
+# AutomateStack - Claude Session Context
 
 ## Project Overview
-AutomateHub is a collection of free, browser-based business automation tools targeting HR, office managers, small business owners, CEOs, sales, marketing, and desk clerks. The main dashboard at `public/index.html` lists all tools as semi-transparent white tiles with light shadows. Each tool has its own page with a working demo and waitlist.
+AutomateStack is a dashboard of AI-powered business automation tools. New tools are added daily based on market research. Each tool has a waitlist for lead collection. Target audience: HR managers, office managers, small business owners, CEOs, desk clerks, lead gen specialists, marketing teams, sales professionals.
+
+## Session Workflow (Read Every Session)
+1. **Read** `src/data/session-history.ts` for full context of all previous sessions
+2. **Read** `src/data/tools.ts` for current tool inventory
+3. **Research** new trending automation tools via web search
+4. **Update** existing tools: check for new keywords, competitor changes, trending features
+5. **Add** new tools (target: 1+ per session) with full data: keywords, competitors, fixes, cities
+6. **SEO Check**: Research keyword ranking changes, add new low-competition cities (5 per tool)
+7. **Update** `session-history.ts` with new session entry
+8. **Check GitHub** for any external updates between sessions
 
 ## Architecture
-- **Static site** served from `public/`
-- `public/index.html` — Main dashboard/landing page
-- `public/css/main.css` — Global styles (semi-transparent tiles, responsive)
-- `public/js/tools-registry.js` — Central registry of ALL tools (add new tools here)
-- `public/js/main.js` — Dashboard JS (grid rendering, waitlist forms, nav)
-- `public/tools/{tool-slug}/` — Individual tool directories
-- `data/session-log.json` — Session history and research log
+- **Framework**: Next.js App Router (TypeScript)
+- **Styling**: CSS with glass-morphism design (semi-transparent white tiles, light shadows)
+- **Data**: Static TypeScript files (tools.ts, session-history.ts)
+- **SEO**: Schema.org JSON-LD, dynamic sitemap, robots.txt allowing AI crawlers
+- **Waitlist**: localStorage (to be upgraded to backend)
 
-## Adding a New Tool (Daily Process)
-1. Research trending business automation tools via web search
-2. Validate competitors earn >$5000/month
-3. Find negative reviews of competitors and design fixes
-4. Pick 5 low-competition US cities for local SEO
-5. Add tool entry to `public/js/tools-registry.js` TOOLS_REGISTRY array
-6. Create tool directory: `public/tools/{tool-slug}/`
-7. Create tool page with: demo, waitlist, FAQ, city SEO sections, schema markup
-8. Update `public/sitemap.xml` with new tool URL
-9. Update `data/session-log.json` with session details
+## Tool Requirements
+- Revenue validation: Competitors must earn >$5,000/month
+- Each tool needs: 20 keywords, 5 competitors with complaints, fixes, 5 target cities
+- All tools are browser-based web apps with demo mode + waitlist
 
-## SEO Strategy
-- **Google/Bing/Yahoo/DuckDuckGo**: Schema markup (JSON-LD), semantic HTML, FAQ sections, meta tags
-- **AEO** (Answer Engine Optimization): FAQ schema, HowTo schema, direct answer content
-- **GEO** (Generative Engine Optimization): Structured data, authoritative content, clear entity definitions
-- **Local SEO**: City-specific content sections, LocalBusiness schema, target 5 low-competition cities per tool
-
-## Current Tools
-1. **Smart Invoice Generator** (2026-03-25) — `public/tools/smart-invoice-generator/`
-   - Target cities: Boise ID, Greenville SC, Huntsville AL, Provo UT, Fayetteville AR
-   - Status: Demo
-
-## Queued Tools (Research Next)
-- AI Meeting Notes Summarizer (target: office managers, executives)
-- Employee Onboarding Checklist Generator (target: HR managers)
-- Lead Follow-up Sequence Builder (target: sales teams)
-- Social Media Content Calendar (target: marketing teams)
-
-## Key Guidelines
-- All tools must work in-browser (no backend required for demos)
-- Waitlist data stored in localStorage (connect to backend later)
-- Every tool page needs: demo, FAQ, city SEO, schema markup, waitlist form
-- Check `data/session-log.json` at start of each session for history
-- Research keywords, competitor updates, and trending features each session
-
-## SEO Research Findings (2026-03-25)
-Key findings from research to apply on every page and tool:
+## SEO/AEO/GEO Strategy
 
 ### GEO Triple Stack (Critical)
-Every tool page should include 3 JSON-LD schemas: Article/WebApplication + ItemList + FAQPage. Pages with the triple stack get **1.8x more AI citations**.
+Every tool page should include 3 JSON-LD schemas: WebApplication + ItemList + FAQPage. Pages with the triple stack get **1.8x more AI citations**.
 
 ### AEO: Direct Answers
 - Place concise answer in **first 150 words** of page (55% of AI citations come from first 30%)
 - Use listicle/comparison table format (32% of AI citations are listicles)
 - Add stats every 150-200 words
-- Refresh content quarterly (3x more likely to lose AI citations if stale)
+- Refresh content quarterly
 
 ### Robots.txt Strategy
 - Allow AI retrieval bots (ChatGPT-User, PerplexityBot, ClaudeBot, OAI-SearchBot)
-- Block AI training bots (GPTBot, Google-Extended, CCBot)
+- Block AI training bots (GPTBot, Google-Extended, CCBot) — NOTE: currently allowing all; adjust if needed
 
 ### Waitlist Optimization
 - Top waitlist pages convert at 25-85% (vs 3.8% median for SaaS)
 - 83% mobile traffic — mobile-first mandatory
 - Keep form fields to 5 or fewer (doubles conversion)
-- Launch within 90 days of waitlist opening (conversion drops sharply after)
+- Launch within 90 days of waitlist opening
 
 ### Core Web Vitals
 - LCP < 2.5s, INP < 200ms, CLS < 0.1
 - Use fetchpriority="high" on hero images
 - Inline critical CSS, defer non-critical
-- Defer/async all non-critical scripts
 - Use WebP/AVIF image formats
 
 ### Local SEO Without Physical Presence
@@ -81,3 +57,32 @@ Every tool page should include 3 JSON-LD schemas: Article/WebApplication + ItemL
 - Mention local business regulations, tax rates, popular industries
 - Use LocalBusiness + Service schema per city page
 - List on G2, Capterra, Product Hunt for backlinks
+- Target 5 low-competition cities per tool, expand by 5 each session
+
+### Google/Bing/Yahoo/DuckDuckGo
+- Schema.org structured data, semantic HTML, FAQ sections, meta tags
+- Dynamic sitemap.xml and robots.txt
+- OpenGraph + Twitter Card meta tags
+
+## Key Files
+- `src/data/tools.ts` - All tools with metadata, keywords, competitors, cities
+- `src/data/session-history.ts` - Session-by-session changelog and plans
+- `src/app/page.tsx` - Main dashboard landing page
+- `src/app/tools/[slug]/page.tsx` - Individual tool pages
+- `src/app/layout.tsx` - Root layout with global SEO meta
+- `src/components/ToolTile.tsx` - Tool card component with waitlist form
+- `src/app/globals.css` - Glass-morphism design system
+
+## Current Tools (Session 1 - 2026-03-25)
+1. **OnboardFlow** (HR) - Employee onboarding automation
+2. **InvoiceAI** (Finance) - AI-powered invoice generation
+3. **LeadPilot** (Marketing) - Lead capture and nurturing
+4. **CalendarFlow** (Productivity) - Smart meeting scheduling
+5. **ExpenseBot** (Finance) - Automated expense reporting
+
+## Queued Tools (Research Next)
+- PTO/Time-Off Tracker
+- Proposal Generator
+- Social Media Scheduler
+- Payroll Calculator
+- Helpdesk Ticketing
