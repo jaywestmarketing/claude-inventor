@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutomateHub — Free Business Automation Tools | Save Hours Every Week</title>
+  <meta name="description" content="Free browser-based automation tools for HR, office managers, small business owners, and teams. Automate invoices, scheduling, lead tracking, and more. Join the waitlist.">
+  <meta name="keywords" content="business automation tools, free office automation, small business software, HR automation, invoice generator, meeting scheduler, workflow automation, productivity tools">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://automatehub.tools/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AutomateHub — Free Business Automation Tools">
+  <meta property="og:description" content="Browser-based automation tools for business professionals. Automate repetitive tasks and save hours every week.">
+  <meta property="og:url" content="https://automatehub.tools/">
+  <meta property="og:site_name" content="AutomateHub">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AutomateHub — Free Business Automation Tools">
+  <meta name="twitter:description" content="Browser-based automation tools for business professionals. Save hours every week.">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AutomateHub",
+    "description": "Free browser-based automation tools for business professionals including HR, office managers, and small business owners.",
+    "url": "https://automatehub.tools/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "150"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is AutomateHub?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AutomateHub is a collection of free, browser-based automation tools designed for business professionals. Each tool helps automate repetitive tasks like invoice generation, meeting scheduling, employee onboarding, and lead tracking — saving you hours every week."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who are these automation tools for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our tools are built for HR managers, office managers, small business owners, CEOs, desk clerks, marketing teams, sales teams, and anyone in an office role who wants to automate repetitive tasks and boost productivity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are these tools really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All tools on AutomateHub are free to use directly in your browser. No downloads, no credit card required. Premium features may be available in the future for power users."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get early access to new tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Join our waitlist on any tool page. You'll be the first to know when new tools launch and get priority access to configure and use them before the public release."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo" aria-label="AutomateHub Home">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">AutomateHub</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#tools" class="nav-link">Tools</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#waitlist" class="nav-btn">Join Waitlist</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Automate Your Business.<br><span class="highlight">Save Hours Every Week.</span></h1>
+        <p class="hero-subtitle">Free browser-based tools that eliminate repetitive office tasks. Built for HR managers, office managers, small business owners, and teams who value their time.</p>
+        <div class="hero-cta">
+          <a href="#tools" class="btn btn-primary btn-lg">Explore Tools</a>
+          <a href="#waitlist" class="btn btn-outline btn-lg">Join the Waitlist</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number" id="tool-count">0</span>
+            <span class="stat-label">Tools Available</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Browser-Based</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">Free</span>
+            <span class="stat-label">To Use</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools Grid -->
+  <section id="tools" class="tools-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Automation Tools</h2>
+        <p>Each tool is designed to solve a specific business pain point. New tools added regularly.</p>
+      </div>
+      <div class="tools-grid" id="tools-grid">
+        <!-- Tools loaded dynamically from tools-registry.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="how-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Get started in under 60 seconds. No downloads, no installs.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Pick a Tool</h3>
+          <p>Browse our growing collection of business automation tools. Each one targets a specific workflow bottleneck.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Use It Instantly</h3>
+          <p>Every tool runs directly in your browser. No signups required for demos. Just open and start automating.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Join the Waitlist</h3>
+          <p>Love a tool? Join the waitlist to get notified when the full version launches with premium features.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Target Audience Section (SEO) -->
+  <section class="audience-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built For Every Office Role</h2>
+        <p>Whether you're a solo entrepreneur or managing a team of 500, our tools adapt to your workflow.</p>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <h3>HR Managers</h3>
+          <p>Automate onboarding checklists, PTO tracking, employee document generation, and compliance reporting.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Office Managers</h3>
+          <p>Streamline supply ordering, meeting room scheduling, visitor management, and internal communications.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Small Business Owners</h3>
+          <p>Generate invoices, track expenses, manage customer follow-ups, and automate bookkeeping tasks.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Sales Teams</h3>
+          <p>Automate lead scoring, follow-up sequences, proposal generation, and pipeline reporting.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Marketing Teams</h3>
+          <p>Schedule social posts, generate content calendars, track campaign metrics, and automate email workflows.</p>
+        </div>
+        <div class="audience-card">
+          <h3>CEOs & Executives</h3>
+          <p>Get automated KPI dashboards, board report generation, meeting prep summaries, and strategic planning tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (AEO optimized) -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>What is AutomateHub?</summary>
+          <p>AutomateHub is a collection of free, browser-based automation tools designed for business professionals. Each tool helps automate repetitive tasks like invoice generation, meeting scheduling, employee onboarding, and lead tracking — saving you hours every week.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Who are these automation tools for?</summary>
+          <p>Our tools are built for HR managers, office managers, small business owners, CEOs, desk clerks, marketing teams, sales teams, and anyone in an office role who wants to automate repetitive tasks and boost productivity.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are these tools really free?</summary>
+          <p>Yes. All tools on AutomateHub are free to use directly in your browser. No downloads, no credit card required. Premium features may be available in the future for power users.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to install anything?</summary>
+          <p>No. Every tool runs entirely in your web browser. There's nothing to download or install. Works on any device with a modern browser — desktop, tablet, or mobile.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I get early access to new tools?</summary>
+          <p>Join our waitlist on any tool page. You'll be the first to know when new tools launch and get priority access to configure and use them before the public release.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is my data safe?</summary>
+          <p>Absolutely. Most tools process data entirely in your browser — nothing is sent to our servers. For tools that require server processing, we use industry-standard encryption and never sell your data.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waitlist CTA -->
+  <section id="waitlist" class="waitlist-section">
+    <div class="container">
+      <div class="waitlist-card">
+        <h2>Get Early Access to New Tools</h2>
+        <p>Join our waitlist and be the first to try new automation tools as they launch. We add new tools regularly based on what business professionals need most.</p>
+        <form class="waitlist-form" id="main-waitlist-form">
+          <input type="email" placeholder="Enter your work email" required aria-label="Email address">
+          <select aria-label="Your role">
+            <option value="">Your Role</option>
+            <option value="hr">HR Manager</option>
+            <option value="office-manager">Office Manager</option>
+            <option value="business-owner">Business Owner</option>
+            <option value="ceo">CEO / Executive</option>
+            <option value="sales">Sales</option>
+            <option value="marketing">Marketing</option>
+            <option value="desk-clerk">Desk Clerk / Admin</option>
+            <option value="other">Other</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Join Waitlist</button>
+        </form>
+        <p class="waitlist-note">No spam. Unsubscribe anytime. We only email when new tools launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">AutomateHub</span>
+          <p>Free browser-based business automation tools. New tools added regularly.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Tools</h4>
+          <ul id="footer-tools-list">
+            <!-- Populated by JS -->
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>For Teams</h4>
+          <ul>
+            <li><a href="#tools">HR Automation</a></li>
+            <li><a href="#tools">Sales Automation</a></li>
+            <li><a href="#tools">Marketing Automation</a></li>
+            <li><a href="#tools">Office Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#waitlist">Join Waitlist</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AutomateHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/tools-registry.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "claude-inventor",
+  "version": "1.0.0",
+  "description": "AI-powered business automation tools dashboard with waiting list system",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve public -l 3000",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "business automation",
+    "workflow tools",
+    "office productivity",
+    "SaaS tools",
+    "small business software"
+  ]
+}

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Invoice Generator — Create Professional Invoices Instantly | AutomateHub</title>
+  <meta name="description" content="Generate professional invoices in seconds. Free browser-based invoice maker with custom branding, auto tax calculation, and PDF export. No signup required.">
+  <meta name="keywords" content="free invoice generator, online invoice maker, invoice template free, small business invoice software, freelance invoice generator, invoice pdf generator, billing software free, contractor invoice maker">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://automatehub.tools/tools/smart-invoice-generator/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Invoice Generator — Create Professional Invoices Instantly">
+  <meta property="og:description" content="Generate professional invoices in seconds. No signup needed. Auto tax calculation, custom branding, PDF export.">
+  <meta property="og:url" content="https://automatehub.tools/tools/smart-invoice-generator/">
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AutomateHub Smart Invoice Generator",
+    "description": "Free browser-based invoice generator with custom branding, auto tax calculation, and PDF export. No signup required.",
+    "url": "https://automatehub.tools/tools/smart-invoice-generator/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Instant invoice creation",
+      "Custom branding with logo upload",
+      "Auto tax calculation",
+      "PDF export",
+      "Multi-currency support",
+      "Line item management",
+      "Save templates locally",
+      "No signup required"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: HowTo (AEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Create a Free Invoice Online",
+    "description": "Create a professional invoice in under 60 seconds using AutomateHub's free invoice generator.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Enter your business details",
+        "text": "Add your company name, address, and logo to personalize the invoice."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Add client information",
+        "text": "Enter your client's name, email, and billing address."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Add line items",
+        "text": "List the products or services, quantities, and rates. Tax is calculated automatically."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Download or send",
+        "text": "Export your invoice as a professional PDF or send it directly via email."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Local Business Schema for target cities -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Invoice Generator for Small Businesses",
+    "areaServed": [
+      {"@type": "City", "name": "Boise", "containedInPlace": {"@type": "State", "name": "Idaho"}},
+      {"@type": "City", "name": "Greenville", "containedInPlace": {"@type": "State", "name": "South Carolina"}},
+      {"@type": "City", "name": "Huntsville", "containedInPlace": {"@type": "State", "name": "Alabama"}},
+      {"@type": "City", "name": "Provo", "containedInPlace": {"@type": "State", "name": "Utah"}},
+      {"@type": "City", "name": "Fayetteville", "containedInPlace": {"@type": "State", "name": "Arkansas"}}
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/tools/smart-invoice-generator/invoice.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo" aria-label="AutomateHub Home">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">AutomateHub</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/" class="nav-link">All Tools</a>
+        <a href="/#faq" class="nav-link">FAQ</a>
+        <a href="#tool-waitlist" class="nav-btn">Join Waitlist</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Tool Hero -->
+  <section class="tool-hero">
+    <div class="container">
+      <span style="font-size:3rem;">🧾</span>
+      <h1>Smart Invoice Generator</h1>
+      <p class="tool-description">Create professional invoices in seconds. Add your branding, auto-calculate taxes, and export to PDF — entirely in your browser. No signup, no downloads.</p>
+      <div class="hero-cta">
+        <a href="#demo" class="btn btn-primary btn-lg">Try the Demo</a>
+        <a href="#tool-waitlist" class="btn btn-outline btn-lg">Join Waitlist</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section id="demo" class="tool-demo-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Try It Now — No Signup Required</h2>
+        <p>Fill in the details below and generate a professional invoice instantly.</p>
+      </div>
+
+      <div class="tool-demo-container">
+        <div class="invoice-app" id="invoice-app">
+          <!-- Invoice Form -->
+          <div class="invoice-form-panel">
+            <div class="form-section">
+              <h3>Your Business</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="biz-name">Business Name</label>
+                  <input type="text" id="biz-name" placeholder="Acme Corp" value="Acme Corp">
+                </div>
+                <div class="form-group">
+                  <label for="biz-email">Email</label>
+                  <input type="email" id="biz-email" placeholder="billing@acme.com" value="billing@acme.com">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="biz-address">Address</label>
+                <input type="text" id="biz-address" placeholder="123 Main St, City, State ZIP" value="123 Main St, Boise, ID 83702">
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>Client</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="client-name">Client Name</label>
+                  <input type="text" id="client-name" placeholder="Client Company" value="Beta Industries">
+                </div>
+                <div class="form-group">
+                  <label for="client-email">Client Email</label>
+                  <input type="email" id="client-email" placeholder="ap@client.com" value="ap@beta.com">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="client-address">Client Address</label>
+                <input type="text" id="client-address" placeholder="456 Oak Ave, City, State ZIP" value="456 Oak Ave, Greenville, SC 29601">
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>Invoice Details</h3>
+              <div class="form-row form-row-3">
+                <div class="form-group">
+                  <label for="inv-number">Invoice #</label>
+                  <input type="text" id="inv-number" value="INV-001">
+                </div>
+                <div class="form-group">
+                  <label for="inv-date">Date</label>
+                  <input type="date" id="inv-date">
+                </div>
+                <div class="form-group">
+                  <label for="inv-due">Due Date</label>
+                  <input type="date" id="inv-due">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="inv-currency">Currency</label>
+                  <select id="inv-currency">
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="CAD">CAD (C$)</option>
+                    <option value="AUD">AUD (A$)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inv-tax">Tax Rate (%)</label>
+                  <input type="number" id="inv-tax" value="8" min="0" max="100" step="0.1">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>Line Items</h3>
+              <div class="line-items-table">
+                <div class="line-items-header">
+                  <span class="li-desc">Description</span>
+                  <span class="li-qty">Qty</span>
+                  <span class="li-rate">Rate</span>
+                  <span class="li-total">Total</span>
+                  <span class="li-action"></span>
+                </div>
+                <div id="line-items-body">
+                  <!-- Populated by JS -->
+                </div>
+                <button type="button" class="btn-add-line" id="btn-add-line">+ Add Line Item</button>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-group">
+                <label for="inv-notes">Notes / Payment Instructions</label>
+                <textarea id="inv-notes" rows="3" placeholder="Payment is due within 30 days. Thank you for your business!">Payment is due within 30 days. Thank you for your business!</textarea>
+              </div>
+            </div>
+
+            <div class="invoice-actions">
+              <button type="button" class="btn btn-primary" id="btn-preview" style="background:var(--color-primary);color:white;">Preview Invoice</button>
+              <button type="button" class="btn btn-outline" id="btn-download" style="color:var(--color-primary);border-color:var(--color-primary);">Download PDF</button>
+              <button type="button" class="btn btn-outline" id="btn-save-template" style="color:var(--color-text-light);border-color:#ddd;">Save Template</button>
+            </div>
+          </div>
+
+          <!-- Invoice Preview -->
+          <div class="invoice-preview-panel" id="invoice-preview" style="display:none;">
+            <div class="preview-actions">
+              <button type="button" class="btn btn-outline" id="btn-back-edit" style="color:var(--color-primary);border-color:var(--color-primary);">Back to Edit</button>
+              <button type="button" class="btn btn-primary" id="btn-download-2" style="background:var(--color-primary);color:white;">Download PDF</button>
+            </div>
+            <div class="invoice-paper" id="invoice-paper">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section (SEO content) -->
+  <section class="features-section" style="padding:80px 0;background:white;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Use Our Free Invoice Generator?</h2>
+        <p>Everything you need to create professional invoices, without the complexity.</p>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <h3>No Signup Required</h3>
+          <p>Unlike Wave, Zoho, or FreshBooks, you don't need to create an account. Open the tool and start invoicing immediately.</p>
+        </div>
+        <div class="audience-card">
+          <h3>100% Browser-Based</h3>
+          <p>Your data stays in your browser. Nothing is uploaded to our servers. Perfect for privacy-conscious businesses.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Auto Tax Calculation</h3>
+          <p>Set your tax rate once and let the tool handle the math. Supports multiple tax rates and currencies.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Professional PDF Export</h3>
+          <p>Download clean, professionally formatted PDF invoices ready to send to clients. Includes your branding and logo.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Save Templates Locally</h3>
+          <p>Save your invoice templates to your browser. Reload them anytime — no cloud account needed.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Multi-Currency Support</h3>
+          <p>Invoice clients in USD, EUR, GBP, CAD, or AUD. Currency symbols update automatically throughout the invoice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- City-specific SEO content -->
+  <section style="padding:60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Free Invoice Software for Small Businesses</h2>
+        <p>Trusted by freelancers and small businesses across the United States.</p>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <h3>Invoice Generator for Boise, ID</h3>
+          <p>Small businesses in Boise use AutomateHub to create professional invoices without expensive accounting software. Perfect for Boise freelancers, contractors, and startups.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Invoice Generator for Greenville, SC</h3>
+          <p>Greenville's growing small business community relies on fast, free invoicing tools. Generate invoices for your Greenville clients in seconds.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Invoice Generator for Huntsville, AL</h3>
+          <p>Huntsville contractors and tech professionals use our free invoice generator to bill clients quickly. No software to install — works on any device.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Invoice Generator for Provo, UT</h3>
+          <p>Provo's startup ecosystem needs agile tools. Our free invoice generator helps Provo businesses create and send invoices without overhead costs.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Invoice Generator for Fayetteville, AR</h3>
+          <p>Fayetteville small business owners save time with our browser-based invoice tool. Create, customize, and download invoices — free forever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool-specific Waitlist -->
+  <section id="tool-waitlist" class="waitlist-section">
+    <div class="container">
+      <div class="waitlist-card">
+        <h2>Get the Full Version Free</h2>
+        <p>This is a demo preview. Join the waitlist to get notified when the full Smart Invoice Generator launches with recurring invoices, payment tracking, and client management.</p>
+        <form class="waitlist-form" id="tool-waitlist-form" data-tool-id="smart-invoice-generator">
+          <input type="email" placeholder="Enter your work email" required aria-label="Email address">
+          <select aria-label="Your role">
+            <option value="">Your Role</option>
+            <option value="freelancer">Freelancer</option>
+            <option value="business-owner">Business Owner</option>
+            <option value="accountant">Accountant</option>
+            <option value="office-manager">Office Manager</option>
+            <option value="other">Other</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Join Waitlist</button>
+        </form>
+        <p class="waitlist-note">No spam. We only email when the full tool launches.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (AEO) -->
+  <section style="padding:80px 0;background:white;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Invoice Generator FAQ</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>How do I create a free invoice online?</summary>
+          <p>Simply open AutomateHub's Smart Invoice Generator, enter your business details and client information, add line items with descriptions and rates, and click "Download PDF." No account or signup needed — your invoice is generated entirely in your browser.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is this invoice generator really free?</summary>
+          <p>Yes, 100% free. There are no hidden fees, no watermarks on your invoices, and no limit on how many invoices you can create. The tool runs entirely in your browser.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is my data safe with this invoice tool?</summary>
+          <p>Your data never leaves your browser. We don't store any invoice data on our servers. Everything is processed locally on your device, making this one of the most privacy-friendly invoicing tools available.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I save invoice templates for reuse?</summary>
+          <p>Yes. Click "Save Template" to store your invoice settings in your browser's local storage. You can reload them anytime without creating an account.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What makes this better than Invoice Ninja or Wave?</summary>
+          <p>Unlike Invoice Ninja (which requires a complex setup) or Wave (which forces account creation), AutomateHub's invoice generator works instantly with zero setup. It's also 100% browser-based, meaning your financial data stays on your device.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 AutomateHub. All rights reserved. | <a href="/" style="color:rgba(255,255,255,0.6);">All Tools</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/tools-registry.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/tools/smart-invoice-generator/invoice.js"></script>
+</body>
+</html>
