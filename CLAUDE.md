@@ -46,3 +46,38 @@ AutomateHub is a collection of free, browser-based business automation tools tar
 - Every tool page needs: demo, FAQ, city SEO, schema markup, waitlist form
 - Check `data/session-log.json` at start of each session for history
 - Research keywords, competitor updates, and trending features each session
+
+## SEO Research Findings (2026-03-25)
+Key findings from research to apply on every page and tool:
+
+### GEO Triple Stack (Critical)
+Every tool page should include 3 JSON-LD schemas: Article/WebApplication + ItemList + FAQPage. Pages with the triple stack get **1.8x more AI citations**.
+
+### AEO: Direct Answers
+- Place concise answer in **first 150 words** of page (55% of AI citations come from first 30%)
+- Use listicle/comparison table format (32% of AI citations are listicles)
+- Add stats every 150-200 words
+- Refresh content quarterly (3x more likely to lose AI citations if stale)
+
+### Robots.txt Strategy
+- Allow AI retrieval bots (ChatGPT-User, PerplexityBot, ClaudeBot, OAI-SearchBot)
+- Block AI training bots (GPTBot, Google-Extended, CCBot)
+
+### Waitlist Optimization
+- Top waitlist pages convert at 25-85% (vs 3.8% median for SaaS)
+- 83% mobile traffic — mobile-first mandatory
+- Keep form fields to 5 or fewer (doubles conversion)
+- Launch within 90 days of waitlist opening (conversion drops sharply after)
+
+### Core Web Vitals
+- LCP < 2.5s, INP < 200ms, CLS < 0.1
+- Use fetchpriority="high" on hero images
+- Inline critical CSS, defer non-critical
+- Defer/async all non-critical scripts
+- Use WebP/AVIF image formats
+
+### Local SEO Without Physical Presence
+- Create unique city-specific landing pages (100% unique content, not just city name swaps)
+- Mention local business regulations, tax rates, popular industries
+- Use LocalBusiness + Service schema per city page
+- List on G2, Capterra, Product Hunt for backlinks
