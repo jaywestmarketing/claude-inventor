@@ -20,34 +20,27 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
 
   return (
     <>
-      <div style={{ padding: '20px 24px', position: 'relative', zIndex: 1 }}>
-        <Link href="/" style={{
-          color: 'var(--text-secondary)',
-          textDecoration: 'none',
-          fontSize: '14px',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '6px'
-        }}>
-          &larr; Back to all tools
-        </Link>
+      <div className="breadcrumb">
+        <Link href="/">&larr; Back to all tools</Link>
       </div>
 
       <main className="container" style={{ maxWidth: '900px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '8px' }}>
+        <div className="animate-fade-in-up" style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '8px' }}>
           <span style={{ fontSize: '40px' }}>{tool.icon}</span>
           <div>
-            <h1 style={{ fontSize: '2rem', fontWeight: 800 }}>{tool.name}</h1>
-            <span className={`category-badge ${categoryBadgeClass[tool.category]}`}>
-              {categoryLabels[tool.category]}
-            </span>
-            <span className="status-demo" style={{ marginLeft: '8px' }}>Demo</span>
+            <h1 style={{ fontSize: '2rem', fontWeight: 800, letterSpacing: '-0.02em' }}>{tool.name}</h1>
+            <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
+              <span className={`category-badge ${categoryBadgeClass[tool.category]}`}>
+                {categoryLabels[tool.category]}
+              </span>
+              <span className="status-demo">Demo</span>
+            </div>
           </div>
         </div>
 
-        <p style={{
+        <p className="animate-fade-in" style={{
           color: 'var(--text-secondary)',
-          fontSize: '1.1rem',
+          fontSize: '1.05rem',
           lineHeight: 1.7,
           margin: '24px 0 40px'
         }}>
@@ -55,11 +48,11 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
         </p>
 
         {/* Waitlist CTA */}
-        <div className="tool-tile" style={{ padding: '32px', marginBottom: '40px' }}>
+        <div className="tool-tile animate-fade-in-up" style={{ padding: '32px', marginBottom: '40px' }}>
           <h2 style={{ fontSize: '1.2rem', marginBottom: '12px' }}>Get Early Access</h2>
           {submitted ? (
             <div>
-              <p style={{ color: 'var(--accent-teal)', fontWeight: 600 }}>You&apos;re on the list!</p>
+              <p className="text-success" style={{ fontWeight: 600 }}>You&apos;re on the list!</p>
               <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '6px' }}>
                 We&apos;ll email you as soon as {tool.name} is ready for full access.
               </p>
@@ -88,7 +81,7 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
         {/* Features */}
         <section style={{ marginBottom: '40px' }}>
           <h2 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '20px' }}>Features</h2>
-          <div style={{
+          <div className="stagger-children" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
             gap: '12px'
@@ -100,7 +93,7 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
                 alignItems: 'center',
                 gap: '12px'
               }}>
-                <span style={{ color: 'var(--accent-teal)', fontSize: '16px' }}>&#10003;</span>
+                <span style={{ color: 'var(--accent-success)', fontSize: '16px', flexShrink: 0 }}>&#10003;</span>
                 <span style={{ fontSize: '14px' }}>{feature}</span>
               </div>
             ))}
@@ -116,9 +109,9 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
             See how {tool.name} addresses the top complaints from users of leading alternatives.
           </p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div className="stagger-children" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {tool.competitors.map((comp, i) => (
-              <div key={i} className="tool-tile" style={{ padding: '20px 24px' }}>
+              <div key={i} className="competitor-card">
                 <div style={{
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -128,25 +121,15 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
                   gap: '8px'
                 }}>
                   <strong style={{ fontSize: '15px' }}>{comp.name}</strong>
-                  <span style={{
-                    fontSize: '12px',
-                    color: 'var(--text-secondary)',
-                    background: 'rgba(255,255,255,0.04)',
-                    padding: '4px 10px',
-                    borderRadius: '4px'
-                  }}>
-                    {comp.priceRange}
-                  </span>
+                  <span className="competitor-price">{comp.priceRange}</span>
                 </div>
-                <p style={{ color: '#fb7185', fontSize: '13px' }}>
-                  Common complaint: {comp.topComplaint}
-                </p>
+                <p className="competitor-complaint">Common complaint: {comp.topComplaint}</p>
               </div>
             ))}
           </div>
 
           <div style={{ marginTop: '24px' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '12px', color: 'var(--accent-teal)' }}>
+            <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '12px', color: 'var(--accent-success)' }}>
               How {tool.name} is different:
             </h3>
             <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -158,7 +141,7 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
                   display: 'flex',
                   gap: '10px'
                 }}>
-                  <span style={{ color: 'var(--accent-teal)' }}>&#10003;</span>
+                  <span style={{ color: 'var(--accent-success)', flexShrink: 0 }}>&#10003;</span>
                   {fix}
                 </li>
               ))}
@@ -179,16 +162,7 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
               <Link
                 key={i}
                 href={`/tools/${tool.slug}/${city.city.toLowerCase().replace(/\s+/g, '-')}-${city.state.toLowerCase()}`}
-                style={{
-                  padding: '8px 14px',
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: '8px',
-                  fontSize: '13px',
-                  color: 'var(--text-secondary)',
-                  textDecoration: 'none',
-                  transition: 'all 0.2s',
-                }}
+                className="city-link"
               >
                 {city.city}, {city.state}
               </Link>

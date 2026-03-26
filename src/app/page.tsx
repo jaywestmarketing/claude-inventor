@@ -7,15 +7,16 @@ export default function Home() {
       <header className="hero">
         <h1>Business Automation Tools</h1>
         <p>
-          Free AI-powered tools for HR, invoicing, lead generation, scheduling, and expense management.
-          Built for professionals who value their time. Try any tool as a demo or join the waitlist for early access.
+          Free tools for HR, invoicing, lead generation, scheduling, and expense management.
+          Built for professionals who value their time. Try any tool or join the waitlist for early access.
         </p>
         <div style={{
           display: 'flex',
           justifyContent: 'center',
-          gap: '24px',
-          marginTop: '28px',
-          flexWrap: 'wrap'
+          gap: '40px',
+          marginTop: '32px',
+          flexWrap: 'wrap',
+          animation: 'fadeInUp 0.6s ease-out 0.2s both'
         }}>
           <Stat value={tools.length.toString()} label="Tools Available" />
           <Stat value="Free" label="Demo Access" />
@@ -23,8 +24,8 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="container">
-        <section>
+      <main className="container" style={{ paddingTop: '48px' }}>
+        <section className="animate-fade-in">
           <div className="section-header">
             <h2>Explore Tools</h2>
             <p>
@@ -35,11 +36,11 @@ export default function Home() {
           <ToolsGrid />
         </section>
 
-        <section style={{ marginTop: '80px' }}>
+        <section style={{ marginTop: '72px' }} className="animate-fade-in">
           <div className="section-header">
             <h2>Why AutomateStack?</h2>
           </div>
-          <div className="tools-grid">
+          <div className="tools-grid stagger-children">
             <ValueCard
               title="Built From Real Pain Points"
               description="Every tool is designed by analyzing thousands of negative reviews from competitors on G2, Capterra, and Reddit. We fix what others ignore."
@@ -55,14 +56,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section style={{ marginTop: '80px' }} id="faq">
+        <section style={{ marginTop: '72px' }} id="faq" className="animate-fade-in">
           <div className="section-header">
             <h2>Frequently Asked Questions</h2>
           </div>
           <div style={{ maxWidth: '720px' }}>
             <FaqItem
               question="What is AutomateStack?"
-              answer="AutomateStack is a growing collection of free AI-powered business automation tools. We add new tools daily based on market research, targeting the most common workflow bottlenecks for HR managers, office managers, small business owners, and professionals."
+              answer="AutomateStack is a growing collection of free business automation tools. We add new tools daily based on market research, targeting the most common workflow bottlenecks for HR managers, office managers, small business owners, and professionals."
             />
             <FaqItem
               question="Are these tools free?"
@@ -83,7 +84,7 @@ export default function Home() {
       <footer className="footer">
         <p>AutomateStack &mdash; Free business automation tools, added daily.</p>
         <p style={{ marginTop: '8px', fontSize: '0.8rem' }}>
-          AI-powered tools for HR onboarding, invoicing, lead generation, scheduling, and expense management.
+          Tools for HR onboarding, invoicing, lead generation, scheduling, and expense management.
         </p>
       </footer>
     </>
@@ -93,57 +94,29 @@ export default function Home() {
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div style={{ textAlign: 'center' }}>
-      <div style={{
-        fontSize: '1.8rem',
-        fontWeight: 800,
-        background: 'linear-gradient(135deg, var(--accent-blue), var(--accent-purple))',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text'
-      }}>
-        {value}
-      </div>
-      <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>{label}</div>
+      <div className="stat-value">{value}</div>
+      <div className="stat-label">{label}</div>
     </div>
   );
 }
 
 function ValueCard({ title, description }: { title: string; description: string }) {
   return (
-    <div className="tool-tile" style={{ padding: '28px' }}>
-      <h3 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '10px' }}>{title}</h3>
-      <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>{description}</p>
+    <div className="value-card">
+      <h3>{title}</h3>
+      <p>{description}</p>
     </div>
   );
 }
 
 function FaqItem({ question, answer }: { question: string; answer: string }) {
   return (
-    <details style={{
-      padding: '20px 0',
-      borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
-      cursor: 'pointer'
-    }}>
-      <summary style={{
-        fontWeight: 600,
-        fontSize: '1rem',
-        listStyle: 'none',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }}>
+    <details>
+      <summary>
         {question}
-        <span style={{ color: 'var(--text-secondary)', marginLeft: '16px' }}>+</span>
+        <span className="faq-icon">+</span>
       </summary>
-      <p style={{
-        color: 'var(--text-secondary)',
-        fontSize: '0.9rem',
-        lineHeight: 1.6,
-        marginTop: '12px',
-        paddingRight: '24px'
-      }}>
-        {answer}
-      </p>
+      <p className="faq-answer">{answer}</p>
     </details>
   );
 }
