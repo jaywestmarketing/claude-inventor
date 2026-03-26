@@ -29,27 +29,23 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
 
   return (
     <>
-      <div style={{ padding: '20px 24px', position: 'relative', zIndex: 1 }}>
-        <nav style={{ display: 'flex', gap: '8px', alignItems: 'center', fontSize: '14px' }}>
-          <Link href="/" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
-            Home
-          </Link>
-          <span style={{ color: 'var(--text-secondary)' }}>/</span>
-          <Link href={`/tools/${tool.slug}`} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
-            {tool.name}
-          </Link>
-          <span style={{ color: 'var(--text-secondary)' }}>/</span>
+      <div className="breadcrumb">
+        <nav style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+          <Link href="/">Home</Link>
+          <span>/</span>
+          <Link href={`/tools/${tool.slug}`}>{tool.name}</Link>
+          <span>/</span>
           <span style={{ color: 'var(--text-primary)' }}>{city.city}, {city.state}</span>
         </nav>
       </div>
 
       <main className="container" style={{ maxWidth: '900px' }}>
         {/* Hero */}
-        <div style={{ marginBottom: '40px' }}>
+        <div className="animate-fade-in-up" style={{ marginBottom: '40px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '8px' }}>
             <span style={{ fontSize: '40px' }}>{tool.icon}</span>
             <div>
-              <h1 style={{ fontSize: '1.8rem', fontWeight: 800, lineHeight: 1.2 }}>
+              <h1 style={{ fontSize: '1.8rem', fontWeight: 800, lineHeight: 1.2, letterSpacing: '-0.02em' }}>
                 {tool.name} in {city.city}, {city.state}
               </h1>
               <div style={{ display: 'flex', gap: '8px', marginTop: '8px', flexWrap: 'wrap' }}>
@@ -58,9 +54,9 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
                 </span>
                 <span className="status-demo">Demo</span>
                 <span style={{
-                  padding: '4px 10px',
-                  background: 'rgba(59, 130, 246, 0.15)',
-                  color: '#60a5fa',
+                  padding: '3px 10px',
+                  background: '#dbeafe',
+                  color: '#1e40af',
                   borderRadius: '20px',
                   fontSize: '11px',
                   fontWeight: 600,
@@ -73,7 +69,7 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
 
           <p style={{
             color: 'var(--text-secondary)',
-            fontSize: '1.1rem',
+            fontSize: '1.05rem',
             lineHeight: 1.7,
             margin: '24px 0 0',
           }}>
@@ -82,13 +78,13 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
         </div>
 
         {/* Waitlist CTA */}
-        <div className="tool-tile" style={{ padding: '32px', marginBottom: '40px' }}>
+        <div className="tool-tile animate-fade-in-up" style={{ padding: '32px', marginBottom: '40px' }}>
           <h2 style={{ fontSize: '1.2rem', marginBottom: '12px' }}>
             Get Early Access in {city.city}
           </h2>
           {submitted ? (
             <div>
-              <p style={{ color: 'var(--accent-teal)', fontWeight: 600 }}>You&apos;re on the list!</p>
+              <p className="text-success" style={{ fontWeight: 600 }}>You&apos;re on the list!</p>
               <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '6px' }}>
                 We&apos;ll email you as soon as {tool.name} is ready for businesses in {city.city}.
               </p>
@@ -114,12 +110,12 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
           )}
         </div>
 
-        {/* Why this tool for this city */}
+        {/* Features */}
         <section style={{ marginBottom: '40px' }}>
           <h2 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '16px' }}>
             Why {city.city} Businesses Choose {tool.name}
           </h2>
-          <div style={{
+          <div className="stagger-children" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
             gap: '12px',
@@ -131,14 +127,14 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
                 alignItems: 'center',
                 gap: '12px',
               }}>
-                <span style={{ color: 'var(--accent-teal)', fontSize: '16px' }}>&#10003;</span>
+                <span style={{ color: 'var(--accent-success)', fontSize: '16px', flexShrink: 0 }}>&#10003;</span>
                 <span style={{ fontSize: '14px' }}>{feature}</span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Competitor comparison for this city */}
+        {/* Competitor comparison */}
         <section style={{ marginBottom: '40px' }}>
           <h2 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '8px' }}>
             {tool.name} vs Alternatives in {city.city}
@@ -147,9 +143,9 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
             {city.city} businesses often compare {tool.name} to these alternatives. See why professionals are switching.
           </p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div className="stagger-children" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {tool.competitors.map((comp, i) => (
-              <div key={i} className="tool-tile" style={{ padding: '20px 24px' }}>
+              <div key={i} className="competitor-card">
                 <div style={{
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -159,25 +155,15 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
                   gap: '8px',
                 }}>
                   <strong style={{ fontSize: '15px' }}>{comp.name}</strong>
-                  <span style={{
-                    fontSize: '12px',
-                    color: 'var(--text-secondary)',
-                    background: 'rgba(255,255,255,0.04)',
-                    padding: '4px 10px',
-                    borderRadius: '4px',
-                  }}>
-                    {comp.priceRange}
-                  </span>
+                  <span className="competitor-price">{comp.priceRange}</span>
                 </div>
-                <p style={{ color: '#fb7185', fontSize: '13px' }}>
-                  Common complaint: {comp.topComplaint}
-                </p>
+                <p className="competitor-complaint">Common complaint: {comp.topComplaint}</p>
               </div>
             ))}
           </div>
 
           <div style={{ marginTop: '24px' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '12px', color: 'var(--accent-teal)' }}>
+            <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '12px', color: 'var(--accent-success)' }}>
               How {tool.name} is different:
             </h3>
             <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -189,7 +175,7 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
                   display: 'flex',
                   gap: '10px',
                 }}>
-                  <span style={{ color: 'var(--accent-teal)' }}>&#10003;</span>
+                  <span style={{ color: 'var(--accent-success)', flexShrink: 0 }}>&#10003;</span>
                   {fix}
                 </li>
               ))}
@@ -197,56 +183,61 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
           </div>
         </section>
 
-        {/* FAQ for local SEO */}
+        {/* FAQ */}
         <section style={{ marginBottom: '40px' }}>
           <h2 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '20px' }}>
             Frequently Asked Questions — {tool.name} in {city.city}
           </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div className="tool-tile" style={{ padding: '20px 24px' }}>
-              <h3 style={{ fontSize: '15px', fontWeight: 600, marginBottom: '8px' }}>
+          <div>
+            <details>
+              <summary>
                 Is {tool.name} available for businesses in {city.city}, {city.state}?
-              </h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.6 }}>
+                <span className="faq-icon">+</span>
+              </summary>
+              <p className="faq-answer">
                 Yes. {tool.name} is a browser-based tool available to all businesses in {city.city}, {city.state}. No installation required — just sign up for the waitlist to get early access.
               </p>
-            </div>
-            <div className="tool-tile" style={{ padding: '20px 24px' }}>
-              <h3 style={{ fontSize: '15px', fontWeight: 600, marginBottom: '8px' }}>
+            </details>
+            <details>
+              <summary>
                 How much does {tool.name} cost in {city.city}?
-              </h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.6 }}>
+                <span className="faq-icon">+</span>
+              </summary>
+              <p className="faq-answer">
                 {tool.name} is currently free in demo mode. Join the waitlist to lock in early-access pricing when we launch the full version.
               </p>
-            </div>
-            <div className="tool-tile" style={{ padding: '20px 24px' }}>
-              <h3 style={{ fontSize: '15px', fontWeight: 600, marginBottom: '8px' }}>
+            </details>
+            <details>
+              <summary>
                 What are the best {categoryLabels[tool.category].toLowerCase()} tools for {city.city} businesses?
-              </h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.6 }}>
+                <span className="faq-icon">+</span>
+              </summary>
+              <p className="faq-answer">
                 Popular options include {tool.competitors.map(c => c.name).join(', ')}. {tool.name} by AutomateStack is a free alternative that addresses common complaints like {tool.competitorFixes.slice(0, 2).join(' and ').toLowerCase()}.
               </p>
-            </div>
-            <div className="tool-tile" style={{ padding: '20px 24px' }}>
-              <h3 style={{ fontSize: '15px', fontWeight: 600, marginBottom: '8px' }}>
+            </details>
+            <details>
+              <summary>
                 Does {tool.name} require any software installation?
-              </h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.6 }}>
+                <span className="faq-icon">+</span>
+              </summary>
+              <p className="faq-answer">
                 No. {tool.name} is a browser-based web application that works on any device — desktop, tablet, or mobile. No downloads, no IT setup required.
               </p>
-            </div>
-            <div className="tool-tile" style={{ padding: '20px 24px' }}>
-              <h3 style={{ fontSize: '15px', fontWeight: 600, marginBottom: '8px' }}>
+            </details>
+            <details>
+              <summary>
                 How does {tool.name} compare to {tool.competitors[0]?.name}?
-              </h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.6 }}>
+                <span className="faq-icon">+</span>
+              </summary>
+              <p className="faq-answer">
                 Unlike {tool.competitors[0]?.name} ({tool.competitors[0]?.priceRange}), which users report issues with &quot;{tool.competitors[0]?.topComplaint}&quot;, {tool.name} offers a free demo with {tool.competitorFixes[0]?.toLowerCase()}.
               </p>
-            </div>
+            </details>
           </div>
         </section>
 
-        {/* Other cities served */}
+        {/* Other cities */}
         {otherCities.length > 0 && (
           <section style={{ marginBottom: '40px' }}>
             <h2 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '8px' }}>
@@ -260,16 +251,7 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
                 <Link
                   key={i}
                   href={`/tools/${tool.slug}/${citySlug(c.city, c.state)}`}
-                  style={{
-                    padding: '8px 14px',
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '8px',
-                    fontSize: '13px',
-                    color: 'var(--text-secondary)',
-                    textDecoration: 'none',
-                    transition: 'all 0.2s',
-                  }}
+                  className="city-link"
                 >
                   {c.city}, {c.state}
                 </Link>

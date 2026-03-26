@@ -19,6 +19,8 @@ Demand-validation engine disguised as a free tools dashboard. Pipeline: **traffi
 | `src/app/page.tsx` | Main dashboard landing page |
 | `src/app/tools/[slug]/page.tsx` | Dynamic tool detail pages (SSG) |
 | `src/app/tools/[slug]/ToolDetailClient.tsx` | Client-side tool demo + waitlist UI |
+| `src/app/tools/[slug]/[city]/page.tsx` | Dynamic city-specific pages (local SEO) |
+| `src/app/tools/[slug]/[city]/CityDetailClient.tsx` | City page client component |
 | `src/app/layout.tsx` | Root layout with global SEO meta |
 | `src/components/ToolTile.tsx` | Tool card component with waitlist form |
 | `src/components/ToolsGrid.tsx` | Dashboard grid layout |
@@ -114,13 +116,14 @@ For each competitor:
 - 5 question-based keywords for FAQ/AEO ("how to automate X", "what is the best X")
 - Include "best [category] [current year]" pattern
 
-**D. Local SEO Cities (5 per tool)**
-Pick 5 US cities meeting ALL criteria:
+**D. Local SEO Cities (10 per tool)**
+Pick 10 US cities meeting ALL criteria:
 - Population 70k-350k (low competition, real demand)
 - Growing business/tech scene or university town
 - Not already targeted by another tool in `tools.ts` (check existing `targetCities`)
 - Set `competitionLevel: 'low'` or `'medium'`
-- Each session: also add 5 NEW cities to 2-3 existing tools (expand coverage)
+- Each session: also add 10 NEW cities to 2-3 existing tools (expand coverage)
+- Each city gets its own dedicated page at `/tools/[slug]/[city-state]` with LocalBusiness + Service + FAQPage JSON-LD
 
 **E. Tool Specification**
 - 8 features (specific, not generic — what does it actually do?)
@@ -160,7 +163,7 @@ Pick 5 US cities meeting ALL criteria:
 
 Every session must improve 2-3 existing tools. Pick the oldest-updated tools first.
 
-- Add 5 new cities per tool (expand local SEO reach)
+- Add 10 new cities per tool (expand local SEO reach)
 - Refresh keywords if research revealed better ones
 - Update competitor data if pricing changed or new complaints found
 - Add new `competitorFixes` if competitors released features or got new complaints
@@ -219,8 +222,9 @@ Every tool page must have three JSON-LD schema types:
 - `LocalBusiness` + `Service` schema per city section
 - Unique content per city — mention local industries, business climate, regulations
 - NOT template swaps — each city section must have researched, unique content
-- Target 5 low-competition cities per tool initially, expand by 5 each session
+- Target 10 low-competition cities per tool initially, expand by 10 each session
 - City criteria: pop 70k-350k, growing business/tech scene, low SEO competition
+- Every city gets a dedicated page (`/tools/[slug]/[city-state]`) — auto-generated via `[city]/page.tsx`
 
 ### Multi-Engine Optimization
 - **Google/Bing/Yahoo/DuckDuckGo:** Schema.org, semantic HTML, FAQ sections, meta tags
@@ -341,7 +345,7 @@ Every tool page must have three JSON-LD schema types:
 6. **Quality over quantity** — one well-researched tool beats three rushed ones
 7. **Real data only** — every city, FAQ, stat, competitor complaint must be researched and verified
 8. **Follow TypeScript interfaces** — all tool data must match the `Tool` interface exactly
-9. **Minimums per tool** — 20 keywords, 5 competitors, 5 cities, 8 features, 6 competitor fixes — no exceptions
+9. **Minimums per tool** — 20 keywords, 5 competitors, 10 cities, 8 features, 6 competitor fixes — no exceptions
 10. **Mobile-first** — 83% of traffic is mobile, design accordingly
 11. **Never skip the startup sequence** — session-history and tools.ts must be read before any work
 12. **Specific next-session plans** — never write vague plans like "add more tools", always name specific tools and tasks
