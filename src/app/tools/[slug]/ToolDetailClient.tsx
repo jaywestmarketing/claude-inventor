@@ -176,16 +176,22 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {tool.targetCities.map((city, i) => (
-              <span key={i} style={{
-                padding: '8px 14px',
-                background: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '8px',
-                fontSize: '13px',
-                color: 'var(--text-secondary)'
-              }}>
+              <Link
+                key={i}
+                href={`/tools/${tool.slug}/${city.city.toLowerCase().replace(/\s+/g, '-')}-${city.state.toLowerCase()}`}
+                style={{
+                  padding: '8px 14px',
+                  background: 'rgba(255, 255, 255, 0.04)',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderRadius: '8px',
+                  fontSize: '13px',
+                  color: 'var(--text-secondary)',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s',
+                }}
+              >
                 {city.city}, {city.state}
-              </span>
+              </Link>
             ))}
           </div>
         </section>
