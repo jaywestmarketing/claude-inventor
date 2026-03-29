@@ -53,6 +53,19 @@ If git log shows commits not in session-history, read those changed files before
 - `best {tool_category} alternative {current_year}` → extract: "[competitor] alternative" keyword patterns
 - `people also ask {tool_category}` → extract: exact questions for FAQ sections
 
+### Research Source Hierarchy (prioritize in this order)
+1. **G2, Capterra, TrustRadius** — verified reviews with company size context
+2. **Reddit (r/smallbusiness, r/startups, r/SaaS, r/entrepreneur)** — unfiltered complaints
+3. **Product Hunt** — launch data, upvotes, competitor landscape
+4. **GitHub Issues** — technical complaints, feature requests on open-source competitors
+5. **Crunchbase / SimilarWeb** — revenue estimates, traffic data
+6. **Company pricing pages** — direct price verification (never rely on outdated data)
+
+### If Research Yields Nothing Useful
+- Don't fabricate data. Skip the tool and move to the next candidate.
+- Log what you searched and why it failed in `session-history.ts` under `researchNotes`
+- Move to updating existing tools instead — there's always compounding work to do
+
 ---
 
 ## DAILY EXECUTION LOOP
@@ -92,6 +105,8 @@ For each competitor, record:
 **B. Competitor Fixes (6+ per tool)**
 - Each fix directly addresses a specific competitor complaint
 - Frame as "We do X instead of Y" — concrete, not vague
+- Example: "Instant setup in under 5 minutes — no consultants needed" (addresses Workday's complexity)
+- NOT acceptable: "Better user experience" (too vague)
 
 **C. Keyword Research (20 per tool)**
 - 5 high-intent primary keywords (transactional: "best X software", "X tool for small business")
@@ -100,7 +115,7 @@ For each competitor, record:
 - 5 question-based keywords for FAQ/AEO ("how to automate X", "what is the best X")
 - Always include "best [category] {current_year}" pattern
 
-**D. Local SEO Cities (10 per tool)**
+**D. Local SEO Cities (10 per new tool)**
 Pick 10 US cities meeting ALL criteria:
 - Population 70k-350k (low competition, real demand)
 - Growing business/tech scene or university town
@@ -108,6 +123,8 @@ Pick 10 US cities meeting ALL criteria:
 - Set `competitionLevel: 'low'` or `'medium'`
 
 **Also each session:** Add 10 NEW cities to 2-3 existing tools (expand coverage, rotate oldest-updated tools first).
+
+**City expansion for existing tools:** Each session, add 10 NEW cities to 2-3 existing tools (prioritize oldest tools first)
 
 **E. Tool Specification**
 - 8 features (specific actions, not generic claims)
@@ -155,11 +172,22 @@ If build fails: fix errors immediately before proceeding. Do not record the sess
 
 Every session must improve 2-3 existing tools. Pick oldest-updated tools first.
 
-- Add 10 new cities per tool (expand local SEO reach)
-- Refresh keywords if research revealed better ones
+**Updates to make:**
+- Add 10 new cities per tool (expand local SEO reach, maintain regional diversity)
+- Refresh keywords if research revealed better ones (swap weakest performers)
 - Update competitor data if pricing changed or new complaints found
 - Add new `competitorFixes` if competitors got new complaints
 - Update descriptions if AEO research suggests better phrasing
+- Add internal links between related tools (cross-sell within the dashboard)
+
+**Tool Lifecycle Management:**
+| Stage | Criteria | Action |
+|-------|----------|--------|
+| `demo` | Just built, no waitlist data | Default state for new tools |
+| `waitlist` | Has waitlist signups, demo is polished | Upgrade status, add "Join Waitlist" CTA prominence |
+| `live` | Owner has configured and launched | Update status, add pricing/signup links |
+
+Update tool `status` field when lifecycle stage changes.
 
 ### Phase 6: Record Everything
 
@@ -211,6 +239,12 @@ If running low on context window during a session:
 | City already used by another tool | Pick a different city in same population range. |
 | Category has no competitors >$5K/mo | Skip category. Focus on validated categories. |
 
+### Phase 6: Build Verification (ALWAYS do this last)
+1. Run `npm run build` — confirm zero errors
+2. Spot-check that new tool pages render (check the slug URL would resolve)
+3. Verify sitemap would include new pages
+4. Commit all changes with a descriptive message
+
 ---
 
 ## SEO STRATEGY
@@ -232,6 +266,8 @@ If running low on context window during a session:
 - Semantic HTML, heading hierarchy (H1 > H2 > H3)
 - OpenGraph + Twitter Card meta tags
 - Dynamic sitemap.xml and robots.txt via Next.js
+- **Internal linking:** Every tool page links to 2-3 related tools ("You might also like...")
+- **Breadcrumbs:** Dashboard > Category > Tool Name (structured data + visible)
 
 ### Local SEO (per city per tool)
 - `LocalBusiness` + `Service` schema per city page
