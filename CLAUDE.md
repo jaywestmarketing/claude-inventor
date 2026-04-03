@@ -1,9 +1,17 @@
 # AutomateStack — Claude Daily Automation System
 
-## Mission
-Demand-validation engine disguised as a free tools dashboard.
-Pipeline: **traffic → waitlist signups → validation → monetization**.
-Browser-based business automation tools added daily via market research. Tools with the most waitlist interest get fully built and monetized.
+## Mission & Strategic Framework
+**Demand-validation engine disguised as a free tools dashboard.**
+
+Pipeline: **traffic → waitlist signups → validation → monetization**
+
+This is NOT just a tool builder. It is:
+- A **demand validation engine** — waitlist data reveals what the market will pay for
+- A **lead generation machine** — every tool captures qualified business leads
+- A **market intelligence system** — competitor research compounds into defensible knowledge
+- A **product incubation pipeline** — highest-interest tools get fully built and monetized
+
+**Core philosophy:** Build painkillers, not vitamins. Every tool must solve a documented, expensive problem that businesses are already paying $5K+/month to solve badly.
 
 ## Architecture
 - **Framework:** Next.js App Router (TypeScript), static export
@@ -12,14 +20,15 @@ Browser-based business automation tools added daily via market research. Tools w
 - **SEO:** Schema.org JSON-LD triple stack, dynamic sitemap, robots.txt, OpenGraph + Twitter Cards
 - **Waitlist:** localStorage keyed by tool slug (upgrade to backend later)
 - **Deployment:** Static export on Netlify, no backend/API keys required for demos
+- **Design:** Google Cloud Console aesthetic — clean, professional tile grid. Semi-transparent white tiles, soft shadows, color-coded category badges. Mobile-first (83% of traffic is mobile).
 
 ---
 
 ## SESSION STARTUP — MANDATORY EVERY SESSION
 
-This is a **recurring automation**. Every session continues from the last. Never start fresh.
+This is a **recurring automation**. Every session continues from the last. Never start fresh. Never skip any step.
 
-### 1. Load State (do first, no exceptions)
+### Step 1: Load State
 ```
 READ src/data/session-history.ts   → understand all previous sessions
 READ src/data/tools.ts             → know every tool and its current state
@@ -27,31 +36,46 @@ RUN  git log --oneline -20         → detect external pushes from other session
 ```
 If git log shows commits not in session-history, read those changed files before proceeding.
 
-### 2. Identify Priorities
+### Step 2: Identify Priorities
 1. Read `nextSessionPlan` from the latest `SessionEntry` — this is your **#1 priority**
 2. Count tools per category — identify underrepresented categories
-3. Check which cities are already used (avoid duplicates)
+3. Check which cities are already used across ALL tools (avoid duplicates)
+4. Identify oldest-updated tools (these get compounding updates this session)
 
-### 3. Research (web search required — NEVER SKIP)
+### Step 3: Market Intelligence Research (NEVER SKIP)
 
-**For each search: extract specific data points, don't just read results. Record competitor names, prices, complaint quotes, and revenue figures.**
+**Every search must produce extracted data points — names, prices, complaint quotes, revenue figures. Do not summarize search results vaguely.**
 
-#### New Tool Discovery (3-5 searches)
+#### A. New Tool Discovery (3-5 searches minimum)
+Rotate these queries each session:
 - `trending business automation tools {current_year}` → extract: tool names, categories, user counts
 - `most popular SaaS tools for {rotate_audience} {current_year}` → extract: tool names, pricing, audience size
-- `Product Hunt business productivity launches this week` → extract: new entrants, feature lists
-- `best new {underrepresented_category} software {current_year}` → extract: gaps in market
+- `Product Hunt business productivity launches this week` → extract: new entrants, feature lists, upvote counts
+- `best new {underrepresented_category} software {current_year}` → extract: market gaps, unserved niches
 - `GitHub trending repos business automation` → extract: popular projects, issue complaints, feature gaps
+- `Reddit r/smallbusiness what tools do you use {current_year}` → extract: real user recommendations + complaints
+- `{category} software market size {current_year}` → extract: TAM figures, growth rates
 
-#### Existing Tool Maintenance (rotate 3-5 tools per session)
+#### B. Existing Tool Maintenance (rotate 3-5 tools per session, oldest first)
 - `{competitor_name} reviews {current_year}` → extract: NEW complaints not already in tools.ts
 - `{competitor_name} pricing changes {current_year}` → extract: price increases (opportunity signal)
-- `{tool_category} new features {current_year}` → extract: features competitors added that we should note
+- `{tool_category} new features {current_year}` → extract: features competitors added
+- `{competitor_name} outage OR downtime OR issues {current_year}` → extract: reliability complaints
+- `{competitor_name} alternatives {current_year}` → extract: what users are switching to and why
 
-#### Keyword & SEO Intelligence
+#### C. Keyword & SEO Intelligence
 - `{tool_category} keywords {current_year}` → extract: high-volume terms not in our keyword lists
 - `best {tool_category} alternative {current_year}` → extract: "[competitor] alternative" keyword patterns
 - `people also ask {tool_category}` → extract: exact questions for FAQ sections
+- `{tool_category} for small business` → extract: SMB-specific long-tail keywords
+- `how to automate {business_process}` → extract: question-based keywords for AEO
+
+#### D. GitHub & Open Source Intelligence
+- Search GitHub Issues on popular open-source competitors for:
+  - Feature requests with 10+ thumbs up (validated demand)
+  - Bug reports with frustrated comments (pain points)
+  - "Is there an alternative" discussions
+- Check GitHub trending repos weekly for new automation tools entering the market
 
 ### Research Source Hierarchy (prioritize in this order)
 1. **G2, Capterra, TrustRadius** — verified reviews with company size context
@@ -60,6 +84,7 @@ If git log shows commits not in session-history, read those changed files before
 4. **GitHub Issues** — technical complaints, feature requests on open-source competitors
 5. **Crunchbase / SimilarWeb** — revenue estimates, traffic data
 6. **Company pricing pages** — direct price verification (never rely on outdated data)
+7. **Twitter/X** — real-time complaints, trending tools, founder announcements
 
 ### If Research Yields Nothing Useful
 - Don't fabricate data. Skip the tool and move to the next candidate.
@@ -77,13 +102,13 @@ Select 1-5 new tools per session. Every tool MUST pass ALL gates:
 | Gate | Requirement |
 |------|-------------|
 | Revenue | 3+ competitors earning >$5,000/month (verify via search) |
-| Pain | Documented negative reviews (cite source: G2, Capterra, Reddit, TrustRadius) |
+| Pain | Documented negative reviews with specific quotes (cite source: G2, Capterra, Reddit, TrustRadius) |
 | Feasibility | Works as browser-only web app (no backend, no API keys for demo) |
 | Audience | Serves 1+ target audiences (see Audiences table below) |
 | Unique | Not already in `tools.ts`, not a duplicate concept |
 | Category | Prefer underrepresented categories for dashboard diversity |
 
-**Priority scoring (rank candidates before building):**
+**Priority scoring (rank ALL candidates before building):**
 | Signal | Points |
 |--------|--------|
 | Competitor revenue >$10M ARR | +3 |
@@ -91,8 +116,10 @@ Select 1-5 new tools per session. Every tool MUST pass ALL gates:
 | Serves multiple audiences | +2 |
 | Underrepresented category | +2 |
 | Already in queued pipeline | +1 |
+| Competitor recently raised prices | +1 |
+| Trending on Product Hunt/Reddit | +1 |
 
-Build highest-scoring tools first.
+Build highest-scoring tools first. Log scores in session history.
 
 ### Phase 2: Deep Research Per Tool
 
@@ -101,35 +128,38 @@ Complete ALL sections before writing any code. No dummy data — every stat must
 **A. Competitor Analysis (5 minimum per tool)**
 For each competitor, record:
 - Name, verified price range, top complaint (specific quote + source), ARR estimate if available
+- Recent pricing changes or feature additions
+- What audience segment they serve best (and worst)
 
 **B. Competitor Fixes (6+ per tool)**
 - Each fix directly addresses a specific competitor complaint
 - Frame as "We do X instead of Y" — concrete, not vague
-- Example: "Instant setup in under 5 minutes — no consultants needed" (addresses Workday's complexity)
-- NOT acceptable: "Better user experience" (too vague)
+- Good: "Instant setup in under 5 minutes — no consultants needed" (addresses Workday's complexity)
+- Bad: "Better user experience" (too vague — rejected)
+- Each fix must map to a named competitor's documented complaint
 
-**C. Keyword Research (20 per tool)**
+**C. Keyword Research (20 per tool, structured)**
 - 5 high-intent primary keywords (transactional: "best X software", "X tool for small business")
-- 5 "[competitor] alternative" keywords
+- 5 "[competitor] alternative" keywords (e.g., "Calendly alternative", "cheaper than HubSpot")
 - 5 long-tail keywords (3-5 words, lower competition)
-- 5 question-based keywords for FAQ/AEO ("how to automate X", "what is the best X")
+- 5 question-based keywords for FAQ/AEO ("how to automate X", "what is the best X for small business")
 - Always include "best [category] {current_year}" pattern
+- Prioritize keywords where competitors rank but have weak content
 
 **D. Local SEO Cities (10 per new tool)**
 Pick 10 US cities meeting ALL criteria:
 - Population 70k-350k (low competition, real demand)
-- Growing business/tech scene or university town
-- NOT already used by another tool in `tools.ts` (check all existing `targetCities`)
+- Growing business/tech scene, university town, or emerging metro
+- NOT already used by another tool in `tools.ts` (check ALL existing `targetCities` across ALL tools)
 - Set `competitionLevel: 'low'` or `'medium'`
+- Prefer geographic diversity (spread across regions, not clustered in one state)
 
-**Also each session:** Add 10 NEW cities to 2-3 existing tools (expand coverage, rotate oldest-updated tools first).
-
-**City expansion for existing tools:** Each session, add 10 NEW cities to 2-3 existing tools (prioritize oldest tools first)
+**City expansion for existing tools:** Each session, add 10 NEW cities to 2-3 existing tools (oldest tools first, maintain regional diversity).
 
 **E. Tool Specification**
-- 8 features (specific actions, not generic claims)
+- 8 features (specific actions users can take, not generic claims)
 - Tagline: one-line value prop containing primary keyword
-- Description: 2-3 sentences, primary keyword in first 150 words, answers "What is [tool name]?"
+- Description: 2-3 sentences, primary keyword in first 150 words, directly answers "What is [tool name]?"
 
 ### Phase 3: Build
 
@@ -160,25 +190,18 @@ Pick 10 US cities meeting ALL criteria:
 
 4. **New categories?** Update `categoryLabels` and `categoryBadgeClass` in `tools.ts`
 
-### Phase 4: Build Verification (NEVER SKIP)
-
-After all code changes, run:
-```bash
-npx next build 2>&1 | tail -20
-```
-If build fails: fix errors immediately before proceeding. Do not record the session as complete until the build passes.
-
-### Phase 5: Update Existing Tools (COMPOUNDING — DO NOT SKIP)
+### Phase 4: Update Existing Tools (COMPOUNDING — DO NOT SKIP)
 
 Every session must improve 2-3 existing tools. Pick oldest-updated tools first.
 
-**Updates to make:**
-- Add 10 new cities per tool (expand local SEO reach, maintain regional diversity)
-- Refresh keywords if research revealed better ones (swap weakest performers)
-- Update competitor data if pricing changed or new complaints found
-- Add new `competitorFixes` if competitors got new complaints
-- Update descriptions if AEO research suggests better phrasing
-- Add internal links between related tools (cross-sell within the dashboard)
+**Updates to make (check each):**
+- [ ] Add 10 new cities per tool (expand local SEO reach, maintain regional diversity)
+- [ ] Refresh keywords if research revealed better ones (swap weakest performers, keep total at 20)
+- [ ] Update competitor data if pricing changed or new complaints found
+- [ ] Add new `competitorFixes` if competitors got new complaints
+- [ ] Update descriptions if AEO research suggests better phrasing
+- [ ] Add internal links between related tools (cross-sell within the dashboard)
+- [ ] Check if any tool should move from `demo` → `waitlist` status
 
 **Tool Lifecycle Management:**
 | Stage | Criteria | Action |
@@ -187,7 +210,16 @@ Every session must improve 2-3 existing tools. Pick oldest-updated tools first.
 | `waitlist` | Has waitlist signups, demo is polished | Upgrade status, add "Join Waitlist" CTA prominence |
 | `live` | Owner has configured and launched | Update status, add pricing/signup links |
 
-Update tool `status` field when lifecycle stage changes.
+### Phase 5: Build Verification (NEVER SKIP)
+
+After ALL code changes, run:
+```bash
+npm run build 2>&1 | tail -30
+```
+- If build fails: fix TypeScript errors immediately. Check interface conformance.
+- Verify new tool slugs would generate valid pages
+- Verify sitemap would include new pages
+- **Do not proceed to Phase 6 until the build passes.**
 
 ### Phase 6: Record Everything
 
@@ -202,11 +234,11 @@ Update tool `status` field when lifecycle stage changes.
   citiesAdded: [{tool, cities: [...]}],
   competitorChanges: [{tool, notes: 'what changed and why'}],
   seoUpdates: ['specific SEO changes made'],
-  nextSessionPlan: [           // CRITICAL — must be SPECIFIC
+  nextSessionPlan: [           // CRITICAL — must be SPECIFIC and ACTIONABLE
     'Build [specific tool name] — [specific reason from research]',
     'Expand cities for [tool] — add [specific region/states]',
-    'Update [tool] keywords — [keyword] is trending',
-    'Research [specific category] — [specific opportunity signal]'
+    'Update [tool] keywords — [keyword] is trending per [source]',
+    'Research [specific category] — [specific opportunity signal from this session]'
   ]
 }
 ```
@@ -221,7 +253,7 @@ Update tool `status` field when lifecycle stage changes.
 
 If running low on context window during a session:
 
-1. **Must complete:** Record session history + nextSessionPlan (Phase 6)
+1. **Must complete:** Record session history + nextSessionPlan (Phase 6) — this preserves continuity
 2. **Prioritize:** New tools over existing tool updates
 3. **Defer gracefully:** Move incomplete work to nextSessionPlan with specific details
 4. **Never:** Leave tools.ts in a broken state or skip build verification
@@ -232,22 +264,27 @@ If running low on context window during a session:
 
 | Problem | Action |
 |---------|--------|
-| Build fails after changes | Fix TypeScript errors immediately. Check interface conformance. |
+| Build fails after changes | Fix TypeScript errors immediately. Check interface conformance. Run build again. |
 | Web search returns no results | Try alternative queries. Use competitor names directly. Check G2/Capterra/Reddit specifically. |
 | Research can't verify $5K/mo revenue | Skip that tool candidate. Move to next highest-scoring. |
 | Git conflict detected | Read both versions. Preserve all tool data. Merge intelligently. |
-| City already used by another tool | Pick a different city in same population range. |
+| City already used by another tool | Pick a different city in same population range and region. |
 | Category has no competitors >$5K/mo | Skip category. Focus on validated categories. |
-
-### Phase 6: Build Verification (ALWAYS do this last)
-1. Run `npm run build` — confirm zero errors
-2. Spot-check that new tool pages render (check the slug URL would resolve)
-3. Verify sitemap would include new pages
-4. Commit all changes with a descriptive message
+| Session interrupted | On next startup, detect incomplete work via git log vs session-history diff. Complete it first. |
 
 ---
 
-## SEO STRATEGY
+## SEO STRATEGY (Multi-Engine)
+
+### Target Search Engines
+| Engine | Strategy |
+|--------|----------|
+| **Google** | Schema.org, Core Web Vitals, semantic HTML, FAQ, internal links, local SEO pages |
+| **Bing** | IndexNow protocol, BingSiteAuth, structured data, meta tags |
+| **Yahoo** | Powered by Bing — same optimizations apply |
+| **DuckDuckGo** | Clean semantic HTML, no tracking scripts, fast load times |
+| **AI Engines (ChatGPT, Perplexity, Claude)** | AEO, structured answers, cited stats, front-loaded value |
+| **Social** | OpenGraph + Twitter Cards for link previews |
 
 ### JSON-LD Triple Stack (every tool page)
 1. `SoftwareApplication` — tool metadata, pricing, features
@@ -257,28 +294,32 @@ If running low on context window during a session:
 ### AEO (Answer Engine Optimization)
 - First 150 words: direct answer to "What is [tool name]?"
 - Stats/data every 150-200 words (AI citation bait)
-- FAQ answers exact search queries
+- FAQ answers exact search queries verbatim
 - 55% of AI citations come from first 30% of page — front-load value
+- Include comparison tables (Tool vs Competitor) — AI engines love structured comparisons
 
 ### On-Page SEO
 - Title: `[Tool Name] - Free [Category] Tool | AutomateStack`
 - Meta description: 150-160 chars, primary keyword + CTA
-- Semantic HTML, heading hierarchy (H1 > H2 > H3)
+- Semantic HTML, heading hierarchy (H1 > H2 > H3, never skip levels)
 - OpenGraph + Twitter Card meta tags
 - Dynamic sitemap.xml and robots.txt via Next.js
 - **Internal linking:** Every tool page links to 2-3 related tools ("You might also like...")
 - **Breadcrumbs:** Dashboard > Category > Tool Name (structured data + visible)
+- **URL structure:** `/tools/[slug]` for tools, `/tools/[slug]/[city-state]` for local pages
 
 ### Local SEO (per city per tool)
 - `LocalBusiness` + `Service` schema per city page
-- Unique content per city — mention local industries, business climate
+- Unique content per city — mention local industries, business climate, university presence
 - NOT template swaps — each city must have researched, unique content
+- Target cities with 70k-350k population (low competition sweet spot)
 - Every city gets a dedicated page at `/tools/[slug]/[city-state]`
 
-### Multi-Engine Targeting
-- **Google/Bing/Yahoo/DuckDuckGo:** Schema.org, semantic HTML, FAQ, meta tags
-- **AI Engines (ChatGPT, Perplexity, Claude):** AEO, structured answers, cited stats
-- **Social:** OpenGraph + Twitter Cards for link previews
+### GEO (Generative Engine Optimization)
+- Structure content as direct Q&A pairs (AI engines extract these)
+- Include "According to [source]" citations in content (AI engines prefer cited claims)
+- Use comparison tables and bullet lists (easier for AI to parse and cite)
+- Front-load the most important information in every section
 
 ### Robots.txt Strategy
 - Allow AI retrieval bots: ChatGPT-User, PerplexityBot, ClaudeBot, OAI-SearchBot
@@ -287,39 +328,32 @@ If running low on context window during a session:
 
 ---
 
-## DESIGN SYSTEM
-
-- **Tiles:** Semi-transparent white, glass-morphism effect, soft shadows
-- **Layout:** CSS Grid responsive (1 col mobile → 2 tablet → 3-4 desktop)
-- **Aesthetic:** Google Cloud Console inspired — clean, professional, minimal
-- **Mobile-first:** Design for mobile FIRST. 83% of traffic is mobile.
-- **Category badges:** Color-coded per category (hr, finance, marketing, sales, operations, productivity)
-
----
-
 ## WAITLIST & CONVERSION
 
-- **Fields:** Name + Email only (max conversion)
-- **Storage:** localStorage keyed by tool slug
+- **Fields:** Name + Email only (maximize conversion rate)
+- **Storage:** localStorage keyed by tool slug (upgrade to backend later)
 - **UX:** Confirmation with "early access" messaging + estimated launch
-- **Validation signal:** Most waitlist signups → build that tool first
+- **Validation signal:** Most waitlist signups → build that tool first → notify waitlist on launch
 - **Launch window:** Within 90 days of waitlist opening
+- **Demo visibility:** Every tool shows a working interactive demo ABOVE the waitlist form (prove value before asking for email)
 
 ---
 
 ## TARGET AUDIENCES
 
-| Audience | Pain Points | Tool Examples |
-|----------|-------------|---------------|
-| HR Managers | Manual onboarding, compliance, PTO chaos | Onboarding, PTO trackers, offer letters |
-| Office Managers | Meeting scheduling, supplies, visitors | Schedulers, supply trackers, visitor logs |
-| Small Biz Owners | Invoicing, expenses, proposals | Invoicing, expense reports, proposals |
-| CEOs/Executives | No KPI visibility, board reports | KPI dashboards, OKR trackers |
-| Sales Teams | Lead follow-up, commissions, proposals | Lead sequences, CRM lite, commission calc |
-| Marketing Teams | Content planning, email, A/B testing | Content calendars, email signatures |
-| Desk Clerks | Appointments, documents, data entry | Appointment schedulers, templates |
-| Lead Gen Specialists | Landing pages, lead scoring, outreach | Landing page builders, lead scoring |
-| Operations Managers | Workflows, inventory, vendors | Workflow automation, inventory trackers |
+| Audience | Pain Points | Tool Examples | Willingness to Pay |
+|----------|-------------|---------------|-------------------|
+| HR Managers | Manual onboarding, compliance, PTO chaos | Onboarding, PTO trackers, offer letters | High ($5-15/emp/mo) |
+| Office Managers | Meeting scheduling, supplies, visitors | Schedulers, supply trackers, visitor logs | Medium ($20-50/mo) |
+| Small Biz Owners | Invoicing, expenses, proposals | Invoicing, expense reports, proposals | High ($30-100/mo) |
+| CEOs/Executives | No KPI visibility, board reports | KPI dashboards, OKR trackers | Very High ($50-200/mo) |
+| Sales Teams | Lead follow-up, commissions, proposals | Lead sequences, CRM lite, commission calc | High ($20-80/seat/mo) |
+| Marketing Teams | Content planning, email, A/B testing | Content calendars, email signatures | Medium ($20-60/mo) |
+| Desk Clerks | Appointments, documents, data entry | Appointment schedulers, templates | Low ($10-20/mo) |
+| Lead Gen Specialists | Landing pages, lead scoring, outreach | Landing page builders, lead scoring | High ($30-100/mo) |
+| Operations Managers | Workflows, inventory, vendors | Workflow automation, inventory trackers | High ($30-100/mo) |
+
+**Audience rotation:** Each session, research tools for a DIFFERENT audience than the previous session. Track which audiences are underserved in the dashboard.
 
 ---
 
@@ -347,7 +381,8 @@ If running low on context window during a session:
 - External pushes may come from another Claude Code session at any time
 - Always check `git log` at session start for commits not in session-history
 - If conflicts found: preserve both sets of changes, merge intelligently
-- Check GitHub issues on popular SaaS tools for user complaint data
+- Monitor GitHub Issues on popular open-source SaaS tools for user complaint data
+- If git log shows work from another session, read those files and integrate before proceeding
 
 ---
 
@@ -357,16 +392,18 @@ If running low on context window during a session:
 2. **Complete tools only** — working demo + waitlist + FAQ + city SEO + JSON-LD schema stack
 3. **Research before building** — validate demand (competitors >$5K/mo, documented complaints) before code
 4. **Compound daily** — update existing tools AND build new ones each session
-5. **Session history is truth** — read it first, update it last
+5. **Session history is truth** — read it first, update it last, never skip it
 6. **Quality over quantity** — one well-researched tool beats three rushed ones
-7. **Real data only** — every city, FAQ, stat, competitor complaint must be researched and verified
+7. **Real data only** — every city, FAQ, stat, competitor complaint must be researched and verified. Never fabricate.
 8. **TypeScript interfaces** — all tool data must match the `Tool` interface exactly
 9. **Minimums per tool** — 20 keywords, 5 competitors, 10 cities, 8 features, 6 competitor fixes
 10. **Mobile-first** — design for mobile, scale up
-11. **Never skip startup** — session-history and tools.ts read before any work
+11. **Never skip startup** — session-history and tools.ts read before any work begins
 12. **Specific plans** — nextSessionPlan entries must name specific tools, specific tasks, specific reasons
-13. **Build must pass** — never commit code that doesn't compile
+13. **Build must pass** — never commit code that doesn't compile. Run build verification before committing.
 14. **Extract, don't browse** — every search must produce specific data points recorded in tools.ts
+15. **Painkillers only** — every tool must address a documented, expensive pain point. No "nice to have" tools.
+16. **Rotate audiences** — don't build 3 tools for the same audience in a row. Spread across segments.
 
 ---
 
