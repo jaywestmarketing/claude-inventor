@@ -99,7 +99,11 @@ export const tools: Tool[] = [
       { city: 'Chattanooga', state: 'TN', population: '182,000', competitionLevel: 'low' },
       { city: 'Fayetteville', state: 'AR', population: '93,000', competitionLevel: 'low' },
       { city: 'Huntsville', state: 'AL', population: '215,000', competitionLevel: 'low' },
-      { city: 'Spokane', state: 'WA', population: '228,000', competitionLevel: 'low' }
+      { city: 'Spokane', state: 'WA', population: '228,000', competitionLevel: 'low' },
+      { city: 'Lubbock', state: 'TX', population: '265,000', competitionLevel: 'low' },
+      { city: 'Lincoln', state: 'NE', population: '295,000', competitionLevel: 'low' },
+      { city: 'Overland Park', state: 'KS', population: '198,000', competitionLevel: 'low' },
+      { city: 'Peoria', state: 'IL', population: '113,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -165,7 +169,11 @@ export const tools: Tool[] = [
       { city: 'Asheville', state: 'NC', population: '94,000', competitionLevel: 'low' },
       { city: 'Sioux Falls', state: 'SD', population: '195,000', competitionLevel: 'low' },
       { city: 'Springfield', state: 'MO', population: '169,000', competitionLevel: 'low' },
-      { city: 'Tallahassee', state: 'FL', population: '196,000', competitionLevel: 'low' }
+      { city: 'Tallahassee', state: 'FL', population: '196,000', competitionLevel: 'low' },
+      { city: 'Waco', state: 'TX', population: '138,000', competitionLevel: 'low' },
+      { city: 'Ann Arbor', state: 'MI', population: '123,000', competitionLevel: 'low' },
+      { city: 'Columbia', state: 'SC', population: '133,000', competitionLevel: 'low' },
+      { city: 'Manchester', state: 'NH', population: '115,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -231,7 +239,11 @@ export const tools: Tool[] = [
       { city: 'Gilbert', state: 'AZ', population: '267,000', competitionLevel: 'low' },
       { city: 'Knoxville', state: 'TN', population: '190,000', competitionLevel: 'low' },
       { city: 'Lexington', state: 'KY', population: '322,000', competitionLevel: 'low' },
-      { city: 'Reno', state: 'NV', population: '264,000', competitionLevel: 'low' }
+      { city: 'Reno', state: 'NV', population: '264,000', competitionLevel: 'low' },
+      { city: 'Corpus Christi', state: 'TX', population: '317,000', competitionLevel: 'low' },
+      { city: 'Rochester', state: 'MN', population: '124,000', competitionLevel: 'low' },
+      { city: 'Lansing', state: 'MI', population: '112,000', competitionLevel: 'low' },
+      { city: 'Providence', state: 'RI', population: '190,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -297,7 +309,11 @@ export const tools: Tool[] = [
       { city: 'Fort Collins', state: 'CO', population: '169,000', competitionLevel: 'low' },
       { city: 'Savannah', state: 'GA', population: '147,000', competitionLevel: 'low' },
       { city: 'Greenville', state: 'SC', population: '72,000', competitionLevel: 'low' },
-      { city: 'Boca Raton', state: 'FL', population: '99,000', competitionLevel: 'low' }
+      { city: 'Boca Raton', state: 'FL', population: '99,000', competitionLevel: 'low' },
+      { city: 'Amarillo', state: 'TX', population: '200,000', competitionLevel: 'low' },
+      { city: 'Billings', state: 'MT', population: '119,000', competitionLevel: 'low' },
+      { city: 'Erie', state: 'PA', population: '95,000', competitionLevel: 'low' },
+      { city: 'Worcester', state: 'MA', population: '186,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -363,11 +379,87 @@ export const tools: Tool[] = [
       { city: 'Des Moines', state: 'IA', population: '214,000', competitionLevel: 'low' },
       { city: 'Little Rock', state: 'AR', population: '202,000', competitionLevel: 'low' },
       { city: 'Akron', state: 'OH', population: '190,000', competitionLevel: 'low' },
-      { city: 'Dayton', state: 'OH', population: '137,000', competitionLevel: 'low' }
+      { city: 'Dayton', state: 'OH', population: '137,000', competitionLevel: 'low' },
+      { city: 'Shreveport', state: 'LA', population: '187,000', competitionLevel: 'low' },
+      { city: 'Topeka', state: 'KS', population: '127,000', competitionLevel: 'low' },
+      { city: 'Eugene', state: 'OR', population: '175,000', competitionLevel: 'low' },
+      { city: 'Syracuse', state: 'NY', population: '148,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
     slug: 'expense-bot'
+  },
+  {
+    id: 'ai-proposal-builder',
+    name: 'ProposalAI',
+    tagline: 'Create winning business proposals and quotes in minutes with AI',
+    description: 'ProposalAI is the fastest business proposal software for sales teams, freelancers, and consultants. Generate professional proposals and detailed quotes using AI — just describe the deal and watch it populate with sections, pricing tables, and calls-to-action. Close more deals faster with a PandaDoc alternative built for teams who hate slow, expensive software.',
+    category: 'sales',
+    status: 'demo',
+    icon: '📋',
+    features: [
+      'AI-powered proposal generation from deal notes',
+      '150+ professional proposal templates by industry',
+      'Interactive pricing tables with instant totals',
+      'Digital e-signature collection',
+      'Proposal analytics — views, time spent per section',
+      'Auto-populate from CRM data or manual entry',
+      'Multi-currency quote builder with tax support',
+      'PDF and web-link proposal output'
+    ],
+    keywords: [
+      'business proposal software',
+      'proposal generator tool',
+      'quote builder software',
+      'sales proposal template',
+      'free proposal creator',
+      'PandaDoc alternative',
+      'Proposify alternative',
+      'proposal software for small business',
+      'cheaper than PandaDoc',
+      'Better Proposals alternative',
+      'AI proposal generator free',
+      'business proposal template maker',
+      'automated quote builder tool',
+      'client proposal creator online',
+      'sales quote generator software',
+      'how to create a business proposal fast',
+      'best proposal software for freelancers 2026',
+      'how to automate sales proposals',
+      'best proposal tool for small business 2026',
+      'how to build professional quotes online'
+    ],
+    competitors: [
+      { name: 'PandaDoc', priceRange: '$19-$49/seat/mo', topComplaint: 'Per-seat pricing explodes for larger teams, limited templates on Essentials tier, workflow complexity for simple proposals' },
+      { name: 'Proposify', priceRange: '$35-$100/mo', topComplaint: 'Buggy editor causes data loss, slow load times, poor customer support response times' },
+      { name: 'Better Proposals', priceRange: '$19-$49/mo', topComplaint: 'Limited CRM integrations, slow proposal loading, few industry-specific templates' },
+      { name: 'Qwilr', priceRange: '$35-$59/user/mo', topComplaint: 'Expensive per-seat at scale, web-only output limits offline use, no native e-signature on lower tiers' },
+      { name: 'Loopio', priceRange: 'Enterprise pricing', topComplaint: 'Enterprise-only pricing locks out SMBs, requires weeks of onboarding, overkill for standard proposals' },
+      { name: 'DocuSign CLM', priceRange: '$25+/user/mo', topComplaint: 'Expensive and complex, requires entire DocuSign ecosystem, slow setup requiring IT involvement' }
+    ],
+    competitorFixes: [
+      'Create professional proposals in under 5 minutes — no design skills needed',
+      'Flat pricing, not per-seat — your whole team at one predictable price',
+      'Reliable, fast editor that auto-saves every keystroke — no crashes, no lost work',
+      '150+ modern templates covering every industry, all free on every plan',
+      'One-click CRM export to HubSpot, Salesforce, and Pipedrive — zero manual entry',
+      'Works in any browser instantly — no downloads, no installs, no IT tickets'
+    ],
+    targetCities: [
+      { city: 'Tempe', state: 'AZ', population: '185,000', competitionLevel: 'low' },
+      { city: 'Charleston', state: 'SC', population: '150,000', competitionLevel: 'low' },
+      { city: 'Anchorage', state: 'AK', population: '295,000', competitionLevel: 'low' },
+      { city: 'Salem', state: 'OR', population: '175,000', competitionLevel: 'low' },
+      { city: 'Roanoke', state: 'VA', population: '100,000', competitionLevel: 'low' },
+      { city: 'Wilmington', state: 'DE', population: '70,000', competitionLevel: 'low' },
+      { city: 'Stamford', state: 'CT', population: '135,000', competitionLevel: 'low' },
+      { city: 'Nashua', state: 'NH', population: '90,000', competitionLevel: 'low' },
+      { city: 'Rockford', state: 'IL', population: '148,000', competitionLevel: 'low' },
+      { city: 'Santa Fe', state: 'NM', population: '84,000', competitionLevel: 'low' }
+    ],
+    dateAdded: '2026-04-15',
+    waitlistCount: 0,
+    slug: 'proposal-ai'
   }
 ];
 
@@ -385,6 +477,21 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'ExpenseBot', cities: ['Baton Rouge, LA', 'Des Moines, IA', 'Little Rock, AR', 'Akron, OH', 'Dayton, OH'] }
     ],
     researchNotes: 'Session 1: Initial launch with 5 tools targeting high-demand, high-revenue categories. All competitors validated at $5K+/mo revenue. Focused on SMB pain points from negative reviews on G2, Capterra, and Reddit. Selected 25 low-competition cities across different states for local SEO.'
+  },
+  {
+    date: '2026-04-15',
+    toolsAdded: ['ProposalAI'],
+    toolsUpdated: ['OnboardFlow', 'InvoiceAI', 'LeadPilot', 'CalendarFlow', 'ExpenseBot'],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'OnboardFlow', cities: ['Lubbock, TX', 'Lincoln, NE', 'Overland Park, KS', 'Peoria, IL'] },
+      { tool: 'InvoiceAI', cities: ['Waco, TX', 'Ann Arbor, MI', 'Columbia, SC', 'Manchester, NH'] },
+      { tool: 'LeadPilot', cities: ['Corpus Christi, TX', 'Rochester, MN', 'Lansing, MI', 'Providence, RI'] },
+      { tool: 'CalendarFlow', cities: ['Amarillo, TX', 'Billings, MT', 'Erie, PA', 'Worcester, MA'] },
+      { tool: 'ExpenseBot', cities: ['Shreveport, LA', 'Topeka, KS', 'Eugene, OR', 'Syracuse, NY'] },
+      { tool: 'ProposalAI', cities: ['Tempe, AZ', 'Charleston, SC', 'Anchorage, AK', 'Salem, OR', 'Roanoke, VA', 'Wilmington, DE', 'Stamford, CT', 'Nashua, NH', 'Rockford, IL', 'Santa Fe, NM'] }
+    ],
+    researchNotes: 'Session 2: Added 20 new cities to existing tools — expanded into Great Plains (TX, NE, KS), Upper Midwest (MN, MI, IL), New England (RI, NH, MA), Mountain West (MT), and Pacific Northwest (OR). Built ProposalAI (Sales) targeting PandaDoc ($100M+ ARR) and Proposify — validated 6 competitors with documented pain points: per-seat pricing, buggy editors, poor support. 10 new cities for ProposalAI covering Southwest, Mid-Atlantic, New England, Pacific Northwest, Mountain West, and Great Plains regions.'
   }
 ];
 
