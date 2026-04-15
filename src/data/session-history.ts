@@ -91,6 +91,51 @@ export const sessionHistory: SessionEntry[] = [
       'Implement BingSiteAuth and IndexNow for faster Bing indexing',
       'Add city-specific landing pages for top-performing tools'
     ]
+  },
+  {
+    sessionDate: '2026-04-15',
+    sessionNumber: 2,
+    toolsAdded: [
+      { name: 'ProposalAI', slug: 'proposal-ai', category: 'sales' }
+    ],
+    toolsUpdated: [
+      { name: 'OnboardFlow', changes: ['Added 4 new cities: Lubbock TX, Lincoln NE, Overland Park KS, Peoria IL'] },
+      { name: 'InvoiceAI', changes: ['Added 4 new cities: Waco TX, Ann Arbor MI, Columbia SC, Manchester NH'] },
+      { name: 'LeadPilot', changes: ['Added 4 new cities: Corpus Christi TX, Rochester MN, Lansing MI, Providence RI'] },
+      { name: 'CalendarFlow', changes: ['Added 4 new cities: Amarillo TX, Billings MT, Erie PA, Worcester MA'] },
+      { name: 'ExpenseBot', changes: ['Added 4 new cities: Shreveport LA, Topeka KS, Eugene OR, Syracuse NY'] }
+    ],
+    keywordsResearched: [
+      {
+        tool: 'ProposalAI',
+        keywords: ['business proposal software', 'PandaDoc alternative', 'AI proposal generator free', 'quote builder software', 'best proposal tool for small business 2026'],
+        trending: ['AI proposal generator', 'automated quote builder', 'PandaDoc alternative free']
+      }
+    ],
+    citiesAdded: [
+      { tool: 'OnboardFlow', cities: ['Lubbock TX', 'Lincoln NE', 'Overland Park KS', 'Peoria IL'] },
+      { tool: 'InvoiceAI', cities: ['Waco TX', 'Ann Arbor MI', 'Columbia SC', 'Manchester NH'] },
+      { tool: 'LeadPilot', cities: ['Corpus Christi TX', 'Rochester MN', 'Lansing MI', 'Providence RI'] },
+      { tool: 'CalendarFlow', cities: ['Amarillo TX', 'Billings MT', 'Erie PA', 'Worcester MA'] },
+      { tool: 'ExpenseBot', cities: ['Shreveport LA', 'Topeka KS', 'Eugene OR', 'Syracuse NY'] },
+      { tool: 'ProposalAI', cities: ['Tempe AZ', 'Charleston SC', 'Anchorage AK', 'Salem OR', 'Roanoke VA', 'Wilmington DE', 'Stamford CT', 'Nashua NH', 'Rockford IL', 'Santa Fe NM'] }
+    ],
+    competitorChanges: [
+      { tool: 'ProposalAI', notes: 'PandaDoc validated at $100M+ ARR. Proposify well-funded. Top complaints across 6 competitors: per-seat pricing, buggy editors, slow load times, poor support, enterprise lock-in, card/ecosystem requirements.' }
+    ],
+    seoUpdates: [
+      'Added 20 new local SEO city pages across 5 existing tools — expanded coverage to Great Plains, Upper Midwest, New England, Mountain West',
+      'ProposalAI: 20 keywords including 5 competitor-alternative terms targeting PandaDoc and Proposify search traffic',
+      'ProposalAI: 10 new city pages covering Southwest, Mid-Atlantic, New England, Pacific Northwest, Mountain West, Great Plains',
+      'All new city pages auto-generated via [slug]/[city]/page.tsx SSG route'
+    ],
+    nextSessionPlan: [
+      'Build PTO/Time-Off Tracker (HR) — high-volume search term, BambooHR & Rippling users complain about limited PTO workflows',
+      'Build Social Media Scheduler (Marketing) — Buffer/Hootsuite pricing pain ($99-$249/mo) widely documented on Reddit/G2',
+      'Expand ProposalAI cities — add 10 more covering Southeast and Deep South markets',
+      'Refresh OnboardFlow keywords — "AI onboarding assistant" trending per G2 reviews Q1 2026',
+      'Research Payroll Calculator (HR/Finance) — ADP and Gusto pricing complaints surging on Reddit'
+    ]
   }
 ];
 
