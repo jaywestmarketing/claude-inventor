@@ -338,24 +338,30 @@ If running low on context:
 13. **EmailSigGen** (Marketing) — Team email signature generator — `email-sig-gen` — 10 cities
 14. **DocTemplates** (Productivity) — Business document template library — `doc-templates` — 10 cities
 15. **ClientPortal** (Sales) — White-label client portal — `client-portal` — 10 cities
-16. **CommissionCalc** (Sales) — Sales commission tracker — `commission-calc` — 10 cities
+16. **CommissionCalc** (Sales) — Sales commission tracker — `commission-calc` — 10 cities (+ interactive demo)
 17. **EmailCampaigns** (Marketing) — Email marketing & automation — `email-campaigns` — 10 cities
 
-### UI/SEO Upgrades (Session 4)
+### Session 5 (2026-04-16, loop run 3) — 2 Tools + 20 Cities + Interactive Demos
+18. **TimeTracker** (Productivity) — Billable hours & project time tracker — `time-tracker` — 10 cities
+19. **ContractGen** (Sales) — E-signature & contract generation — `contract-gen` — 10 cities
+
+### UI/SEO Upgrades (Session 4–5)
 - Redesigned: PayPal navy nav + Amazon orange CTA cards (no glass-morphism)
 - Web3Forms integrated for real email capture (key: 7d643d3d-…)
 - Schema.org @graph consolidated in layout.tsx (Organization + WebSite + FAQPage)
-- AEO descriptions on all 10 new tools ("what is the best X" answered in first 150 words)
+- AEO descriptions on all new tools ("what is the best X" answered in first 150 words)
+- Interactive demos added: PayrollCalc (payroll estimator), CommissionCalc (tier builder), EmailSigGen (live signature preview)
+- DemoPanel.tsx component renders slug-conditional demos above waitlist CTA
 
 ### Static HTML Demos (in `public/tools/`)
 - **Smart Invoice Generator** — `public/tools/smart-invoice-generator/`
 - **AI Meeting Notes Summarizer** — `public/tools/ai-meeting-notes/`
 
-**Total: 17 Next.js tools, 227+ city SEO pages**
+**Total: 19 Next.js tools, ~290 city SEO pages**
 
 ## QUEUED TOOLS (Prioritized)
-1. **TimeTracker** (Productivity) — Toggl/Harvest complaints: UI redesign backlash, price hikes
-2. **ContractGen** (Sales) — DocuSign $25/user complaints; HelloSign acquisition pricing issues
-3. **JobDescriptionGen** (HR) — Textio/Ongig pricing complaints; generic JD generators lack compliance
-4. **VendorPortal** (Operations) — Vendor invoice tracking; Precoro/Coupa pricing inaccessible for SMB
-5. Add interactive working demos for PayrollCalc, CommissionCalc, EmailSigGen
+1. **InventoryTracker** (Operations) — Sortly/inFlow pricing complaints; no free tier for SMBs
+2. **FormBuilder** (Marketing) — Typeform $50/mo complaints; JotForm feature-gating on free tier
+3. **JobDescriptionGen** (HR) — Textio/Ongig pricing; generic JD generators lack compliance
+4. **VendorPortal** (Operations) — Vendor invoice tracking; Precoro/Coupa inaccessible for SMB
+5. Add interactive demos for TimeTracker (live timer) and ContractGen (template preview)
