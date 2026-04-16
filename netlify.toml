@@ -6,12 +6,8 @@
   NODE_VERSION      = "20"
   NPM_FLAGS         = "--legacy-peer-deps"
 
-# Configure the UI-installed plugin so it stops throwing "No source directory"
 [[plugins]]
   package = "netlify-plugin-bundle-env"
-  [plugins.inputs]
-    # Must point at source code (plugin runs before build, out/ doesn't exist yet)
-    source = "src"
 
 [[headers]]
   for = "/*"
