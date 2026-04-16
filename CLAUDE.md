@@ -330,9 +330,9 @@ If running low on context:
 7. **SocialQueue** (Marketing) — Social media post scheduler — `social-queue` — 14 cities
 
 ### Session 4 (2026-04-16, loop run 2) — 10 Tools + 20 Cities + UI Redesign
-8.  **PTOTracker** (HR) — Leave management & accrual automation — `pto-tracker` — 10 cities
-9.  **KPIDash** (Operations) — Real-time KPI dashboard builder — `kpi-dash` — 10 cities
-10. **MeetingNotesAI** (Productivity) — AI meeting summarizer — `meeting-notes-ai` — 10 cities
+8.  **PTOTracker** (HR) — Leave management & accrual automation — `pto-tracker` — 17 cities
+9.  **KPIDash** (Operations) — Real-time KPI dashboard builder — `kpi-dash` — 17 cities
+10. **MeetingNotesAI** (Productivity) — AI meeting summarizer — `meeting-notes-ai` — 16 cities
 11. **PayrollCalc** (Finance) — Payroll tax & pay stub calculator — `payroll-calc` — 10 cities
 12. **HelpDeskAI** (Operations) — AI helpdesk ticketing — `help-desk-ai` — 10 cities
 13. **EmailSigGen** (Marketing) — Team email signature generator — `email-sig-gen` — 10 cities
@@ -345,23 +345,26 @@ If running low on context:
 18. **TimeTracker** (Productivity) — Billable hours & project time tracker — `time-tracker` — 10 cities
 19. **ContractGen** (Sales) — E-signature & contract generation — `contract-gen` — 10 cities
 
-### UI/SEO Upgrades (Session 4–5)
+### Session 6 (2026-04-16, loop run 4) — 1 Tool + 20 Cities + Interactive Demo
+20. **InventoryTracker** (Operations) — Stock tracking & reorder automation — `inventory-tracker` — 10 cities (+ interactive demo)
+
+### UI/SEO Upgrades (Session 4–6)
 - Redesigned: PayPal navy nav + Amazon orange CTA cards (no glass-morphism)
 - Web3Forms integrated for real email capture (key: 7d643d3d-…)
 - Schema.org @graph consolidated in layout.tsx (Organization + WebSite + FAQPage)
 - AEO descriptions on all new tools ("what is the best X" answered in first 150 words)
-- Interactive demos added: PayrollCalc (payroll estimator), CommissionCalc (tier builder), EmailSigGen (live signature preview)
+- Interactive demos added: PayrollCalc (payroll estimator), CommissionCalc (tier builder), EmailSigGen (live signature preview), InventoryTracker (live stock table with alerts)
 - DemoPanel.tsx component renders slug-conditional demos above waitlist CTA
 
 ### Static HTML Demos (in `public/tools/`)
 - **Smart Invoice Generator** — `public/tools/smart-invoice-generator/`
 - **AI Meeting Notes Summarizer** — `public/tools/ai-meeting-notes/`
 
-**Total: 19 Next.js tools, ~290 city SEO pages**
+**Total: 20 Next.js tools, ~340 city SEO pages**
 
 ## QUEUED TOOLS (Prioritized)
-1. **InventoryTracker** (Operations) — Sortly/inFlow pricing complaints; no free tier for SMBs
-2. **FormBuilder** (Marketing) — Typeform $50/mo complaints; JotForm feature-gating on free tier
-3. **JobDescriptionGen** (HR) — Textio/Ongig pricing; generic JD generators lack compliance
-4. **VendorPortal** (Operations) — Vendor invoice tracking; Precoro/Coupa inaccessible for SMB
-5. Add interactive demos for TimeTracker (live timer) and ContractGen (template preview)
+1. **FormBuilder** (Marketing) — Typeform $50/mo complaints; JotForm feature-gating on free tier
+2. **JobDescriptionGen** (HR) — Textio/Ongig pricing; generic JD generators lack compliance
+3. **VendorPortal** (Operations) — Vendor invoice tracking; Precoro/Coupa inaccessible for SMB
+4. Add interactive demos for TimeTracker (live timer) and ContractGen (template preview)
+5. Add 20 cities to PayrollCalc, HelpDeskAI, EmailSigGen (all still at 10 cities)

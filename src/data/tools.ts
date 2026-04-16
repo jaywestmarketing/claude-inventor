@@ -658,7 +658,14 @@ export const tools: Tool[] = [
       { city: 'Appleton', state: 'WI', population: '76,000', competitionLevel: 'low' },
       { city: 'Lakewood', state: 'CO', population: '160,000', competitionLevel: 'low' },
       { city: 'Henderson', state: 'NV', population: '322,000', competitionLevel: 'low' },
-      { city: 'Sparks', state: 'NV', population: '104,000', competitionLevel: 'low' }
+      { city: 'Sparks', state: 'NV', population: '104,000', competitionLevel: 'low' },
+      { city: 'Allentown', state: 'PA', population: '121,000', competitionLevel: 'low' },
+      { city: 'Erie', state: 'PA', population: '96,000', competitionLevel: 'low' },
+      { city: 'Franklin', state: 'TN', population: '83,000', competitionLevel: 'low' },
+      { city: 'Hoover', state: 'AL', population: '93,000', competitionLevel: 'low' },
+      { city: 'Lake Charles', state: 'LA', population: '77,000', competitionLevel: 'low' },
+      { city: 'Davenport', state: 'IA', population: '101,000', competitionLevel: 'low' },
+      { city: 'Edmond', state: 'OK', population: '93,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -729,7 +736,14 @@ export const tools: Tool[] = [
       { city: 'Lafayette', state: 'LA', population: '120,000', competitionLevel: 'low' },
       { city: 'Beaumont', state: 'TX', population: '115,000', competitionLevel: 'low' },
       { city: 'Meridian', state: 'ID', population: '123,000', competitionLevel: 'low' },
-      { city: 'Olathe', state: 'KS', population: '141,000', competitionLevel: 'low' }
+      { city: 'Olathe', state: 'KS', population: '141,000', competitionLevel: 'low' },
+      { city: 'Beaverton', state: 'OR', population: '99,000', competitionLevel: 'low' },
+      { city: 'Hillsboro', state: 'OR', population: '115,000', competitionLevel: 'low' },
+      { city: 'Gresham', state: 'OR', population: '113,000', competitionLevel: 'low' },
+      { city: 'Las Cruces', state: 'NM', population: '101,000', competitionLevel: 'low' },
+      { city: 'Santa Fe', state: 'NM', population: '90,000', competitionLevel: 'low' },
+      { city: 'Rio Rancho', state: 'NM', population: '103,000', competitionLevel: 'low' },
+      { city: 'North Las Vegas', state: 'NV', population: '275,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -800,7 +814,13 @@ export const tools: Tool[] = [
       { city: 'Racine', state: 'WI', population: '78,000', competitionLevel: 'low' },
       { city: 'Rochester', state: 'MN', population: '121,000', competitionLevel: 'low' },
       { city: 'Ann Arbor', state: 'MI', population: '121,000', competitionLevel: 'low' },
-      { city: 'Kalamazoo', state: 'MI', population: '71,000', competitionLevel: 'low' }
+      { city: 'Kalamazoo', state: 'MI', population: '71,000', competitionLevel: 'low' },
+      { city: 'Bellevue', state: 'WA', population: '156,000', competitionLevel: 'low' },
+      { city: 'Federal Way', state: 'WA', population: '96,000', competitionLevel: 'low' },
+      { city: 'Spokane Valley', state: 'WA', population: '105,000', competitionLevel: 'low' },
+      { city: 'Roseville', state: 'CA', population: '148,000', competitionLevel: 'low' },
+      { city: 'Modesto', state: 'CA', population: '218,000', competitionLevel: 'low' },
+      { city: 'Stockton', state: 'CA', population: '320,000', competitionLevel: 'medium' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1444,6 +1464,78 @@ export const tools: Tool[] = [
     dateAdded: '2026-04-16',
     waitlistCount: 0,
     slug: 'contract-gen'
+  },
+  {
+    id: 'inventory-tracker',
+    name: 'InventoryTracker',
+    tagline: 'Track stock levels, reorder alerts, and purchase orders without Sortly pricing',
+    description: 'InventoryTracker is the best inventory management software for small businesses and retail teams that have outgrown spreadsheets but refuse to pay Sortly\'s $49/month minimum. Track stock across multiple locations, scan barcodes from any device camera, set automatic low-stock alerts, and generate purchase orders in seconds. Built for retail stores, e-commerce businesses, warehouses, and office managers who need real-time inventory visibility without a $1,000+ enterprise system. What is the best free inventory management software for small business? InventoryTracker delivers everything you need: barcode scanning, COGS reporting, supplier tracking, and multi-location support — all browser-based with no app download required.',
+    category: 'operations',
+    status: 'demo',
+    icon: '📦',
+    features: [
+      'Real-time stock level tracking across multiple locations or warehouses',
+      'Barcode and QR code scanning via any device camera — no hardware scanner needed',
+      'Low-stock alert automation via email or Slack when inventory drops below reorder threshold',
+      'Purchase order generator with supplier name, lead time, and reorder quantity tracking',
+      'COGS and inventory value reporting with stock turnover rate analysis',
+      'CSV bulk import/export for product catalogs and stock updates',
+      'SKU and category management with custom attributes and full-text search filtering',
+      'Audit log of all stock movements, adjustments, and transfers with user attribution'
+    ],
+    keywords: [
+      'inventory management software for small business',
+      'best inventory tracking tool 2026',
+      'free inventory management software',
+      'inventory control software',
+      'stock tracking software',
+      'Sortly alternative',
+      'inFlow alternative',
+      'cheaper than Sortly',
+      'Fishbowl alternative',
+      'Zoho Inventory alternative',
+      'inventory tracker for small retail business',
+      'multi-location inventory management software',
+      'barcode inventory scanning free',
+      'inventory reorder alert software',
+      'inventory management for ecommerce',
+      'how to track inventory without expensive software',
+      'what is the best inventory management software for small business',
+      'how to automate inventory reorder alerts',
+      'how do I track stock levels across multiple locations',
+      'best inventory software for warehouse management 2026'
+    ],
+    competitors: [
+      { name: 'Sortly', priceRange: '$49-$149/mo', topComplaint: 'No free tier at all; even the base plan is $49/month for just 2 users with basic reporting locked away (G2)' },
+      { name: 'inFlow Inventory', priceRange: '$89-$399/mo', topComplaint: 'Complex setup takes days; cloud sync issues cause data discrepancies; steep learning curve for non-technical staff (Capterra)' },
+      { name: 'Fishbowl', priceRange: '$4,395+/year', topComplaint: 'Enormous upfront cost and requires QuickBooks integration; complete overkill for businesses with under 1,000 SKUs (G2)' },
+      { name: 'Zoho Inventory', priceRange: '$59-$329/mo', topComplaint: 'Multi-warehouse support locked behind expensive tiers; constant upsell pressure to buy into broader Zoho suite (Reddit)' },
+      { name: 'Square for Retail', priceRange: 'Free-$89/mo', topComplaint: 'Card payment dependency makes it useless as a standalone inventory tracker; B2B inventory features are limited (Capterra)' },
+      { name: 'Lightspeed Retail', priceRange: '$89-$399/mo', topComplaint: 'POS-first product — inventory features feel bolted on; too expensive for businesses that do not need a full point-of-sale (G2)' }
+    ],
+    competitorFixes: [
+      'Track inventory across multiple locations free — no $49/month minimum just to see basic stock levels',
+      'Barcode scanning from any smartphone or tablet camera — no expensive dedicated hardware required',
+      'Set up in under 5 minutes — no QuickBooks integration, no consultant, no IT ticket needed',
+      'Automatic low-stock alerts by email or Slack — never let a critical item unexpectedly run out',
+      'Full COGS and turnover reporting built in — no $4,000 Fishbowl license needed for financial clarity',
+      'Works standalone — not bundled inside a POS system or payment processor you may never use'
+    ],
+    targetCities: [
+      { city: 'Fontana', state: 'CA', population: '216,000', competitionLevel: 'low' },
+      { city: 'Riverside', state: 'CA', population: '314,000', competitionLevel: 'medium' },
+      { city: 'Fremont', state: 'CA', population: '229,000', competitionLevel: 'low' },
+      { city: 'Irvine', state: 'CA', population: '307,000', competitionLevel: 'medium' },
+      { city: 'Clovis', state: 'CA', population: '122,000', competitionLevel: 'low' },
+      { city: 'Jonesboro', state: 'AR', population: '77,000', competitionLevel: 'low' },
+      { city: 'Springdale', state: 'AR', population: '88,000', competitionLevel: 'low' },
+      { city: 'Auburn', state: 'AL', population: '75,000', competitionLevel: 'low' },
+      { city: 'Carmel', state: 'IN', population: '101,000', competitionLevel: 'low' },
+      { city: 'Fishers', state: 'IN', population: '102,000', competitionLevel: 'low' }
+    ],
+    dateAdded: '2026-04-16',
+    waitlistCount: 0,
+    slug: 'inventory-tracker'
   }
 ];
 
@@ -1532,6 +1624,19 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'ContractGen', cities: ['Daly City CA', 'Downey CA', 'West Covina CA', 'Costa Mesa CA', 'Murrieta CA', 'Pembroke Pines FL', 'Sunrise FL', 'Pompano Beach FL', 'Pawtucket RI', 'Layton UT'] }
     ],
     researchNotes: 'Session 5: Built TimeTracker (Productivity) and ContractGen (Sales). Toggl 2024 redesign complaints confirmed — Reddit r/freelance mass migration thread. DocuSign price increase to $25/user/mo in 2024 validated. Added 20 new cities to 4 existing tools (Texas suburbs, Mountain West, Pacific NW). Added interactive demos for PayrollCalc, CommissionCalc, EmailSigGen. Total: 19 tools, 290+ city SEO pages.'
+  },
+  {
+    date: '2026-04-16',
+    toolsAdded: ['InventoryTracker'],
+    toolsUpdated: ['PTOTracker', 'KPIDash', 'MeetingNotesAI'],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'PTOTracker', cities: ['Allentown PA', 'Erie PA', 'Franklin TN', 'Hoover AL', 'Lake Charles LA', 'Davenport IA', 'Edmond OK'] },
+      { tool: 'KPIDash', cities: ['Beaverton OR', 'Hillsboro OR', 'Gresham OR', 'Las Cruces NM', 'Santa Fe NM', 'Rio Rancho NM', 'North Las Vegas NV'] },
+      { tool: 'MeetingNotesAI', cities: ['Bellevue WA', 'Federal Way WA', 'Spokane Valley WA', 'Roseville CA', 'Modesto CA', 'Stockton CA'] },
+      { tool: 'InventoryTracker', cities: ['Fontana CA', 'Riverside CA', 'Fremont CA', 'Irvine CA', 'Clovis CA', 'Jonesboro AR', 'Springdale AR', 'Auburn AL', 'Carmel IN', 'Fishers IN'] }
+    ],
+    researchNotes: 'Session 6 (loop run 1): Added 20 new optimized cities to 3 oldest-updated tools (PTOTracker, KPIDash, MeetingNotesAI — all had 10 cities from Session 4, never expanded). Built InventoryTracker (Operations) — Sortly $49/mo no free tier, inFlow complex setup, Fishbowl $4,395 license validated as top complaints. Added interactive inventory table demo with real-time low-stock alerts, SKU tracking, COGS totals. Pacific NW (OR), Southwest (NM/NV), Mid-Atlantic (PA), and Southeast (TN/AL) city expansion. Total: 20 tools, 340+ city SEO pages.'
   }
 ];
 
