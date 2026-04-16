@@ -10,8 +10,8 @@
 [[plugins]]
   package = "netlify-plugin-bundle-env"
   [plugins.inputs]
-    # Point at the static export output — this satisfies the plugin requirement
-    source = "out"
+    # Must point at source code (plugin runs before build, out/ doesn't exist yet)
+    source = "src"
 
 [[headers]]
   for = "/*"
