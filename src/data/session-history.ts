@@ -309,9 +309,7 @@ export const sessionHistory: SessionEntry[] = [
       'Refresh LeadPilot keywords — "lead capture for Shopify" and "B2B lead generation 2026" trending',
       'Update CalendarFlow competitor data — Calendly raised prices in Q1 2026 per user reports'
     ]
-  }
-];
-
+  },
   {
     sessionDate: '2026-04-16',
     sessionNumber: 6,
@@ -353,6 +351,54 @@ export const sessionHistory: SessionEntry[] = [
       'Add interactive demo for ContractGen (template preview with auto-fill variables)',
       'Add 20 more cities — prioritize PayrollCalc (CT/NH heavy, balance with Midwest), HelpDeskAI (Great Lakes gaps), EmailSigGen (too CA-heavy, add Southeast)',
       'Refresh CalendarFlow keywords — Calendly raised prices Q1 2026; update competitor data and add "Calendly price increase 2026" keyword'
+    ]
+  },
+  {
+    sessionDate: '2026-04-16',
+    sessionNumber: 7,
+    toolsAdded: [],
+    toolsUpdated: [
+      { name: 'PayrollCalc', changes: ['Added 5 cities: Reading PA, Bethlehem PA, West Jordan UT, Lakeland FL, Champaign IL — now 15 total'] },
+      { name: 'HelpDeskAI', changes: ['Added 5 cities: Troy MI, Dearborn MI, Livonia MI, Bloomington IN, Farmington Hills MI — now 15 total'] },
+      { name: 'EmailSigGen', changes: ['Added 5 cities: Glendale CA, Fullerton CA, Hayward CA, Sunnyvale CA, Ventura CA — now 15 total'] },
+      { name: 'DocTemplates', changes: ['Added 5 cities: Buffalo NY, Rochester NY, Syracuse NY, Scranton PA, Fort Smith AR — now 15 total'] },
+      { name: 'ClientPortal', changes: ['Added 5 cities: Scottsdale AZ, Centennial CO, Fort Myers FL, Palm Bay FL, Melbourne FL — now 15 total'] },
+      { name: 'CommissionCalc', changes: ['Added 5 cities: Brooklyn Park MN, Plymouth MN, Maple Grove MN, Brownsville TX, Edinburg TX — now 15 total'] },
+      { name: 'EmailCampaigns', changes: ['Added 5 cities: Avondale AZ, Goodyear AZ, Temple TX, Bryan TX, St. Joseph MO — now 15 total'] },
+      { name: 'TimeTracker', changes: ['Added 5 cities: Richmond CA, Concord CA, Santa Clara CA, Vallejo CA, Temecula CA — now 15 total'] },
+      { name: 'ContractGen', changes: ['Added 5 cities: Daytona Beach FL, Deltona FL, Hialeah FL, West Palm Beach FL, Lawton OK — now 15 total'] },
+      { name: 'InventoryTracker', changes: ['Added 5 cities: San Bernardino CA, Moreno Valley CA, Plano TX, Baytown TX, Harlingen TX — now 15 total'] }
+    ],
+    keywordsResearched: [],
+    citiesAdded: [
+      { tool: 'PayrollCalc', cities: ['Reading PA', 'Bethlehem PA', 'West Jordan UT', 'Lakeland FL', 'Champaign IL'] },
+      { tool: 'HelpDeskAI', cities: ['Troy MI', 'Dearborn MI', 'Livonia MI', 'Bloomington IN', 'Farmington Hills MI'] },
+      { tool: 'EmailSigGen', cities: ['Glendale CA', 'Fullerton CA', 'Hayward CA', 'Sunnyvale CA', 'Ventura CA'] },
+      { tool: 'DocTemplates', cities: ['Buffalo NY', 'Rochester NY', 'Syracuse NY', 'Scranton PA', 'Fort Smith AR'] },
+      { tool: 'ClientPortal', cities: ['Scottsdale AZ', 'Centennial CO', 'Fort Myers FL', 'Palm Bay FL', 'Melbourne FL'] },
+      { tool: 'CommissionCalc', cities: ['Brooklyn Park MN', 'Plymouth MN', 'Maple Grove MN', 'Brownsville TX', 'Edinburg TX'] },
+      { tool: 'EmailCampaigns', cities: ['Avondale AZ', 'Goodyear AZ', 'Temple TX', 'Bryan TX', 'St. Joseph MO'] },
+      { tool: 'TimeTracker', cities: ['Richmond CA', 'Concord CA', 'Santa Clara CA', 'Vallejo CA', 'Temecula CA'] },
+      { tool: 'ContractGen', cities: ['Daytona Beach FL', 'Deltona FL', 'Hialeah FL', 'West Palm Beach FL', 'Lawton OK'] },
+      { tool: 'InventoryTracker', cities: ['San Bernardino CA', 'Moreno Valley CA', 'Plano TX', 'Baytown TX', 'Harlingen TX'] }
+    ],
+    competitorChanges: [],
+    seoUpdates: [
+      '50 new city SEO pages added in batch — 5 per tool across 10 tools that had only 10 cities since Sessions 4-6',
+      'NY state coverage opened: Buffalo (278K), Rochester (210K), Syracuse (148K) via DocTemplates',
+      'Michigan metro cluster: Troy, Dearborn, Livonia, Farmington Hills via HelpDeskAI',
+      'Bay Area/Silicon Valley: Hayward, Sunnyvale, Santa Clara, Concord, Richmond CA via EmailSigGen + TimeTracker',
+      'Florida Space Coast: Palm Bay, Melbourne, Fort Myers, Daytona Beach, Deltona, Hialeah, West Palm Beach via ClientPortal + ContractGen',
+      'Rio Grande Valley TX: Brownsville, Edinburg, Harlingen via CommissionCalc + InventoryTracker',
+      'Minnesota suburbs: Brooklyn Park, Plymouth, Maple Grove via CommissionCalc',
+      'Total: 20 tools, ~440 city SEO pages'
+    ],
+    nextSessionPlan: [
+      'Build FormBuilder (Marketing) — Typeform $50/mo complaints, JotForm free-tier frustration; interactive drag-and-drop form demo',
+      'Build JobDescriptionGen (HR) — Textio enterprise-only pricing; no SMB-accessible JD tool with compliance language',
+      'Add interactive demos for TimeTracker (live running timer) and ContractGen (template preview with auto-fill)',
+      'Refresh CalendarFlow competitor data — Calendly raised prices Q1 2026; update topComplaint and add new keyword',
+      'Quality audit: improve city page content for top 5 tools — add city-specific industry angle to description vs template swap'
     ]
   }
 ];
