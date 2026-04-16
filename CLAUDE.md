@@ -327,21 +327,35 @@ If running low on context:
 6. **ProposalPro** (Sales) — AI business proposal builder — `proposal-pro` — 10 cities
 
 ### Session 3 (2026-04-16, loop run 1) — Marketing Expansion + 20 Cities
-7. **SocialQueue** (Marketing) — Social media post scheduler — `social-queue` — 10 cities
+7. **SocialQueue** (Marketing) — Social media post scheduler — `social-queue` — 14 cities
+
+### Session 4 (2026-04-16, loop run 2) — 10 Tools + 20 Cities + UI Redesign
+8.  **PTOTracker** (HR) — Leave management & accrual automation — `pto-tracker` — 10 cities
+9.  **KPIDash** (Operations) — Real-time KPI dashboard builder — `kpi-dash` — 10 cities
+10. **MeetingNotesAI** (Productivity) — AI meeting summarizer — `meeting-notes-ai` — 10 cities
+11. **PayrollCalc** (Finance) — Payroll tax & pay stub calculator — `payroll-calc` — 10 cities
+12. **HelpDeskAI** (Operations) — AI helpdesk ticketing — `help-desk-ai` — 10 cities
+13. **EmailSigGen** (Marketing) — Team email signature generator — `email-sig-gen` — 10 cities
+14. **DocTemplates** (Productivity) — Business document template library — `doc-templates` — 10 cities
+15. **ClientPortal** (Sales) — White-label client portal — `client-portal` — 10 cities
+16. **CommissionCalc** (Sales) — Sales commission tracker — `commission-calc` — 10 cities
+17. **EmailCampaigns** (Marketing) — Email marketing & automation — `email-campaigns` — 10 cities
+
+### UI/SEO Upgrades (Session 4)
+- Redesigned: PayPal navy nav + Amazon orange CTA cards (no glass-morphism)
+- Web3Forms integrated for real email capture (key: 7d643d3d-…)
+- Schema.org @graph consolidated in layout.tsx (Organization + WebSite + FAQPage)
+- AEO descriptions on all 10 new tools ("what is the best X" answered in first 150 words)
 
 ### Static HTML Demos (in `public/tools/`)
 - **Smart Invoice Generator** — `public/tools/smart-invoice-generator/`
 - **AI Meeting Notes Summarizer** — `public/tools/ai-meeting-notes/`
 
-**Total: 7 Next.js tools, 96 city SEO pages**
+**Total: 17 Next.js tools, 227+ city SEO pages**
 
 ## QUEUED TOOLS (Prioritized)
-1. **PTO/Time-Off Tracker** (HR) — BambooHR PTO complaints: rigid accrual rules, no custom policies
-2. **KPI Dashboard Builder** (Operations/Productivity) — no operations tool yet; executives highest WTP ($50-200/mo)
-3. **AI Meeting Notes Summarizer** (Productivity) — static demo exists, NEEDS Next.js integration
-4. Payroll Calculator (HR, small business)
-5. Helpdesk Ticketing (operations, customer support)
-6. Email Signature Generator (marketing, all office workers)
-7. Document Template Library (desk clerks, office managers)
-8. Client Portal Builder (sales, account managers)
-9. Commission Calculator (sales teams)
+1. **TimeTracker** (Productivity) — Toggl/Harvest complaints: UI redesign backlash, price hikes
+2. **ContractGen** (Sales) — DocuSign $25/user complaints; HelloSign acquisition pricing issues
+3. **JobDescriptionGen** (HR) — Textio/Ongig pricing complaints; generic JD generators lack compliance
+4. **VendorPortal** (Operations) — Vendor invoice tracking; Precoro/Coupa pricing inaccessible for SMB
+5. Add interactive working demos for PayrollCalc, CommissionCalc, EmailSigGen
