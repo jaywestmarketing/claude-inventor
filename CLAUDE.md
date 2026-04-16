@@ -317,26 +317,31 @@ If running low on context:
 ## CURRENT TOOLS
 
 ### Session 1 (2026-03-25) — Next.js Dashboard Launch
-1. **OnboardFlow** (HR) — Employee onboarding automation — `onboard-flow`
-2. **InvoiceAI** (Finance) — AI-powered invoice generation — `invoice-ai`
-3. **LeadPilot** (Marketing) — Lead capture and nurturing — `lead-pilot`
-4. **CalendarFlow** (Productivity) — Smart meeting scheduling — `calendar-flow`
-5. **ExpenseBot** (Finance) — Automated expense reporting — `expense-bot`
+1. **OnboardFlow** (HR) — Employee onboarding automation — `onboard-flow` — 13 cities
+2. **InvoiceAI** (Finance) — AI-powered invoice generation — `invoice-ai` — 13 cities
+3. **LeadPilot** (Marketing) — Lead capture and nurturing — `lead-pilot` — 13 cities
+4. **CalendarFlow** (Productivity) — Smart meeting scheduling — `calendar-flow` — 13 cities
+5. **ExpenseBot** (Finance) — Automated expense reporting — `expense-bot` — 13 cities
+
+### Session 2 (2026-04-16) — Sales Category Added
+6. **ProposalPro** (Sales) — AI business proposal builder — `proposal-pro` — 10 cities
+
+### Session 3 (2026-04-16, loop run 1) — Marketing Expansion + 20 Cities
+7. **SocialQueue** (Marketing) — Social media post scheduler — `social-queue` — 10 cities
 
 ### Static HTML Demos (in `public/tools/`)
-6. **Smart Invoice Generator** — `public/tools/smart-invoice-generator/` — Cities: Boise ID, Greenville SC, Huntsville AL, Provo UT, Fayetteville AR
-7. **AI Meeting Notes Summarizer** — `public/tools/ai-meeting-notes/` — Cities: Boise ID, Huntsville AL, Wilmington NC, Provo UT, Lakeland FL
+- **Smart Invoice Generator** — `public/tools/smart-invoice-generator/`
+- **AI Meeting Notes Summarizer** — `public/tools/ai-meeting-notes/`
+
+**Total: 7 Next.js tools, 96 city SEO pages**
 
 ## QUEUED TOOLS (Prioritized)
-1. **AI Meeting Notes Summarizer** (Productivity) — research done, static demo built, NEEDS Next.js integration
-2. **AI Business Proposal/Quote Builder** (Sales) — PandaDoc $100M ARR, Proposify well-funded, clear pain
-3. PTO/Time-Off Tracker (HR, office managers)
+1. **PTO/Time-Off Tracker** (HR) — BambooHR PTO complaints: rigid accrual rules, no custom policies
+2. **KPI Dashboard Builder** (Operations/Productivity) — no operations tool yet; executives highest WTP ($50-200/mo)
+3. **AI Meeting Notes Summarizer** (Productivity) — static demo exists, NEEDS Next.js integration
 4. Payroll Calculator (HR, small business)
-5. Social Media Scheduler (marketing teams)
-6. Helpdesk Ticketing (operations, customer support)
-7. Email Signature Generator (marketing, all office workers)
-8. KPI Dashboard Builder (executives, managers)
-9. Document Template Library (desk clerks, office managers)
-10. Client Portal Builder (sales, account managers)
-11. Commission Calculator (sales teams)
-12. Proposal Generator (sales, freelancers)
+5. Helpdesk Ticketing (operations, customer support)
+6. Email Signature Generator (marketing, all office workers)
+7. Document Template Library (desk clerks, office managers)
+8. Client Portal Builder (sales, account managers)
+9. Commission Calculator (sales teams)
