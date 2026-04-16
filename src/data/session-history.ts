@@ -261,6 +261,54 @@ export const sessionHistory: SessionEntry[] = [
       'Refresh OnboardFlow keywords — "remote onboarding software" trending in 2026 hiring market',
       'Update HelpDeskAI with Intercom price increase details — research latest G2 reviews'
     ]
+  },
+  {
+    sessionDate: '2026-04-16',
+    sessionNumber: 5,
+    toolsAdded: [
+      { name: 'TimeTracker', slug: 'time-tracker', category: 'productivity' },
+      { name: 'ContractGen', slug: 'contract-gen', category: 'sales' }
+    ],
+    toolsUpdated: [
+      { name: 'ProposalPro', changes: ['Added 5 cities: Grand Prairie TX, Cape Coral FL, Boulder CO, Columbia SC, Sandy Springs GA'] },
+      { name: 'SocialQueue', changes: ['Added 5 cities: Lewisville TX, Port St. Lucie FL, Greeley CO, Kent WA, Columbia MO'] },
+      { name: 'InvoiceAI', changes: ['Added 5 cities: Conroe TX, Coral Springs FL, Longmont CO, Yakima WA, Independence MO'] },
+      { name: 'LeadPilot', changes: ['Added 5 cities: New Braunfels TX, Idaho Falls ID, Warwick RI, Cranston RI, Jackson TN'] },
+      { name: 'PayrollCalc', changes: ['Added interactive payroll calculator demo (hourly rate, hours, frequency → gross/FICA/federal/net)'] },
+      { name: 'CommissionCalc', changes: ['Added interactive commission tier builder demo (deal size, quota, 3-tier rates → attainment, commission)'] },
+      { name: 'EmailSigGen', changes: ['Added live HTML email signature preview demo with clipboard copy'] }
+    ],
+    keywordsResearched: [
+      { tool: 'TimeTracker', keywords: ['Toggl alternative', 'free time tracking tool', 'billable hours tracker'], trending: ['Toggl redesign complaints', 'time tracking for consultants'] },
+      { tool: 'ContractGen', keywords: ['DocuSign alternative', 'free e-signature tool', 'contract template builder'], trending: ['DocuSign price increase 2024', 'HelloSign Dropbox pricing changes'] }
+    ],
+    citiesAdded: [
+      { tool: 'ProposalPro', cities: ['Grand Prairie TX', 'Cape Coral FL', 'Boulder CO', 'Columbia SC', 'Sandy Springs GA'] },
+      { tool: 'SocialQueue', cities: ['Lewisville TX', 'Port St. Lucie FL', 'Greeley CO', 'Kent WA', 'Columbia MO'] },
+      { tool: 'InvoiceAI', cities: ['Conroe TX', 'Coral Springs FL', 'Longmont CO', 'Yakima WA', 'Independence MO'] },
+      { tool: 'LeadPilot', cities: ['New Braunfels TX', 'Idaho Falls ID', 'Warwick RI', 'Cranston RI', 'Jackson TN'] },
+      { tool: 'TimeTracker', cities: ['Kennewick WA', 'Renton WA', 'Kirkland WA', 'Roswell GA', 'Albany GA', 'Johns Creek GA', 'Fall River MA', 'Miramar FL', 'Georgetown TX', 'Wichita Falls TX'] },
+      { tool: 'ContractGen', cities: ['Daly City CA', 'Downey CA', 'West Covina CA', 'Costa Mesa CA', 'Murrieta CA', 'Pembroke Pines FL', 'Sunrise FL', 'Pompano Beach FL', 'Pawtucket RI', 'Layton UT'] }
+    ],
+    competitorChanges: [
+      { tool: 'TimeTracker', notes: 'Toggl Track 2024 redesign drove mass user exodus — confirmed via Reddit r/freelance; Harvest $14/user no free tier creates strong acquisition angle' },
+      { tool: 'ContractGen', notes: 'DocuSign raised prices to $25/user in 2024; HelloSign rebranded to Dropbox Sign and cut free tier to 3 docs/month — both create strong churn signals' }
+    ],
+    seoUpdates: [
+      '20 new cities added to ProposalPro, SocialQueue, InvoiceAI, LeadPilot — Texas suburbs, Mountain West, Pacific NW',
+      '20 new cities across TimeTracker (Pacific NW, Georgia, New England) and ContractGen (Southern CA, South Florida, Rhode Island)',
+      'Total: 19 tools, ~290 city SEO pages',
+      'Interactive demos added to PayrollCalc, CommissionCalc, EmailSigGen — increases on-page engagement and demo conversion',
+      'DemoPanel component is slug-conditional — zero overhead for tools without demos'
+    ],
+    nextSessionPlan: [
+      'Build InventoryTracker tool (Operations) — no operations tracking tool yet; Sortly/inFlow complaints on G2 re: pricing and complexity',
+      'Build FormBuilder tool (Productivity/Marketing) — Typeform $50/mo complaints; JotForm feature-gate frustration on Reddit',
+      'Add interactive demos for TimeTracker (live timer) and ContractGen (template preview)',
+      'Add 20 more cities — prioritize Midwest and Mid-Atlantic gaps (Indiana, Ohio, Pennsylvania suburbs)',
+      'Refresh LeadPilot keywords — "lead capture for Shopify" and "B2B lead generation 2026" trending',
+      'Update CalendarFlow competitor data — Calendly raised prices in Q1 2026 per user reports'
+    ]
   }
 ];
 

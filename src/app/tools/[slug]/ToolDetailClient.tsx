@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Tool, categoryLabels, categoryBadgeClass } from '@/data/tools';
+import DemoPanel from './DemoPanel';
 
 const WEB3FORMS_KEY = '7d643d3d-d3b6-4d77-8935-e7f138b84270';
 
@@ -80,6 +81,9 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
         }}>
           {tool.description}
         </p>
+
+        {/* Interactive Demo (slug-specific) */}
+        <DemoPanel slug={tool.slug} toolName={tool.name} />
 
         {/* Waitlist CTA */}
         <div className="animate-fade-in-up" style={{
@@ -229,7 +233,7 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
             Related Tools
           </h2>
           <p style={{ marginTop: '8px' }}>
-            <Link href="/" style={{ fontSize: '14px' }}>← Browse all {17} free tools on AutomateStack</Link>
+            <Link href="/" style={{ fontSize: '14px' }}>← Browse all {19} free tools on AutomateStack</Link>
           </p>
         </section>
       </main>

@@ -187,7 +187,12 @@ export const tools: Tool[] = [
       { city: 'Bend', state: 'OR', population: '99,000', competitionLevel: 'low' },
       { city: 'Lancaster', state: 'CA', population: '157,000', competitionLevel: 'low' },
       { city: 'Allen', state: 'TX', population: '105,000', competitionLevel: 'low' },
-      { city: 'Norman', state: 'OK', population: '128,000', competitionLevel: 'low' }
+      { city: 'Norman', state: 'OK', population: '128,000', competitionLevel: 'low' },
+      { city: 'Conroe', state: 'TX', population: '106,000', competitionLevel: 'low' },
+      { city: 'Coral Springs', state: 'FL', population: '135,000', competitionLevel: 'low' },
+      { city: 'Longmont', state: 'CO', population: '96,000', competitionLevel: 'low' },
+      { city: 'Yakima', state: 'WA', population: '96,000', competitionLevel: 'low' },
+      { city: 'Independence', state: 'MO', population: '116,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -264,7 +269,12 @@ export const tools: Tool[] = [
       { city: 'Denton', state: 'TX', population: '136,000', competitionLevel: 'low' },
       { city: 'Huntington Beach', state: 'CA', population: '198,000', competitionLevel: 'low' },
       { city: 'Cedar Park', state: 'TX', population: '79,000', competitionLevel: 'low' },
-      { city: 'Broken Arrow', state: 'OK', population: '114,000', competitionLevel: 'low' }
+      { city: 'Broken Arrow', state: 'OK', population: '114,000', competitionLevel: 'low' },
+      { city: 'New Braunfels', state: 'TX', population: '100,000', competitionLevel: 'low' },
+      { city: 'Idaho Falls', state: 'ID', population: '68,000', competitionLevel: 'low' },
+      { city: 'Warwick', state: 'RI', population: '82,000', competitionLevel: 'low' },
+      { city: 'Cranston', state: 'RI', population: '82,000', competitionLevel: 'low' },
+      { city: 'Jackson', state: 'TN', population: '68,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -493,7 +503,12 @@ export const tools: Tool[] = [
       { city: 'Abilene', state: 'TX', population: '124,000', competitionLevel: 'low' },
       { city: 'Palmdale', state: 'CA', population: '153,000', competitionLevel: 'low' },
       { city: 'Pasadena', state: 'TX', population: '151,000', competitionLevel: 'low' },
-      { city: 'Clearwater', state: 'FL', population: '117,000', competitionLevel: 'low' }
+      { city: 'Clearwater', state: 'FL', population: '117,000', competitionLevel: 'low' },
+      { city: 'Grand Prairie', state: 'TX', population: '196,000', competitionLevel: 'low' },
+      { city: 'Cape Coral', state: 'FL', population: '195,000', competitionLevel: 'low' },
+      { city: 'Boulder', state: 'CO', population: '106,000', competitionLevel: 'low' },
+      { city: 'Columbia', state: 'SC', population: '140,000', competitionLevel: 'low' },
+      { city: 'Sandy Springs', state: 'GA', population: '110,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -567,7 +582,12 @@ export const tools: Tool[] = [
       { city: 'Lawrence', state: 'KS', population: '95,000', competitionLevel: 'low' },
       { city: 'Joliet', state: 'IL', population: '148,000', competitionLevel: 'low' },
       { city: 'Elk Grove', state: 'CA', population: '176,000', competitionLevel: 'low' },
-      { city: 'New Bedford', state: 'MA', population: '95,000', competitionLevel: 'low' }
+      { city: 'New Bedford', state: 'MA', population: '95,000', competitionLevel: 'low' },
+      { city: 'Lewisville', state: 'TX', population: '112,000', competitionLevel: 'low' },
+      { city: 'Port St. Lucie', state: 'FL', population: '234,000', competitionLevel: 'low' },
+      { city: 'Greeley', state: 'CO', population: '107,000', competitionLevel: 'low' },
+      { city: 'Kent', state: 'WA', population: '136,000', competitionLevel: 'low' },
+      { city: 'Columbia', state: 'MO', population: '129,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1282,6 +1302,148 @@ export const tools: Tool[] = [
     dateAdded: '2026-04-16',
     waitlistCount: 0,
     slug: 'email-campaigns'
+  },
+  {
+    id: 'time-tracker-pro',
+    name: 'TimeTracker',
+    tagline: 'Track billable hours and project time without Toggl complexity',
+    description: 'TimeTracker is the best time tracking software for freelancers, consultants, and small teams who want fast setup and clean reports. Start timing with one click, assign hours to projects and clients, and export professional timesheets directly to invoices. Unlike Toggl\'s 2024 redesign that confused thousands of users, TimeTracker keeps the interface intuitive — no learning curve required. Unlike Harvest, which charges $14 per user with no free tier, TimeTracker is free to start. Track billable vs non-billable hours, monitor team productivity, and generate weekly or monthly reports in under 60 seconds. The best time tracker for 2026 if you want simplicity without sacrificing accurate data.',
+    category: 'productivity',
+    status: 'demo',
+    icon: '⏱️',
+    features: [
+      'One-click timer start/stop with project tagging',
+      'Billable vs non-billable hours tracking',
+      'Weekly and monthly timesheet reports',
+      'CSV and PDF export for client invoicing',
+      'Multi-project and multi-client dashboard',
+      'Idle time detection and auto-pause alerts',
+      'Team hours overview with per-member breakdown',
+      'Calendar view with daily time block summary'
+    ],
+    keywords: [
+      'time tracking software',
+      'best time tracker 2026',
+      'free time tracking tool',
+      'billable hours tracker',
+      'freelancer time tracker',
+      'project time management software',
+      'employee time tracking',
+      'online timesheet software',
+      'Toggl alternative',
+      'Harvest alternative',
+      'cheaper than Toggl',
+      'free alternative to Harvest',
+      'time tracker for consultants',
+      'time tracking for small business',
+      'simple time tracking app',
+      'how to track billable hours',
+      'best time tracker for freelancers',
+      'what is the best time tracking software',
+      'time tracking without monthly fees',
+      'automatic time tracker app'
+    ],
+    competitors: [
+      { name: 'Toggl Track', priceRange: '$10/user/mo', topComplaint: '2024 redesign broke existing workflows — Reddit r/freelance flooded with complaints about lost muscle memory, confusing layout, and mass migrations to alternatives' },
+      { name: 'Harvest', priceRange: '$14/user/mo', topComplaint: 'No free tier at all, expensive for solo users, limited project budget tracking on lower plans' },
+      { name: 'Clockify', priceRange: 'Free–$9.99/user/mo', topComplaint: 'Free tier missing critical reports, kiosk mode unreliable, customer support non-existent for free users' },
+      { name: 'TimeCamp', priceRange: '$7/user/mo', topComplaint: 'Clunky interface, automatic time tracking makes frequent mistakes, billing module is buggy' },
+      { name: 'Hubstaff', priceRange: '$10/user/mo', topComplaint: 'Employee screenshot surveillance feels invasive, GPS tracking unnecessary for most teams, high price for basic features' }
+    ],
+    competitorFixes: [
+      'Intuitive interface that never changes — no redesigns that reset your muscle memory',
+      'Generous free tier with unlimited projects and unlimited time entries',
+      'Billable hours reports exportable to PDF or CSV in one click — invoice-ready',
+      'No surveillance features — just time tracking without screenshots or GPS',
+      'Setup in under 2 minutes — no onboarding call or consultant needed',
+      'Idle detection that auto-pauses when you step away — accurate time logs every time'
+    ],
+    targetCities: [
+      { city: 'Kennewick', state: 'WA', population: '83,000', competitionLevel: 'low' },
+      { city: 'Renton', state: 'WA', population: '111,000', competitionLevel: 'low' },
+      { city: 'Kirkland', state: 'WA', population: '92,000', competitionLevel: 'low' },
+      { city: 'Roswell', state: 'GA', population: '94,000', competitionLevel: 'low' },
+      { city: 'Albany', state: 'GA', population: '71,000', competitionLevel: 'low' },
+      { city: 'Johns Creek', state: 'GA', population: '84,000', competitionLevel: 'low' },
+      { city: 'Fall River', state: 'MA', population: '92,000', competitionLevel: 'low' },
+      { city: 'Miramar', state: 'FL', population: '138,000', competitionLevel: 'low' },
+      { city: 'Georgetown', state: 'TX', population: '83,000', competitionLevel: 'low' },
+      { city: 'Wichita Falls', state: 'TX', population: '101,000', competitionLevel: 'low' }
+    ],
+    dateAdded: '2026-04-16',
+    waitlistCount: 0,
+    slug: 'time-tracker'
+  },
+  {
+    id: 'contract-generator-pro',
+    name: 'ContractGen',
+    tagline: 'Generate and e-sign contracts without DocuSign pricing',
+    description: 'ContractGen is the best contract generation and e-signature tool for freelancers, agencies, and small businesses that refuse to pay DocuSign\'s $25 per user per month. Generate professional contracts from smart templates — NDAs, service agreements, statements of work, freelance contracts — then send for e-signature in minutes. Unlike DocuSign, which raised prices in 2024 and locks advanced features behind enterprise plans, ContractGen gives you unlimited templates and e-signatures free to start. Unlike PandaDoc, which bundles in proposal features many teams do not need, ContractGen focuses exclusively on contracts. The best DocuSign alternative for 2026 for teams under 50 people.',
+    category: 'sales',
+    status: 'demo',
+    icon: '📝',
+    features: [
+      'Smart contract templates (NDA, SOW, freelance, service agreement)',
+      'E-signature with full audit trail and timestamp',
+      'Auto-fill variables for client name, dates, and rates',
+      'Contract status tracking (sent, viewed, signed, expired)',
+      'Contract versioning and edit history',
+      'PDF download of fully executed contracts',
+      'Automated reminder emails for unsigned contracts',
+      'Secure cloud storage for all executed agreements'
+    ],
+    keywords: [
+      'contract generator software',
+      'free e-signature tool',
+      'DocuSign alternative',
+      'contract template builder',
+      'online contract signing',
+      'NDA generator free',
+      'freelance contract maker',
+      'e-signature software for small business',
+      'best contract management 2026',
+      'cheaper than DocuSign',
+      'HelloSign alternative',
+      'PandaDoc alternative',
+      'how to create a contract online',
+      'what is the best e-signature software',
+      'free contract template for freelancers',
+      'service agreement generator',
+      'SOW template generator',
+      'digital contract signing tool',
+      'e-sign contracts without monthly fees',
+      'contract automation software'
+    ],
+    competitors: [
+      { name: 'DocuSign', priceRange: '$25/user/mo', topComplaint: '2024 price increase, expensive for small teams, enterprise features locked behind higher tiers, overly complex for simple contracts' },
+      { name: 'HelloSign (Dropbox Sign)', priceRange: '$20/user/mo', topComplaint: 'Dropbox acquisition caused pricing hike and surprise feature removals; free tier cut to only 3 documents per month' },
+      { name: 'PandaDoc', priceRange: '$35/user/mo', topComplaint: 'Bundled proposal features add unnecessary cost and complexity for teams who just need contract signing' },
+      { name: 'Adobe Sign', priceRange: '$30/user/mo', topComplaint: 'Overpriced, requires Adobe subscription bundle, slow PDF processing, clunky mobile experience' },
+      { name: 'SignNow', priceRange: '$20/user/mo', topComplaint: 'Template library is limited, no contract generation capabilities, only collects signatures on existing documents' }
+    ],
+    competitorFixes: [
+      'DocuSign-quality e-signatures at zero cost — no $25 per user pricing wall',
+      'Smart templates auto-fill client and project details in under 30 seconds',
+      'Free tier with 10 contracts per month — sufficient for most freelancers',
+      'Simple contract builder with no learning curve or onboarding call required',
+      'Full audit trail with timestamps — legally defensible without enterprise pricing',
+      'Contracts only — no bundled proposal tools that inflate your monthly bill'
+    ],
+    targetCities: [
+      { city: 'Daly City', state: 'CA', population: '107,000', competitionLevel: 'low' },
+      { city: 'Downey', state: 'CA', population: '111,000', competitionLevel: 'low' },
+      { city: 'West Covina', state: 'CA', population: '105,000', competitionLevel: 'low' },
+      { city: 'Costa Mesa', state: 'CA', population: '114,000', competitionLevel: 'low' },
+      { city: 'Murrieta', state: 'CA', population: '119,000', competitionLevel: 'low' },
+      { city: 'Pembroke Pines', state: 'FL', population: '170,000', competitionLevel: 'low' },
+      { city: 'Sunrise', state: 'FL', population: '97,000', competitionLevel: 'low' },
+      { city: 'Pompano Beach', state: 'FL', population: '114,000', competitionLevel: 'low' },
+      { city: 'Pawtucket', state: 'RI', population: '75,000', competitionLevel: 'low' },
+      { city: 'Layton', state: 'UT', population: '87,000', competitionLevel: 'low' }
+    ],
+    dateAdded: '2026-04-16',
+    waitlistCount: 0,
+    slug: 'contract-gen'
   }
 ];
 
@@ -1355,6 +1517,21 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'EmailCampaigns', cities: ['Duluth MN', 'Bloomington MN', 'Kenosha WI', 'Thornton CO', 'Westminster CO', 'Arvada CO', 'Quincy MA', 'Lynn MA', 'Brockton MA', 'New Britain CT'] }
     ],
     researchNotes: 'Session 4: Built 10 new tools covering all 6 categories. Added 20 cities to existing tools + 100 cities across new tools. Key validations: Mailchimp raised prices twice (2022, 2024) — EmailCampaigns targets this directly. Zendesk agent pricing $19-115 drives SMB churn — HelpDeskAI angle. KPIDash fills the operations gap (first ops tool). PayrollCalc targets ADP/Gusto complexity complaints. PTOTracker targets BambooHR rigid accrual complaints. Total: 17 tools, 250+ city SEO pages.'
+  },
+  {
+    date: '2026-04-16',
+    toolsAdded: ['TimeTracker', 'ContractGen'],
+    toolsUpdated: ['ProposalPro', 'SocialQueue', 'InvoiceAI', 'LeadPilot'],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'ProposalPro', cities: ['Grand Prairie TX', 'Cape Coral FL', 'Boulder CO', 'Columbia SC', 'Sandy Springs GA'] },
+      { tool: 'SocialQueue', cities: ['Lewisville TX', 'Port St. Lucie FL', 'Greeley CO', 'Kent WA', 'Columbia MO'] },
+      { tool: 'InvoiceAI', cities: ['Conroe TX', 'Coral Springs FL', 'Longmont CO', 'Yakima WA', 'Independence MO'] },
+      { tool: 'LeadPilot', cities: ['New Braunfels TX', 'Idaho Falls ID', 'Warwick RI', 'Cranston RI', 'Jackson TN'] },
+      { tool: 'TimeTracker', cities: ['Kennewick WA', 'Renton WA', 'Kirkland WA', 'Roswell GA', 'Albany GA', 'Johns Creek GA', 'Fall River MA', 'Miramar FL', 'Georgetown TX', 'Wichita Falls TX'] },
+      { tool: 'ContractGen', cities: ['Daly City CA', 'Downey CA', 'West Covina CA', 'Costa Mesa CA', 'Murrieta CA', 'Pembroke Pines FL', 'Sunrise FL', 'Pompano Beach FL', 'Pawtucket RI', 'Layton UT'] }
+    ],
+    researchNotes: 'Session 5: Built TimeTracker (Productivity) and ContractGen (Sales). Toggl 2024 redesign complaints confirmed — Reddit r/freelance mass migration thread. DocuSign price increase to $25/user/mo in 2024 validated. Added 20 new cities to 4 existing tools (Texas suburbs, Mountain West, Pacific NW). Added interactive demos for PayrollCalc, CommissionCalc, EmailSigGen. Total: 19 tools, 290+ city SEO pages.'
   }
 ];
 
