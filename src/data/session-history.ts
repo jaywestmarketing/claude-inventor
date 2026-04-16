@@ -96,47 +96,46 @@ export const sessionHistory: SessionEntry[] = [
     sessionDate: '2026-04-16',
     sessionNumber: 2,
     toolsAdded: [
-      { name: 'ProposalCraft', slug: 'proposal-craft', category: 'sales' }
+      { name: 'ProposalPro', slug: 'proposal-pro', category: 'sales' }
     ],
     toolsUpdated: [
-      { name: 'OnboardFlow', changes: ['Added 4 cities: Grand Rapids MI, Waco TX, Eugene OR, Fort Wayne IN'] },
-      { name: 'InvoiceAI', changes: ['Added 4 cities: Fargo ND, Lubbock TX, Erie PA, Norman OK'] },
-      { name: 'LeadPilot', changes: ['Added 4 cities: Lincoln NE, Overland Park KS, Worcester MA, Hampton VA'] },
-      { name: 'CalendarFlow', changes: ['Added 4 cities: Rochester MN, South Bend IN, Las Cruces NM, Bridgeport CT'] },
-      { name: 'ExpenseBot', changes: ['Added 4 cities: Allentown PA, Amarillo TX, Topeka KS, Jackson MS'] }
+      { name: 'OnboardFlow', changes: ['Added 4 cities: Eugene OR, Clarksville TN, Fort Wayne IN, Augusta GA — now 9 total'] },
+      { name: 'InvoiceAI', changes: ['Added 4 cities: Lubbock TX, Gainesville FL, Wilmington NC, Overland Park KS — now 9 total'] },
+      { name: 'LeadPilot', changes: ['Added 4 cities: Fargo ND, Columbia SC, Tyler TX, Athens GA — now 9 total'] },
+      { name: 'CalendarFlow', changes: ['Added 4 cities: Peoria IL, Green Bay WI, Billings MT, Corpus Christi TX — now 9 total'] },
+      { name: 'ExpenseBot', changes: ['Added 4 cities: Evansville IN, Rockford IL, Mobile AL, Murfreesboro TN — now 9 total'] }
     ],
     keywordsResearched: [
       {
-        tool: 'ProposalCraft',
-        keywords: ['business proposal software', 'PandaDoc alternative', 'AI business proposal generator', 'free proposal maker for freelancers', 'proposal builder for small business'],
-        trending: ['AI proposal generation', 'proposal automation 2026', 'e-signature proposal software']
+        tool: 'ProposalPro',
+        keywords: ['best proposal software for small business', 'ai proposal builder', 'PandaDoc alternative', 'business proposal generator', 'proposal automation software'],
+        trending: ['AI proposal generator', 'automated quote builder', 'e-signature proposal tool']
       }
     ],
     citiesAdded: [
-      { tool: 'OnboardFlow', cities: ['Grand Rapids MI', 'Waco TX', 'Eugene OR', 'Fort Wayne IN'] },
-      { tool: 'InvoiceAI', cities: ['Fargo ND', 'Lubbock TX', 'Erie PA', 'Norman OK'] },
-      { tool: 'LeadPilot', cities: ['Lincoln NE', 'Overland Park KS', 'Worcester MA', 'Hampton VA'] },
-      { tool: 'CalendarFlow', cities: ['Rochester MN', 'South Bend IN', 'Las Cruces NM', 'Bridgeport CT'] },
-      { tool: 'ExpenseBot', cities: ['Allentown PA', 'Amarillo TX', 'Topeka KS', 'Jackson MS'] },
-      { tool: 'ProposalCraft', cities: ['Chandler AZ', 'Plano TX', 'Vancouver WA', 'Murfreesboro TN', 'Peoria IL', 'Columbia SC', 'Lakewood CO', 'Sterling Heights MI', 'Mobile AL', 'Salem OR'] }
+      { tool: 'OnboardFlow', cities: ['Eugene OR', 'Clarksville TN', 'Fort Wayne IN', 'Augusta GA'] },
+      { tool: 'InvoiceAI', cities: ['Lubbock TX', 'Gainesville FL', 'Wilmington NC', 'Overland Park KS'] },
+      { tool: 'LeadPilot', cities: ['Fargo ND', 'Columbia SC', 'Tyler TX', 'Athens GA'] },
+      { tool: 'CalendarFlow', cities: ['Peoria IL', 'Green Bay WI', 'Billings MT', 'Corpus Christi TX'] },
+      { tool: 'ExpenseBot', cities: ['Evansville IN', 'Rockford IL', 'Mobile AL', 'Murfreesboro TN'] },
+      { tool: 'ProposalPro', cities: ['Winston-Salem NC', 'Laredo TX', 'Midland TX', 'Peoria AZ', 'Cedar Rapids IA', 'Bowling Green KY', 'Odessa TX', 'Surprise AZ', 'Roanoke VA', 'Abilene TX'] }
     ],
     competitorChanges: [
-      { tool: 'ProposalCraft', notes: 'PandaDoc $100M+ ARR validated, $35-$59/user/mo. G2 top complaints: per-seat pricing explosions and complex workflow for simple proposals. Proposify $49-$99+/mo — editor speed complaints. Better Proposals $19-$49/mo — CRM integration gap. Qwilr $35-$85/mo — offline access missing. DocuSign Rooms $45+/user/mo — overkill for proposals.' }
+      { tool: 'ProposalPro', notes: 'PandaDoc at $100M+ ARR, per-seat pricing model draws consistent complaints on G2. Proposify $49/seat very expensive for SMB. QuoteWerks dated UI widely noted. 6 competitors validated with clear SMB pain points.' }
     ],
     seoUpdates: [
-      'Added 20 new city pages across 5 existing tools (4 per tool) — zero geographic duplicates',
-      'ProposalCraft: 10 new city pages targeting Chandler AZ, Plano TX, Vancouver WA and 7 more',
-      'ProposalCraft: 20 keywords including 5 AEO question-based, 5 competitor-alternative terms',
-      'Total city pages: 55 across 6 tools (25 original + 20 added + 10 new tool)',
-      'Build verified: 66 static pages generated successfully'
+      '20 new local SEO pages added (4 per existing tool) — 45 city pages total across 5 tools',
+      'New tool ProposalPro launches with 10 low-competition city targets (sales category gap filled)',
+      'Total city SEO pages now: 55 across 6 tools',
+      'ProposalPro targets Sales Teams audience — previously unrepresented segment'
     ],
     nextSessionPlan: [
-      'Build PTO/Time-Off Tracker (HR) — next in queue, office managers + HR validated pain',
-      'Build Social Media Scheduler (Marketing) — Buffer/Hootsuite $100M+ ARR, price complaints on Reddit',
-      'Add 4 more cities per tool for all 6 tools — target Southeast and Mountain West gaps',
-      'Research Payroll Calculator keyword trends — "free payroll calculator 2026" volume check',
-      'Update LeadPilot competitor data — HubSpot raised prices Q1 2026, check new complaints',
-      'Integrate AI Meeting Notes Summarizer static demo into Next.js tool system'
+      'Build Social Media Scheduler (Marketing) — Buffer $100M ARR, Hootsuite complaints about price increases in 2025',
+      'Build PTO/Time-Off Tracker (HR) — BambooHR PTO module complaints: rigid rules, no custom accruals',
+      'Add 20 more cities across all tools (4 per tool) — expand Midwest/Southwest coverage',
+      'Refresh ProposalPro keywords — research "proposal software" question-based terms on Reddit/G2',
+      'Add OnboardFlow competitor update — Rippling raised prices Q1 2026 per community reports',
+      'Research Operations tools — no operations tools yet, high-value gap for office managers'
     ]
   }
 ];
