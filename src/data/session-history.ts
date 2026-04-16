@@ -91,6 +91,52 @@ export const sessionHistory: SessionEntry[] = [
       'Implement BingSiteAuth and IndexNow for faster Bing indexing',
       'Add city-specific landing pages for top-performing tools'
     ]
+  },
+  {
+    sessionDate: '2026-04-16',
+    sessionNumber: 2,
+    toolsAdded: [
+      { name: 'ProposalPro', slug: 'proposal-pro', category: 'sales' }
+    ],
+    toolsUpdated: [
+      { name: 'OnboardFlow', changes: ['Added 4 cities: Eugene OR, Clarksville TN, Fort Wayne IN, Augusta GA — now 9 total'] },
+      { name: 'InvoiceAI', changes: ['Added 4 cities: Lubbock TX, Gainesville FL, Wilmington NC, Overland Park KS — now 9 total'] },
+      { name: 'LeadPilot', changes: ['Added 4 cities: Fargo ND, Columbia SC, Tyler TX, Athens GA — now 9 total'] },
+      { name: 'CalendarFlow', changes: ['Added 4 cities: Peoria IL, Green Bay WI, Billings MT, Corpus Christi TX — now 9 total'] },
+      { name: 'ExpenseBot', changes: ['Added 4 cities: Evansville IN, Rockford IL, Mobile AL, Murfreesboro TN — now 9 total'] }
+    ],
+    keywordsResearched: [
+      {
+        tool: 'ProposalPro',
+        keywords: ['best proposal software for small business', 'ai proposal builder', 'PandaDoc alternative', 'business proposal generator', 'proposal automation software'],
+        trending: ['AI proposal generator', 'automated quote builder', 'e-signature proposal tool']
+      }
+    ],
+    citiesAdded: [
+      { tool: 'OnboardFlow', cities: ['Eugene OR', 'Clarksville TN', 'Fort Wayne IN', 'Augusta GA'] },
+      { tool: 'InvoiceAI', cities: ['Lubbock TX', 'Gainesville FL', 'Wilmington NC', 'Overland Park KS'] },
+      { tool: 'LeadPilot', cities: ['Fargo ND', 'Columbia SC', 'Tyler TX', 'Athens GA'] },
+      { tool: 'CalendarFlow', cities: ['Peoria IL', 'Green Bay WI', 'Billings MT', 'Corpus Christi TX'] },
+      { tool: 'ExpenseBot', cities: ['Evansville IN', 'Rockford IL', 'Mobile AL', 'Murfreesboro TN'] },
+      { tool: 'ProposalPro', cities: ['Winston-Salem NC', 'Laredo TX', 'Midland TX', 'Peoria AZ', 'Cedar Rapids IA', 'Bowling Green KY', 'Odessa TX', 'Surprise AZ', 'Roanoke VA', 'Abilene TX'] }
+    ],
+    competitorChanges: [
+      { tool: 'ProposalPro', notes: 'PandaDoc at $100M+ ARR, per-seat pricing model draws consistent complaints on G2. Proposify $49/seat very expensive for SMB. QuoteWerks dated UI widely noted. 6 competitors validated with clear SMB pain points.' }
+    ],
+    seoUpdates: [
+      '20 new local SEO pages added (4 per existing tool) — 45 city pages total across 5 tools',
+      'New tool ProposalPro launches with 10 low-competition city targets (sales category gap filled)',
+      'Total city SEO pages now: 55 across 6 tools',
+      'ProposalPro targets Sales Teams audience — previously unrepresented segment'
+    ],
+    nextSessionPlan: [
+      'Build Social Media Scheduler (Marketing) — Buffer $100M ARR, Hootsuite complaints about price increases in 2025',
+      'Build PTO/Time-Off Tracker (HR) — BambooHR PTO module complaints: rigid rules, no custom accruals',
+      'Add 20 more cities across all tools (4 per tool) — expand Midwest/Southwest coverage',
+      'Refresh ProposalPro keywords — research "proposal software" question-based terms on Reddit/G2',
+      'Add OnboardFlow competitor update — Rippling raised prices Q1 2026 per community reports',
+      'Research Operations tools — no operations tools yet, high-value gap for office managers'
+    ]
   }
 ];
 
