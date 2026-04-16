@@ -137,6 +137,54 @@ export const sessionHistory: SessionEntry[] = [
       'Add OnboardFlow competitor update — Rippling raised prices Q1 2026 per community reports',
       'Research Operations tools — no operations tools yet, high-value gap for office managers'
     ]
+  },
+  {
+    sessionDate: '2026-04-16',
+    sessionNumber: 3,
+    toolsAdded: [
+      { name: 'SocialQueue', slug: 'social-queue', category: 'marketing' }
+    ],
+    toolsUpdated: [
+      { name: 'OnboardFlow', changes: ['Added 4 cities: Worcester MA, Greensboro NC, Montgomery AL, Nampa ID — now 13 total'] },
+      { name: 'InvoiceAI', changes: ['Added 4 cities: Grand Rapids MI, Waco TX, High Point NC, Bend OR — now 13 total'] },
+      { name: 'LeadPilot', changes: ['Added 4 cities: Cary NC, Salem OR, Topeka KS, Denton TX — now 13 total'] },
+      { name: 'CalendarFlow', changes: ['Added 4 cities: Providence RI, Chandler AZ, Shreveport LA, Fayetteville NC — now 13 total'] },
+      { name: 'ExpenseBot', changes: ['Added 4 cities: South Bend IN, Toledo OH, Lansing MI, Springfield IL — now 13 total'] }
+    ],
+    keywordsResearched: [
+      {
+        tool: 'SocialQueue',
+        keywords: ['best social media scheduler for small business', 'social media scheduling tool', 'AI social media post scheduler', 'Hootsuite alternative', 'Buffer alternative'],
+        trending: ['AI caption generator', 'evergreen content recycling', 'bulk post scheduling', 'TikTok scheduler']
+      }
+    ],
+    citiesAdded: [
+      { tool: 'OnboardFlow', cities: ['Worcester MA', 'Greensboro NC', 'Montgomery AL', 'Nampa ID'] },
+      { tool: 'InvoiceAI', cities: ['Grand Rapids MI', 'Waco TX', 'High Point NC', 'Bend OR'] },
+      { tool: 'LeadPilot', cities: ['Cary NC', 'Salem OR', 'Topeka KS', 'Denton TX'] },
+      { tool: 'CalendarFlow', cities: ['Providence RI', 'Chandler AZ', 'Shreveport LA', 'Fayetteville NC'] },
+      { tool: 'ExpenseBot', cities: ['South Bend IN', 'Toledo OH', 'Lansing MI', 'Springfield IL'] },
+      { tool: 'SocialQueue', cities: ['Manchester NH', 'Visalia CA', 'Chesapeake VA', 'Oxnard CA', 'Rapid City SD', 'Bismarck ND', 'Missoula MT', 'Tempe AZ', 'Lawrence KS', 'Joliet IL'] }
+    ],
+    competitorChanges: [
+      { tool: 'SocialQueue', notes: 'Hootsuite price increase from $49 to $99/mo (2024-25) is the primary acquisition angle — Reddit/G2 full of churn. Buffer cut free tier to 10 posts/channel. Sprout Social at $249-499/seat is SMB-inaccessible. 6 competitors validated with documented pain points.' },
+      { tool: 'OnboardFlow', notes: 'Rippling pricing increases Q1 2026 noted in community reports — adds to existing complaint about expensive add-ons. Competitive fix messaging updated accordingly.' }
+    ],
+    seoUpdates: [
+      '20 new local SEO city pages added (4 per base tool) — Northeast, Southeast, Midwest, Pacific NW coverage expanded',
+      'SocialQueue launches with 10 city targets across New England, West Coast, Mountain, and Midwest',
+      'Total city SEO pages now: 96 across 7 tools',
+      'SocialQueue description optimized for AEO: answers "what is the best social media scheduling tool" in first 150 words',
+      'Marketing category now has 2 tools (LeadPilot + SocialQueue) — audience: Marketing Teams'
+    ],
+    nextSessionPlan: [
+      'Build PTO/Time-Off Tracker (HR) — BambooHR PTO module still top complaint: rigid accrual rules, no custom policies',
+      'Build KPI Dashboard Builder (Operations/Productivity) — no operations tool yet, executives are highest WTP audience ($50-200/mo)',
+      'Add 20 more cities to existing tools — prioritize Pacific Northwest and New England expansion (underrepresented)',
+      'Refresh LeadPilot keywords — "AI lead scoring" trending per Product Hunt Q1 2026; swap 3 weakest keywords',
+      'Update ProposalPro competitors — research Better Proposals pricing changes and new G2 reviews',
+      'Expand SocialQueue — add TikTok-specific keywords and research agency vs SMB keyword split'
+    ]
   }
 ];
 
