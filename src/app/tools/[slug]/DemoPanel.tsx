@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface DemoPanelProps {
   slug: string;
@@ -314,6 +314,128 @@ function EmailSigDemo() {
   );
 }
 
+/* ─── Time Tracker Live Timer ─── */
+function TimeTrackerDemo() {
+  const [project, setProject] = useState('Website Redesign');
+  const [client, setClient] = useState('Acme Corp');
+  const [rate, setRate] = useState('150');
+  const [running, setRunning] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
+  const [entries, setEntries] = useState<{ project: string; client: string; seconds: number; billable: number }[]>([]);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    if (running) {
+      intervalRef.current = setInterval(() => setElapsed(e => e + 1), 1000);
+    } else {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    }
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
+  }, [running]);
+
+  const fmt = (s: number) => {
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    return [h, m, sec].map(n => String(n).padStart(2, '0')).join(':');
+  };
+
+  const billable = (elapsed / 3600) * (parseFloat(rate) || 0);
+
+  const stop = () => {
+    if (elapsed > 0) {
+      setEntries(prev => [
+        { project: project || 'Untitled', client: client || '—', seconds: elapsed, billable },
+        ...prev,
+      ].slice(0, 5));
+    }
+    setRunning(false);
+    setElapsed(0);
+  };
+
+  const totalBillable = entries.reduce((sum, e) => sum + e.billable, 0);
+
+  return (
+    <div>
+      {/* Timer controls */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))', gap: '12px', marginBottom: '16px' }}>
+        <div>
+          <label style={labelStyle}>Project</label>
+          <input type="text" value={project} onChange={e => setProject(e.target.value)} placeholder="Project name" style={inputStyle} />
+        </div>
+        <div>
+          <label style={labelStyle}>Client</label>
+          <input type="text" value={client} onChange={e => setClient(e.target.value)} placeholder="Client name" style={inputStyle} />
+        </div>
+        <div>
+          <label style={labelStyle}>Hourly Rate ($)</label>
+          <input type="number" value={rate} min="0" onChange={e => setRate(e.target.value)} style={inputStyle} />
+        </div>
+      </div>
+
+      {/* Big clock */}
+      <div style={{ textAlign: 'center', background: 'var(--bg-white)', border: '1px solid var(--border)', borderRadius: '12px', padding: '28px 20px', marginBottom: '16px' }}>
+        <div style={{ fontSize: '52px', fontWeight: 800, fontVariantNumeric: 'tabular-nums', letterSpacing: '.04em', color: running ? 'var(--green)' : 'var(--navy)', lineHeight: 1, marginBottom: '8px' }}>
+          {fmt(elapsed)}
+        </div>
+        <div style={{ fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '18px' }}>
+          {running ? `Billing at $${(parseFloat(rate) || 0).toFixed(2)}/hr · Est. $${billable.toFixed(2)} earned` : 'Timer stopped'}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+          {!running ? (
+            <button onClick={() => setRunning(true)} style={{ background: 'linear-gradient(to bottom,#2ecc71,#27ae60)', border: 'none', color: '#fff', fontWeight: 700, padding: '10px 28px', borderRadius: '6px', cursor: 'pointer', fontSize: '15px' }}>
+              ▶ Start Timer
+            </button>
+          ) : (
+            <>
+              <button onClick={() => setRunning(false)} style={{ background: 'linear-gradient(to bottom,#f39c12,#e67e22)', border: 'none', color: '#fff', fontWeight: 700, padding: '10px 20px', borderRadius: '6px', cursor: 'pointer', fontSize: '15px' }}>
+                ⏸ Pause
+              </button>
+              <button onClick={stop} style={{ background: 'linear-gradient(to bottom,#e74c3c,#c0392b)', border: 'none', color: '#fff', fontWeight: 700, padding: '10px 20px', borderRadius: '6px', cursor: 'pointer', fontSize: '15px' }}>
+                ⏹ Stop & Log
+              </button>
+            </>
+          )}
+          {!running && elapsed > 0 && (
+            <button onClick={stop} style={{ background: 'linear-gradient(to bottom,#f5c26b,#e47911)', border: '1px solid #c07600', color: '#111', fontWeight: 700, padding: '10px 20px', borderRadius: '6px', cursor: 'pointer', fontSize: '15px' }}>
+              ⏹ Log Entry
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Log */}
+      {entries.length > 0 && (
+        <div>
+          <div style={{ ...labelStyle, display: 'block', marginBottom: '8px' }}>Recent Entries</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '12px' }}>
+            {entries.map((e, i) => (
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-white)', border: '1px solid var(--border)', borderRadius: '8px', padding: '10px 14px', fontSize: '13px' }}>
+                <div>
+                  <strong>{e.project}</strong>
+                  <span style={{ color: 'var(--text-secondary)', marginLeft: '8px' }}>{e.client}</span>
+                </div>
+                <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+                  <span style={{ color: 'var(--text-secondary)' }}>{fmt(e.seconds)}</span>
+                  <span style={{ fontWeight: 700, color: 'var(--green)' }}>${e.billable.toFixed(2)}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'right', fontWeight: 700, fontSize: '14px' }}>
+            Session Total: <span style={{ color: 'var(--green)' }}>${totalBillable.toFixed(2)}</span>
+          </div>
+        </div>
+      )}
+      {entries.length === 0 && (
+        <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '4px' }}>
+          Start a timer above. Logged entries appear here — no sign-up, all in your browser.
+        </p>
+      )}
+    </div>
+  );
+}
+
 /* ─── Shared styles ─── */
 const labelStyle: React.CSSProperties = {
   display: 'block',
@@ -361,6 +483,7 @@ const demoMap: Record<string, React.ReactNode> = {
   'payroll-calc': <PayrollDemo />,
   'commission-calc': <CommissionDemo />,
   'email-sig-gen': <EmailSigDemo />,
+  'time-tracker': <TimeTrackerDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {

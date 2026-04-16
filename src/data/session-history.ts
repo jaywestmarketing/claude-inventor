@@ -309,6 +309,42 @@ export const sessionHistory: SessionEntry[] = [
       'Refresh LeadPilot keywords — "lead capture for Shopify" and "B2B lead generation 2026" trending',
       'Update CalendarFlow competitor data — Calendly raised prices in Q1 2026 per user reports'
     ]
+  },
+  {
+    sessionDate: '2026-04-16',
+    sessionNumber: 6,
+    toolsAdded: [],
+    toolsUpdated: [
+      { name: 'OnboardFlow', changes: ['Added 5 cities: Arlington VA, Alexandria VA, Trenton NJ, Toms River NJ, Elizabeth NJ — now 21 total'] },
+      { name: 'CalendarFlow', changes: ['Added 5 cities: Allentown PA, Pittsburgh PA, Erie PA, Bethlehem PA, Reading PA — now 21 total'] },
+      { name: 'ExpenseBot', changes: ['Added 5 cities: Dearborn MI, Livonia MI, Troy MI, Carmel IN, Bloomington IN — now 21 total'] },
+      { name: 'PTOTracker', changes: ['Added 5 cities: Brooklyn Park MN, Plymouth MN, St. Cloud MN, Waukesha WI, Champaign IL — now 15 total'] },
+      { name: 'TimeTracker', changes: ['Added live interactive timer demo with project/client/rate inputs, start/pause/stop/log controls, session entry log, and running billable total'] }
+    ],
+    keywordsResearched: [],
+    citiesAdded: [
+      { tool: 'OnboardFlow', cities: ['Arlington VA', 'Alexandria VA', 'Trenton NJ', 'Toms River NJ', 'Elizabeth NJ'] },
+      { tool: 'CalendarFlow', cities: ['Allentown PA', 'Pittsburgh PA', 'Erie PA', 'Bethlehem PA', 'Reading PA'] },
+      { tool: 'ExpenseBot', cities: ['Dearborn MI', 'Livonia MI', 'Troy MI', 'Carmel IN', 'Bloomington IN'] },
+      { tool: 'PTOTracker', cities: ['Brooklyn Park MN', 'Plymouth MN', 'St. Cloud MN', 'Waukesha WI', 'Champaign IL'] }
+    ],
+    competitorChanges: [],
+    seoUpdates: [
+      '20 new city SEO pages added — Mid-Atlantic (VA, NJ, PA), Midwest (MI, IN, MN, WI, IL) coverage expanded',
+      'Pennsylvania now fully represented: Allentown, Pittsburgh, Erie, Bethlehem, Reading',
+      'New Jersey added for first time: Trenton, Toms River, Elizabeth',
+      'Virginia suburbs added: Arlington, Alexandria (high-growth tech/business population)',
+      'Minnesota suburbs added: Brooklyn Park, Plymouth, St. Cloud (underserved Midwest)',
+      'TimeTracker live timer demo added — start/pause/stop, per-entry billable tracking, session total'
+    ],
+    nextSessionPlan: [
+      'Build InventoryTracker (Operations) — Sortly/inFlow G2 complaints: complex setup, no SMB free tier',
+      'Build FormBuilder (Marketing) — Typeform $50/mo complaints; JotForm feature-gating frustration on Reddit',
+      'Add ContractGen template preview demo — show NDA template with auto-fill variables',
+      'Add 20 more cities — prioritize Ohio suburbs (Westerville, Hilliard, Dublin OH), Georgia metros (Alpharetta, Marietta GA)',
+      'Refresh CalendarFlow competitor data — Calendly raised prices Q1 2026 per user reports',
+      'Refresh LeadPilot keywords — "lead capture for Shopify" and "B2B lead generation 2026" trending'
+    ]
   }
 ];
 
