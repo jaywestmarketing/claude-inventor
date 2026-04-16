@@ -312,6 +312,51 @@ export const sessionHistory: SessionEntry[] = [
   }
 ];
 
+  {
+    sessionDate: '2026-04-16',
+    sessionNumber: 6,
+    toolsAdded: [
+      { name: 'InventoryTracker', slug: 'inventory-tracker', category: 'operations' }
+    ],
+    toolsUpdated: [
+      { name: 'PTOTracker', changes: ['Added 7 cities: Allentown PA, Erie PA, Franklin TN, Hoover AL, Lake Charles LA, Davenport IA, Edmond OK — now 17 total'] },
+      { name: 'KPIDash', changes: ['Added 7 cities: Beaverton OR, Hillsboro OR, Gresham OR, Las Cruces NM, Santa Fe NM, Rio Rancho NM, North Las Vegas NV — now 17 total'] },
+      { name: 'MeetingNotesAI', changes: ['Added 6 cities: Bellevue WA, Federal Way WA, Spokane Valley WA, Roseville CA, Modesto CA, Stockton CA — now 16 total'] }
+    ],
+    keywordsResearched: [
+      {
+        tool: 'InventoryTracker',
+        keywords: ['inventory management software for small business', 'free inventory management software', 'Sortly alternative', 'inFlow alternative', 'barcode inventory scanning free'],
+        trending: ['no-free-tier Sortly complaints 2025', 'Fishbowl cost too high for SMB', 'inventory reorder alert automation']
+      }
+    ],
+    citiesAdded: [
+      { tool: 'PTOTracker', cities: ['Allentown PA', 'Erie PA', 'Franklin TN', 'Hoover AL', 'Lake Charles LA', 'Davenport IA', 'Edmond OK'] },
+      { tool: 'KPIDash', cities: ['Beaverton OR', 'Hillsboro OR', 'Gresham OR', 'Las Cruces NM', 'Santa Fe NM', 'Rio Rancho NM', 'North Las Vegas NV'] },
+      { tool: 'MeetingNotesAI', cities: ['Bellevue WA', 'Federal Way WA', 'Spokane Valley WA', 'Roseville CA', 'Modesto CA', 'Stockton CA'] },
+      { tool: 'InventoryTracker', cities: ['Fontana CA', 'Riverside CA', 'Fremont CA', 'Irvine CA', 'Clovis CA', 'Jonesboro AR', 'Springdale AR', 'Auburn AL', 'Carmel IN', 'Fishers IN'] }
+    ],
+    competitorChanges: [
+      { tool: 'InventoryTracker', notes: 'Sortly $49/mo minimum with no free tier is primary acquisition angle. inFlow $89-399/mo with complex setup. Fishbowl $4,395+ license overkill for SMB. Zoho Inventory multi-warehouse locked to expensive tiers. Square and Lightspeed are POS-first with weak standalone inventory. 6 competitors validated with documented SMB complaints.' }
+    ],
+    seoUpdates: [
+      '20 new city SEO pages added across PTOTracker (7), KPIDash (7), MeetingNotesAI (6) — Pacific NW (OR), Southwest (NM/NV), Mid-Atlantic (PA), Southeast (TN/AL) coverage expanded',
+      'InventoryTracker launches with 10 new city targets: SoCal logistics hubs (Fontana, Riverside, Fremont, Irvine, Clovis), Arkansas (Jonesboro, Springdale), Alabama (Auburn), Indiana (Carmel, Fishers)',
+      'InventoryTracker interactive demo: live inventory table with low-stock badge alerts, COGS/value summary cards, add-item form',
+      'Total: 20 tools, 340+ city SEO pages',
+      'Operations category now has 3 tools: KPIDash, HelpDeskAI, InventoryTracker'
+    ],
+    nextSessionPlan: [
+      'Build FormBuilder (Marketing) — Typeform $50/mo complaints widespread on Reddit; JotForm feature-gating free tier drives churn; strong acquisition angle',
+      'Build JobDescriptionGen (HR) — Textio/Ongig inaccessible for SMB; generic JD generators lack compliance language; HR managers top WTP segment',
+      'Add interactive demo for TimeTracker (live running timer with project tagging)',
+      'Add interactive demo for ContractGen (template preview with auto-fill variables)',
+      'Add 20 more cities — prioritize PayrollCalc (CT/NH heavy, balance with Midwest), HelpDeskAI (Great Lakes gaps), EmailSigGen (too CA-heavy, add Southeast)',
+      'Refresh CalendarFlow keywords — Calendly raised prices Q1 2026; update competitor data and add "Calendly price increase 2026" keyword'
+    ]
+  }
+];
+
 /**
  * INSTRUCTIONS FOR NEXT SESSION:
  *
