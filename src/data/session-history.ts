@@ -185,6 +185,82 @@ export const sessionHistory: SessionEntry[] = [
       'Update ProposalPro competitors — research Better Proposals pricing changes and new G2 reviews',
       'Expand SocialQueue — add TikTok-specific keywords and research agency vs SMB keyword split'
     ]
+  },
+  {
+    sessionDate: '2026-04-16',
+    sessionNumber: 4,
+    toolsAdded: [
+      { name: 'PTOTracker', slug: 'pto-tracker', category: 'hr' },
+      { name: 'KPIDash', slug: 'kpi-dash', category: 'operations' },
+      { name: 'MeetingNotesAI', slug: 'meeting-notes-ai', category: 'productivity' },
+      { name: 'PayrollCalc', slug: 'payroll-calc', category: 'finance' },
+      { name: 'HelpDeskAI', slug: 'help-desk-ai', category: 'operations' },
+      { name: 'EmailSigGen', slug: 'email-sig-gen', category: 'marketing' },
+      { name: 'DocTemplates', slug: 'doc-templates', category: 'productivity' },
+      { name: 'ClientPortal', slug: 'client-portal', category: 'sales' },
+      { name: 'CommissionCalc', slug: 'commission-calc', category: 'sales' },
+      { name: 'EmailCampaigns', slug: 'email-campaigns', category: 'marketing' }
+    ],
+    toolsUpdated: [
+      { name: 'OnboardFlow', changes: ['Added 3 cities: Chico CA, San Angelo TX, Johnson City TN — now 16 total'] },
+      { name: 'InvoiceAI', changes: ['Added 3 cities: Lancaster CA, Allen TX, Norman OK — now 16 total'] },
+      { name: 'LeadPilot', changes: ['Added 3 cities: Huntington Beach CA, Cedar Park TX, Broken Arrow OK — now 16 total'] },
+      { name: 'CalendarFlow', changes: ['Added 3 cities: Simi Valley CA, League City TX, Norwalk CT — now 16 total'] },
+      { name: 'ExpenseBot', changes: ['Added 3 cities: Pomona CA, Carrollton TX, Parma OH — now 16 total'] },
+      { name: 'ProposalPro', changes: ['Added 3 cities: Palmdale CA, Pasadena TX, Clearwater FL — now 13 total'] },
+      { name: 'SocialQueue', changes: ['Added 2 cities: Elk Grove CA, New Bedford MA — now 14 total'] }
+    ],
+    keywordsResearched: [
+      { tool: 'PTOTracker', keywords: ['pto tracker software', 'leave management automation', 'BambooHR alternative pto'], trending: ['custom accrual policies', 'FMLA compliance software'] },
+      { tool: 'KPIDash', keywords: ['kpi dashboard software', 'Tableau alternative for small business', 'operations reporting software'], trending: ['real-time business metrics', 'no-code dashboard builder'] },
+      { tool: 'MeetingNotesAI', keywords: ['ai meeting notes summarizer', 'action item extractor', 'meeting recap generator'], trending: ['AI action items from meetings', 'speaker attribution'] },
+      { tool: 'PayrollCalc', keywords: ['payroll calculator for small business', 'gross to net pay calculator', 'free pay stub generator'], trending: ['all 50 state payroll calc', 'net pay after taxes'] },
+      { tool: 'HelpDeskAI', keywords: ['helpdesk software for small business', 'Zendesk alternative', 'ai ticket routing'], trending: ['AI reply suggestions', 'self-service knowledge base'] },
+      { tool: 'EmailSigGen', keywords: ['email signature generator', 'Exclaimer alternative', 'team email signature'], trending: ['bulk signature deployment', 'branded email signatures'] },
+      { tool: 'DocTemplates', keywords: ['document template library', 'auto fill document templates', 'hr document templates'], trending: ['bulk document generation', 'smart document auto-fill'] },
+      { tool: 'ClientPortal', keywords: ['client portal software', 'white-label client portal', 'SuiteDash alternative'], trending: ['agency client portal', 'branded client experience'] },
+      { tool: 'CommissionCalc', keywords: ['sales commission calculator', 'commission tracking software', 'Spiff alternative'], trending: ['rep-facing commission dashboard', 'commission dispute tracking'] },
+      { tool: 'EmailCampaigns', keywords: ['Mailchimp alternative', 'email marketing automation', 'best email marketing 2026'], trending: ['email deliverability tools', 'email list segmentation'] }
+    ],
+    citiesAdded: [
+      { tool: 'OnboardFlow', cities: ['Chico CA', 'San Angelo TX', 'Johnson City TN'] },
+      { tool: 'InvoiceAI', cities: ['Lancaster CA', 'Allen TX', 'Norman OK'] },
+      { tool: 'LeadPilot', cities: ['Huntington Beach CA', 'Cedar Park TX', 'Broken Arrow OK'] },
+      { tool: 'CalendarFlow', cities: ['Simi Valley CA', 'League City TX', 'Norwalk CT'] },
+      { tool: 'ExpenseBot', cities: ['Pomona CA', 'Carrollton TX', 'Parma OH'] },
+      { tool: 'ProposalPro', cities: ['Palmdale CA', 'Pasadena TX', 'Clearwater FL'] },
+      { tool: 'SocialQueue', cities: ['Elk Grove CA', 'New Bedford MA'] },
+      { tool: 'PTOTracker', cities: ['Lancaster PA', 'Tuscaloosa AL', 'Jackson MS', 'Macon GA', 'Concord NC', 'Lincoln NE', 'Appleton WI', 'Lakewood CO', 'Henderson NV', 'Sparks NV'] },
+      { tool: 'KPIDash', cities: ['Norfolk VA', 'Richmond VA', 'Hampton VA', 'Killeen TX', 'Amarillo TX', 'McKinney TX', 'Lafayette LA', 'Beaumont TX', 'Meridian ID', 'Olathe KS'] },
+      { tool: 'MeetingNotesAI', cities: ['Tacoma WA', 'Vancouver WA', 'Springfield MA', 'Lowell MA', 'Aurora IL', 'Elgin IL', 'Racine WI', 'Rochester MN', 'Ann Arbor MI', 'Kalamazoo MI'] },
+      { tool: 'PayrollCalc', cities: ['Garland TX', 'Irving TX', 'Round Rock TX', 'Sugar Land TX', 'Frisco TX', 'McAllen TX', 'Nashua NH', 'Hartford CT', 'New Haven CT', 'Waterbury CT'] },
+      { tool: 'HelpDeskAI', cities: ['Naperville IL', 'Waukegan IL', 'Warren MI', 'Flint MI', 'Sterling Heights MI', 'Canton OH', 'Terre Haute IN', 'Sioux City IA', 'Iowa City IA', 'Kansas City KS'] },
+      { tool: 'EmailSigGen', cities: ['Ontario CA', 'Rancho Cucamonga CA', 'Santa Rosa CA', 'Santa Clarita CA', 'Thousand Oaks CA', 'Corona CA', 'Escondido CA', 'Oceanside CA', 'Pasadena CA', 'Torrance CA'] },
+      { tool: 'DocTemplates', cities: ['Gastonia NC', 'Jacksonville NC', 'Rock Hill SC', 'Charleston SC', 'North Charleston SC', 'Columbus GA', 'Warner Robins GA', 'Dothan AL', 'Gulfport MS', 'Lynchburg VA'] },
+      { tool: 'ClientPortal', cities: ['Newport News VA', 'Suffolk VA', 'Frederick MD', 'Bridgeport CT', 'Stamford CT', 'West Valley City UT', 'Ogden UT', 'St. George UT', 'Orem UT', 'Pueblo CO'] },
+      { tool: 'CommissionCalc', cities: ['Longview TX', 'Mesquite TX', 'Richardson TX', 'Pearland TX', 'Everett WA', 'Bellingham WA', 'Medford OR', 'Yuma AZ', 'Flagstaff AZ', 'Glendale AZ'] },
+      { tool: 'EmailCampaigns', cities: ['Duluth MN', 'Bloomington MN', 'Kenosha WI', 'Thornton CO', 'Westminster CO', 'Arvada CO', 'Quincy MA', 'Lynn MA', 'Brockton MA', 'New Britain CT'] }
+    ],
+    competitorChanges: [
+      { tool: 'EmailCampaigns', notes: 'Mailchimp raised prices twice (2022, 2024); free tier cut from 2,000 to 500 contacts. Strong acquisition angle for churned Mailchimp users.' },
+      { tool: 'HelpDeskAI', notes: 'Zendesk 2024 pricing increase to $115/agent/mo driving SMB churn. Intercom at $374+/mo completely inaccessible for small teams.' },
+      { tool: 'CommissionCalc', notes: 'Spiff and CaptivateIQ both enterprise-only in practice. Large gap for SMB sales teams under 50 reps.' }
+    ],
+    seoUpdates: [
+      '100 new city SEO pages added (10 per new tool) — covers Southeast, Midwest, Pacific NW, Southwest, New England',
+      '20 additional cities added to 7 existing tools — West Coast and Oklahoma expansion',
+      'Total city SEO pages: 227 across 17 tools (was 97 across 7 tools)',
+      'All 10 new tools optimized for AEO: "what is the best X" answered in first 150 words of description',
+      'Operations category now active with KPIDash + HelpDeskAI — fills last major gap'
+    ],
+    nextSessionPlan: [
+      'Add interactive demos for top 3 tools: PayrollCalc (working calculator), CommissionCalc (tier builder), EmailSigGen (live preview)',
+      'Build TimeTracker tool (Productivity) — Toggl redesign complaints trending on Reddit; Harvest pricing complaints',
+      'Build ContractGen tool (Sales/Legal) — DocuSign $25/user complaints; HelloSign acquisition pricing issues',
+      'Add 20 more cities to existing tools — prioritize Texas metro suburbs and Mountain West gaps',
+      'Refresh OnboardFlow keywords — "remote onboarding software" trending in 2026 hiring market',
+      'Update HelpDeskAI with Intercom price increase details — research latest G2 reviews'
+    ]
   }
 ];
 
