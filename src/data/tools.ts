@@ -103,7 +103,11 @@ export const tools: Tool[] = [
       { city: 'Eugene', state: 'OR', population: '176,000', competitionLevel: 'low' },
       { city: 'Clarksville', state: 'TN', population: '166,000', competitionLevel: 'low' },
       { city: 'Fort Wayne', state: 'IN', population: '270,000', competitionLevel: 'low' },
-      { city: 'Augusta', state: 'GA', population: '202,000', competitionLevel: 'low' }
+      { city: 'Augusta', state: 'GA', population: '202,000', competitionLevel: 'low' },
+      { city: 'Ann Arbor', state: 'MI', population: '121,000', competitionLevel: 'low' },
+      { city: 'Denton', state: 'TX', population: '139,000', competitionLevel: 'low' },
+      { city: 'Pueblo', state: 'CO', population: '111,000', competitionLevel: 'low' },
+      { city: 'High Point', state: 'NC', population: '113,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -173,7 +177,11 @@ export const tools: Tool[] = [
       { city: 'Lubbock', state: 'TX', population: '258,000', competitionLevel: 'low' },
       { city: 'Gainesville', state: 'FL', population: '133,000', competitionLevel: 'low' },
       { city: 'Wilmington', state: 'NC', population: '123,000', competitionLevel: 'low' },
-      { city: 'Overland Park', state: 'KS', population: '194,000', competitionLevel: 'low' }
+      { city: 'Overland Park', state: 'KS', population: '194,000', competitionLevel: 'low' },
+      { city: 'Amarillo', state: 'TX', population: '200,000', competitionLevel: 'low' },
+      { city: 'Cape Coral', state: 'FL', population: '195,000', competitionLevel: 'low' },
+      { city: 'Visalia', state: 'CA', population: '135,000', competitionLevel: 'low' },
+      { city: 'Macon', state: 'GA', population: '157,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -243,7 +251,11 @@ export const tools: Tool[] = [
       { city: 'Fargo', state: 'ND', population: '125,000', competitionLevel: 'low' },
       { city: 'Columbia', state: 'SC', population: '136,000', competitionLevel: 'low' },
       { city: 'Tyler', state: 'TX', population: '105,000', competitionLevel: 'low' },
-      { city: 'Athens', state: 'GA', population: '127,000', competitionLevel: 'low' }
+      { city: 'Athens', state: 'GA', population: '127,000', competitionLevel: 'low' },
+      { city: 'Grand Rapids', state: 'MI', population: '196,000', competitionLevel: 'low' },
+      { city: 'Shreveport', state: 'LA', population: '185,000', competitionLevel: 'low' },
+      { city: 'Rancho Cucamonga', state: 'CA', population: '180,000', competitionLevel: 'low' },
+      { city: 'Tempe', state: 'AZ', population: '192,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -313,7 +325,11 @@ export const tools: Tool[] = [
       { city: 'Peoria', state: 'IL', population: '113,000', competitionLevel: 'low' },
       { city: 'Green Bay', state: 'WI', population: '107,000', competitionLevel: 'low' },
       { city: 'Billings', state: 'MT', population: '117,000', competitionLevel: 'low' },
-      { city: 'Corpus Christi', state: 'TX', population: '317,000', competitionLevel: 'medium' }
+      { city: 'Corpus Christi', state: 'TX', population: '317,000', competitionLevel: 'medium' },
+      { city: 'Champaign', state: 'IL', population: '88,000', competitionLevel: 'low' },
+      { city: 'South Bend', state: 'IN', population: '103,000', competitionLevel: 'low' },
+      { city: 'Longmont', state: 'CO', population: '92,000', competitionLevel: 'low' },
+      { city: 'Racine', state: 'WI', population: '78,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -383,7 +399,11 @@ export const tools: Tool[] = [
       { city: 'Evansville', state: 'IN', population: '118,000', competitionLevel: 'low' },
       { city: 'Rockford', state: 'IL', population: '148,000', competitionLevel: 'low' },
       { city: 'Mobile', state: 'AL', population: '187,000', competitionLevel: 'low' },
-      { city: 'Murfreesboro', state: 'TN', population: '147,000', competitionLevel: 'low' }
+      { city: 'Murfreesboro', state: 'TN', population: '147,000', competitionLevel: 'low' },
+      { city: 'Montgomery', state: 'AL', population: '200,000', competitionLevel: 'low' },
+      { city: 'Lansing', state: 'MI', population: '112,000', competitionLevel: 'low' },
+      { city: 'Syracuse', state: 'NY', population: '148,000', competitionLevel: 'low' },
+      { city: 'Columbus', state: 'GA', population: '200,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -460,6 +480,78 @@ export const tools: Tool[] = [
     dateAdded: '2026-04-16',
     waitlistCount: 0,
     slug: 'proposal-pro'
+  },
+  {
+    id: 'social-media-scheduler',
+    name: 'PostFlow',
+    tagline: 'Schedule posts to every platform, amplify what works, and grow without the grind',
+    description: 'PostFlow is a social media scheduling software that lets you plan, schedule, and auto-publish content to LinkedIn, Instagram, Facebook, Twitter/X, TikTok, and Pinterest from a single dashboard. Stop paying $99+/month for tools that raised prices overnight — PostFlow gives small business owners and marketing teams powerful social media automation at a fraction of the cost of Hootsuite or Sprout Social. What is PostFlow? It is the best social media scheduler for small business teams who want consistent posting without the manual effort.',
+    category: 'marketing',
+    status: 'demo',
+    icon: '📱',
+    features: [
+      'Schedule to LinkedIn, Instagram, Facebook, Twitter/X, TikTok, and Pinterest from one dashboard',
+      'AI caption generator — write platform-optimized copy from a 1-sentence brief',
+      'Best-time-to-post AI that learns your audience engagement patterns per platform',
+      'Visual content calendar with drag-and-drop rescheduling',
+      'One-click content recycling — automatically reshare top-performing posts',
+      'Bulk CSV upload to schedule up to 500 posts at once',
+      'Hashtag performance tracker with suggested sets per platform',
+      'Team collaboration with approval workflows and role-based permissions'
+    ],
+    keywords: [
+      'best social media scheduler 2026',
+      'social media scheduling software',
+      'free social media scheduler for small business',
+      'social media automation tool',
+      'social media post scheduler',
+      'Hootsuite alternative',
+      'Buffer alternative',
+      'cheaper than Sprout Social',
+      'Later alternative',
+      'Publer alternative',
+      'bulk social media post scheduler',
+      'multi-platform social media tool',
+      'social media content calendar free',
+      'small business social media scheduler',
+      'LinkedIn Facebook scheduler tool',
+      'how to schedule social media posts automatically',
+      'what is the best free social media scheduler',
+      'how to automate social media posting for small business',
+      'how do I schedule posts to multiple platforms at once',
+      'what is the cheapest alternative to Hootsuite'
+    ],
+    competitors: [
+      { name: 'Hootsuite', priceRange: '$99-$249+/mo', topComplaint: 'Jumped from $29 to $99/month overnight in 2023 with no warning — thousands of users cancelled on Reddit r/socialmedia' },
+      { name: 'Buffer', priceRange: '$6-$120/mo', topComplaint: 'Twitter/X scheduling is unreliable, analytics are basic, Professional tier too expensive for small teams (G2)' },
+      { name: 'Sprout Social', priceRange: '$199-$399/seat/mo', topComplaint: 'Absurdly expensive per-seat pricing, difficult cancellation process, overkill for SMBs (G2 reviews)' },
+      { name: 'Later', priceRange: '$18-$80/mo', topComplaint: 'LinkedIn and Pinterest scheduling limited, analytics are shallow, desktop experience awkward for non-visual content' },
+      { name: 'Zoho Social', priceRange: '$10-$40/mo', topComplaint: 'Feels like an afterthought inside the Zoho ecosystem, buggy Android app, limited AI features (Capterra)' },
+      { name: 'Publer', priceRange: '$12-$104/mo', topComplaint: 'AI writer produces generic content, occasional posting failures on Instagram, analytics lack depth (G2)' }
+    ],
+    competitorFixes: [
+      'Transparent, stable pricing — we commit in writing never to raise prices more than 10% per year',
+      'Publish to all 6 major platforms reliably — LinkedIn, Instagram, Facebook, Twitter/X, TikTok, Pinterest — from one queue',
+      'AI caption generator produces platform-native copy: short punchy text for Twitter/X, hashtag-rich for Instagram, professional tone for LinkedIn',
+      'Content recycling engine automatically resurfaces your highest-engagement posts so evergreen content keeps working',
+      'No per-seat pricing traps — flat team plan covers up to 5 users at one monthly price',
+      'Best-time-to-post AI analyzes your past engagement data and schedules new posts at statistically optimal windows per platform'
+    ],
+    targetCities: [
+      { city: 'Scottsdale', state: 'AZ', population: '258,000', competitionLevel: 'low' },
+      { city: 'Glendale', state: 'AZ', population: '250,000', competitionLevel: 'low' },
+      { city: 'Waco', state: 'TX', population: '136,000', competitionLevel: 'low' },
+      { city: 'Mesquite', state: 'TX', population: '143,000', competitionLevel: 'low' },
+      { city: 'Miramar', state: 'FL', population: '134,000', competitionLevel: 'low' },
+      { city: 'North Charleston', state: 'SC', population: '113,000', competitionLevel: 'low' },
+      { city: 'Jackson', state: 'MS', population: '153,000', competitionLevel: 'low' },
+      { city: 'Allentown', state: 'PA', population: '122,000', competitionLevel: 'low' },
+      { city: 'Manchester', state: 'NH', population: '115,000', competitionLevel: 'low' },
+      { city: 'Springfield', state: 'MA', population: '155,000', competitionLevel: 'low' }
+    ],
+    dateAdded: '2026-04-16',
+    waitlistCount: 0,
+    slug: 'post-flow'
   }
 ];
 
@@ -492,6 +584,21 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'ProposalPro', cities: ['Winston-Salem, NC', 'Laredo, TX', 'Midland, TX', 'Peoria, AZ', 'Cedar Rapids, IA', 'Bowling Green, KY', 'Odessa, TX', 'Surprise, AZ', 'Roanoke, VA', 'Abilene, TX'] }
     ],
     researchNotes: 'Session 2: Added 20 new optimized low-competition cities (4 per existing tool) for local SEO compounding. Built ProposalPro (Sales) targeting PandaDoc ($100M ARR) and Proposify pain points. Sales category was 0/5 tools — highest-priority gap. 6 competitors validated: PandaDoc, Proposify, QuoteWerks, GetAccept, Better Proposals, Qwilr.'
+  },
+  {
+    date: '2026-04-16',
+    toolsAdded: ['PostFlow'],
+    toolsUpdated: ['OnboardFlow', 'InvoiceAI', 'LeadPilot', 'CalendarFlow', 'ExpenseBot'],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'OnboardFlow', cities: ['Ann Arbor, MI', 'Denton, TX', 'Pueblo, CO', 'High Point, NC'] },
+      { tool: 'InvoiceAI', cities: ['Amarillo, TX', 'Cape Coral, FL', 'Visalia, CA', 'Macon, GA'] },
+      { tool: 'LeadPilot', cities: ['Grand Rapids, MI', 'Shreveport, LA', 'Rancho Cucamonga, CA', 'Tempe, AZ'] },
+      { tool: 'CalendarFlow', cities: ['Champaign, IL', 'South Bend, IN', 'Longmont, CO', 'Racine, WI'] },
+      { tool: 'ExpenseBot', cities: ['Montgomery, AL', 'Lansing, MI', 'Syracuse, NY', 'Columbus, GA'] },
+      { tool: 'PostFlow', cities: ['Scottsdale, AZ', 'Glendale, AZ', 'Waco, TX', 'Mesquite, TX', 'Miramar, FL', 'North Charleston, SC', 'Jackson, MS', 'Allentown, PA', 'Manchester, NH', 'Springfield, MA'] }
+    ],
+    researchNotes: 'Session 3: Added 20 new optimized low-competition cities (4 per existing tool) — all unique, 78K–200K population, geographic diversity across Midwest/South/Northeast/Southwest. Built PostFlow (Marketing) — social media scheduler targeting Hootsuite ($300M+ ARR, infamous 2023 price jump from $29→$99/mo) and Buffer/Sprout Social pain points. Marketing category now has 2 tools. 6 competitors validated: Hootsuite, Buffer, Sprout Social, Later, Zoho Social, Publer.'
   }
 ];
 

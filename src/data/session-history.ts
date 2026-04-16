@@ -137,6 +137,52 @@ export const sessionHistory: SessionEntry[] = [
       'Add OnboardFlow competitor update — Rippling raised prices Q1 2026 per community reports',
       'Research Operations tools — no operations tools yet, high-value gap for office managers'
     ]
+  },
+  {
+    sessionDate: '2026-04-16',
+    sessionNumber: 3,
+    toolsAdded: [
+      { name: 'PostFlow', slug: 'post-flow', category: 'marketing' }
+    ],
+    toolsUpdated: [
+      { name: 'OnboardFlow', changes: ['Added 4 cities: Ann Arbor MI, Denton TX, Pueblo CO, High Point NC — now 13 total'] },
+      { name: 'InvoiceAI', changes: ['Added 4 cities: Amarillo TX, Cape Coral FL, Visalia CA, Macon GA — now 13 total'] },
+      { name: 'LeadPilot', changes: ['Added 4 cities: Grand Rapids MI, Shreveport LA, Rancho Cucamonga CA, Tempe AZ — now 13 total'] },
+      { name: 'CalendarFlow', changes: ['Added 4 cities: Champaign IL, South Bend IN, Longmont CO, Racine WI — now 13 total'] },
+      { name: 'ExpenseBot', changes: ['Added 4 cities: Montgomery AL, Lansing MI, Syracuse NY, Columbus GA — now 13 total'] }
+    ],
+    keywordsResearched: [
+      {
+        tool: 'PostFlow',
+        keywords: ['best social media scheduler 2026', 'Hootsuite alternative', 'Buffer alternative', 'bulk social media post scheduler', 'how to schedule social media posts automatically'],
+        trending: ['social media content calendar free', 'AI caption generator', 'cheaper than Sprout Social']
+      }
+    ],
+    citiesAdded: [
+      { tool: 'OnboardFlow', cities: ['Ann Arbor MI', 'Denton TX', 'Pueblo CO', 'High Point NC'] },
+      { tool: 'InvoiceAI', cities: ['Amarillo TX', 'Cape Coral FL', 'Visalia CA', 'Macon GA'] },
+      { tool: 'LeadPilot', cities: ['Grand Rapids MI', 'Shreveport LA', 'Rancho Cucamonga CA', 'Tempe AZ'] },
+      { tool: 'CalendarFlow', cities: ['Champaign IL', 'South Bend IN', 'Longmont CO', 'Racine WI'] },
+      { tool: 'ExpenseBot', cities: ['Montgomery AL', 'Lansing MI', 'Syracuse NY', 'Columbus GA'] },
+      { tool: 'PostFlow', cities: ['Scottsdale AZ', 'Glendale AZ', 'Waco TX', 'Mesquite TX', 'Miramar FL', 'North Charleston SC', 'Jackson MS', 'Allentown PA', 'Manchester NH', 'Springfield MA'] }
+    ],
+    competitorChanges: [
+      { tool: 'PostFlow', notes: 'Hootsuite raised prices from $29→$99/mo in 2023 — still top Reddit complaint. Sprout Social at $199-$399/seat, consistent G2 complaints about cancellation difficulty. Buffer unreliable on Twitter/X per G2 Q1 2026 reviews. 6 competitors validated.' }
+    ],
+    seoUpdates: [
+      '20 new local SEO city pages added (4 per existing tool) — 85 city pages total across 6 tools',
+      'PostFlow launches with 10 new city targets (Marketing category second tool)',
+      'Total city SEO pages now: 95 across 7 tools',
+      'PostFlow Hootsuite/Buffer alternative keywords capture high-volume price-rage traffic'
+    ],
+    nextSessionPlan: [
+      'Build PTO/Time-Off Tracker (HR) — BambooHR PTO module top complaint: rigid accrual rules, no custom policies; Tracktime24 and TimeOffManager both under $10/user with weak UIs',
+      'Build Helpdesk Ticketing (Operations) — Zendesk $55-$115/agent/mo, Freshdesk complaints about slow automation, no operations tools yet in dashboard',
+      'Add 20 more cities across all tools (4 per existing tool, 2 per new tools) — expand Northeast/Pacific Northwest',
+      'Refresh LeadPilot keywords — "AI lead scoring" trending per G2 category data Q1 2026',
+      'Update OnboardFlow competitor data — Rippling confirmed price increase Q1 2026',
+      'Research commission calculator tools — Commission Tracker and Spiff both have active Reddit complaint threads'
+    ]
   }
 ];
 
