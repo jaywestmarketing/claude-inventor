@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { tools } from '@/data/tools';
 
+export const dynamic = 'force-static';
+
 function citySlug(city: string, state: string): string {
   return `${city.toLowerCase().replace(/\s+/g, '-')}-${state.toLowerCase()}`;
 }
