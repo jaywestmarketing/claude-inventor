@@ -1,22 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'export',        // fully static — no server required
+  trailingSlash: true,     // /tools/slug/ → correct Netlify routing
   poweredByHeader: false,
   compress: true,
   images: {
-    formats: ['image/avif', 'image/webp'],
+    unoptimized: true,     // required for static export (no image server)
   },
-  headers: async () => [
-    {
-      source: '/(.*)',
-      headers: [
-        { key: 'X-Content-Type-Options', value: 'nosniff' },
-        { key: 'X-Frame-Options', value: 'DENY' },
-        { key: 'X-XSS-Protection', value: '1; mode=block' },
-        { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-      ],
-    },
-  ],
 };
 
 module.exports = nextConfig;
