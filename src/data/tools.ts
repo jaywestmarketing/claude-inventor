@@ -110,7 +110,12 @@ export const tools: Tool[] = [
       { city: 'Nampa', state: 'ID', population: '100,000', competitionLevel: 'low' },
       { city: 'Chico', state: 'CA', population: '101,000', competitionLevel: 'low' },
       { city: 'San Angelo', state: 'TX', population: '99,000', competitionLevel: 'low' },
-      { city: 'Johnson City', state: 'TN', population: '71,000', competitionLevel: 'low' }
+      { city: 'Johnson City', state: 'TN', population: '71,000', competitionLevel: 'low' },
+      { city: 'Arlington', state: 'VA', population: '237,000', competitionLevel: 'low' },
+      { city: 'Alexandria', state: 'VA', population: '160,000', competitionLevel: 'low' },
+      { city: 'Trenton', state: 'NJ', population: '90,000', competitionLevel: 'low' },
+      { city: 'Toms River', state: 'NJ', population: '96,000', competitionLevel: 'low' },
+      { city: 'Elizabeth', state: 'NJ', population: '128,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -351,7 +356,12 @@ export const tools: Tool[] = [
       { city: 'Fayetteville', state: 'NC', population: '208,000', competitionLevel: 'low' },
       { city: 'Simi Valley', state: 'CA', population: '126,000', competitionLevel: 'low' },
       { city: 'League City', state: 'TX', population: '111,000', competitionLevel: 'low' },
-      { city: 'Norwalk', state: 'CT', population: '90,000', competitionLevel: 'low' }
+      { city: 'Norwalk', state: 'CT', population: '90,000', competitionLevel: 'low' },
+      { city: 'Allentown', state: 'PA', population: '125,000', competitionLevel: 'low' },
+      { city: 'Pittsburgh', state: 'PA', population: '303,000', competitionLevel: 'medium' },
+      { city: 'Erie', state: 'PA', population: '96,000', competitionLevel: 'low' },
+      { city: 'Bethlehem', state: 'PA', population: '75,000', competitionLevel: 'low' },
+      { city: 'Reading', state: 'PA', population: '95,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -428,7 +438,12 @@ export const tools: Tool[] = [
       { city: 'Springfield', state: 'IL', population: '116,000', competitionLevel: 'low' },
       { city: 'Pomona', state: 'CA', population: '149,000', competitionLevel: 'low' },
       { city: 'Carrollton', state: 'TX', population: '133,000', competitionLevel: 'low' },
-      { city: 'Parma', state: 'OH', population: '80,000', competitionLevel: 'low' }
+      { city: 'Parma', state: 'OH', population: '80,000', competitionLevel: 'low' },
+      { city: 'Dearborn', state: 'MI', population: '96,000', competitionLevel: 'low' },
+      { city: 'Livonia', state: 'MI', population: '94,000', competitionLevel: 'low' },
+      { city: 'Troy', state: 'MI', population: '84,000', competitionLevel: 'low' },
+      { city: 'Carmel', state: 'IN', population: '105,000', competitionLevel: 'low' },
+      { city: 'Bloomington', state: 'IN', population: '84,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -658,7 +673,12 @@ export const tools: Tool[] = [
       { city: 'Appleton', state: 'WI', population: '76,000', competitionLevel: 'low' },
       { city: 'Lakewood', state: 'CO', population: '160,000', competitionLevel: 'low' },
       { city: 'Henderson', state: 'NV', population: '322,000', competitionLevel: 'low' },
-      { city: 'Sparks', state: 'NV', population: '104,000', competitionLevel: 'low' }
+      { city: 'Sparks', state: 'NV', population: '104,000', competitionLevel: 'low' },
+      { city: 'Brooklyn Park', state: 'MN', population: '80,000', competitionLevel: 'low' },
+      { city: 'Plymouth', state: 'MN', population: '81,000', competitionLevel: 'low' },
+      { city: 'St. Cloud', state: 'MN', population: '71,000', competitionLevel: 'low' },
+      { city: 'Waukesha', state: 'WI', population: '73,000', competitionLevel: 'low' },
+      { city: 'Champaign', state: 'IL', population: '90,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
