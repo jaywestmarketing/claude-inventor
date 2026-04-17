@@ -27,6 +27,7 @@ export interface CityTarget {
   state: string;
   population: string;
   competitionLevel: 'low' | 'medium';
+  localContext?: string;
 }
 
 export interface SessionLog {
@@ -658,7 +659,11 @@ export const tools: Tool[] = [
       { city: 'Appleton', state: 'WI', population: '76,000', competitionLevel: 'low' },
       { city: 'Lakewood', state: 'CO', population: '160,000', competitionLevel: 'low' },
       { city: 'Henderson', state: 'NV', population: '322,000', competitionLevel: 'low' },
-      { city: 'Sparks', state: 'NV', population: '104,000', competitionLevel: 'low' }
+      { city: 'Sparks', state: 'NV', population: '104,000', competitionLevel: 'low' },
+      { city: 'Allentown', state: 'PA', population: '125,000', competitionLevel: 'low', localContext: 'HR teams at Lehigh Valley\'s major employers — from Air Products & Chemicals\' global headquarters to the nursing staff schedulers at Lehigh Valley Health Network — use PTOTracker to handle the complex shift-based leave policies that manufacturers and hospital systems require.' },
+      { city: 'Erie', state: 'PA', population: '95,000', competitionLevel: 'low', localContext: 'Built for the HR managers at Erie Insurance\'s downtown headquarters and the floor supervisors at Wabtec\'s locomotive manufacturing facility on East 12th Street, PTOTracker automates leave tracking for Erie\'s largest private-sector employers.' },
+      { city: 'Bethlehem', state: 'PA', population: '78,000', competitionLevel: 'low', localContext: 'HR teams near Lehigh University and the growing St. Luke\'s University Health Network in Bethlehem use PTOTracker for compliant leave management — especially critical where campus research schedules and hospital shift rotations demand flexible, role-specific accrual policies.' },
+      { city: 'Trenton', state: 'NJ', population: '90,000', competitionLevel: 'low', localContext: 'From NJ state government contractors working near the State House Complex to the healthcare administrators at Capital Health Regional Medical Center, Trenton\'s HR teams use PTOTracker to automate leave approvals without the $8+/employee cost of BambooHR.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -729,7 +734,11 @@ export const tools: Tool[] = [
       { city: 'Lafayette', state: 'LA', population: '120,000', competitionLevel: 'low' },
       { city: 'Beaumont', state: 'TX', population: '115,000', competitionLevel: 'low' },
       { city: 'Meridian', state: 'ID', population: '123,000', competitionLevel: 'low' },
-      { city: 'Olathe', state: 'KS', population: '141,000', competitionLevel: 'low' }
+      { city: 'Olathe', state: 'KS', population: '141,000', competitionLevel: 'low' },
+      { city: 'Las Cruces', state: 'NM', population: '111,000', competitionLevel: 'low', localContext: 'Operations managers serving New Mexico State University\'s growing research and commercialization portfolio — and the contractor base supporting White Sands Missile Range\'s federal operations — use KPIDash to track business metrics in real time without hiring a dedicated analyst.' },
+      { city: 'Eau Claire', state: 'WI', population: '70,000', competitionLevel: 'low', localContext: 'Business leaders at Eau Claire companies — including the regional teams at Kwik Trip\'s corporate headquarters and the administrators at the University of Wisconsin-Eau Claire — use KPIDash to monitor operations metrics across the Chippewa Valley\'s growing business community.' },
+      { city: 'Lakeland', state: 'FL', population: '115,000', competitionLevel: 'low', localContext: 'From the vendor operations teams supplying Publix Super Markets\' world headquarters in Lakeland to the administrative teams at Florida Southern College — home to the world\'s largest collection of Frank Lloyd Wright architecture on a single campus — KPIDash delivers real-time performance dashboards without Tableau\'s $70/user cost.' },
+      { city: 'Edmond', state: 'OK', population: '94,000', competitionLevel: 'low', localContext: 'Growing companies in Edmond\'s professional services corridor — including the tech and aerospace contractors that support OKC\'s booming economy just 15 miles south, home to Tinker Air Force Base — use KPIDash to build executive dashboards without a dedicated data analyst.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -871,7 +880,11 @@ export const tools: Tool[] = [
       { city: 'Nashua', state: 'NH', population: '90,000', competitionLevel: 'low' },
       { city: 'Hartford', state: 'CT', population: '122,000', competitionLevel: 'low' },
       { city: 'New Haven', state: 'CT', population: '134,000', competitionLevel: 'low' },
-      { city: 'Waterbury', state: 'CT', population: '115,000', competitionLevel: 'low' }
+      { city: 'Waterbury', state: 'CT', population: '115,000', competitionLevel: 'low' },
+      { city: 'Albany', state: 'NY', population: '98,000', competitionLevel: 'low', localContext: 'Payroll managers at Albany-area businesses — from the thousands of state government contractors clustered around Empire State Plaza to the semiconductor equipment suppliers supporting GlobalFoundries\' fab campus in nearby Malta — use PayrollCalc for accurate gross-to-net estimates without a full payroll subscription.' },
+      { city: 'Rochester', state: 'NY', population: '211,000', competitionLevel: 'low', localContext: 'Rochester\'s tech and medical employers trust PayrollCalc for accurate payroll estimates — including the biotech spinoffs growing around the University of Rochester Medical Center and, fittingly, the local businesses that compete with Paychex\'s own hometown workforce for talent.' },
+      { city: 'Paterson', state: 'NJ', population: '145,000', competitionLevel: 'low', localContext: 'Small business owners and HR managers in Paterson\'s diverse commercial district — from family-owned manufacturers a few blocks from Great Falls National Historical Park (one of New Jersey\'s only National Parks) to the healthcare teams at St. Joseph\'s University Medical Center — rely on PayrollCalc for fast, accurate paycheck calculations.' },
+      { city: 'Lehi', state: 'UT', population: '83,000', competitionLevel: 'low', localContext: 'Payroll managers at Lehi\'s booming Silicon Slopes tech companies — including the growing SaaS teams building alongside Adobe, Qualtrics, Pluralsight, and Domo, all of which maintain major offices here — use PayrollCalc to handle the complex commission and equity compensation structures common in Utah\'s tech ecosystem.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -942,7 +955,11 @@ export const tools: Tool[] = [
       { city: 'Terre Haute', state: 'IN', population: '82,000', competitionLevel: 'low' },
       { city: 'Sioux City', state: 'IA', population: '82,000', competitionLevel: 'low' },
       { city: 'Iowa City', state: 'IA', population: '74,000', competitionLevel: 'low' },
-      { city: 'Kansas City', state: 'KS', population: '149,000', competitionLevel: 'low' }
+      { city: 'Kansas City', state: 'KS', population: '149,000', competitionLevel: 'low' },
+      { city: 'Springdale', state: 'AR', population: '80,000', competitionLevel: 'low', localContext: 'Customer support teams at Springdale\'s logistics and food manufacturing companies — where JB Hunt Transport Services and Tyson Foods both maintain major operations as anchors of the Walmart supplier corridor in Northwest Arkansas — use HelpDeskAI to automate ticket routing without Zendesk\'s enterprise overhead.' },
+      { city: 'Carmel', state: 'IN', population: '100,000', competitionLevel: 'low', localContext: 'From the large customer operations teams at GEICO\'s Carmel campus — one of Indiana\'s largest corporate employers — to the growing biotech and CNO Financial Group teams along the 116th Street corridor, HelpDeskAI automates support workflows at a price mid-size teams can actually afford.' },
+      { city: 'Dearborn', state: 'MI', population: '104,000', competitionLevel: 'low', localContext: 'Service and IT support teams at Ford Motor supplier companies clustered around Dearborn — where Ford\'s iconic Glass House global headquarters has anchored the automotive ecosystem for generations — use HelpDeskAI to manage support tickets without the legacy enterprise pricing of Zendesk or Intercom.' },
+      { city: 'North Las Vegas', state: 'NV', population: '265,000', competitionLevel: 'low', localContext: 'Operations and IT support managers at North Las Vegas\'s booming fulfillment and logistics companies — from Amazon\'s massive fulfillment hub near I-15 to the Sephora distribution center serving the western US — use HelpDeskAI to manage support tickets across 24/7 warehouse shift operations.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1084,7 +1101,11 @@ export const tools: Tool[] = [
       { city: 'Warner Robins', state: 'GA', population: '80,000', competitionLevel: 'low' },
       { city: 'Dothan', state: 'AL', population: '71,000', competitionLevel: 'low' },
       { city: 'Gulfport', state: 'MS', population: '72,000', competitionLevel: 'low' },
-      { city: 'Lynchburg', state: 'VA', population: '82,000', competitionLevel: 'low' }
+      { city: 'Lynchburg', state: 'VA', population: '82,000', competitionLevel: 'low' },
+      { city: 'Syracuse', state: 'NY', population: '143,000', competitionLevel: 'low', localContext: 'Office managers and HR teams at Syracuse University, Lockheed Martin\'s regional defense operations, and the dozens of defense contractors clustered around Hancock International Airport use DocTemplates to generate compliant employment paperwork, vendor agreements, and policy documents in under 60 seconds.' },
+      { city: 'Fishers', state: 'IN', population: '98,000', competitionLevel: 'low', localContext: 'Small and mid-size businesses in Fishers\' rapidly growing professional services community — including the healthcare vendors serving Hamilton Health Sciences and the fintech firms building in the Fishers District entertainment and tech hub — use DocTemplates to generate compliant contracts and HR forms without starting from scratch.' },
+      { city: 'Goodyear', state: 'AZ', population: '101,000', competitionLevel: 'low', localContext: 'HR managers and operations coordinators at Goodyear\'s booming distribution corridor — including teams managing Amazon fulfillment shifts and the supply chain vendors serving Intel\'s nearby Chandler semiconductor fabrication facility, one of the largest chip plants in the US — trust DocTemplates to generate compliant employment contracts in seconds.' },
+      { city: 'St. Joseph', state: 'MO', population: '76,000', competitionLevel: 'low', localContext: 'Office managers and HR teams at St. Joseph\'s thriving animal health industry — including the operations teams supporting Boehringer Ingelheim Animal Health\'s North American headquarters, the city\'s largest private employer and a global leader in veterinary pharmaceuticals — use DocTemplates for employment contracts, safety policies, and vendor agreements.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1444,6 +1465,78 @@ export const tools: Tool[] = [
     dateAdded: '2026-04-16',
     waitlistCount: 0,
     slug: 'contract-gen'
+  },
+  {
+    id: 'inventory-tracker-pro',
+    name: 'InventoryTracker',
+    tagline: 'Track stock levels, reorder points, and warehouse inventory without Sortly pricing',
+    description: 'InventoryTracker is the best inventory management software for small retailers, warehouses, and service businesses that can\'t justify Sortly\'s $99/month or inFlow\'s $439/month pricing. Track stock levels across multiple locations, scan barcodes with your phone camera, set automatic reorder point alerts, and manage purchase orders — all in a browser-based tool that takes 15 minutes to set up. What is the best inventory tracking software for small business? InventoryTracker gives you real-time visibility into every SKU you carry without the complexity or cost of enterprise inventory systems.',
+    category: 'operations',
+    status: 'demo',
+    icon: '📦',
+    features: [
+      'Real-time stock level tracking across multiple warehouse and retail locations',
+      'Browser-based barcode and QR code scanning — use your phone, no scanner hardware required',
+      'Automatic low-stock alerts with customizable reorder point thresholds per SKU',
+      'Purchase order management with vendor tracking and expected delivery dates',
+      'Full stock movement audit trail — every addition, sale, and adjustment logged with timestamp',
+      'CSV bulk import — load your entire product catalog in under 5 minutes from a spreadsheet',
+      'SKU and category management with custom fields, images, and supplier links',
+      'Multi-location inventory reports with location-level stock counts and transfer requests'
+    ],
+    keywords: [
+      'inventory tracking software for small business',
+      'best inventory management software 2026',
+      'free inventory management tool',
+      'stock level tracking software',
+      'warehouse inventory management system',
+      'Sortly alternative',
+      'inFlow Inventory alternative',
+      'cheaper than Fishbowl inventory',
+      'Cin7 alternative for small business',
+      'DEAR Inventory alternative',
+      'inventory tracker for retail store',
+      'multi-location inventory software',
+      'barcode scanning inventory tool',
+      'inventory reorder point alerts',
+      'small business stock management',
+      'how to track inventory without expensive software',
+      'what is the best inventory management software for small business',
+      'how to automate inventory reordering',
+      'how to manage stock levels across multiple locations',
+      'best inventory software for retail 2026'
+    ],
+    competitors: [
+      { name: 'Sortly', priceRange: '$29-$99/mo', topComplaint: 'No functional free tier for real inventory needs; limited to 100 items on trial; mobile app crashes during bulk scanning sessions (G2)' },
+      { name: 'inFlow Inventory', priceRange: '$89-$439/mo', topComplaint: 'Too expensive for small retailers; cloud sync is unreliable on the base plan; requires purchase of separate barcode scanner hardware (Capterra)' },
+      { name: 'Fishbowl', priceRange: '$329+/mo', topComplaint: 'Desktop-only installation requires IT setup; complex and error-prone upgrades; overkill for businesses without a dedicated warehouse team (G2)' },
+      { name: 'Cin7 Core (DEAR)', priceRange: '$349+/mo', topComplaint: 'Recent acquisition under Cin7 doubled pricing with feature removals; legacy DEAR users report bait-and-switch after years of loyalty (Reddit)' },
+      { name: 'Zoho Inventory', priceRange: '$29-$249/mo', topComplaint: 'Forces expensive Zoho ecosystem integrations for basic workflows; multi-location setup is unintuitive; support response times are poor (Capterra)' },
+      { name: 'Shopify Inventory', priceRange: 'Built into $39+/mo', topComplaint: 'Completely useless as a standalone tool; poor fit for multi-channel or non-Shopify businesses; inventory reporting is shallow (Reddit)' }
+    ],
+    competitorFixes: [
+      'Free tier with up to 500 SKUs — no credit card or scanner hardware required to get started',
+      'Browser-based barcode scanning via your phone camera — eliminate the $300+ dedicated scanner cost',
+      'Cloud-native with real-time sync — no desktop installation, no IT ticket, no server to maintain',
+      'Multi-location inventory support on every plan — no upgrade required to track stock at two locations',
+      'Set up in under 15 minutes — import your existing inventory from a CSV spreadsheet in seconds',
+      'Automatic reorder point alerts prevent stockouts before they happen — no manual checking required'
+    ],
+    targetCities: [
+      { city: 'Fort Smith', state: 'AR', population: '87,000', competitionLevel: 'low', localContext: 'Businesses in Fort Smith\'s manufacturing and retail corridor — including the supplier network supporting Whirlpool\'s regional operations and ArcBest Corporation\'s freight logistics hub on Towson Avenue — use InventoryTracker to monitor stock levels without expensive enterprise software.' },
+      { city: 'Davie', state: 'FL', population: '105,000', competitionLevel: 'low', localContext: 'Retailers and distributors near Broward College\'s Davie campus — and the auto parts suppliers serving AutoNation\'s South Florida dealer network, the nation\'s largest publicly traded auto retailer — use InventoryTracker to manage stock across multiple locations without Sortly\'s item limits.' },
+      { city: 'Palm Bay', state: 'FL', population: '120,000', competitionLevel: 'low', localContext: 'Manufacturing and industrial companies in Palm Bay near Florida Institute of Technology and the aerospace components suppliers serving L3Harris Technologies\' local operations use InventoryTracker to track components and finished goods in real time without Fishbowl\'s desktop-only installation.' },
+      { city: 'Livonia', state: 'MI', population: '94,000', competitionLevel: 'low', localContext: 'Auto parts suppliers and Tier 1 manufacturers near Ford Motor\'s Livonia Transmission Plant — one of the densest concentrations of automotive suppliers in Michigan — use InventoryTracker to monitor component stock without paying for Fishbowl\'s complex desktop installation and ongoing IT maintenance.' },
+      { city: 'Avondale', state: 'AZ', population: '87,000', competitionLevel: 'low', localContext: 'Distribution and logistics businesses in Avondale\'s fast-growing western Phoenix industrial corridor — including warehouse operators serving the I-10 supply chain and the EV supplier base near Lucid Motors\' Arizona manufacturing facility — use InventoryTracker for real-time stock management.' },
+      { city: 'West Jordan', state: 'UT', population: '115,000', competitionLevel: 'low', localContext: 'Retail and manufacturing businesses near Kennecott Utah Copper\'s Bingham Canyon Mine operations in West Jordan — the world\'s largest open-pit copper mine — and the growing commercial corridor along Bangerter Highway use InventoryTracker to track inventory across multiple warehouse and retail locations.' },
+      { city: 'Waukesha', state: 'WI', population: '72,000', competitionLevel: 'low', localContext: 'Medical device suppliers and manufacturers near GE Healthcare\'s global headquarters in Waukesha — one of the world\'s leading MRI system manufacturers — use InventoryTracker to manage high-value component inventory and track shipments to hospital procurement teams nationwide without inFlow\'s unreliable cloud sync.' },
+      { city: 'Janesville', state: 'WI', population: '70,000', competitionLevel: 'low', localContext: 'Manufacturing and distribution businesses in Janesville\'s rebuilt industrial base — including the Parker Hannifin operations and the supplier network that grew after GM\'s local plant closure — use InventoryTracker to manage parts and finished goods without expensive legacy inventory systems.' },
+      { city: 'Reading', state: 'PA', population: '95,000', competitionLevel: 'low', localContext: 'Retailers and distributors in Reading\'s famous outlet shopping corridor — one of the largest factory outlet destinations on the East Coast — and the logistics teams at Penske Truck Leasing\'s corporate headquarters use InventoryTracker to manage high-SKU inventory without Sortly\'s restrictive per-item pricing.' },
+      { city: 'Elizabeth', state: 'NJ', population: '135,000', competitionLevel: 'medium', localContext: 'Importers, distributors, and logistics companies operating near the Port of Newark-Elizabeth — one of the busiest container ports on the East Coast and the primary gateway for a massive share of US imports — use InventoryTracker to reconcile incoming shipments with warehouse stock in real time.' }
+    ],
+    dateAdded: '2026-04-17',
+    waitlistCount: 0,
+    slug: 'inventory-tracker'
   }
 ];
 
@@ -1532,6 +1625,21 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'ContractGen', cities: ['Daly City CA', 'Downey CA', 'West Covina CA', 'Costa Mesa CA', 'Murrieta CA', 'Pembroke Pines FL', 'Sunrise FL', 'Pompano Beach FL', 'Pawtucket RI', 'Layton UT'] }
     ],
     researchNotes: 'Session 5: Built TimeTracker (Productivity) and ContractGen (Sales). Toggl 2024 redesign complaints confirmed — Reddit r/freelance mass migration thread. DocuSign price increase to $25/user/mo in 2024 validated. Added 20 new cities to 4 existing tools (Texas suburbs, Mountain West, Pacific NW). Added interactive demos for PayrollCalc, CommissionCalc, EmailSigGen. Total: 19 tools, 290+ city SEO pages.'
+  },
+  {
+    date: '2026-04-17',
+    toolsAdded: ['InventoryTracker'],
+    toolsUpdated: ['PTOTracker', 'KPIDash', 'PayrollCalc', 'HelpDeskAI', 'DocTemplates', 'TimeTracker'],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'PTOTracker', cities: ['Allentown PA', 'Erie PA', 'Bethlehem PA', 'Trenton NJ'] },
+      { tool: 'KPIDash', cities: ['Las Cruces NM', 'Eau Claire WI', 'Lakeland FL', 'Edmond OK'] },
+      { tool: 'PayrollCalc', cities: ['Albany NY', 'Rochester NY', 'Paterson NJ', 'Lehi UT'] },
+      { tool: 'HelpDeskAI', cities: ['Springdale AR', 'Carmel IN', 'Dearborn MI', 'North Las Vegas NV'] },
+      { tool: 'DocTemplates', cities: ['Syracuse NY', 'Fishers IN', 'Goodyear AZ', 'St. Joseph MO'] },
+      { tool: 'InventoryTracker', cities: ['Fort Smith AR', 'Davie FL', 'Palm Bay FL', 'Livonia MI', 'Avondale AZ', 'West Jordan UT', 'Waukesha WI', 'Janesville WI', 'Reading PA', 'Elizabeth NJ'] }
+    ],
+    researchNotes: 'Session 6: Added 20 new cities across 5 existing tools targeting underrepresented Mid-Atlantic (PA, NJ), New York State, New Mexico, Silicon Slopes UT, and Midwest regions. CityTarget interface updated with optional localContext field — each new city has a unique sentence citing real employers, landmarks, or universities (Air Products in Allentown, Boehringer Ingelheim in St. Joseph, Publix HQ in Lakeland, JB Hunt/Tyson in Springdale, GE Healthcare in Waukesha, Port of Newark in Elizabeth, etc.). Built InventoryTracker (Operations) — 6 competitors validated at $5K+/mo including Sortly ($99/mo), inFlow ($439/mo), Fishbowl ($329/mo), Cin7 post-acquisition pricing doubles (Reddit). TimeTracker interactive demo added: live running timer, project selector, daily log with mock entries, weekly hours chart by project — full product interface, not a calculator. Total: 20 tools, 320+ city SEO pages.'
   }
 ];
 

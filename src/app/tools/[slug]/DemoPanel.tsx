@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface DemoPanelProps {
   slug: string;
@@ -314,6 +314,241 @@ function EmailSigDemo() {
   );
 }
 
+/* ─── Time Tracker ─── */
+const PROJECTS = [
+  'Acme Corp – Website Redesign',
+  'Q2 Marketing Report',
+  'Beta Launch Planning',
+  'Admin / Internal',
+];
+
+interface TimeEntry {
+  project: string;
+  duration: number;
+  start: string;
+  end: string;
+  billable: boolean;
+}
+
+const INITIAL_ENTRIES: TimeEntry[] = [
+  { project: 'Acme Corp – Website Redesign', duration: 83, start: '9:15 AM', end: '10:38 AM', billable: true },
+  { project: 'Q2 Marketing Report', duration: 45, start: '11:05 AM', end: '11:50 AM', billable: true },
+  { project: 'Admin / Internal', duration: 30, start: '2:00 PM', end: '2:30 PM', billable: false },
+];
+
+const WEEKLY_BASE: Record<string, number> = {
+  'Acme Corp – Website Redesign': 8.5,
+  'Q2 Marketing Report': 4.2,
+  'Beta Launch Planning': 6.0,
+  'Admin / Internal': 1.8,
+};
+
+function TimeTrackerDemo() {
+  const [project, setProject] = useState(PROJECTS[0]);
+  const [isRunning, setIsRunning] = useState(false);
+  const [seconds, setSeconds] = useState(0);
+  const [entries, setEntries] = useState<TimeEntry[]>(INITIAL_ENTRIES);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    if (isRunning) {
+      intervalRef.current = setInterval(() => setSeconds(s => s + 1), 1000);
+    } else {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    }
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
+  }, [isRunning]);
+
+  const fmtTimer = (s: number) => {
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
+  };
+
+  const fmtDur = (mins: number) => {
+    if (mins < 60) return `${mins}m`;
+    const h = Math.floor(mins / 60);
+    const m = mins % 60;
+    return m > 0 ? `${h}h ${m}m` : `${h}h`;
+  };
+
+  const fmtTime = (d: Date) =>
+    d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+
+  const handleLog = () => {
+    if (seconds < 5) return;
+    const mins = Math.max(1, Math.round(seconds / 60));
+    const now = new Date();
+    const start = new Date(now.getTime() - seconds * 1000);
+    setEntries(prev => [
+      ...prev,
+      { project, duration: mins, start: fmtTime(start), end: fmtTime(now), billable: project !== 'Admin / Internal' },
+    ]);
+    setSeconds(0);
+    setIsRunning(false);
+  };
+
+  const todayBillable = entries.filter(e => e.billable).reduce((s, e) => s + e.duration, 0);
+  const todayTotal = entries.reduce((s, e) => s + e.duration, 0);
+
+  const weeklyExtra: Record<string, number> = {};
+  entries.slice(INITIAL_ENTRIES.length).forEach(e => {
+    weeklyExtra[e.project] = (weeklyExtra[e.project] || 0) + e.duration / 60;
+  });
+  const weeklyDisplay = PROJECTS.map(p => ({
+    project: p,
+    hours: (WEEKLY_BASE[p] || 0) + (weeklyExtra[p] || 0),
+  }));
+  const maxHours = Math.max(...weeklyDisplay.map(w => w.hours));
+
+  return (
+    <div>
+      {/* Timer panel */}
+      <div style={{ background: '#f0f4f8', borderRadius: '12px', padding: '24px', marginBottom: '16px', textAlign: 'center' }}>
+        <div style={{ marginBottom: '16px' }}>
+          <label style={labelStyle}>Active Project</label>
+          <select
+            value={project}
+            onChange={e => setProject(e.target.value)}
+            style={{ ...inputStyle, width: 'auto', minWidth: '240px', background: '#fff' }}
+          >
+            {PROJECTS.map(p => <option key={p} value={p}>{p}</option>)}
+          </select>
+        </div>
+
+        <div style={{
+          fontSize: '54px',
+          fontWeight: 800,
+          fontFamily: 'monospace',
+          color: isRunning ? '#16a34a' : 'var(--navy)',
+          letterSpacing: '3px',
+          lineHeight: 1,
+          marginBottom: '20px',
+          transition: 'color 0.2s',
+        }}>
+          {fmtTimer(seconds)}
+        </div>
+
+        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <button
+            onClick={() => setIsRunning(r => !r)}
+            style={{
+              background: isRunning
+                ? 'linear-gradient(to bottom,#e84040,#b91c1c)'
+                : 'linear-gradient(to bottom,#f5c26b,#e47911)',
+              border: isRunning ? '1px solid #991b1b' : '1px solid #c07600',
+              color: isRunning ? '#fff' : '#111',
+              fontWeight: 700,
+              padding: '10px 26px',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontSize: '14px',
+            }}
+          >
+            {isRunning ? '⏸ Pause' : '▶ Start Timer'}
+          </button>
+          <button
+            onClick={handleLog}
+            disabled={seconds < 5}
+            style={{
+              background: seconds >= 5 ? 'var(--navy)' : '#ccc',
+              border: 'none',
+              color: '#fff',
+              fontWeight: 700,
+              padding: '10px 20px',
+              borderRadius: '6px',
+              cursor: seconds >= 5 ? 'pointer' : 'not-allowed',
+              fontSize: '14px',
+            }}
+          >
+            ✓ Log Entry
+          </button>
+          <button
+            onClick={() => { setSeconds(0); setIsRunning(false); }}
+            style={{
+              background: '#fff',
+              border: '1px solid var(--border)',
+              color: 'var(--text-secondary)',
+              padding: '10px 16px',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontSize: '14px',
+            }}
+          >
+            ↺ Reset
+          </button>
+        </div>
+      </div>
+
+      {/* Today's log */}
+      <div style={{ marginBottom: '16px' }}>
+        <div style={{ ...labelStyle, display: 'block', marginBottom: '10px' }}>Today&apos;s Time Log</div>
+        <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
+          {entries.map((entry, i) => (
+            <div
+              key={i}
+              style={{
+                padding: '12px 16px',
+                borderBottom: i < entries.length - 1 ? '1px solid var(--border)' : 'none',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                background: i % 2 === 0 ? '#fff' : '#fafafa',
+              }}
+            >
+              <div>
+                <div style={{ fontWeight: 600, fontSize: '14px', color: 'var(--navy)' }}>{entry.project}</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '2px' }}>
+                  {entry.start} – {entry.end}
+                  {entry.billable && (
+                    <span style={{ marginLeft: '8px', color: '#16a34a', fontWeight: 700 }}>● Billable</span>
+                  )}
+                </div>
+              </div>
+              <div style={{ fontWeight: 700, fontSize: '15px', color: 'var(--navy)', flexShrink: 0 }}>
+                {fmtDur(entry.duration)}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{ display: 'flex', gap: '20px', marginTop: '10px', fontSize: '13px', fontWeight: 600 }}>
+          <span style={{ color: 'var(--text-secondary)' }}>
+            Total: <span style={{ color: 'var(--navy)' }}>{fmtDur(todayTotal)}</span>
+          </span>
+          <span style={{ color: 'var(--text-secondary)' }}>
+            Billable: <span style={{ color: '#16a34a' }}>{fmtDur(todayBillable)}</span>
+          </span>
+        </div>
+      </div>
+
+      {/* Weekly chart */}
+      <div>
+        <div style={{ ...labelStyle, display: 'block', marginBottom: '10px' }}>This Week by Project</div>
+        <div style={{ border: '1px solid var(--border)', borderRadius: '8px', padding: '16px', background: '#fff' }}>
+          {weeklyDisplay.map((w, i) => (
+            <div key={i} style={{ marginBottom: i < weeklyDisplay.length - 1 ? '14px' : 0 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px', fontSize: '13px' }}>
+                <span style={{ color: 'var(--navy)', fontWeight: 500 }}>{w.project}</span>
+                <span style={{ fontWeight: 700 }}>{w.hours.toFixed(1)}h</span>
+              </div>
+              <div style={{ background: '#f0f0f0', borderRadius: '4px', height: '7px' }}>
+                <div style={{
+                  background: 'var(--orange)',
+                  borderRadius: '4px',
+                  height: '7px',
+                  width: `${Math.min(100, (w.hours / maxHours) * 100)}%`,
+                  transition: 'width 0.4s ease',
+                }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Shared styles ─── */
 const labelStyle: React.CSSProperties = {
   display: 'block',
@@ -361,6 +596,7 @@ const demoMap: Record<string, React.ReactNode> = {
   'payroll-calc': <PayrollDemo />,
   'commission-calc': <CommissionDemo />,
   'email-sig-gen': <EmailSigDemo />,
+  'time-tracker': <TimeTrackerDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {
