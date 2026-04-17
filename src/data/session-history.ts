@@ -309,6 +309,40 @@ export const sessionHistory: SessionEntry[] = [
       'Refresh LeadPilot keywords — "lead capture for Shopify" and "B2B lead generation 2026" trending',
       'Update CalendarFlow competitor data — Calendly raised prices in Q1 2026 per user reports'
     ]
+  },
+  {
+    sessionDate: '2026-04-17',
+    sessionNumber: 6,
+    toolsAdded: [],
+    toolsUpdated: [
+      { name: 'OnboardFlow', changes: ['Added 4 cities: Allentown PA, Erie PA, Reading PA, Syracuse NY — Mid-Atlantic/Upstate NY expansion — now 20 total'] },
+      { name: 'InvoiceAI', changes: ['Added 4 cities: Lakeland FL, Palm Bay FL, Deltona FL, Fort Myers FL — Central/Gulf Florida expansion — now 25 total'] },
+      { name: 'CalendarFlow', changes: ['Added 4 cities: Greenville NC, Franklin TN, Lafayette IN, Fishers IN — Carolinas/Indiana expansion — now 20 total'] },
+      { name: 'PTOTracker', changes: ['Added 4 cities: St. Cloud MN, Eau Claire WI, Davenport IA, Roseville CA — Upper Midwest + NorCal — now 14 total'] },
+      { name: 'KPIDash', changes: ['Added 4 cities: Avondale AZ, Goodyear AZ, Las Cruces NM, North Las Vegas NV — Southwest expansion — now 14 total'] },
+      { name: 'TimeTracker', changes: ['Added live interactive timer demo: project selector, start/stop timer, session log, billable hours total'] }
+    ],
+    keywordsResearched: [],
+    citiesAdded: [
+      { tool: 'OnboardFlow', cities: ['Allentown PA', 'Erie PA', 'Reading PA', 'Syracuse NY'] },
+      { tool: 'InvoiceAI', cities: ['Lakeland FL', 'Palm Bay FL', 'Deltona FL', 'Fort Myers FL'] },
+      { tool: 'CalendarFlow', cities: ['Greenville NC', 'Franklin TN', 'Lafayette IN', 'Fishers IN'] },
+      { tool: 'PTOTracker', cities: ['St. Cloud MN', 'Eau Claire WI', 'Davenport IA', 'Roseville CA'] },
+      { tool: 'KPIDash', cities: ['Avondale AZ', 'Goodyear AZ', 'Las Cruces NM', 'North Las Vegas NV'] }
+    ],
+    competitorChanges: [],
+    seoUpdates: [
+      '20 new city SEO pages added — Mid-Atlantic PA/NY, Central FL, Carolinas, Indiana, Upper Midwest, Southwest AZ/NM/NV',
+      'Total city SEO pages: ~310 across 19 tools',
+      'TimeTracker now has a live interactive timer demo — project selector + real-time stopwatch + session log'
+    ],
+    nextSessionPlan: [
+      'Build InventoryTracker (Operations) — Sortly/inFlow $79-99/mo pricing complaints on G2; no free tier for SMBs; high-demand gap',
+      'Build ContractGen interactive demo — template preview showing auto-fill variables (client name, dates, rates)',
+      'Add 20 more cities — focus on Ohio suburbs, Mountain West gaps (WY, MT), and Upper South (TN, KY)',
+      'Refresh LeadPilot keywords — "B2B lead generation 2026" trending; swap weakest 3 keywords',
+      'Update CalendarFlow competitor data — Calendly Q1 2026 price increase per user reports on Reddit'
+    ]
   }
 ];
 

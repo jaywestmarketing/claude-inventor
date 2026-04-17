@@ -110,7 +110,11 @@ export const tools: Tool[] = [
       { city: 'Nampa', state: 'ID', population: '100,000', competitionLevel: 'low' },
       { city: 'Chico', state: 'CA', population: '101,000', competitionLevel: 'low' },
       { city: 'San Angelo', state: 'TX', population: '99,000', competitionLevel: 'low' },
-      { city: 'Johnson City', state: 'TN', population: '71,000', competitionLevel: 'low' }
+      { city: 'Johnson City', state: 'TN', population: '71,000', competitionLevel: 'low' },
+      { city: 'Allentown', state: 'PA', population: '127,000', competitionLevel: 'low' },
+      { city: 'Erie', state: 'PA', population: '94,000', competitionLevel: 'low' },
+      { city: 'Reading', state: 'PA', population: '95,000', competitionLevel: 'low' },
+      { city: 'Syracuse', state: 'NY', population: '143,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -192,7 +196,11 @@ export const tools: Tool[] = [
       { city: 'Coral Springs', state: 'FL', population: '135,000', competitionLevel: 'low' },
       { city: 'Longmont', state: 'CO', population: '96,000', competitionLevel: 'low' },
       { city: 'Yakima', state: 'WA', population: '96,000', competitionLevel: 'low' },
-      { city: 'Independence', state: 'MO', population: '116,000', competitionLevel: 'low' }
+      { city: 'Independence', state: 'MO', population: '116,000', competitionLevel: 'low' },
+      { city: 'Lakeland', state: 'FL', population: '115,000', competitionLevel: 'low' },
+      { city: 'Palm Bay', state: 'FL', population: '117,000', competitionLevel: 'low' },
+      { city: 'Deltona', state: 'FL', population: '97,000', competitionLevel: 'low' },
+      { city: 'Fort Myers', state: 'FL', population: '87,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -351,7 +359,11 @@ export const tools: Tool[] = [
       { city: 'Fayetteville', state: 'NC', population: '208,000', competitionLevel: 'low' },
       { city: 'Simi Valley', state: 'CA', population: '126,000', competitionLevel: 'low' },
       { city: 'League City', state: 'TX', population: '111,000', competitionLevel: 'low' },
-      { city: 'Norwalk', state: 'CT', population: '90,000', competitionLevel: 'low' }
+      { city: 'Norwalk', state: 'CT', population: '90,000', competitionLevel: 'low' },
+      { city: 'Greenville', state: 'NC', population: '94,000', competitionLevel: 'low' },
+      { city: 'Franklin', state: 'TN', population: '84,000', competitionLevel: 'low' },
+      { city: 'Lafayette', state: 'IN', population: '70,000', competitionLevel: 'low' },
+      { city: 'Fishers', state: 'IN', population: '104,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -658,7 +670,11 @@ export const tools: Tool[] = [
       { city: 'Appleton', state: 'WI', population: '76,000', competitionLevel: 'low' },
       { city: 'Lakewood', state: 'CO', population: '160,000', competitionLevel: 'low' },
       { city: 'Henderson', state: 'NV', population: '322,000', competitionLevel: 'low' },
-      { city: 'Sparks', state: 'NV', population: '104,000', competitionLevel: 'low' }
+      { city: 'Sparks', state: 'NV', population: '104,000', competitionLevel: 'low' },
+      { city: 'St. Cloud', state: 'MN', population: '70,000', competitionLevel: 'low' },
+      { city: 'Eau Claire', state: 'WI', population: '70,000', competitionLevel: 'low' },
+      { city: 'Davenport', state: 'IA', population: '104,000', competitionLevel: 'low' },
+      { city: 'Roseville', state: 'CA', population: '150,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -729,7 +745,11 @@ export const tools: Tool[] = [
       { city: 'Lafayette', state: 'LA', population: '120,000', competitionLevel: 'low' },
       { city: 'Beaumont', state: 'TX', population: '115,000', competitionLevel: 'low' },
       { city: 'Meridian', state: 'ID', population: '123,000', competitionLevel: 'low' },
-      { city: 'Olathe', state: 'KS', population: '141,000', competitionLevel: 'low' }
+      { city: 'Olathe', state: 'KS', population: '141,000', competitionLevel: 'low' },
+      { city: 'Avondale', state: 'AZ', population: '90,000', competitionLevel: 'low' },
+      { city: 'Goodyear', state: 'AZ', population: '90,000', competitionLevel: 'low' },
+      { city: 'Las Cruces', state: 'NM', population: '103,000', competitionLevel: 'low' },
+      { city: 'North Las Vegas', state: 'NV', population: '270,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1532,6 +1552,21 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'ContractGen', cities: ['Daly City CA', 'Downey CA', 'West Covina CA', 'Costa Mesa CA', 'Murrieta CA', 'Pembroke Pines FL', 'Sunrise FL', 'Pompano Beach FL', 'Pawtucket RI', 'Layton UT'] }
     ],
     researchNotes: 'Session 5: Built TimeTracker (Productivity) and ContractGen (Sales). Toggl 2024 redesign complaints confirmed — Reddit r/freelance mass migration thread. DocuSign price increase to $25/user/mo in 2024 validated. Added 20 new cities to 4 existing tools (Texas suburbs, Mountain West, Pacific NW). Added interactive demos for PayrollCalc, CommissionCalc, EmailSigGen. Total: 19 tools, 290+ city SEO pages.'
+  },
+  {
+    date: '2026-04-17',
+    toolsAdded: [],
+    toolsUpdated: ['OnboardFlow', 'InvoiceAI', 'CalendarFlow', 'PTOTracker', 'KPIDash', 'TimeTracker'],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'OnboardFlow', cities: ['Allentown PA', 'Erie PA', 'Reading PA', 'Syracuse NY'] },
+      { tool: 'InvoiceAI', cities: ['Lakeland FL', 'Palm Bay FL', 'Deltona FL', 'Fort Myers FL'] },
+      { tool: 'CalendarFlow', cities: ['Greenville NC', 'Franklin TN', 'Lafayette IN', 'Fishers IN'] },
+      { tool: 'PTOTracker', cities: ['St. Cloud MN', 'Eau Claire WI', 'Davenport IA', 'Roseville CA'] },
+      { tool: 'KPIDash', cities: ['Avondale AZ', 'Goodyear AZ', 'Las Cruces NM', 'North Las Vegas NV'] },
+      { tool: 'TimeTracker', cities: [] }
+    ],
+    researchNotes: 'Session 6 (loop run 1): Added 20 new optimized city SEO pages — PA/NY Mid-Atlantic for OnboardFlow, Central/Gulf FL for InvoiceAI, Carolinas/Indiana for CalendarFlow, Upper Midwest for PTOTracker, Southwest (AZ/NM/NV) for KPIDash. Added live timer interactive demo for TimeTracker (was highest-priority item in nextSessionPlan). Total city pages: ~310 across 19 tools.'
   }
 ];
 
