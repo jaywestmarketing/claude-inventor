@@ -77,6 +77,25 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
           </p>
         </div>
 
+        {/* City-specific local context callout */}
+        {city.localContext && (
+          <div style={{
+            background: '#eff6ff',
+            border: '1px solid #bfdbfe',
+            borderRadius: '10px',
+            padding: '16px 20px',
+            marginBottom: '32px',
+            lineHeight: 1.65,
+          }}>
+            <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.08em', color: '#1d4ed8', marginBottom: '6px' }}>
+              📍 Serving {city.city}, {city.state}
+            </div>
+            <p style={{ margin: 0, fontSize: '14px', color: '#1e3a8a' }}>
+              {city.localContext}
+            </p>
+          </div>
+        )}
+
         {/* Waitlist CTA */}
         <div className="tool-tile animate-fade-in-up" style={{ padding: '32px', marginBottom: '40px' }}>
           <h2 style={{ fontSize: '1.2rem', marginBottom: '12px' }}>

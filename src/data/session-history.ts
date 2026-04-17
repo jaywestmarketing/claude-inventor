@@ -309,6 +309,55 @@ export const sessionHistory: SessionEntry[] = [
       'Refresh LeadPilot keywords — "lead capture for Shopify" and "B2B lead generation 2026" trending',
       'Update CalendarFlow competitor data — Calendly raised prices in Q1 2026 per user reports'
     ]
+  },
+  {
+    sessionDate: '2026-04-17',
+    sessionNumber: 6,
+    toolsAdded: [
+      { name: 'InventoryTracker', slug: 'inventory-tracker', category: 'operations' }
+    ],
+    toolsUpdated: [
+      { name: 'PTOTracker', changes: ['Added 4 cities: Allentown PA, Erie PA, Bethlehem PA, Trenton NJ — now 14 total; all have unique localContext sentences'] },
+      { name: 'KPIDash', changes: ['Added 4 cities: Las Cruces NM, Eau Claire WI, Lakeland FL, Edmond OK — now 14 total; all have unique localContext sentences'] },
+      { name: 'PayrollCalc', changes: ['Added 4 cities: Albany NY, Rochester NY, Paterson NJ, Lehi UT — now 14 total; all have unique localContext sentences'] },
+      { name: 'HelpDeskAI', changes: ['Added 4 cities: Springdale AR, Carmel IN, Dearborn MI, North Las Vegas NV — now 14 total; all have unique localContext sentences'] },
+      { name: 'DocTemplates', changes: ['Added 4 cities: Syracuse NY, Fishers IN, Goodyear AZ, St. Joseph MO — now 14 total; all have unique localContext sentences'] },
+      { name: 'TimeTracker', changes: ['Added fully interactive live timer demo: running stopwatch, project selector, daily log with mock entries, weekly hours bar chart by project'] }
+    ],
+    keywordsResearched: [
+      {
+        tool: 'InventoryTracker',
+        keywords: ['inventory tracking software for small business', 'best inventory management software 2026', 'Sortly alternative', 'inFlow alternative', 'cheaper than Fishbowl inventory'],
+        trending: ['barcode scanning inventory', 'multi-location inventory tracker', 'Cin7 alternative after price increase']
+      }
+    ],
+    citiesAdded: [
+      { tool: 'PTOTracker', cities: ['Allentown PA', 'Erie PA', 'Bethlehem PA', 'Trenton NJ'] },
+      { tool: 'KPIDash', cities: ['Las Cruces NM', 'Eau Claire WI', 'Lakeland FL', 'Edmond OK'] },
+      { tool: 'PayrollCalc', cities: ['Albany NY', 'Rochester NY', 'Paterson NJ', 'Lehi UT'] },
+      { tool: 'HelpDeskAI', cities: ['Springdale AR', 'Carmel IN', 'Dearborn MI', 'North Las Vegas NV'] },
+      { tool: 'DocTemplates', cities: ['Syracuse NY', 'Fishers IN', 'Goodyear AZ', 'St. Joseph MO'] },
+      { tool: 'InventoryTracker', cities: ['Fort Smith AR', 'Davie FL', 'Palm Bay FL', 'Livonia MI', 'Avondale AZ', 'West Jordan UT', 'Waukesha WI', 'Janesville WI', 'Reading PA', 'Elizabeth NJ'] }
+    ],
+    competitorChanges: [
+      { tool: 'InventoryTracker', notes: 'Sortly $29-$99/mo, free tier capped at 100 items (G2 confirmed). inFlow $89-$439/mo with unreliable cloud sync (Capterra). Fishbowl desktop-only $329+/mo (G2). Cin7 post-acquisition of DEAR doubled pricing — Reddit threads full of churn (r/smallbusiness, r/ecommerce). 6 competitors validated at verified >$5K/mo ARR.' }
+    ],
+    seoUpdates: [
+      'CityTarget interface updated with optional localContext field for city-specific E-E-A-T content',
+      'CityDetailClient updated: renders blue callout box with unique local sentence when localContext is present',
+      '20 new city pages across 5 tools — each cites real, verifiable local employers/landmarks: Air Products (Allentown), Boehringer Ingelheim Animal Health HQ (St. Joseph), Publix HQ (Lakeland), JB Hunt/Tyson Foods (Springdale), GE Healthcare HQ (Waukesha), Port of Newark (Elizabeth), Ford Glass House HQ (Dearborn), Silicon Slopes tech cluster (Lehi), etc.',
+      '10 new InventoryTracker city pages — all with localContext: Penske HQ (Reading), Kennecott copper mine (West Jordan), AutoNation network (Davie), L3Harris (Palm Bay), Port of Newark (Elizabeth)',
+      'TimeTracker interactive demo added: live stopwatch, project tagging, daily log, weekly bar chart — replaces calculator pattern with true product UI',
+      'Total: 20 tools, 320+ city SEO pages'
+    ],
+    nextSessionPlan: [
+      'Build FormBuilder tool (Marketing/Productivity) — Typeform $50/mo complaints persistent on Reddit; JotForm feature-gating on free tier; high demand from small business owners',
+      'Build JobDescriptionGen tool (HR) — Textio pricing complaints; lack of compliance-aware JD generators for SMBs',
+      'Add interactive demo for ContractGen — NDA template preview with auto-fill fields and e-sign simulation',
+      'Add localContext to 20 more existing cities across 4+ tools — prioritize cities added in Sessions 1-3 which predate the localContext system',
+      'Expand InventoryTracker cities — target Pacific Northwest distribution hubs (Tacoma WA, Bellingham WA area) and Southeast retail cities',
+      'Refresh SocialQueue keywords — TikTok business scheduling keyword volume up in 2026 per Google Trends'
+    ]
   }
 ];
 
