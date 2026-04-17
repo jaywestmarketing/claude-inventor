@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface DemoPanelProps {
   slug: string;
@@ -314,6 +314,118 @@ function EmailSigDemo() {
   );
 }
 
+/* ─── Time Tracker ─── */
+function TimeTrackerDemo() {
+  const [running, setRunning] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
+  const [project, setProject] = useState('Client Project A');
+  const [sessions, setSessions] = useState<{ project: string; seconds: number }[]>([]);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const projectRef = useRef(project);
+
+  useEffect(() => { projectRef.current = project; }, [project]);
+  useEffect(() => () => { if (intervalRef.current) clearInterval(intervalRef.current); }, []);
+
+  const fmt = (s: number) => {
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    return [h, m, sec].map(n => String(n).padStart(2, '0')).join(':');
+  };
+
+  const toggle = () => {
+    if (running) {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      intervalRef.current = null;
+      setElapsed(prev => {
+        if (prev > 0) setSessions(s => [...s, { project: projectRef.current, seconds: prev }]);
+        return 0;
+      });
+    } else {
+      intervalRef.current = setInterval(() => setElapsed(e => e + 1), 1000);
+    }
+    setRunning(r => !r);
+  };
+
+  const totalSec = sessions.reduce((a, s) => a + s.seconds, 0);
+
+  const projects = ['Client Project A', 'Internal Work', 'Admin / Overhead', 'Client Project B'];
+
+  return (
+    <div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '12px', alignItems: 'flex-end', marginBottom: '20px' }}>
+        <div>
+          <label style={labelStyle}>Project</label>
+          <select
+            value={project}
+            onChange={e => setProject(e.target.value)}
+            disabled={running}
+            style={{ ...inputStyle, background: '#fff', width: '100%' }}
+          >
+            {projects.map(p => <option key={p}>{p}</option>)}
+          </select>
+        </div>
+        <button
+          onClick={toggle}
+          style={{
+            padding: '9px 20px',
+            borderRadius: '6px',
+            fontWeight: 700,
+            fontSize: '14px',
+            cursor: 'pointer',
+            border: '1px solid',
+            background: running
+              ? 'linear-gradient(to bottom,#ef5350,#c62828)'
+              : 'linear-gradient(to bottom,#f5c26b,#e47911)',
+            borderColor: running ? '#b71c1c' : '#c07600',
+            color: running ? '#fff' : '#111',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {running ? '⏹ Stop' : '▶ Start'}
+        </button>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '10px', marginBottom: '20px' }}>
+        <div style={{ ...resultCard, border: running ? '2px solid var(--green)' : '1px solid var(--border)' }}>
+          <div style={resultLabel}>Current Session</div>
+          <div style={{ ...resultValue, color: running ? 'var(--green)' : 'var(--text-secondary)', fontVariantNumeric: 'tabular-nums' }}>
+            {fmt(elapsed)}
+          </div>
+          {running && <div style={{ fontSize: '11px', color: 'var(--green)', marginTop: '4px' }}>● Recording</div>}
+        </div>
+        <div style={resultCard}>
+          <div style={resultLabel}>Logged Today</div>
+          <div style={{ ...resultValue, color: 'var(--navy)' }}>{fmt(totalSec)}</div>
+        </div>
+        <div style={resultCard}>
+          <div style={resultLabel}>Sessions</div>
+          <div style={{ ...resultValue, color: 'var(--navy)' }}>{sessions.length}</div>
+        </div>
+      </div>
+
+      {sessions.length > 0 && (
+        <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', padding: '8px 14px', background: 'var(--bg-white)', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', color: 'var(--text-secondary)', borderBottom: '1px solid var(--border)' }}>
+            <span>Project</span><span>Duration</span>
+          </div>
+          {sessions.map((s, i) => (
+            <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr auto', padding: '8px 14px', fontSize: '13px', borderBottom: i < sessions.length - 1 ? '1px solid var(--border)' : 'none', background: i % 2 === 0 ? '#fafafa' : '#fff' }}>
+              <span>{s.project}</span>
+              <span style={{ fontVariantNumeric: 'tabular-nums', color: 'var(--navy)', fontWeight: 600 }}>{fmt(s.seconds)}</span>
+            </div>
+          ))}
+        </div>
+      )}
+      {sessions.length === 0 && (
+        <p style={{ fontSize: '12px', color: 'var(--text-secondary)', margin: 0 }}>
+          Select a project and press Start to begin tracking. Stop to log the session.
+        </p>
+      )}
+    </div>
+  );
+}
+
 /* ─── Shared styles ─── */
 const labelStyle: React.CSSProperties = {
   display: 'block',
@@ -361,6 +473,7 @@ const demoMap: Record<string, React.ReactNode> = {
   'payroll-calc': <PayrollDemo />,
   'commission-calc': <CommissionDemo />,
   'email-sig-gen': <EmailSigDemo />,
+  'time-tracker': <TimeTrackerDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {
