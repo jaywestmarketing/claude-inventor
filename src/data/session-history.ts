@@ -358,6 +358,53 @@ export const sessionHistory: SessionEntry[] = [
       'Expand InventoryTracker cities — target Pacific Northwest distribution hubs (Tacoma WA, Bellingham WA area) and Southeast retail cities',
       'Refresh SocialQueue keywords — TikTok business scheduling keyword volume up in 2026 per Google Trends'
     ]
+  },
+  {
+    sessionDate: '2026-04-17',
+    sessionNumber: 7,
+    toolsAdded: [
+      { name: 'FormBuilder', slug: 'form-builder', category: 'marketing' }
+    ],
+    toolsUpdated: [
+      { name: 'MeetingNotesAI', changes: ['Added 4 cities with localContext: Pittsburgh PA (Carnegie Mellon/PNC HQ), Cincinnati OH (P&G HQ/UC Medical), Buffalo NY (Roswell Park Cancer Center/M&T Bank), Birmingham AL (UAB Health System/Protective Life HQ) — now 14 total'] },
+      { name: 'ContractGen', changes: ['Added 4 cities with localContext: Plano TX (Toyota N. America HQ), Fort Myers FL (Lee Health/SW Florida growth), Brownsville TX (SpaceX Starbase/border trade), Bloomington IN (Indiana University ecosystem) — now 14 total', 'Added fully interactive e-sign demo: template selector (NDA/Service/Freelance), auto-fill fields, live contract preview, review step, click-to-sign simulation, executed contract state with download/share buttons'] },
+      { name: 'EmailSigGen', changes: ['Added 4 cities with localContext: Bellevue WA (Expedia/T-Mobile HQ), Rio Rancho NM (Intel campus), Salt Lake City UT (Intermountain Health/200S tech corridor), College Station TX (Texas A&M tech transfer) — now 14 total'] },
+      { name: 'ClientPortal', changes: ['Added 4 cities with localContext: Davenport IA (John Deere/Quad Cities), Troy MI (Kelly Services/Meritor HQ corridor), Gresham OR (Portland metro eastern anchor), Loveland CO (Front Range tech corridor/Broadcom) — now 14 total'] },
+      { name: 'CommissionCalc', changes: ['Added 4 cities with localContext: St. Paul MN (Ecolab HQ/state contractors), Santa Fe NM (government tech/tourism commissions), Hillsboro OR (Intel Ronler Acres/Silicon Forest), Jonesboro AR (Arkansas State/NEA Baptist) — now 14 total'] }
+    ],
+    keywordsResearched: [
+      {
+        tool: 'FormBuilder',
+        keywords: ['best form builder for small business', 'free online form builder', 'Typeform alternative free', 'JotForm alternative', 'conditional logic form builder'],
+        trending: ['Typeform response limit complaints', 'JotForm free tier restrictions', 'form builder with payment collection', 'client intake form builder']
+      }
+    ],
+    citiesAdded: [
+      { tool: 'MeetingNotesAI', cities: ['Pittsburgh PA', 'Cincinnati OH', 'Buffalo NY', 'Birmingham AL'] },
+      { tool: 'ContractGen', cities: ['Plano TX', 'Fort Myers FL', 'Brownsville TX', 'Bloomington IN'] },
+      { tool: 'EmailSigGen', cities: ['Bellevue WA', 'Rio Rancho NM', 'Salt Lake City UT', 'College Station TX'] },
+      { tool: 'ClientPortal', cities: ['Davenport IA', 'Troy MI', 'Gresham OR', 'Loveland CO'] },
+      { tool: 'CommissionCalc', cities: ['St. Paul MN', 'Santa Fe NM', 'Hillsboro OR', 'Jonesboro AR'] },
+      { tool: 'FormBuilder', cities: ['Alexandria VA', 'St. Petersburg FL', 'Hialeah FL', 'Hollywood FL', 'Hammond IN', 'Westland MI', 'Portsmouth VA', 'Auburn AL', 'Lawton OK', 'Burbank CA'] }
+    ],
+    competitorChanges: [
+      { tool: 'FormBuilder', notes: 'Typeform per-response billing confirmed on G2 — 1,000 responses/month capped at $50 plan causes churn for active marketers. JotForm free tier cut to 5 forms/100 submissions (Reddit). Formstack $83/mo minimum inaccessible for SMBs. Gravity Forms WordPress-only with add-on licensing for payments. Google Forms lacks conditional logic, branding, payment collection — strong acquisition angle for small business users graduating beyond Google Forms.' }
+    ],
+    seoUpdates: [
+      '20 new city SEO pages with unique localContext added to 5 existing tools — Pittsburgh (Carnegie Mellon/PNC), Cincinnati (P&G HQ), Buffalo (Roswell Park), Birmingham (UAB), Plano (Toyota HQ), Brownsville (SpaceX Starbase), Bloomington IN (Indiana U), Bellevue WA (Expedia/T-Mobile), Rio Rancho (Intel), Salt Lake City (Intermountain Health), College Station (Texas A&M), Davenport (John Deere/Quad Cities), Troy MI (Kelly Services), Gresham OR (Portland metro), Loveland CO (Front Range), St. Paul MN (Ecolab HQ), Santa Fe (government tech), Hillsboro (Intel Ronler Acres), Jonesboro (Arkansas State)',
+      'FormBuilder launches with 10 city SEO pages — all with localContext: Amazon HQ2 corridor (Alexandria VA), Dali Museum district (St. Petersburg FL), Palmetto corridor (Hialeah FL), Memorial Healthcare (Hollywood FL), Purdue NW (Hammond IN), Wayne County (Westland MI), Naval Station Norfolk adjacent (Portsmouth VA), Auburn University (Auburn AL), Fort Sill (Lawton OK), Disney/Warner Bros studio district (Burbank CA)',
+      'ContractGen interactive demo added: 3-template selector (NDA/Service Agreement/Freelance Contract), party auto-fill, live preview with real contract language, review-and-sign step, click-to-sign simulation, executed contract state — full product workflow, not a calculator',
+      'Note: External commits since Session 6 added GA4 analytics (NEXT_PUBLIC_GA_ID env var) and /admin panel (waitlist tracker + GA4 quick-links + Looker Studio embed) — integrated into session history',
+      'Total: 21 tools, 370+ city SEO pages'
+    ],
+    nextSessionPlan: [
+      'Build JobDescriptionGen tool (HR) — Textio $299+/mo pricing; Ongig enterprise-only; no SMB-accessible compliance-aware JD generator exists; high search volume for "job description template generator"',
+      'Build VendorPortal tool (Operations) — Precoro/Coupa inaccessible for SMB; vendor invoice tracking and PO management is a documented gap for teams under 100 employees',
+      'Add localContext to 30+ cities added in Sessions 1-3 (OnboardFlow, InvoiceAI, LeadPilot, CalendarFlow, ExpenseBot) — these predate the localContext system and are blank',
+      'Expand InventoryTracker cities — Pacific Northwest distribution hubs (Bellingham WA, Redding CA) and Southeast retail cities (Savannah GA port area, Wilmington NC)',
+      'Add FormBuilder interactive demo — live form builder UI: drag fields in, configure conditional logic, preview conversational mode, see responses populate a mock dashboard',
+      'Refresh SocialQueue keywords — "TikTok business scheduler" and "LinkedIn post scheduler for B2B teams" both trending in 2026 per Google Trends signals'
+    ]
   }
 ];
 

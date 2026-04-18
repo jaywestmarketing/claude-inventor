@@ -549,6 +549,363 @@ function TimeTrackerDemo() {
   );
 }
 
+/* ─── ContractGen ─── */
+type ContractTemplate = 'nda' | 'service' | 'freelance';
+type SignStep = 'idle' | 'review' | 'signing' | 'signed';
+
+const CONTRACT_TEMPLATES: Record<ContractTemplate, { label: string; icon: string; title: string }> = {
+  nda: { label: 'Non-Disclosure Agreement', icon: '🔒', title: 'Mutual Non-Disclosure Agreement' },
+  service: { label: 'Service Agreement', icon: '🤝', title: 'Professional Services Agreement' },
+  freelance: { label: 'Freelance Contract', icon: '💼', title: 'Independent Contractor Agreement' },
+};
+
+function buildContractBody(
+  template: ContractTemplate,
+  party1: string,
+  party2: string,
+  startDate: string,
+  state: string,
+  description: string
+): string {
+  const p1 = party1 || '[Your Company]';
+  const p2 = party2 || '[Client Name]';
+  const d = startDate || '[Date]';
+  const st = state || '[State]';
+  const desc = description || '[Description of services / confidential information]';
+
+  if (template === 'nda') {
+    return `This Mutual Non-Disclosure Agreement ("Agreement") is entered into as of ${d}, by and between ${p1} ("Disclosing Party A") and ${p2} ("Disclosing Party B"), collectively referred to as the "Parties."
+
+1. PURPOSE. The Parties wish to explore a potential business relationship and may disclose to each other certain confidential and proprietary information for the purpose of: ${desc}.
+
+2. CONFIDENTIAL INFORMATION. "Confidential Information" means any non-public information disclosed by either Party, including but not limited to business plans, technical data, trade secrets, customer lists, financial information, and any other information designated as confidential.
+
+3. OBLIGATIONS. Each Party agrees to: (a) hold all Confidential Information in strict confidence; (b) not disclose Confidential Information to any third party without prior written consent; (c) use Confidential Information solely for the Purpose stated above.
+
+4. TERM. This Agreement shall remain in effect for two (2) years from the date first written above.
+
+5. GOVERNING LAW. This Agreement shall be governed by the laws of the State of ${st}.
+
+IN WITNESS WHEREOF, the Parties have executed this Agreement as of the date first written above.`;
+  }
+
+  if (template === 'service') {
+    return `This Professional Services Agreement ("Agreement") is entered into as of ${d}, by and between ${p1} ("Service Provider") and ${p2} ("Client").
+
+1. SERVICES. Service Provider agrees to perform the following services for Client: ${desc}.
+
+2. COMPENSATION. Client agrees to pay Service Provider as agreed in the attached Statement of Work or invoice schedule. Payment is due within 30 days of invoice.
+
+3. TERM. This Agreement begins on ${d} and continues until the services described herein are completed or either Party provides 30 days written notice of termination.
+
+4. INTELLECTUAL PROPERTY. All work product created by Service Provider under this Agreement shall become the property of Client upon full payment.
+
+5. INDEPENDENT CONTRACTOR. Service Provider is an independent contractor and not an employee of Client. Service Provider is responsible for all taxes on compensation received hereunder.
+
+6. CONFIDENTIALITY. Each Party agrees to keep confidential all non-public information received from the other Party during the term of this Agreement.
+
+7. GOVERNING LAW. This Agreement is governed by the laws of the State of ${st}.
+
+IN WITNESS WHEREOF, the Parties have executed this Agreement as of the date set forth above.`;
+  }
+
+  return `This Independent Contractor Agreement ("Agreement") is entered into as of ${d}, between ${p1} ("Client") and ${p2} ("Contractor").
+
+1. ENGAGEMENT. Client hereby engages Contractor to perform the following services: ${desc}.
+
+2. COMPENSATION. Client agrees to pay Contractor the rate set forth in the attached invoice or project brief. Invoices are due within 14 days of delivery.
+
+3. INDEPENDENT CONTRACTOR STATUS. Contractor is an independent contractor, not an employee. Contractor is responsible for all taxes, insurance, and business expenses unless otherwise agreed in writing.
+
+4. INTELLECTUAL PROPERTY. Upon full payment, all deliverables become the exclusive property of Client. Contractor retains rights to pre-existing tools, frameworks, and methodologies.
+
+5. CONFIDENTIALITY. Contractor agrees to keep all Client information, business strategies, and project details strictly confidential for the duration of this Agreement and two (2) years thereafter.
+
+6. TERM & TERMINATION. This Agreement begins on ${d}. Either Party may terminate with 14 days written notice. Client is responsible for payment of all work completed to the termination date.
+
+7. GOVERNING LAW. This Agreement shall be governed by the laws of the State of ${st}.
+
+IN WITNESS WHEREOF, the Parties agree to the terms of this Agreement as of the date first written above.`;
+}
+
+function ContractGenDemo() {
+  const [template, setTemplate] = useState<ContractTemplate>('nda');
+  const [party1, setParty1] = useState('Acme Solutions LLC');
+  const [party2, setParty2] = useState('Bright Ideas Agency');
+  const [startDate, setStartDate] = useState('April 17, 2026');
+  const [govState, setGovState] = useState('Delaware');
+  const [description, setDescription] = useState('evaluating a potential technology partnership and product development collaboration');
+  const [signStep, setSignStep] = useState<SignStep>('idle');
+  const [signerName, setSignerName] = useState('');
+  const [signatureDrawn, setSignatureDrawn] = useState(false);
+  const [signedAt, setSignedAt] = useState('');
+
+  const contractBody = buildContractBody(template, party1, party2, startDate, govState, description);
+  const tmpl = CONTRACT_TEMPLATES[template];
+
+  const handleSendForSignature = () => setSignStep('review');
+
+  const handleSign = () => {
+    if (!signerName.trim()) return;
+    setSignStep('signing');
+    setTimeout(() => {
+      setSignedAt(new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }));
+      setSignStep('signed');
+    }, 1800);
+  };
+
+  const handleReset = () => {
+    setSignStep('idle');
+    setSignerName('');
+    setSignatureDrawn(false);
+    setSignedAt('');
+  };
+
+  const US_STATES = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
+
+  if (signStep === 'signed') {
+    return (
+      <div>
+        <div style={{ background: '#f0fdf4', border: '2px solid #16a34a', borderRadius: '12px', padding: '24px', marginBottom: '20px', textAlign: 'center' }}>
+          <div style={{ fontSize: '40px', marginBottom: '10px' }}>✅</div>
+          <div style={{ fontSize: '18px', fontWeight: 800, color: '#15803d', marginBottom: '6px' }}>Contract Signed Successfully</div>
+          <div style={{ fontSize: '13px', color: '#166534' }}>Signed by <strong>{signerName}</strong> on {signedAt}</div>
+        </div>
+
+        <div style={{ background: '#fff', border: '1px solid #16a34a', borderRadius: '8px', padding: '20px', marginBottom: '16px', position: 'relative' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+            <div>
+              <div style={{ fontWeight: 800, fontSize: '15px', color: 'var(--navy)' }}>{tmpl.icon} {tmpl.title}</div>
+              <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '2px' }}>Between {party1 || '[Your Company]'} and {party2 || '[Client Name]'}</div>
+            </div>
+            <div style={{ background: '#dcfce7', color: '#15803d', padding: '4px 12px', borderRadius: '20px', fontSize: '12px', fontWeight: 700 }}>EXECUTED</div>
+          </div>
+
+          <div style={{ fontSize: '13px', color: '#374151', lineHeight: 1.65, whiteSpace: 'pre-wrap', maxHeight: '200px', overflow: 'auto', background: '#fafafa', padding: '14px', borderRadius: '6px', marginBottom: '16px' }}>
+            {contractBody}
+          </div>
+
+          <div style={{ borderTop: '1px solid var(--border)', paddingTop: '16px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+            <div>
+              <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.04em', marginBottom: '6px' }}>{party1 || '[Your Company]'} — Authorized Signatory</div>
+              <div style={{ fontFamily: 'Georgia, serif', fontSize: '22px', color: 'var(--navy)', borderBottom: '1px solid var(--navy)', paddingBottom: '4px', fontStyle: 'italic' }}>{signerName}</div>
+              <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '4px' }}>Signed: {signedAt}</div>
+            </div>
+            <div>
+              <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.04em', marginBottom: '6px' }}>{party2 || '[Client Name]'} — Countersignature Pending</div>
+              <div style={{ height: '32px', borderBottom: '1px dashed #ccc', marginBottom: '4px' }} />
+              <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '4px' }}>Awaiting countersignature…</div>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <button style={{ background: 'var(--navy)', color: '#fff', border: 'none', padding: '10px 22px', borderRadius: '6px', fontWeight: 700, fontSize: '14px', cursor: 'pointer' }}>
+            ⬇ Download PDF
+          </button>
+          <button style={{ background: '#fff', color: 'var(--navy)', border: '1px solid var(--border)', padding: '10px 22px', borderRadius: '6px', fontWeight: 700, fontSize: '14px', cursor: 'pointer' }}>
+            ✉ Send Copy via Email
+          </button>
+          <button onClick={handleReset} style={{ background: '#fff', color: 'var(--text-secondary)', border: '1px solid var(--border)', padding: '10px 16px', borderRadius: '6px', fontSize: '14px', cursor: 'pointer' }}>
+            ↺ New Contract
+          </button>
+        </div>
+        <p style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '10px' }}>Demo only — no real document stored. Upgrade to save, send, and collect legally binding signatures.</p>
+      </div>
+    );
+  }
+
+  if (signStep === 'signing') {
+    return (
+      <div style={{ textAlign: 'center', padding: '48px 24px' }}>
+        <div style={{ fontSize: '48px', marginBottom: '16px', animation: 'pulse 1s infinite' }}>✍️</div>
+        <div style={{ fontSize: '18px', fontWeight: 700, color: 'var(--navy)', marginBottom: '8px' }}>Applying your signature…</div>
+        <div style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '24px' }}>Creating audit trail and timestamp</div>
+        <div style={{ height: '6px', background: '#e5e7eb', borderRadius: '3px', overflow: 'hidden', maxWidth: '240px', margin: '0 auto' }}>
+          <div style={{ height: '6px', background: 'linear-gradient(90deg, var(--navy), var(--orange))', borderRadius: '3px', width: '100%', animation: 'slideIn 1.6s ease-out' }} />
+        </div>
+        <style>{`@keyframes slideIn { from { width: 0% } to { width: 100% } }`}</style>
+      </div>
+    );
+  }
+
+  if (signStep === 'review') {
+    return (
+      <div>
+        <div style={{ background: '#fffbeb', border: '1px solid #f59e0b', borderRadius: '8px', padding: '14px 18px', marginBottom: '20px', fontSize: '13px', color: '#92400e' }}>
+          <strong>Review before signing:</strong> Read the contract carefully. By signing, you agree to all terms above.
+        </div>
+
+        <div style={{ background: '#fafafa', border: '1px solid var(--border)', borderRadius: '8px', padding: '14px', marginBottom: '20px', maxHeight: '220px', overflow: 'auto', fontSize: '13px', color: '#374151', lineHeight: 1.65, whiteSpace: 'pre-wrap' }}>
+          {contractBody}
+        </div>
+
+        <div style={{ marginBottom: '16px' }}>
+          <label style={labelStyle}>Your Full Name (as it will appear on the contract)</label>
+          <input
+            type="text"
+            value={signerName}
+            placeholder="e.g. Jordan Smith"
+            onChange={e => setSignerName(e.target.value)}
+            style={{ ...inputStyle, maxWidth: '300px' }}
+          />
+        </div>
+
+        <div style={{ marginBottom: '20px' }}>
+          <label style={labelStyle}>Signature</label>
+          <div
+            onClick={() => setSignatureDrawn(true)}
+            style={{
+              width: '280px',
+              height: '70px',
+              border: `2px dashed ${signatureDrawn ? 'var(--navy)' : '#ccc'}`,
+              borderRadius: '8px',
+              background: signatureDrawn ? '#f0f4ff' : '#fafafa',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: signatureDrawn ? '26px' : '13px',
+              color: signatureDrawn ? 'var(--navy)' : '#9ca3af',
+              fontFamily: signatureDrawn ? 'Georgia, serif' : 'inherit',
+              fontStyle: signatureDrawn ? 'italic' : 'normal',
+              fontWeight: signatureDrawn ? 400 : 400,
+              userSelect: 'none',
+              transition: 'all 0.2s',
+            }}
+          >
+            {signatureDrawn ? (signerName || 'Your Signature') : 'Click to sign here'}
+          </div>
+          {!signatureDrawn && <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '4px' }}>Click the box above to add your signature</div>}
+        </div>
+
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <button
+            onClick={handleSign}
+            disabled={!signerName.trim() || !signatureDrawn}
+            style={{
+              background: signerName.trim() && signatureDrawn ? 'linear-gradient(to bottom, #f5c26b, #e47911)' : '#e5e7eb',
+              border: signerName.trim() && signatureDrawn ? '1px solid #c07600' : '1px solid #d1d5db',
+              color: signerName.trim() && signatureDrawn ? '#111' : '#9ca3af',
+              fontWeight: 700,
+              padding: '11px 28px',
+              borderRadius: '6px',
+              cursor: signerName.trim() && signatureDrawn ? 'pointer' : 'not-allowed',
+              fontSize: '14px',
+            }}
+          >
+            ✍ Sign Contract
+          </button>
+          <button onClick={() => setSignStep('idle')} style={{ background: '#fff', border: '1px solid var(--border)', color: 'var(--text-secondary)', padding: '10px 18px', borderRadius: '6px', fontSize: '14px', cursor: 'pointer' }}>
+            ← Edit Details
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Default: template selection + form
+  return (
+    <div>
+      {/* Template selector */}
+      <div style={{ marginBottom: '20px' }}>
+        <label style={labelStyle}>Contract Template</label>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          {(Object.keys(CONTRACT_TEMPLATES) as ContractTemplate[]).map(key => (
+            <button
+              key={key}
+              onClick={() => setTemplate(key)}
+              style={{
+                padding: '10px 18px',
+                border: `2px solid ${template === key ? 'var(--navy)' : 'var(--border)'}`,
+                borderRadius: '8px',
+                background: template === key ? 'var(--navy)' : '#fff',
+                color: template === key ? '#fff' : 'var(--navy)',
+                fontWeight: 600,
+                fontSize: '13px',
+                cursor: 'pointer',
+                transition: 'all 0.15s',
+              }}
+            >
+              {CONTRACT_TEMPLATES[key].icon} {CONTRACT_TEMPLATES[key].label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Party details */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px', marginBottom: '14px' }}>
+        <div>
+          <label style={labelStyle}>Your Company / Name</label>
+          <input type="text" value={party1} onChange={e => setParty1(e.target.value)} placeholder="Acme Solutions LLC" style={inputStyle} />
+        </div>
+        <div>
+          <label style={labelStyle}>Other Party / Client</label>
+          <input type="text" value={party2} onChange={e => setParty2(e.target.value)} placeholder="Bright Ideas Agency" style={inputStyle} />
+        </div>
+        <div>
+          <label style={labelStyle}>Effective Date</label>
+          <input type="text" value={startDate} onChange={e => setStartDate(e.target.value)} placeholder="April 17, 2026" style={inputStyle} />
+        </div>
+        <div>
+          <label style={labelStyle}>Governing State</label>
+          <select value={govState} onChange={e => setGovState(e.target.value)} style={{ ...inputStyle, background: '#fff' }}>
+            {US_STATES.map(s => <option key={s} value={s}>{s}</option>)}
+          </select>
+        </div>
+      </div>
+      <div style={{ marginBottom: '20px' }}>
+        <label style={labelStyle}>
+          {template === 'nda' ? 'Purpose / Scope of Disclosure' : 'Scope of Services'}
+        </label>
+        <input
+          type="text"
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+          placeholder={template === 'nda' ? 'evaluating a potential technology partnership' : 'website redesign and SEO optimization services'}
+          style={{ ...inputStyle, width: '100%', boxSizing: 'border-box' as const }}
+        />
+      </div>
+
+      {/* Live contract preview */}
+      <div style={{ marginBottom: '20px' }}>
+        <label style={{ ...labelStyle, display: 'block', marginBottom: '10px' }}>Live Contract Preview</label>
+        <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden', background: '#fff' }}>
+          <div style={{ background: 'var(--navy)', color: '#fff', padding: '14px 18px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '14px' }}>{tmpl.icon} {tmpl.title}</div>
+              <div style={{ fontSize: '12px', opacity: 0.7, marginTop: '2px' }}>{party1 || '[Your Company]'} ↔ {party2 || '[Client Name]'}</div>
+            </div>
+            <div style={{ background: '#f59e0b', color: '#111', padding: '3px 10px', borderRadius: '12px', fontSize: '11px', fontWeight: 700 }}>DRAFT</div>
+          </div>
+          <div style={{ padding: '18px', fontSize: '13px', color: '#374151', lineHeight: 1.7, whiteSpace: 'pre-wrap', maxHeight: '240px', overflowY: 'auto' }}>
+            {contractBody}
+          </div>
+        </div>
+      </div>
+
+      <button
+        onClick={handleSendForSignature}
+        style={{
+          background: 'linear-gradient(to bottom, #f5c26b, #e47911)',
+          border: '1px solid #c07600',
+          color: '#111',
+          fontWeight: 700,
+          padding: '11px 28px',
+          borderRadius: '6px',
+          cursor: 'pointer',
+          fontSize: '14px',
+        }}
+      >
+        ✍ Review &amp; Sign →
+      </button>
+      <p style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '10px' }}>
+        Demo only. In the full product, send contracts for countersignature and track open/signed status in real time.
+      </p>
+    </div>
+  );
+}
+
 /* ─── Shared styles ─── */
 const labelStyle: React.CSSProperties = {
   display: 'block',
@@ -597,6 +954,7 @@ const demoMap: Record<string, React.ReactNode> = {
   'commission-calc': <CommissionDemo />,
   'email-sig-gen': <EmailSigDemo />,
   'time-tracker': <TimeTrackerDemo />,
+  'contract-gen': <ContractGenDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {
