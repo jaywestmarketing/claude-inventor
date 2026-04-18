@@ -809,7 +809,11 @@ export const tools: Tool[] = [
       { city: 'Racine', state: 'WI', population: '78,000', competitionLevel: 'low' },
       { city: 'Rochester', state: 'MN', population: '121,000', competitionLevel: 'low' },
       { city: 'Ann Arbor', state: 'MI', population: '121,000', competitionLevel: 'low' },
-      { city: 'Kalamazoo', state: 'MI', population: '71,000', competitionLevel: 'low' }
+      { city: 'Kalamazoo', state: 'MI', population: '71,000', competitionLevel: 'low' },
+      { city: 'Pittsburgh', state: 'PA', population: '302,000', competitionLevel: 'low', localContext: 'From the innovation teams at Carnegie Mellon University\'s world-renowned robotics and AI research centers to the executive teams at PNC Financial Services headquartered in downtown Pittsburgh, MeetingNotesAI helps Steel City companies capture structured action items and key decisions from every meeting — without manual transcription or a dedicated note-taker.' },
+      { city: 'Cincinnati', state: 'OH', population: '309,000', competitionLevel: 'low', localContext: 'Operations and project teams at Procter & Gamble\'s global headquarters along the Ohio River — one of the world\'s largest consumer goods companies, where hundreds of cross-functional meetings happen daily — and the clinical teams at University of Cincinnati Medical Center use MeetingNotesAI to extract action items and decisions in under 30 seconds.' },
+      { city: 'Buffalo', state: 'NY', population: '255,000', competitionLevel: 'low', localContext: 'From the clinical research teams at Roswell Park Comprehensive Cancer Center — one of the nation\'s oldest NCI-designated cancer centers, located near Main Street in downtown Buffalo — to the project managers at M&T Bank\'s regional operations, MeetingNotesAI turns meeting recordings into structured summaries so nothing falls through the cracks.' },
+      { city: 'Birmingham', state: 'AL', population: '200,000', competitionLevel: 'low', localContext: 'Healthcare and financial services teams in Birmingham — anchored by UAB Health System (the state\'s largest employer) and Protective Life Corporation\'s insurance headquarters on Fifth Avenue North — use MeetingNotesAI to automatically summarize executive meetings, clinical huddles, and client calls without dedicating a team member to manual note-taking.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1030,7 +1034,11 @@ export const tools: Tool[] = [
       { city: 'Escondido', state: 'CA', population: '153,000', competitionLevel: 'low' },
       { city: 'Oceanside', state: 'CA', population: '175,000', competitionLevel: 'low' },
       { city: 'Pasadena', state: 'CA', population: '141,000', competitionLevel: 'low' },
-      { city: 'Torrance', state: 'CA', population: '145,000', competitionLevel: 'low' }
+      { city: 'Torrance', state: 'CA', population: '145,000', competitionLevel: 'low' },
+      { city: 'Bellevue', state: 'WA', population: '151,000', competitionLevel: 'low', localContext: 'Marketing and operations teams at Bellevue\'s technology corridor — anchored by major offices from Expedia Group, T-Mobile\'s headquarters on Factoria Boulevard, and dozens of Microsoft-adjacent SaaS companies clustered in the Bellevue CBD and Spring District — use EmailSigGen to deploy consistent, branded email signatures across their entire team without Exclaimer\'s IT-admin requirements or per-user pricing.' },
+      { city: 'Rio Rancho', state: 'NM', population: '104,000', competitionLevel: 'low', localContext: 'Business development and marketing teams in Rio Rancho\'s fast-growing professional sector — including the operations supporting Intel Corporation\'s massive semiconductor manufacturing campus on Unser Boulevard, one of New Mexico\'s largest private employers — use EmailSigGen to maintain consistent branded email signatures across distributed teams without per-user licensing fees from Exclaimer or WiseStamp.' },
+      { city: 'Salt Lake City', state: 'UT', population: '200,000', competitionLevel: 'low', localContext: 'Marketing teams at Salt Lake City\'s tech and healthcare anchor companies — from the corporate communications teams at Intermountain Health\'s 33-hospital network downtown to the growing SaaS firms scaling along the 200 South tech corridor — use EmailSigGen to roll out branded email signatures company-wide in minutes, not days, without paying WiseStamp\'s $6-$11 per-user monthly rate.' },
+      { city: 'College Station', state: 'TX', population: '120,000', competitionLevel: 'low', localContext: 'From the business development teams at Texas A&M\'s technology licensing and startup ecosystem — one of the most active university research-commercialization programs in the nation, operating through the RELLIS Campus and Innovation Plaza — to the professional services firms serving Brazos County\'s $3B+ annual economy, College Station businesses use EmailSigGen to deploy professional team signatures without per-user overhead.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1176,7 +1184,11 @@ export const tools: Tool[] = [
       { city: 'Ogden', state: 'UT', population: '87,000', competitionLevel: 'low' },
       { city: 'St. George', state: 'UT', population: '90,000', competitionLevel: 'low' },
       { city: 'Orem', state: 'UT', population: '98,000', competitionLevel: 'low' },
-      { city: 'Pueblo', state: 'CO', population: '111,000', competitionLevel: 'low' }
+      { city: 'Pueblo', state: 'CO', population: '111,000', competitionLevel: 'low' },
+      { city: 'Davenport', state: 'IA', population: '101,000', competitionLevel: 'low', localContext: 'Agencies and professional services firms in the Quad Cities region — anchored by John Deere\'s global headquarters across the river in nearby Moline, IL, one of the world\'s most recognizable agricultural equipment brands — use ClientPortal to give clients a branded, organized hub for files, approvals, and invoices instead of scattered email threads and shared Google Drive folders.' },
+      { city: 'Troy', state: 'MI', population: '87,000', competitionLevel: 'low', localContext: 'Marketing agencies and consulting firms in Troy\'s dense corporate corridor — home to Kelly Services\' global headquarters, Meritor\'s automotive technology operations, and a high concentration of professional services firms along the Big Beaver Road and I-75 business district — use ClientPortal to deliver polished, white-labeled client experiences without SuiteDash\'s complex weeks-long onboarding.' },
+      { city: 'Gresham', state: 'OR', population: '109,000', competitionLevel: 'low', localContext: 'Creative agencies and design studios in Gresham — the eastern anchor of the Portland metro business corridor, home to a growing professional services community that serves clients across the Pacific Northwest and benefits from MAX Light Rail\'s direct connection to Portland\'s creative business district — use ClientPortal to replace scattered cloud folders and email chains with a branded client experience.' },
+      { city: 'Loveland', state: 'CO', population: '78,000', competitionLevel: 'low', localContext: 'Creative agencies and consulting firms in Loveland — Northern Colorado\'s second-largest city, positioned between Fort Collins and the Denver metro along the Front Range corridor, home to Broadcom\'s Colorado networking operations and a growing tech services ecosystem — use ClientPortal to give every client a professional, organized hub for deliverables, invoices, and project approvals without enterprise pricing.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1247,7 +1259,11 @@ export const tools: Tool[] = [
       { city: 'Medford', state: 'OR', population: '82,000', competitionLevel: 'low' },
       { city: 'Yuma', state: 'AZ', population: '97,000', competitionLevel: 'low' },
       { city: 'Flagstaff', state: 'AZ', population: '76,000', competitionLevel: 'low' },
-      { city: 'Glendale', state: 'AZ', population: '246,000', competitionLevel: 'low' }
+      { city: 'Glendale', state: 'AZ', population: '246,000', competitionLevel: 'low' },
+      { city: 'St. Paul', state: 'MN', population: '307,000', competitionLevel: 'low', localContext: 'Sales operations leaders at St. Paul\'s corporate anchor companies — from Ecolab\'s global headquarters on Ecolab Place downtown to the large government-technology contractors clustered around the State Capitol Complex on Cedar Street — use CommissionCalc to track and calculate accurate sales commissions without the spreadsheet formulas that cause monthly disputes and reconciliation backlogs across multi-rep teams.' },
+      { city: 'Santa Fe', state: 'NM', population: '84,000', competitionLevel: 'low', localContext: 'Sales teams at Santa Fe\'s government technology contractors, hospitality companies, and arts-industry businesses — operating in New Mexico\'s historic capital, where state government procurement contracts and a year-round tourism economy create unique tiered and event-based commission structures — use CommissionCalc to automate payout calculations without the enterprise pricing wall of Spiff or CaptivateIQ.' },
+      { city: 'Hillsboro', state: 'OR', population: '105,000', competitionLevel: 'low', localContext: 'Sales and channel teams at Hillsboro\'s technology companies — centered on Intel\'s sprawling Ronler Acres campus, one of the world\'s largest semiconductor R&D and manufacturing sites, and extending through the Silicon Forest tech ecosystem west of Portland — use CommissionCalc to track deal commissions and quota attainment without the complex, months-long onboarding required by enterprise incentive software like Xactly or CaptivateIQ.' },
+      { city: 'Jonesboro', state: 'AR', population: '78,000', competitionLevel: 'low', localContext: 'Sales managers and operations leads at Jonesboro\'s growing manufacturing and healthcare companies — from the logistics suppliers near Arkansas State University\'s research and technology park to the revenue teams at NEA Baptist Memorial Hospital, Northeast Arkansas\'s largest healthcare employer — use CommissionCalc to calculate accurate rep commissions from a transparent tool that doesn\'t require a Salesforce CRM or a $25/user/month software subscription.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1460,7 +1476,11 @@ export const tools: Tool[] = [
       { city: 'Sunrise', state: 'FL', population: '97,000', competitionLevel: 'low' },
       { city: 'Pompano Beach', state: 'FL', population: '114,000', competitionLevel: 'low' },
       { city: 'Pawtucket', state: 'RI', population: '75,000', competitionLevel: 'low' },
-      { city: 'Layton', state: 'UT', population: '87,000', competitionLevel: 'low' }
+      { city: 'Layton', state: 'UT', population: '87,000', competitionLevel: 'low' },
+      { city: 'Plano', state: 'TX', population: '290,000', competitionLevel: 'low', localContext: 'Legal and procurement teams at Toyota\'s North American headquarters on Legacy Drive in Plano — one of the largest corporate campus relocations in Texas history — and the growing professional services firms around the Granite Park and Legacy West campuses use ContractGen to generate and e-sign vendor agreements and service contracts without DocuSign\'s $25/user monthly fee.' },
+      { city: 'Fort Myers', state: 'FL', population: '87,000', competitionLevel: 'low', localContext: 'Real estate agencies, construction contractors, and professional services firms in Fort Myers — Southwest Florida\'s fastest-growing business community, anchored by Lee Health\'s regional hospital network and a construction boom reshaping the Cape Coral–Fort Myers metro — use ContractGen to generate and e-sign service agreements in minutes without costly enterprise contracts software.' },
+      { city: 'Brownsville', state: 'TX', population: '183,000', competitionLevel: 'low', localContext: 'Cross-border trade companies and manufacturing operations in Brownsville — one of the busiest US-Mexico border corridors, also home to SpaceX\'s Starbase orbital launch facility and the maquiladora supplier ecosystem along International Boulevard — use ContractGen to generate bilingual vendor agreements and service contracts without DocuSign\'s enterprise pricing tiers.' },
+      { city: 'Bloomington', state: 'IN', population: '82,000', competitionLevel: 'low', localContext: 'Freelancers, healthcare vendors, and small businesses surrounding Indiana University\'s flagship Bloomington campus — one of the largest public universities in the US, whose research and technology-transfer programs generate a steady stream of consultant agreements and licensing contracts — use ContractGen to sign NDAs and service agreements without paying $25/user/month for DocuSign.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1537,6 +1557,78 @@ export const tools: Tool[] = [
     dateAdded: '2026-04-17',
     waitlistCount: 0,
     slug: 'inventory-tracker'
+  },
+  {
+    id: 'form-builder-pro',
+    name: 'FormBuilder',
+    tagline: 'Build beautiful, high-converting forms without Typeform\'s $50/month pricing',
+    description: 'FormBuilder is the best online form builder for small businesses, marketers, and nonprofits who are tired of Typeform\'s per-response billing and JotForm\'s feature-gating on the free tier. Drag and drop 40+ field types — including file upload, e-signature, payment collection, and conditional logic — to build contact forms, lead capture surveys, registration pages, and client intake workflows in under 3 minutes. No code, no developer, no $50/month. What is the best free form builder for small business? FormBuilder gives you conversational form design, real-time response analytics, and native integrations with Google Sheets, Airtable, and HubSpot — all without artificial response caps or monthly plan upgrades.',
+    category: 'marketing',
+    status: 'demo',
+    icon: '📝',
+    features: [
+      'Drag-and-drop builder with 40+ field types: text, dropdown, file upload, e-signature, date, rating, payment',
+      'Conditional logic — show or hide fields based on previous answers, without a single line of code',
+      'Conversational one-question-at-a-time mode for higher completion rates, inspired by Typeform',
+      'Stripe payment collection built in — accept deposits, fees, and donations directly in any form',
+      'Response dashboard with analytics: completion rate, drop-off by field, average fill time per form',
+      'Native integrations: Google Sheets, Airtable, Slack, HubSpot, Mailchimp, and 1,000+ apps via Zapier',
+      'Multi-page forms with progress bar and per-page field validation before advancing',
+      'Custom branding per form: logo, background color, button style, and custom thank-you page redirect'
+    ],
+    keywords: [
+      'best form builder for small business',
+      'free online form builder',
+      'drag and drop form creator',
+      'Typeform alternative free',
+      'JotForm alternative',
+      'cheaper than Typeform',
+      'Formstack alternative',
+      'Google Forms alternative with conditional logic',
+      'online form creator with payment collection',
+      'conditional logic form builder',
+      'free contact form builder for website',
+      'survey form builder without coding',
+      'how to create a form for free online',
+      'what is the best free form builder for small business',
+      'how to build a contact form with conditional logic',
+      'best form builder with payment collection',
+      'client intake form builder',
+      'lead capture form builder free',
+      'form builder with Zapier integration',
+      'best form builder 2026'
+    ],
+    competitors: [
+      { name: 'Typeform', priceRange: '$29-$83/mo', topComplaint: 'Response limits force expensive upgrades — 1,000 responses/month on the $50 plan is not enough for active lead gen campaigns (G2)' },
+      { name: 'JotForm', priceRange: '$34-$99/mo', topComplaint: 'Free tier caps at 5 forms and 100 submissions/month — essentially useless for real business use (Reddit/Capterra)' },
+      { name: 'Formstack', priceRange: '$83-$333/mo', topComplaint: 'Enterprise pricing for what most teams need from a basic form tool; integrations cost extra on base plans (G2)' },
+      { name: 'Gravity Forms', priceRange: '$59-$159/year', topComplaint: 'WordPress-only; conditional logic requires developer knowledge; payment integrations are add-on license costs (Capterra)' },
+      { name: '123FormBuilder', priceRange: '$19-$99/mo', topComplaint: 'Dated interface; limited integration options; conditional logic is clunky compared to modern alternatives (G2)' },
+      { name: 'Google Forms', priceRange: 'Free', topComplaint: 'No conditional logic branching, no custom branding, no payment collection, no analytics beyond basic response counts (Reddit)' }
+    ],
+    competitorFixes: [
+      'Unlimited forms and unlimited responses on the free tier — no 5-form cap or 100-submission limit that forces upgrades',
+      'Conditional logic and multi-page branching built in on every plan — no developer or premium upgrade required',
+      'Beautiful conversational form design without Typeform\'s $50/month price wall — same experience, zero per-response billing',
+      'Stripe payment collection in one click — accept fees and donations directly in any form without Gravity Forms\' add-on licensing',
+      'Response analytics with field-level drop-off data so you know exactly where respondents abandon your form',
+      'Instant setup in under 3 minutes — no WordPress install, no developer, no onboarding call required'
+    ],
+    targetCities: [
+      { city: 'Alexandria', state: 'VA', population: '162,000', competitionLevel: 'low', localContext: 'Marketing teams and small businesses in Alexandria\'s Old Town and Carlyle district — a booming hub anchored by Amazon\'s HQ2 expansion in nearby Arlington and MITRE Corporation\'s federal technology campus on Colshire Drive — use FormBuilder to build client intake forms, lead capture surveys, and event registration pages without Typeform\'s $50/month price tag.' },
+      { city: 'St. Petersburg', state: 'FL', population: '260,000', competitionLevel: 'low', localContext: 'Digital marketing agencies and nonprofits in St. Petersburg\'s Grand Central District and EDGE District — one of Tampa Bay\'s most vibrant creative and startup neighborhoods, anchored by the Dali Museum and Raymond James Financial\'s corporate campus — use FormBuilder to collect contact information, event registrations, and client survey data without per-response billing.' },
+      { city: 'Hialeah', state: 'FL', population: '224,000', competitionLevel: 'low', localContext: 'Small and mid-size businesses in Hialeah\'s dense commercial district — one of Florida\'s largest manufacturing and industrial hubs, where a thriving Hispanic business community drives import logistics, retail, and service businesses around the Palmetto Expressway corridor — use FormBuilder to build multilingual client intake forms and lead generation surveys without JotForm\'s feature-gating on the free tier.' },
+      { city: 'Hollywood', state: 'FL', population: '153,000', competitionLevel: 'low', localContext: 'Professional services firms and healthcare providers in Hollywood\'s corporate corridor — including the vendor network supporting Memorial Healthcare System\'s seven-hospital regional network, one of Broward County\'s largest employers headquartered on Joe DiMaggio Boulevard — use FormBuilder to build patient intake forms, vendor registration workflows, and client onboarding surveys without Formstack\'s $83/month entry price.' },
+      { city: 'Hammond', state: 'IN', population: '77,000', competitionLevel: 'low', localContext: 'Small businesses, nonprofits, and healthcare providers in Hammond\'s Calumet Region — a northwest Indiana community at the doorstep of the Chicago metro, home to Franciscan Health\'s Hammond campus and Purdue University Northwest\'s student services corridor — use FormBuilder to create client intake forms, event registrations, and service inquiries in minutes without paying for JotForm or Typeform.' },
+      { city: 'Westland', state: 'MI', population: '81,000', competitionLevel: 'low', localContext: 'Small businesses and professional services firms in Westland — a suburban Detroit community with a dense commercial strip along Wayne Road, home to independent healthcare practices, auto parts retailers, and family-owned service businesses throughout Wayne County — use FormBuilder to collect client intake information and appointment requests without paying $50/month for a form tool.' },
+      { city: 'Portsmouth', state: 'VA', population: '100,000', competitionLevel: 'low', localContext: 'Government contractors and service businesses in Portsmouth — directly across the Elizabeth River from Naval Station Norfolk, one of the world\'s largest naval installations — use FormBuilder to build vendor application forms, client service request workflows, and compliance intake surveys without expensive enterprise software or per-response billing limits.' },
+      { city: 'Auburn', state: 'AL', population: '76,000', competitionLevel: 'low', localContext: 'Small businesses, startups, and university vendors near Auburn University\'s main campus — home to one of the South\'s most active engineering, business, and agriculture research programs, whose technology transfer and startup ecosystem generates a steady flow of client intake and survey needs — use FormBuilder to capture leads, event signups, and feedback without building custom web forms from scratch.' },
+      { city: 'Lawton', state: 'OK', population: '96,000', competitionLevel: 'low', localContext: 'Service businesses and federal contractors in Lawton near Fort Sill — one of the US Army\'s most important artillery training and missile defense installations, which anchors a large government-contractor and retail economy throughout Comanche County — use FormBuilder to build vendor registration, client intake, and service request forms without the $50/month cost of Typeform.' },
+      { city: 'Burbank', state: 'CA', population: '103,000', competitionLevel: 'low', localContext: 'Marketing agencies, production companies, and media businesses in Burbank — home to Disney\'s main studio complex on Buena Vista Street, Warner Bros. Discovery\'s production lot on Warner Boulevard, and a dense cluster of entertainment-industry vendors — use FormBuilder to collect talent submissions, vendor applications, creative briefs, and client feedback without per-response billing that spikes during production-season surges.' }
+    ],
+    dateAdded: '2026-04-17',
+    waitlistCount: 0,
+    slug: 'form-builder'
   }
 ];
 
@@ -1640,6 +1732,21 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'InventoryTracker', cities: ['Fort Smith AR', 'Davie FL', 'Palm Bay FL', 'Livonia MI', 'Avondale AZ', 'West Jordan UT', 'Waukesha WI', 'Janesville WI', 'Reading PA', 'Elizabeth NJ'] }
     ],
     researchNotes: 'Session 6: Added 20 new cities across 5 existing tools targeting underrepresented Mid-Atlantic (PA, NJ), New York State, New Mexico, Silicon Slopes UT, and Midwest regions. CityTarget interface updated with optional localContext field — each new city has a unique sentence citing real employers, landmarks, or universities (Air Products in Allentown, Boehringer Ingelheim in St. Joseph, Publix HQ in Lakeland, JB Hunt/Tyson in Springdale, GE Healthcare in Waukesha, Port of Newark in Elizabeth, etc.). Built InventoryTracker (Operations) — 6 competitors validated at $5K+/mo including Sortly ($99/mo), inFlow ($439/mo), Fishbowl ($329/mo), Cin7 post-acquisition pricing doubles (Reddit). TimeTracker interactive demo added: live running timer, project selector, daily log with mock entries, weekly hours chart by project — full product interface, not a calculator. Total: 20 tools, 320+ city SEO pages.'
+  },
+  {
+    date: '2026-04-17',
+    toolsAdded: ['FormBuilder'],
+    toolsUpdated: ['MeetingNotesAI', 'ContractGen', 'EmailSigGen', 'ClientPortal', 'CommissionCalc'],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'MeetingNotesAI', cities: ['Pittsburgh PA', 'Cincinnati OH', 'Buffalo NY', 'Birmingham AL'] },
+      { tool: 'ContractGen', cities: ['Plano TX', 'Fort Myers FL', 'Brownsville TX', 'Bloomington IN'] },
+      { tool: 'EmailSigGen', cities: ['Bellevue WA', 'Rio Rancho NM', 'Salt Lake City UT', 'College Station TX'] },
+      { tool: 'ClientPortal', cities: ['Davenport IA', 'Troy MI', 'Gresham OR', 'Loveland CO'] },
+      { tool: 'CommissionCalc', cities: ['St. Paul MN', 'Santa Fe NM', 'Hillsboro OR', 'Jonesboro AR'] },
+      { tool: 'FormBuilder', cities: ['Alexandria VA', 'St. Petersburg FL', 'Hialeah FL', 'Hollywood FL', 'Hammond IN', 'Westland MI', 'Portsmouth VA', 'Auburn AL', 'Lawton OK', 'Burbank CA'] }
+    ],
+    researchNotes: 'Session 7: Added 20 new city SEO pages with localContext to 5 existing tools — targeting underrepresented Pacific Northwest (Bellevue WA, Hillsboro OR, Gresham OR), Upper Midwest (St. Paul MN, Davenport IA), Southwest (Rio Rancho NM, Santa Fe NM), South (Pittsburgh PA, Cincinnati OH, Buffalo NY, Birmingham AL, Jonesboro AR), and new Texas/FL markets (Plano TX/Toyota HQ, Brownsville TX/SpaceX Starbase, Fort Myers FL, Bloomington IN/Indiana U). Built FormBuilder (Marketing) — 6 competitors validated: Typeform ($83M+ ARR, response-limit pricing complaints), JotForm (free tier 100-submission cap, Reddit/Capterra), Formstack ($83+/mo enterprise gap), Gravity Forms (WordPress-only with add-on costs), 123FormBuilder (dated UI), Google Forms (no conditional logic, no payments). Added ContractGen interactive demo: template selector, auto-fill fields, live contract preview, e-sign simulation with animated signing flow, signed state with download button. Total: 21 tools, 370+ city SEO pages.'
   }
 ];
 
