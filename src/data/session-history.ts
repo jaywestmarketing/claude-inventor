@@ -317,11 +317,13 @@ export const sessionHistory: SessionEntry[] = [
       { name: 'InventoryTracker', slug: 'inventory-tracker', category: 'operations' }
     ],
     toolsUpdated: [
-      { name: 'PTOTracker', changes: ['Added 4 cities: Allentown PA, Erie PA, Bethlehem PA, Trenton NJ — now 14 total; all have unique localContext sentences'] },
-      { name: 'KPIDash', changes: ['Added 4 cities: Las Cruces NM, Eau Claire WI, Lakeland FL, Edmond OK — now 14 total; all have unique localContext sentences'] },
-      { name: 'PayrollCalc', changes: ['Added 4 cities: Albany NY, Rochester NY, Paterson NJ, Lehi UT — now 14 total; all have unique localContext sentences'] },
-      { name: 'HelpDeskAI', changes: ['Added 4 cities: Springdale AR, Carmel IN, Dearborn MI, North Las Vegas NV — now 14 total; all have unique localContext sentences'] },
-      { name: 'DocTemplates', changes: ['Added 4 cities: Syracuse NY, Fishers IN, Goodyear AZ, St. Joseph MO — now 14 total; all have unique localContext sentences'] },
+      { name: 'CalendarFlow', changes: ['Added 3 cities without localContext: Greenville NC, Franklin TN, Lafayette IN — now 23 total'] },
+      { name: 'InvoiceAI', changes: ['Added 2 cities without localContext: Deltona FL, Fort Myers FL — Central/Gulf Florida expansion'] },
+      { name: 'PTOTracker', changes: ['Added 5 cities: St. Cloud MN + Allentown PA, Erie PA, Bethlehem PA, Trenton NJ (all 4 with localContext) — now 19 total'] },
+      { name: 'KPIDash', changes: ['Added 5 cities: North Las Vegas NV + Las Cruces NM, Eau Claire WI, Lakeland FL, Edmond OK (4 with localContext) — now 19 total'] },
+      { name: 'PayrollCalc', changes: ['Added 4 cities with localContext: Albany NY, Rochester NY, Paterson NJ, Lehi UT — now 18 total'] },
+      { name: 'HelpDeskAI', changes: ['Added 4 cities with localContext: Springdale AR, Carmel IN, Dearborn MI, North Las Vegas NV — now 18 total'] },
+      { name: 'DocTemplates', changes: ['Added 4 cities with localContext: Syracuse NY, Fishers IN, Goodyear AZ, St. Joseph MO — now 18 total'] },
       { name: 'TimeTracker', changes: ['Added fully interactive live timer demo: running stopwatch, project selector, daily log with mock entries, weekly hours bar chart by project'] }
     ],
     keywordsResearched: [
@@ -332,8 +334,10 @@ export const sessionHistory: SessionEntry[] = [
       }
     ],
     citiesAdded: [
-      { tool: 'PTOTracker', cities: ['Allentown PA', 'Erie PA', 'Bethlehem PA', 'Trenton NJ'] },
-      { tool: 'KPIDash', cities: ['Las Cruces NM', 'Eau Claire WI', 'Lakeland FL', 'Edmond OK'] },
+      { tool: 'CalendarFlow', cities: ['Greenville NC', 'Franklin TN', 'Lafayette IN'] },
+      { tool: 'InvoiceAI', cities: ['Deltona FL', 'Fort Myers FL'] },
+      { tool: 'PTOTracker', cities: ['St. Cloud MN', 'Allentown PA', 'Erie PA', 'Bethlehem PA', 'Trenton NJ'] },
+      { tool: 'KPIDash', cities: ['North Las Vegas NV', 'Las Cruces NM', 'Eau Claire WI', 'Lakeland FL', 'Edmond OK'] },
       { tool: 'PayrollCalc', cities: ['Albany NY', 'Rochester NY', 'Paterson NJ', 'Lehi UT'] },
       { tool: 'HelpDeskAI', cities: ['Springdale AR', 'Carmel IN', 'Dearborn MI', 'North Las Vegas NV'] },
       { tool: 'DocTemplates', cities: ['Syracuse NY', 'Fishers IN', 'Goodyear AZ', 'St. Joseph MO'] },
@@ -345,18 +349,18 @@ export const sessionHistory: SessionEntry[] = [
     seoUpdates: [
       'CityTarget interface updated with optional localContext field for city-specific E-E-A-T content',
       'CityDetailClient updated: renders blue callout box with unique local sentence when localContext is present',
-      '20 new city pages across 5 tools — each cites real, verifiable local employers/landmarks: Air Products (Allentown), Boehringer Ingelheim Animal Health HQ (St. Joseph), Publix HQ (Lakeland), JB Hunt/Tyson Foods (Springdale), GE Healthcare HQ (Waukesha), Port of Newark (Elizabeth), Ford Glass House HQ (Dearborn), Silicon Slopes tech cluster (Lehi), etc.',
+      'PTOTracker: localContext cities — Air Products (Allentown), Erie Insurance/Wabtec (Erie), Lehigh Univ/St. Luke\'s (Bethlehem), Capital Health (Trenton)',
+      'KPIDash: localContext cities — Publix HQ (Lakeland), NMSU/White Sands (Las Cruces), Kwik Trip/UWEC (Eau Claire), Tinker AFB (Edmond)',
       '10 new InventoryTracker city pages — all with localContext: Penske HQ (Reading), Kennecott copper mine (West Jordan), AutoNation network (Davie), L3Harris (Palm Bay), Port of Newark (Elizabeth)',
-      'TimeTracker interactive demo added: live stopwatch, project tagging, daily log, weekly bar chart — replaces calculator pattern with true product UI',
-      'Total: 20 tools, 320+ city SEO pages'
+      'TimeTracker interactive demo added: live stopwatch, project tagging, daily log, weekly bar chart',
+      'Total: 20 tools, 330+ city SEO pages'
     ],
     nextSessionPlan: [
-      'Build FormBuilder tool (Marketing/Productivity) — Typeform $50/mo complaints persistent on Reddit; JotForm feature-gating on free tier; high demand from small business owners',
-      'Build JobDescriptionGen tool (HR) — Textio pricing complaints; lack of compliance-aware JD generators for SMBs',
+      'Build FormBuilder tool (Marketing) — Typeform $50/mo complaints; JotForm feature-gating on free tier',
+      'Build JobDescriptionGen tool (HR) — Textio pricing complaints; lack of compliance-aware JD generators',
       'Add interactive demo for ContractGen — NDA template preview with auto-fill fields and e-sign simulation',
-      'Add localContext to 20 more existing cities across 4+ tools — prioritize cities added in Sessions 1-3 which predate the localContext system',
-      'Expand InventoryTracker cities — target Pacific Northwest distribution hubs (Tacoma WA, Bellingham WA area) and Southeast retail cities',
-      'Refresh SocialQueue keywords — TikTok business scheduling keyword volume up in 2026 per Google Trends'
+      'Add localContext to cities added in Sessions 1-3 that predate the localContext system',
+      'Refresh SocialQueue keywords — TikTok business scheduling keyword volume up in 2026'
     ]
   },
   {
@@ -367,7 +371,7 @@ export const sessionHistory: SessionEntry[] = [
     ],
     toolsUpdated: [
       { name: 'MeetingNotesAI', changes: ['Added 4 cities with localContext: Davenport IA (John Deere Quad Cities), Saint Paul MN (3M/Ecolab HQs), Bloomington IN (Cook Medical/IU), Champaign IL (UIUC/Caterpillar) — now 14 total'] },
-      { name: 'CalendarFlow', changes: ['Added 4 cities with localContext: Alexandria VA (Booz Allen/MITRE), Edison NJ (Route 1 pharma corridor), O\'Fallon MO (MasterCard Tech Center), Doral FL (Latin American multinational HQs) — now 20 total'] },
+      { name: 'CalendarFlow', changes: ['Added 4 cities with localContext: Alexandria VA (Booz Allen/MITRE), Edison NJ (Route 1 pharma corridor), O\'Fallon MO (MasterCard Tech Center), Doral FL (Latin American multinational HQs) — now 23 total'] },
       { name: 'SocialQueue', changes: ['Added 4 cities with localContext: Auburn AL (Auburn Univ/Hyundai supplier chain), Rio Rancho NM (Intel Fab 11X), Lee\'s Summit MO (Oracle Health/Cerner), Centennial CO (Comcast/aerospace cluster) — now 18 total'] },
       { name: 'CommissionCalc', changes: ['Added 4 cities with localContext: Portland ME (Unum/IDEXX/WEX HQs), Bossier City LA (Barksdale AFB/casino industry), Hialeah FL (Cuban-American insurance/sales hub), Roseville CA (HP Enterprise/Intel Folsom) — now 14 total'] },
       { name: 'EmailCampaigns', changes: ['Added 4 cities with localContext: Scranton PA (Univ of Scranton/Commonwealth Health), Hoover AL (Riverchase Galleria/Regions Bank), Wilmington DE (Fortune 500 incorporation capital/BofA Delaware), Pasco WA (Port of Pasco/Lamb Weston) — now 14 total'] },
@@ -400,7 +404,7 @@ export const sessionHistory: SessionEntry[] = [
       'EmailCampaigns: Scranton PA small business community; Riverchase Galleria corridor (Hoover AL); Fortune 500 incorporation capital and Bank of America Delaware (Wilmington DE); Port of Pasco and Lamb Weston processing (Pasco WA)',
       'FormBuilder launched with 10 city pages all carrying localContext — Disney/Nestlé USA (Glendale CA), Motorola Solutions/Zurich Insurance (Schaumburg IL), Procore Technologies HQ (Santa Barbara CA), E.&J. Gallo Winery HQ (Modesto CA), GoDaddy HQ (Scottsdale AZ)',
       'ContractGen interactive demo added: first full product-workflow demo on the platform — 4 steps, multiple templates, live text generation, signature simulation; raises demo bar from calculator to product interface',
-      'Total: 21 tools, 350+ city SEO pages'
+      'Total: 21 tools, 360+ city SEO pages'
     ],
     nextSessionPlan: [
       'Build JobDescriptionGen tool (HR) — Textio $600-$1,200/seat/yr pricing complaints; Ongig $10K+/yr inaccessible for SMBs; strong demand from hiring managers who write generic JDs that fail to attract top candidates',
