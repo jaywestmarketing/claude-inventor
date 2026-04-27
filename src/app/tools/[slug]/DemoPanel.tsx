@@ -549,6 +549,286 @@ function TimeTrackerDemo() {
   );
 }
 
+/* ─── Contract Generator ─── */
+type ContractStep = 'details' | 'preview' | 'sign' | 'done';
+
+const CONTRACT_TEMPLATES = [
+  { id: 'nda', label: 'Non-Disclosure Agreement (NDA)' },
+  { id: 'service', label: 'Service Agreement' },
+  { id: 'consulting', label: 'Consulting Contract' },
+];
+
+function ContractGenDemo() {
+  const [step, setStep] = useState<ContractStep>('details');
+  const [template, setTemplate] = useState('nda');
+  const [partyA, setPartyA] = useState('Acme Solutions LLC');
+  const [partyB, setPartyB] = useState('Bright Ideas Consulting Inc.');
+  const [effectiveDate, setEffectiveDate] = useState('May 1, 2026');
+  const [jurisdiction, setJurisdiction] = useState('State of Delaware');
+  const [duration, setDuration] = useState('2 years');
+  const [sigName, setSigName] = useState('');
+  const [sigDrawn, setSigDrawn] = useState(false);
+  const [signing, setSigning] = useState(false);
+
+  const tpl = CONTRACT_TEMPLATES.find(t => t.id === template)!;
+
+  const ndaBody = `NON-DISCLOSURE AGREEMENT
+
+This Non-Disclosure Agreement ("Agreement") is entered into as of ${effectiveDate || '[Date]'} between ${partyA || '[Party A]'} ("Disclosing Party") and ${partyB || '[Party B]'} ("Receiving Party").
+
+1. CONFIDENTIAL INFORMATION
+"Confidential Information" means any non-public information disclosed by the Disclosing Party to the Receiving Party in connection with a potential business relationship, whether disclosed orally, in writing, or by inspection of tangible objects.
+
+2. OBLIGATIONS
+The Receiving Party agrees to: (a) hold Confidential Information in strict confidence; (b) not disclose Confidential Information to any third party without prior written consent; (c) use Confidential Information solely to evaluate the potential business relationship.
+
+3. EXCLUSIONS
+Obligations do not apply to information that: (a) is or becomes publicly known through no breach of this Agreement; (b) was rightfully known before disclosure; (c) is required to be disclosed by applicable law or court order.
+
+4. TERM
+This Agreement shall remain in effect for a period of ${duration || '[Duration]'} from the Effective Date, unless earlier terminated by mutual written consent.
+
+5. GOVERNING LAW
+This Agreement shall be governed by the laws of the ${jurisdiction || '[Jurisdiction]'}, without regard to conflict of law principles.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written above.`;
+
+  const serviceBody = `SERVICE AGREEMENT
+
+This Service Agreement ("Agreement") is entered into as of ${effectiveDate || '[Date]'} between ${partyA || '[Party A]'} ("Client") and ${partyB || '[Party B]'} ("Service Provider").
+
+1. SERVICES
+Service Provider agrees to perform the services described in any Statement of Work ("SOW") mutually agreed upon in writing by both parties.
+
+2. PAYMENT
+Client agrees to pay Service Provider according to the rates specified in each SOW. Invoices are due within 30 days of receipt.
+
+3. INTELLECTUAL PROPERTY
+All work product created by Service Provider for Client under this Agreement shall be considered work-for-hire and shall be owned exclusively by Client upon full payment.
+
+4. TERM
+This Agreement shall remain in effect for ${duration || '[Duration]'} from the Effective Date unless terminated by either party with 30 days written notice.
+
+5. GOVERNING LAW
+This Agreement shall be governed by the laws of the ${jurisdiction || '[Jurisdiction]'}.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written above.`;
+
+  const consultingBody = `CONSULTING AGREEMENT
+
+This Consulting Agreement ("Agreement") is entered into as of ${effectiveDate || '[Date]'} between ${partyA || '[Party A]'} ("Company") and ${partyB || '[Party B]'} ("Consultant").
+
+1. CONSULTING SERVICES
+Consultant agrees to provide consulting services as mutually agreed in writing. Consultant is an independent contractor and not an employee of Company.
+
+2. COMPENSATION
+Company agrees to pay Consultant at the rates specified in writing. Consultant is responsible for all taxes on compensation received.
+
+3. CONFIDENTIALITY
+Consultant agrees to maintain confidentiality of all proprietary Company information for ${duration || '[Duration]'} following termination of this Agreement.
+
+4. NON-SOLICITATION
+During the term and for one year thereafter, Consultant shall not solicit Company's employees or clients.
+
+5. GOVERNING LAW
+This Agreement is governed by the laws of the ${jurisdiction || '[Jurisdiction]'}.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written above.`;
+
+  const bodyMap: Record<string, string> = { nda: ndaBody, service: serviceBody, consulting: consultingBody };
+  const contractText = bodyMap[template] || ndaBody;
+
+  const handleSign = () => {
+    if (!sigName.trim()) return;
+    setSigning(true);
+    setTimeout(() => { setSigning(false); setSigDrawn(true); }, 1200);
+  };
+
+  const handleComplete = () => setStep('done');
+
+  const stepLabels: ContractStep[] = ['details', 'preview', 'sign', 'done'];
+  const stepNames = ['Fill Details', 'Preview', 'Sign', 'Complete'];
+
+  const pill = (s: ContractStep, label: string) => {
+    const idx = stepLabels.indexOf(s);
+    const cur = stepLabels.indexOf(step);
+    const done = idx < cur;
+    const active = idx === cur;
+    return (
+      <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <div style={{
+          width: '22px', height: '22px', borderRadius: '50%',
+          background: done ? '#16a34a' : active ? 'var(--navy)' : '#e5e7eb',
+          color: done || active ? '#fff' : '#9ca3af',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: '11px', fontWeight: 700, flexShrink: 0,
+        }}>
+          {done ? '✓' : idx + 1}
+        </div>
+        <span style={{ fontSize: '12px', fontWeight: active ? 700 : 400, color: active ? 'var(--navy)' : done ? '#16a34a' : '#9ca3af' }}>
+          {label}
+        </span>
+      </div>
+    );
+  };
+
+  return (
+    <div>
+      {/* Step indicator */}
+      <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap' }}>
+        {stepLabels.map((s, i) => (
+          <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            {pill(s, stepNames[i])}
+            {i < stepLabels.length - 1 && (
+              <div style={{ width: '24px', height: '2px', background: '#e5e7eb', marginLeft: '2px' }} />
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* ── Step 1: Details ── */}
+      {step === 'details' && (
+        <div>
+          <div style={{ marginBottom: '18px' }}>
+            <label style={labelStyle}>Contract Template</label>
+            <select value={template} onChange={e => setTemplate(e.target.value)} style={{ ...inputStyle, background: '#fff' }}>
+              {CONTRACT_TEMPLATES.map(t => <option key={t.id} value={t.id}>{t.label}</option>)}
+            </select>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px', marginBottom: '20px' }}>
+            <div>
+              <label style={labelStyle}>Party A (Your Company)</label>
+              <input type="text" value={partyA} onChange={e => setPartyA(e.target.value)} style={inputStyle} placeholder="Your Company LLC" />
+            </div>
+            <div>
+              <label style={labelStyle}>Party B (Other Party)</label>
+              <input type="text" value={partyB} onChange={e => setPartyB(e.target.value)} style={inputStyle} placeholder="Recipient Name or Company" />
+            </div>
+            <div>
+              <label style={labelStyle}>Effective Date</label>
+              <input type="text" value={effectiveDate} onChange={e => setEffectiveDate(e.target.value)} style={inputStyle} placeholder="May 1, 2026" />
+            </div>
+            <div>
+              <label style={labelStyle}>Governing Jurisdiction</label>
+              <input type="text" value={jurisdiction} onChange={e => setJurisdiction(e.target.value)} style={inputStyle} placeholder="State of Delaware" />
+            </div>
+            <div>
+              <label style={labelStyle}>Term / Duration</label>
+              <input type="text" value={duration} onChange={e => setDuration(e.target.value)} style={inputStyle} placeholder="2 years" />
+            </div>
+          </div>
+          <button
+            onClick={() => setStep('preview')}
+            style={{ background: 'linear-gradient(to bottom,#f5c26b,#e47911)', border: '1px solid #c07600', color: '#111', fontWeight: 700, padding: '10px 26px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px' }}
+          >
+            Preview Contract →
+          </button>
+        </div>
+      )}
+
+      {/* ── Step 2: Preview ── */}
+      {step === 'preview' && (
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
+            <div>
+              <span style={{ background: '#dbeafe', color: '#1d4ed8', fontSize: '11px', fontWeight: 700, padding: '3px 10px', borderRadius: '20px', letterSpacing: '.04em' }}>DRAFT</span>
+              <span style={{ marginLeft: '10px', fontSize: '13px', color: 'var(--text-secondary)' }}>{tpl.label}</span>
+            </div>
+            <button onClick={() => setStep('details')} style={{ background: 'none', border: '1px solid var(--border)', color: 'var(--text-secondary)', padding: '6px 14px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px' }}>← Edit Details</button>
+          </div>
+          <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '8px', padding: '28px', fontFamily: 'Georgia, serif', fontSize: '13px', lineHeight: '1.8', color: '#1a1a1a', maxHeight: '340px', overflowY: 'auto', whiteSpace: 'pre-wrap', marginBottom: '16px', boxShadow: '0 2px 8px rgba(0,0,0,.07)' }}>
+            {contractText}
+          </div>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            <button
+              onClick={() => setStep('sign')}
+              style={{ background: 'linear-gradient(to bottom,#f5c26b,#e47911)', border: '1px solid #c07600', color: '#111', fontWeight: 700, padding: '10px 26px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px' }}
+            >
+              Proceed to Sign →
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ── Step 3: Sign ── */}
+      {step === 'sign' && (
+        <div>
+          <div style={{ background: '#f0f7ff', border: '1px solid #bfdbfe', borderRadius: '8px', padding: '20px', marginBottom: '20px' }}>
+            <div style={{ fontWeight: 700, fontSize: '14px', color: 'var(--navy)', marginBottom: '6px' }}>📋 {tpl.label}</div>
+            <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>{partyA} ↔ {partyB} · Effective {effectiveDate} · {jurisdiction}</div>
+          </div>
+
+          <div style={{ marginBottom: '18px' }}>
+            <label style={labelStyle}>Your Full Legal Name (to sign)</label>
+            <input
+              type="text"
+              value={sigName}
+              onChange={e => { setSigName(e.target.value); setSigDrawn(false); }}
+              style={inputStyle}
+              placeholder="Enter your full name"
+            />
+          </div>
+
+          {/* Signature area */}
+          <div style={{ border: '2px dashed var(--border)', borderRadius: '8px', padding: '24px', textAlign: 'center', background: sigDrawn ? '#f0fdf4' : '#fafafa', borderColor: sigDrawn ? '#16a34a' : 'var(--border)', transition: 'all .3s', marginBottom: '18px', minHeight: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {sigDrawn ? (
+              <div>
+                <div style={{ fontFamily: "'Segoe Script', 'Brush Script MT', cursive", fontSize: '32px', color: '#1a1a1a', marginBottom: '6px' }}>{sigName}</div>
+                <div style={{ fontSize: '11px', color: '#16a34a', fontWeight: 700 }}>✓ Signature captured · {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+              </div>
+            ) : signing ? (
+              <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Capturing signature…</div>
+            ) : (
+              <div style={{ fontSize: '13px', color: '#9ca3af' }}>Signature will appear here</div>
+            )}
+          </div>
+
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            <button
+              onClick={handleSign}
+              disabled={!sigName.trim() || signing}
+              style={{ background: sigName.trim() && !signing ? 'var(--navy)' : '#ccc', border: 'none', color: '#fff', fontWeight: 700, padding: '10px 22px', borderRadius: '6px', cursor: sigName.trim() && !signing ? 'pointer' : 'not-allowed', fontSize: '14px', transition: 'background .2s' }}
+            >
+              {signing ? 'Signing…' : '✍ Apply Signature'}
+            </button>
+            {sigDrawn && (
+              <button
+                onClick={handleComplete}
+                style={{ background: 'linear-gradient(to bottom,#4ade80,#16a34a)', border: '1px solid #15803d', color: '#fff', fontWeight: 700, padding: '10px 22px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px' }}
+              >
+                ✓ Finalize & Download
+              </button>
+            )}
+            <button onClick={() => setStep('preview')} style={{ background: 'none', border: '1px solid var(--border)', color: 'var(--text-secondary)', padding: '10px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px' }}>← Back</button>
+          </div>
+        </div>
+      )}
+
+      {/* ── Step 4: Done ── */}
+      {step === 'done' && (
+        <div style={{ textAlign: 'center', padding: '32px 20px' }}>
+          <div style={{ fontSize: '52px', marginBottom: '16px' }}>✅</div>
+          <div style={{ fontWeight: 800, fontSize: '20px', color: 'var(--navy)', marginBottom: '8px' }}>Contract Signed & Sealed</div>
+          <div style={{ fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '24px', maxWidth: '380px', margin: '0 auto 24px' }}>
+            <strong>{tpl.label}</strong> between <strong>{partyA}</strong> and <strong>{partyB}</strong> has been executed. Signed by <em>{sigName}</em> on {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}.
+          </div>
+          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '16px' }}>
+            <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '8px', padding: '12px 20px', fontSize: '13px', color: '#15803d', fontWeight: 600 }}>📄 PDF ready for download</div>
+            <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '8px', padding: '12px 20px', fontSize: '13px', color: '#15803d', fontWeight: 600 }}>📧 Sent to both parties</div>
+            <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '8px', padding: '12px 20px', fontSize: '13px', color: '#15803d', fontWeight: 600 }}>🔒 Audit trail logged</div>
+          </div>
+          <button
+            onClick={() => { setStep('details'); setSigName(''); setSigDrawn(false); }}
+            style={{ background: 'linear-gradient(to bottom,#f5c26b,#e47911)', border: '1px solid #c07600', color: '#111', fontWeight: 700, padding: '10px 22px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px' }}
+          >
+            ↺ Create New Contract
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ─── Shared styles ─── */
 const labelStyle: React.CSSProperties = {
   display: 'block',
@@ -597,6 +877,7 @@ const demoMap: Record<string, React.ReactNode> = {
   'commission-calc': <CommissionDemo />,
   'email-sig-gen': <EmailSigDemo />,
   'time-tracker': <TimeTrackerDemo />,
+  'contract-gen': <ContractGenDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {
