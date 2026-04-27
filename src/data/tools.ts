@@ -193,7 +193,9 @@ export const tools: Tool[] = [
       { city: 'Coral Springs', state: 'FL', population: '135,000', competitionLevel: 'low' },
       { city: 'Longmont', state: 'CO', population: '96,000', competitionLevel: 'low' },
       { city: 'Yakima', state: 'WA', population: '96,000', competitionLevel: 'low' },
-      { city: 'Independence', state: 'MO', population: '116,000', competitionLevel: 'low' }
+      { city: 'Independence', state: 'MO', population: '116,000', competitionLevel: 'low' },
+      { city: 'Deltona', state: 'FL', population: '97,000', competitionLevel: 'low' },
+      { city: 'Fort Myers', state: 'FL', population: '87,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -353,6 +355,9 @@ export const tools: Tool[] = [
       { city: 'Simi Valley', state: 'CA', population: '126,000', competitionLevel: 'low' },
       { city: 'League City', state: 'TX', population: '111,000', competitionLevel: 'low' },
       { city: 'Norwalk', state: 'CT', population: '90,000', competitionLevel: 'low' },
+      { city: 'Greenville', state: 'NC', population: '94,000', competitionLevel: 'low' },
+      { city: 'Franklin', state: 'TN', population: '84,000', competitionLevel: 'low' },
+      { city: 'Lafayette', state: 'IN', population: '70,000', competitionLevel: 'low' },
       { city: 'Alexandria', state: 'VA', population: '160,000', competitionLevel: 'low', localContext: 'Government contractors and consulting firms clustered near Old Town Alexandria — including Booz Allen Hamilton\'s headquarters and MITRE Corporation\'s McLean research campus — use CalendarFlow to coordinate proposal reviews, client briefings, and multi-stakeholder government project meetings across security-cleared and commercial teams without the per-seat cost of Calendly.' },
       { city: 'Edison', state: 'NJ', population: '100,000', competitionLevel: 'low', localContext: 'Pharmaceutical sales teams and biotech companies operating along Edison\'s Route 1 corridor — one of the densest concentrations of life sciences employers in New Jersey, with proximity to Janssen and Takeda campuses — use CalendarFlow to schedule product demonstrations, HCP appointments, and internal pipeline reviews without the back-and-forth email overhead that costs reps billable selling time.' },
       { city: "O'Fallon", state: 'MO', population: '94,000', competitionLevel: 'low', localContext: "Operations and technology teams at O'Fallon's major corporate campuses — including MasterCard's global technology center employing over 3,000 payment technology professionals along Mexico Road — use CalendarFlow to schedule cross-timezone product reviews and vendor meetings without Calendly's per-seat pricing eating into the IT budget." },
@@ -668,6 +673,7 @@ export const tools: Tool[] = [
       { city: 'Lakewood', state: 'CO', population: '160,000', competitionLevel: 'low' },
       { city: 'Henderson', state: 'NV', population: '322,000', competitionLevel: 'low' },
       { city: 'Sparks', state: 'NV', population: '104,000', competitionLevel: 'low' },
+      { city: 'St. Cloud', state: 'MN', population: '70,000', competitionLevel: 'low' },
       { city: 'Allentown', state: 'PA', population: '125,000', competitionLevel: 'low', localContext: 'HR teams at Lehigh Valley\'s major employers — from Air Products & Chemicals\' global headquarters to the nursing staff schedulers at Lehigh Valley Health Network — use PTOTracker to handle the complex shift-based leave policies that manufacturers and hospital systems require.' },
       { city: 'Erie', state: 'PA', population: '95,000', competitionLevel: 'low', localContext: 'Built for the HR managers at Erie Insurance\'s downtown headquarters and the floor supervisors at Wabtec\'s locomotive manufacturing facility on East 12th Street, PTOTracker automates leave tracking for Erie\'s largest private-sector employers.' },
       { city: 'Bethlehem', state: 'PA', population: '78,000', competitionLevel: 'low', localContext: 'HR teams near Lehigh University and the growing St. Luke\'s University Health Network in Bethlehem use PTOTracker for compliant leave management — especially critical where campus research schedules and hospital shift rotations demand flexible, role-specific accrual policies.' },
@@ -743,6 +749,7 @@ export const tools: Tool[] = [
       { city: 'Beaumont', state: 'TX', population: '115,000', competitionLevel: 'low' },
       { city: 'Meridian', state: 'ID', population: '123,000', competitionLevel: 'low' },
       { city: 'Olathe', state: 'KS', population: '141,000', competitionLevel: 'low' },
+      { city: 'North Las Vegas', state: 'NV', population: '270,000', competitionLevel: 'low' },
       { city: 'Las Cruces', state: 'NM', population: '111,000', competitionLevel: 'low', localContext: 'Operations managers serving New Mexico State University\'s growing research and commercialization portfolio — and the contractor base supporting White Sands Missile Range\'s federal operations — use KPIDash to track business metrics in real time without hiring a dedicated analyst.' },
       { city: 'Eau Claire', state: 'WI', population: '70,000', competitionLevel: 'low', localContext: 'Business leaders at Eau Claire companies — including the regional teams at Kwik Trip\'s corporate headquarters and the administrators at the University of Wisconsin-Eau Claire — use KPIDash to monitor operations metrics across the Chippewa Valley\'s growing business community.' },
       { city: 'Lakeland', state: 'FL', population: '115,000', competitionLevel: 'low', localContext: 'From the vendor operations teams supplying Publix Super Markets\' world headquarters in Lakeland to the administrative teams at Florida Southern College — home to the world\'s largest collection of Frank Lloyd Wright architecture on a single campus — KPIDash delivers real-time performance dashboards without Tableau\'s $70/user cost.' },
@@ -1721,17 +1728,19 @@ export const sessionLogs: SessionLog[] = [
   {
     date: '2026-04-17',
     toolsAdded: ['InventoryTracker'],
-    toolsUpdated: ['PTOTracker', 'KPIDash', 'PayrollCalc', 'HelpDeskAI', 'DocTemplates', 'TimeTracker'],
+    toolsUpdated: ['CalendarFlow', 'PTOTracker', 'KPIDash', 'PayrollCalc', 'HelpDeskAI', 'DocTemplates', 'TimeTracker', 'InvoiceAI'],
     keywordChanges: [],
     citiesTargeted: [
-      { tool: 'PTOTracker', cities: ['Allentown PA', 'Erie PA', 'Bethlehem PA', 'Trenton NJ'] },
-      { tool: 'KPIDash', cities: ['Las Cruces NM', 'Eau Claire WI', 'Lakeland FL', 'Edmond OK'] },
+      { tool: 'CalendarFlow', cities: ['Greenville NC', 'Franklin TN', 'Lafayette IN'] },
+      { tool: 'PTOTracker', cities: ['St. Cloud MN', 'Allentown PA', 'Erie PA', 'Bethlehem PA', 'Trenton NJ'] },
+      { tool: 'KPIDash', cities: ['North Las Vegas NV', 'Las Cruces NM', 'Eau Claire WI', 'Lakeland FL', 'Edmond OK'] },
       { tool: 'PayrollCalc', cities: ['Albany NY', 'Rochester NY', 'Paterson NJ', 'Lehi UT'] },
       { tool: 'HelpDeskAI', cities: ['Springdale AR', 'Carmel IN', 'Dearborn MI', 'North Las Vegas NV'] },
       { tool: 'DocTemplates', cities: ['Syracuse NY', 'Fishers IN', 'Goodyear AZ', 'St. Joseph MO'] },
+      { tool: 'InvoiceAI', cities: ['Deltona FL', 'Fort Myers FL'] },
       { tool: 'InventoryTracker', cities: ['Fort Smith AR', 'Davie FL', 'Palm Bay FL', 'Livonia MI', 'Avondale AZ', 'West Jordan UT', 'Waukesha WI', 'Janesville WI', 'Reading PA', 'Elizabeth NJ'] }
     ],
-    researchNotes: 'Session 6: Added 20 new cities across 5 existing tools targeting underrepresented Mid-Atlantic (PA, NJ), New York State, New Mexico, Silicon Slopes UT, and Midwest regions. CityTarget interface updated with optional localContext field — each new city has a unique sentence citing real employers, landmarks, or universities (Air Products in Allentown, Boehringer Ingelheim in St. Joseph, Publix HQ in Lakeland, JB Hunt/Tyson in Springdale, GE Healthcare in Waukesha, Port of Newark in Elizabeth, etc.). Built InventoryTracker (Operations) — 6 competitors validated at $5K+/mo including Sortly ($99/mo), inFlow ($439/mo), Fishbowl ($329/mo), Cin7 post-acquisition pricing doubles (Reddit). TimeTracker interactive demo added: live running timer, project selector, daily log with mock entries, weekly hours chart by project — full product interface, not a calculator. Total: 20 tools, 320+ city SEO pages.'
+    researchNotes: 'Session 6 (merged): Built InventoryTracker (Operations) — 6 competitors validated at $5K+/mo including Sortly ($99/mo), inFlow ($439/mo), Fishbowl ($329/mo), Cin7 post-acquisition price doubles (Reddit). Added 30+ new cities across 8 tools — Mid-Atlantic PA/NJ with localContext (Air Products Allentown, Erie Insurance, Lehigh University/St. Lukes, Capital Health Trenton), NM/NV/WI/FL/OK for KPIDash with localContext (Publix HQ Lakeland, NMSU/White Sands Las Cruces, Kwik Trip Eau Claire), Carolinas/Indiana for CalendarFlow (Franklin TN, Greenville NC, Lafayette IN), Central FL for InvoiceAI (Deltona, Fort Myers). CityTarget interface updated with optional localContext field. TimeTracker interactive demo added: live running timer, project selector, daily log, weekly bar chart. Total: 20 tools, 330+ city SEO pages.'
   },
   {
     date: '2026-04-27',
@@ -1746,7 +1755,7 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'EmailCampaigns', cities: ['Scranton PA', 'Hoover AL', 'Wilmington DE', 'Pasco WA'] },
       { tool: 'FormBuilder', cities: ['Glendale CA', 'Schaumburg IL', 'Anchorage AK', 'Modesto CA', 'Santa Barbara CA', 'Temecula CA', 'Scottsdale AZ', 'Lawton OK', 'South Jordan UT', 'San Marcos TX'] }
     ],
-    researchNotes: 'Session 7: Added 20 new cities across 5 existing tools with unique localContext — each city page cites real employers, landmarks, and industries specific to that city (John Deere Quad Cities HQ for Davenport IA; 3M/Ecolab HQs for Saint Paul MN; MasterCard Tech Center for O\'Fallon MO; Intel Fab 11X for Rio Rancho NM; Oracle Health/Cerner for Lee\'s Summit MO; IDEXX/Unum/WEX HQs for Portland ME; Booz Allen Hamilton/MITRE for Alexandria VA; Nestlé USA/Disney animation for Glendale CA; Procore Technologies HQ for Santa Barbara CA; Gallo Winery HQ for Modesto CA; etc.). Built ContractGen interactive demo: 4-step NDA/contract workflow with template selection, auto-fill fields (party names, date, jurisdiction, duration), live contract text preview, signature capture simulation with cursive rendering, and completion confirmation. Built FormBuilder (Marketing) — Typeform ($50/mo, 10 response free tier limit) and JotForm ($34-$99/mo, 5-form/100-submission cap) are the primary acquisition targets; 6 competitors validated at $5K+/mo ARR; 10 cities launched all with localContext. Total: 21 tools, 350+ city SEO pages.'
+    researchNotes: 'Session 7: Added 20 new cities across 5 existing tools with unique localContext — each city page cites real employers, landmarks, and industries specific to that city (John Deere Quad Cities HQ for Davenport IA; 3M/Ecolab HQs for Saint Paul MN; MasterCard Tech Center for O\'Fallon MO; Intel Fab 11X for Rio Rancho NM; Oracle Health/Cerner for Lee\'s Summit MO; IDEXX/Unum/WEX HQs for Portland ME; Booz Allen Hamilton/MITRE for Alexandria VA; Nestlé USA/Disney animation for Glendale CA; Procore Technologies HQ for Santa Barbara CA; Gallo Winery HQ for Modesto CA; etc.). Built ContractGen interactive demo: 4-step NDA/contract workflow with template selection, auto-fill fields (party names, date, jurisdiction, duration), live contract text preview, signature capture simulation with cursive rendering, and completion confirmation. Built FormBuilder (Marketing) — Typeform ($50/mo, 10 response free tier limit) and JotForm ($34-$99/mo, 5-form/100-submission cap) are the primary acquisition targets; 6 competitors validated at $5K+/mo ARR; 10 cities launched all with localContext. Total: 21 tools, 360+ city SEO pages.'
   }
 ];
 
