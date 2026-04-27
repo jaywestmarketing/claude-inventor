@@ -193,7 +193,9 @@ export const tools: Tool[] = [
       { city: 'Coral Springs', state: 'FL', population: '135,000', competitionLevel: 'low' },
       { city: 'Longmont', state: 'CO', population: '96,000', competitionLevel: 'low' },
       { city: 'Yakima', state: 'WA', population: '96,000', competitionLevel: 'low' },
-      { city: 'Independence', state: 'MO', population: '116,000', competitionLevel: 'low' }
+      { city: 'Independence', state: 'MO', population: '116,000', competitionLevel: 'low' },
+      { city: 'Deltona', state: 'FL', population: '97,000', competitionLevel: 'low' },
+      { city: 'Fort Myers', state: 'FL', population: '87,000', competitionLevel: 'low' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -352,7 +354,14 @@ export const tools: Tool[] = [
       { city: 'Fayetteville', state: 'NC', population: '208,000', competitionLevel: 'low' },
       { city: 'Simi Valley', state: 'CA', population: '126,000', competitionLevel: 'low' },
       { city: 'League City', state: 'TX', population: '111,000', competitionLevel: 'low' },
-      { city: 'Norwalk', state: 'CT', population: '90,000', competitionLevel: 'low' }
+      { city: 'Norwalk', state: 'CT', population: '90,000', competitionLevel: 'low' },
+      { city: 'Greenville', state: 'NC', population: '94,000', competitionLevel: 'low' },
+      { city: 'Franklin', state: 'TN', population: '84,000', competitionLevel: 'low' },
+      { city: 'Lafayette', state: 'IN', population: '70,000', competitionLevel: 'low' },
+      { city: 'Alexandria', state: 'VA', population: '160,000', competitionLevel: 'low', localContext: 'Government contractors and consulting firms clustered near Old Town Alexandria — including Booz Allen Hamilton\'s headquarters and MITRE Corporation\'s McLean research campus — use CalendarFlow to coordinate proposal reviews, client briefings, and multi-stakeholder government project meetings across security-cleared and commercial teams without the per-seat cost of Calendly.' },
+      { city: 'Edison', state: 'NJ', population: '100,000', competitionLevel: 'low', localContext: 'Pharmaceutical sales teams and biotech companies operating along Edison\'s Route 1 corridor — one of the densest concentrations of life sciences employers in New Jersey, with proximity to Janssen and Takeda campuses — use CalendarFlow to schedule product demonstrations, HCP appointments, and internal pipeline reviews without the back-and-forth email overhead that costs reps billable selling time.' },
+      { city: "O'Fallon", state: 'MO', population: '94,000', competitionLevel: 'low', localContext: "Operations and technology teams at O'Fallon's major corporate campuses — including MasterCard's global technology center employing over 3,000 payment technology professionals along Mexico Road — use CalendarFlow to schedule cross-timezone product reviews and vendor meetings without Calendly's per-seat pricing eating into the IT budget." },
+      { city: 'Doral', state: 'FL', population: '75,000', competitionLevel: 'low', localContext: 'Latin American regional offices and multinational company headquarters concentrated along Doral\'s Blue Lagoon Drive and NW 87th Avenue corridor — where over 100 Fortune 500 companies maintain their Latin American operations — use CalendarFlow to coordinate scheduling across multiple time zones from Mexico City to São Paulo without paying for enterprise scheduling software.' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -588,7 +597,11 @@ export const tools: Tool[] = [
       { city: 'Port St. Lucie', state: 'FL', population: '234,000', competitionLevel: 'low' },
       { city: 'Greeley', state: 'CO', population: '107,000', competitionLevel: 'low' },
       { city: 'Kent', state: 'WA', population: '136,000', competitionLevel: 'low' },
-      { city: 'Columbia', state: 'MO', population: '129,000', competitionLevel: 'low' }
+      { city: 'Columbia', state: 'MO', population: '129,000', competitionLevel: 'low' },
+      { city: 'Auburn', state: 'AL', population: '77,000', competitionLevel: 'low', localContext: 'Marketing and communications teams at Auburn University — one of Alabama\'s largest universities, home to the Samuel Ginn College of Engineering — and at the Tier 1 auto parts suppliers feeding Hyundai Motor Manufacturing Alabama\'s Montgomery assembly plant use SocialQueue to maintain consistent social media presence without the $99/month Hootsuite now charges after its 2024 price increase.' },
+      { city: 'Rio Rancho', state: 'NM', population: '98,000', competitionLevel: 'low', localContext: 'Small business marketing teams in Rio Rancho\'s fast-growing commercial corridor — and the supplier ecosystem serving Intel\'s massive Fab 11X semiconductor campus, one of Intel\'s highest-volume chip fabrication facilities in the US — use SocialQueue to schedule LinkedIn and social content consistently without the content scheduling limits Buffer introduced when it cut its free tier to 10 posts per channel.' },
+      { city: "Lee's Summit", state: 'MO', population: '100,000', competitionLevel: 'low', localContext: "Marketing and corporate communications teams at Lee's Summit's technology employers — including Oracle Health's massive campus (formerly Cerner Corporation, which employed 15,000+ people here before acquisition) and the healthcare IT vendor community it anchors — use SocialQueue to manage their LinkedIn and social calendars without paying Hootsuite's post-increase $99/month rate for a small team." },
+      { city: 'Centennial', state: 'CO', population: '108,000', competitionLevel: 'low', localContext: 'Marketing teams at technology and aerospace companies in Centennial\'s Denver Tech Center corridor — including Comcast Technology Solutions and the defense contractor cluster near Buckley Space Force Base — use SocialQueue to bulk-schedule thought leadership content and product announcements across channels without the per-seat pricing that makes Sprout Social cost-prohibitive for lean marketing teams.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -660,6 +673,7 @@ export const tools: Tool[] = [
       { city: 'Lakewood', state: 'CO', population: '160,000', competitionLevel: 'low' },
       { city: 'Henderson', state: 'NV', population: '322,000', competitionLevel: 'low' },
       { city: 'Sparks', state: 'NV', population: '104,000', competitionLevel: 'low' },
+      { city: 'St. Cloud', state: 'MN', population: '70,000', competitionLevel: 'low' },
       { city: 'Allentown', state: 'PA', population: '125,000', competitionLevel: 'low', localContext: 'HR teams at Lehigh Valley\'s major employers — from Air Products & Chemicals\' global headquarters to the nursing staff schedulers at Lehigh Valley Health Network — use PTOTracker to handle the complex shift-based leave policies that manufacturers and hospital systems require.' },
       { city: 'Erie', state: 'PA', population: '95,000', competitionLevel: 'low', localContext: 'Built for the HR managers at Erie Insurance\'s downtown headquarters and the floor supervisors at Wabtec\'s locomotive manufacturing facility on East 12th Street, PTOTracker automates leave tracking for Erie\'s largest private-sector employers.' },
       { city: 'Bethlehem', state: 'PA', population: '78,000', competitionLevel: 'low', localContext: 'HR teams near Lehigh University and the growing St. Luke\'s University Health Network in Bethlehem use PTOTracker for compliant leave management — especially critical where campus research schedules and hospital shift rotations demand flexible, role-specific accrual policies.' },
@@ -735,6 +749,7 @@ export const tools: Tool[] = [
       { city: 'Beaumont', state: 'TX', population: '115,000', competitionLevel: 'low' },
       { city: 'Meridian', state: 'ID', population: '123,000', competitionLevel: 'low' },
       { city: 'Olathe', state: 'KS', population: '141,000', competitionLevel: 'low' },
+      { city: 'North Las Vegas', state: 'NV', population: '270,000', competitionLevel: 'low' },
       { city: 'Las Cruces', state: 'NM', population: '111,000', competitionLevel: 'low', localContext: 'Operations managers serving New Mexico State University\'s growing research and commercialization portfolio — and the contractor base supporting White Sands Missile Range\'s federal operations — use KPIDash to track business metrics in real time without hiring a dedicated analyst.' },
       { city: 'Eau Claire', state: 'WI', population: '70,000', competitionLevel: 'low', localContext: 'Business leaders at Eau Claire companies — including the regional teams at Kwik Trip\'s corporate headquarters and the administrators at the University of Wisconsin-Eau Claire — use KPIDash to monitor operations metrics across the Chippewa Valley\'s growing business community.' },
       { city: 'Lakeland', state: 'FL', population: '115,000', competitionLevel: 'low', localContext: 'From the vendor operations teams supplying Publix Super Markets\' world headquarters in Lakeland to the administrative teams at Florida Southern College — home to the world\'s largest collection of Frank Lloyd Wright architecture on a single campus — KPIDash delivers real-time performance dashboards without Tableau\'s $70/user cost.' },
@@ -809,7 +824,11 @@ export const tools: Tool[] = [
       { city: 'Racine', state: 'WI', population: '78,000', competitionLevel: 'low' },
       { city: 'Rochester', state: 'MN', population: '121,000', competitionLevel: 'low' },
       { city: 'Ann Arbor', state: 'MI', population: '121,000', competitionLevel: 'low' },
-      { city: 'Kalamazoo', state: 'MI', population: '71,000', competitionLevel: 'low' }
+      { city: 'Kalamazoo', state: 'MI', population: '71,000', competitionLevel: 'low' },
+      { city: 'Davenport', state: 'IA', population: '101,000', competitionLevel: 'low', localContext: 'Project managers and operations teams in Davenport\'s Quad Cities manufacturing corridor — including the supplier network supporting John Deere\'s Moline global headquarters just across the Mississippi — use MeetingNotesAI to turn post-shift reviews and supplier alignment calls into searchable action item logs without manual note-taking.' },
+      { city: 'Saint Paul', state: 'MN', population: '311,000', competitionLevel: 'low', localContext: 'Executive and cross-functional teams at companies headquartered in Saint Paul — including 3M\'s global Innovation Campus on 3M Center and Ecolab\'s downtown Water Technology Center — use MeetingNotesAI to extract decisions and action items from their packed internal meeting schedules without dedicating staff to manual transcription.' },
+      { city: 'Bloomington', state: 'IN', population: '81,000', competitionLevel: 'low', localContext: 'Research and clinical operations teams at Indiana University and Cook Medical — the largest privately held medical device company in the US, headquartered in Bloomington — use MeetingNotesAI to keep regulatory review meetings, product development standups, and cross-site coordination calls organized with automatic action item capture.' },
+      { city: 'Champaign', state: 'IL', population: '89,000', competitionLevel: 'low', localContext: 'Technology and research teams at the University of Illinois Urbana-Champaign — one of the world\'s top computer science programs — and at Caterpillar\'s Champaign simulation technology center use MeetingNotesAI to summarize project reviews, sprint retrospectives, and grant planning sessions into structured, shareable summaries instantly.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1247,7 +1266,11 @@ export const tools: Tool[] = [
       { city: 'Medford', state: 'OR', population: '82,000', competitionLevel: 'low' },
       { city: 'Yuma', state: 'AZ', population: '97,000', competitionLevel: 'low' },
       { city: 'Flagstaff', state: 'AZ', population: '76,000', competitionLevel: 'low' },
-      { city: 'Glendale', state: 'AZ', population: '246,000', competitionLevel: 'low' }
+      { city: 'Glendale', state: 'AZ', population: '246,000', competitionLevel: 'low' },
+      { city: 'Portland', state: 'ME', population: '68,000', competitionLevel: 'low', localContext: 'Sales and account management teams at Portland\'s Fortune-level corporate headquarters — including Unum Group (the largest disability insurance provider in the US), IDEXX Laboratories (the global leader in veterinary diagnostics), WEX Inc. (fleet and benefits payment solutions), and Hannaford Bros. — use CommissionCalc to run transparent rep-facing commission calculations without paying for enterprise software built for 500-rep sales forces.' },
+      { city: 'Bossier City', state: 'LA', population: '69,000', competitionLevel: 'low', localContext: 'Sales and business development teams in Bossier City\'s growing commercial economy — including the casino and hospitality operations along the Boardwalk entertainment district and the defense contractor community supporting Barksdale Air Force Base, home to Air Force Global Strike Command — use CommissionCalc to calculate variable incentive pay transparently without the spreadsheet disputes that erode rep trust.' },
+      { city: 'Hialeah', state: 'FL', population: '224,000', competitionLevel: 'medium', localContext: 'Insurance sales professionals, healthcare account executives, and real estate agents operating across Hialeah\'s large and growing business community — the heart of Miami-Dade\'s Cuban-American commercial ecosystem, with thousands of independent agencies and distribution companies — use CommissionCalc to provide reps with real-time attainment dashboards and eliminate the end-of-month commission disputes that drive top performers to competitors.' },
+      { city: 'Roseville', state: 'CA', population: '138,000', competitionLevel: 'low', localContext: 'Technology sales teams at Roseville\'s major corporate employers — including Hewlett Packard Enterprise\'s large Roseville campus and the account management teams serving Intel\'s adjacent Folsom design center, one of the largest chip architecture hubs in the world — use CommissionCalc to give reps live attainment visibility and eliminate the compensation spreadsheet errors that cause attrition in competitive tech sales roles.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1318,7 +1341,11 @@ export const tools: Tool[] = [
       { city: 'Quincy', state: 'MA', population: '94,000', competitionLevel: 'low' },
       { city: 'Lynn', state: 'MA', population: '93,000', competitionLevel: 'low' },
       { city: 'Brockton', state: 'MA', population: '105,000', competitionLevel: 'low' },
-      { city: 'New Britain', state: 'CT', population: '72,000', competitionLevel: 'low' }
+      { city: 'New Britain', state: 'CT', population: '72,000', competitionLevel: 'low' },
+      { city: 'Scranton', state: 'PA', population: '73,000', competitionLevel: 'low', localContext: 'Small business owners and nonprofit marketers in Scranton — home to the University of Scranton, Commonwealth Health\'s regional hospital network, and a resilient downtown retail and service business community — use EmailCampaigns to reach customers affordably after Mailchimp\'s repeated price increases pushed the free tier down to just 500 contacts, forcing hundreds of local businesses to find alternatives.' },
+      { city: 'Hoover', state: 'AL', population: '84,000', competitionLevel: 'low', localContext: 'Retail and service businesses in Hoover\'s Riverchase Galleria corridor — the largest shopping mall in the Southeast — and the professional services firms near Samford University and the Regions Bank regional operations hub use EmailCampaigns to communicate with customers and prospects without the per-contact pricing that makes Mailchimp and Constant Contact expensive as local customer lists grow.' },
+      { city: 'Wilmington', state: 'DE', population: '70,000', competitionLevel: 'low', localContext: 'Financial services, legal, and corporate communications teams in Wilmington — the incorporation capital of America, where more than half the Fortune 500 are legally domiciled and where Bank of America\'s Delaware operations and JPMorgan Chase\'s national bank entity are headquartered — use EmailCampaigns to send compliance-friendly client newsletters, deal announcements, and regulatory updates without the automation restrictions on Mailchimp\'s lower tiers.' },
+      { city: 'Pasco', state: 'WA', population: '76,000', competitionLevel: 'low', localContext: 'Agricultural processors, food distribution companies, and supply chain businesses operating out of Pasco\'s Port of Pasco on the Columbia River — including the logistics network supporting Lamb Weston\'s major potato processing facility, one of the largest french fry manufacturing operations in the US — use EmailCampaigns to maintain buyer relationships and communicate order updates without Mailchimp\'s restrictive automation workflows on the free tier.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1537,6 +1564,78 @@ export const tools: Tool[] = [
     dateAdded: '2026-04-17',
     waitlistCount: 0,
     slug: 'inventory-tracker'
+  },
+  {
+    id: 'form-builder-pro',
+    name: 'FormBuilder',
+    tagline: 'Build smart forms with conditional logic — without Typeform\'s $50/month',
+    description: 'FormBuilder is the best free form builder for small businesses and marketing teams that need more than Google Forms but can\'t justify Typeform\'s $50/month or JotForm\'s submission limits. Create multi-page forms with conditional logic branching, custom branding, file uploads, and real-time email notifications — all without response caps or form limits. What is the best form builder for small business? FormBuilder gives you the power of Typeform and the flexibility of JotForm with unlimited responses on the free tier, drag-and-drop simplicity, and seamless embed on any website.',
+    category: 'marketing',
+    status: 'demo',
+    icon: '📋',
+    features: [
+      'Visual drag-and-drop builder with 15+ field types — text, dropdown, file upload, rating, signature, and more',
+      'Conditional logic branching — show or hide fields based on previous answers without any code',
+      'Multi-page forms with real progress bar and save-and-continue for longer applications and surveys',
+      'Custom branding — upload your logo, set colors and fonts, and configure a branded thank-you redirect',
+      'Instant email notifications per submission with full answer summary delivered to any inbox',
+      'Native integrations with Zapier, Google Sheets, HubSpot, Mailchimp, and Slack for automatic data routing',
+      'Secure file upload fields with 10GB storage per account and one-click download dashboard',
+      'Analytics dashboard — view completion rate, per-field drop-off points, and average time to submit'
+    ],
+    keywords: [
+      'free form builder',
+      'online form creator',
+      'drag and drop form builder',
+      'Typeform alternative',
+      'JotForm alternative',
+      'form builder for small business',
+      'survey form builder',
+      'lead generation form builder',
+      'best online form builder 2026',
+      'conditional logic form builder',
+      'form builder with email notifications',
+      'Google Forms alternative',
+      'business form builder',
+      'free survey creator',
+      'how to build a contact form online',
+      'what is the best form builder for small business',
+      'how to create forms without coding',
+      'embed form on website',
+      'multi-page form builder',
+      'form builder with file upload'
+    ],
+    competitors: [
+      { name: 'Typeform', priceRange: '$50-$83/mo', topComplaint: 'Only 10 responses per month on the free tier — completely unusable for any real lead gen or survey campaign (G2)' },
+      { name: 'JotForm', priceRange: '$34-$99/mo', topComplaint: '5-form limit and 100-submission cap on free tier forces upgrades too early for teams just getting started (Capterra)' },
+      { name: 'Wufoo', priceRange: '$19-$183/mo', topComplaint: 'Interface looks and feels like 2010 with no meaningful updates; basic conditional logic requires the $183/month Business plan (G2)' },
+      { name: 'Formstack', priceRange: '$83-$333/mo', topComplaint: 'Enterprise pricing for features every competitor includes on their free plan — $83/month for basic forms is indefensible (Reddit r/smallbusiness)' },
+      { name: 'Google Forms', priceRange: 'Free', topComplaint: 'Zero conditional logic, zero branding, zero analytics beyond response counts — fine for a class survey, completely inadequate for business use (Reddit)' },
+      { name: 'Gravity Forms', priceRange: '$59-$259/yr', topComplaint: 'WordPress-only dependency is a dealbreaker for any team not already fully committed to WP; requires developer knowledge to do anything advanced (G2)' }
+    ],
+    competitorFixes: [
+      'Unlimited responses on every plan — no response cap that forces an upgrade after your first real campaign',
+      'Conditional logic included on the free tier — show or hide fields based on answers without paying $50+/month',
+      'Multi-page forms with real progress bars — built for longer applications and surveys, not just a basic contact form',
+      'Modern drag-and-drop builder with 15+ field types — rebuilt for 2026, not the 2010 aesthetics of Wufoo',
+      'Works on any website — embed on WordPress, Squarespace, Webflow, or any HTML page with one line of code',
+      'Real-time email notifications per submission — know the moment a lead, inquiry, or job application comes in'
+    ],
+    targetCities: [
+      { city: 'Glendale', state: 'CA', population: '200,000', competitionLevel: 'low', localContext: 'Marketing and creative teams at Glendale\'s entertainment industry cluster — including the Disney animation campus on Grand Central Avenue and agencies serving the Nestlé USA headquarters along Central Avenue — use FormBuilder to create branded intake forms, client questionnaires, and talent submission flows without Typeform\'s 10-response-per-month free tier that makes it unusable for any real campaign.' },
+      { city: 'Schaumburg', state: 'IL', population: '75,000', competitionLevel: 'low', localContext: 'Operations, HR, and marketing teams at Schaumburg\'s Fortune-level corporate campuses — including Motorola Solutions\' global headquarters and Zurich Insurance North America\'s US operations center — use FormBuilder to create employee surveys, vendor qualification forms, and event registrations without the $83/month Formstack charges for features that every competitor includes free.' },
+      { city: 'Anchorage', state: 'AK', population: '288,000', competitionLevel: 'low', localContext: 'Small businesses, nonprofits, and government contractors across Anchorage — including the supplier community supporting ConocoPhillips Alaska\'s operations and the hospitality businesses serving one of the US\'s most visited tourism gateways — use FormBuilder to capture leads, registrations, and applications with professional branding that Google Forms\' blank, unbranded aesthetic completely lacks.' },
+      { city: 'Modesto', state: 'CA', population: '216,000', competitionLevel: 'low', localContext: 'Agricultural processors, food industry suppliers, and small businesses in Modesto\'s Central Valley economy — including vendors serving E.&J. Gallo Winery\'s global headquarters (the world\'s largest family-owned winery) and the Taylor Farms fresh produce distribution network — use FormBuilder to build customer intake forms, supplier applications, and order requests with conditional logic that eliminates the irrelevant questions that frustrate respondents.' },
+      { city: 'Santa Barbara', state: 'CA', population: '88,000', competitionLevel: 'low', localContext: 'Startups, agencies, and technology companies in Santa Barbara\'s coastal tech community — including teams near Procore Technologies\' headquarters (the world\'s leading construction management SaaS platform, founded here) and UCSB\'s technology transfer office — use FormBuilder to capture demo requests, product feedback, and research consent forms with conditional logic without paying Typeform\'s $50/month per-response pricing.' },
+      { city: 'Temecula', state: 'CA', population: '110,000', competitionLevel: 'low', localContext: 'Medical device companies, winery operators, and retail businesses in Temecula\'s Old Town and Promenade Temecula corridor — serving one of Southern California\'s fastest-growing small business communities — use FormBuilder to create patient intake forms, wine club membership applications, and event registrations with conditional logic and custom branding without JotForm\'s 5-form and 100-submission free tier cap.' },
+      { city: 'Scottsdale', state: 'AZ', population: '258,000', competitionLevel: 'low', localContext: 'Technology companies, financial services firms, and healthcare organizations headquartered in Scottsdale\'s Camelback Corridor and North Scottsdale business parks — including teams at GoDaddy\'s headquarters and Vanguard\'s largest non-Pennsylvania campus — use FormBuilder to capture customer feedback, job applications, and product interest forms with unlimited responses on the free tier, eliminating the surprise upgrade prompts that Typeform and JotForm trigger mid-campaign.' },
+      { city: 'Lawton', state: 'OK', population: '90,000', competitionLevel: 'low', localContext: 'Military contractors, retail businesses, and service providers in Lawton\'s commercial corridor serving Fort Sill — home to the US Army\'s Field Artillery School and one of the largest active-duty military communities in Oklahoma — use FormBuilder to build vendor qualification forms, service intake requests, and event registration pages without paying Wufoo\'s $183/month Business plan just to unlock basic conditional logic.' },
+      { city: 'South Jordan', state: 'UT', population: '74,000', competitionLevel: 'low', localContext: 'Technology startups and SaaS companies along Silicon Slopes\' southward expansion into South Jordan — including the growing community of property technology businesses inspired by Entrata\'s property management platform headquartered here — use FormBuilder to create customer onboarding forms, subscription registrations, and product feedback surveys with unlimited submissions, avoiding the JotForm free tier limits that break campaigns mid-month.' },
+      { city: 'San Marcos', state: 'TX', population: '72,000', competitionLevel: 'low', localContext: 'Small businesses, university departments, and event organizers in San Marcos — home to Texas State University with over 35,000 students and the Tanger Outlets retail corridor — use FormBuilder to build student intake forms, vendor applications, and event registrations with conditional logic and professional branding, replacing Google Forms\' bare-bones aesthetic that signals low production value to customers and applicants.' }
+    ],
+    dateAdded: '2026-04-27',
+    waitlistCount: 0,
+    slug: 'form-builder'
   }
 ];
 
@@ -1629,17 +1728,34 @@ export const sessionLogs: SessionLog[] = [
   {
     date: '2026-04-17',
     toolsAdded: ['InventoryTracker'],
-    toolsUpdated: ['PTOTracker', 'KPIDash', 'PayrollCalc', 'HelpDeskAI', 'DocTemplates', 'TimeTracker'],
+    toolsUpdated: ['CalendarFlow', 'PTOTracker', 'KPIDash', 'PayrollCalc', 'HelpDeskAI', 'DocTemplates', 'TimeTracker', 'InvoiceAI'],
     keywordChanges: [],
     citiesTargeted: [
-      { tool: 'PTOTracker', cities: ['Allentown PA', 'Erie PA', 'Bethlehem PA', 'Trenton NJ'] },
-      { tool: 'KPIDash', cities: ['Las Cruces NM', 'Eau Claire WI', 'Lakeland FL', 'Edmond OK'] },
+      { tool: 'CalendarFlow', cities: ['Greenville NC', 'Franklin TN', 'Lafayette IN'] },
+      { tool: 'PTOTracker', cities: ['St. Cloud MN', 'Allentown PA', 'Erie PA', 'Bethlehem PA', 'Trenton NJ'] },
+      { tool: 'KPIDash', cities: ['North Las Vegas NV', 'Las Cruces NM', 'Eau Claire WI', 'Lakeland FL', 'Edmond OK'] },
       { tool: 'PayrollCalc', cities: ['Albany NY', 'Rochester NY', 'Paterson NJ', 'Lehi UT'] },
       { tool: 'HelpDeskAI', cities: ['Springdale AR', 'Carmel IN', 'Dearborn MI', 'North Las Vegas NV'] },
       { tool: 'DocTemplates', cities: ['Syracuse NY', 'Fishers IN', 'Goodyear AZ', 'St. Joseph MO'] },
+      { tool: 'InvoiceAI', cities: ['Deltona FL', 'Fort Myers FL'] },
       { tool: 'InventoryTracker', cities: ['Fort Smith AR', 'Davie FL', 'Palm Bay FL', 'Livonia MI', 'Avondale AZ', 'West Jordan UT', 'Waukesha WI', 'Janesville WI', 'Reading PA', 'Elizabeth NJ'] }
     ],
-    researchNotes: 'Session 6: Added 20 new cities across 5 existing tools targeting underrepresented Mid-Atlantic (PA, NJ), New York State, New Mexico, Silicon Slopes UT, and Midwest regions. CityTarget interface updated with optional localContext field — each new city has a unique sentence citing real employers, landmarks, or universities (Air Products in Allentown, Boehringer Ingelheim in St. Joseph, Publix HQ in Lakeland, JB Hunt/Tyson in Springdale, GE Healthcare in Waukesha, Port of Newark in Elizabeth, etc.). Built InventoryTracker (Operations) — 6 competitors validated at $5K+/mo including Sortly ($99/mo), inFlow ($439/mo), Fishbowl ($329/mo), Cin7 post-acquisition pricing doubles (Reddit). TimeTracker interactive demo added: live running timer, project selector, daily log with mock entries, weekly hours chart by project — full product interface, not a calculator. Total: 20 tools, 320+ city SEO pages.'
+    researchNotes: 'Session 6 (merged): Built InventoryTracker (Operations) — 6 competitors validated at $5K+/mo including Sortly ($99/mo), inFlow ($439/mo), Fishbowl ($329/mo), Cin7 post-acquisition price doubles (Reddit). Added 30+ new cities across 8 tools — Mid-Atlantic PA/NJ with localContext (Air Products Allentown, Erie Insurance, Lehigh University/St. Lukes, Capital Health Trenton), NM/NV/WI/FL/OK for KPIDash with localContext (Publix HQ Lakeland, NMSU/White Sands Las Cruces, Kwik Trip Eau Claire), Carolinas/Indiana for CalendarFlow (Franklin TN, Greenville NC, Lafayette IN), Central FL for InvoiceAI (Deltona, Fort Myers). CityTarget interface updated with optional localContext field. TimeTracker interactive demo added: live running timer, project selector, daily log, weekly bar chart. Total: 20 tools, 330+ city SEO pages.'
+  },
+  {
+    date: '2026-04-27',
+    toolsAdded: ['FormBuilder'],
+    toolsUpdated: ['MeetingNotesAI', 'CalendarFlow', 'SocialQueue', 'CommissionCalc', 'EmailCampaigns', 'ContractGen'],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'MeetingNotesAI', cities: ['Davenport IA', 'Saint Paul MN', 'Bloomington IN', 'Champaign IL'] },
+      { tool: 'CalendarFlow', cities: ['Alexandria VA', 'Edison NJ', "O'Fallon MO", 'Doral FL'] },
+      { tool: 'SocialQueue', cities: ['Auburn AL', 'Rio Rancho NM', "Lee's Summit MO", 'Centennial CO'] },
+      { tool: 'CommissionCalc', cities: ['Portland ME', 'Bossier City LA', 'Hialeah FL', 'Roseville CA'] },
+      { tool: 'EmailCampaigns', cities: ['Scranton PA', 'Hoover AL', 'Wilmington DE', 'Pasco WA'] },
+      { tool: 'FormBuilder', cities: ['Glendale CA', 'Schaumburg IL', 'Anchorage AK', 'Modesto CA', 'Santa Barbara CA', 'Temecula CA', 'Scottsdale AZ', 'Lawton OK', 'South Jordan UT', 'San Marcos TX'] }
+    ],
+    researchNotes: 'Session 7: Added 20 new cities across 5 existing tools with unique localContext — each city page cites real employers, landmarks, and industries specific to that city (John Deere Quad Cities HQ for Davenport IA; 3M/Ecolab HQs for Saint Paul MN; MasterCard Tech Center for O\'Fallon MO; Intel Fab 11X for Rio Rancho NM; Oracle Health/Cerner for Lee\'s Summit MO; IDEXX/Unum/WEX HQs for Portland ME; Booz Allen Hamilton/MITRE for Alexandria VA; Nestlé USA/Disney animation for Glendale CA; Procore Technologies HQ for Santa Barbara CA; Gallo Winery HQ for Modesto CA; etc.). Built ContractGen interactive demo: 4-step NDA/contract workflow with template selection, auto-fill fields (party names, date, jurisdiction, duration), live contract text preview, signature capture simulation with cursive rendering, and completion confirmation. Built FormBuilder (Marketing) — Typeform ($50/mo, 10 response free tier limit) and JotForm ($34-$99/mo, 5-form/100-submission cap) are the primary acquisition targets; 6 competitors validated at $5K+/mo ARR; 10 cities launched all with localContext. Total: 21 tools, 360+ city SEO pages.'
   }
 ];
 
