@@ -829,6 +829,338 @@ IN WITNESS WHEREOF, the parties have executed this Agreement as of the date firs
   );
 }
 
+/* ─── Form Builder ─── */
+
+const FB_FIELD_TYPES = [
+  { type: 'text', icon: '✏️', label: 'Short Text' },
+  { type: 'textarea', icon: '📄', label: 'Long Text' },
+  { type: 'dropdown', icon: '🔽', label: 'Dropdown' },
+  { type: 'checkbox', icon: '☑️', label: 'Checkboxes' },
+  { type: 'rating', icon: '⭐', label: 'Rating' },
+  { type: 'file', icon: '📎', label: 'File Upload' },
+];
+
+interface BField {
+  id: string;
+  type: string;
+  label: string;
+  required: boolean;
+  conditional: boolean;
+}
+
+const INIT_BUILDER_FIELDS: BField[] = [
+  { id: 'bf1', type: 'text', label: 'Full Name', required: true, conditional: false },
+  { id: 'bf2', type: 'text', label: 'Work Email', required: true, conditional: false },
+  { id: 'bf3', type: 'dropdown', label: 'Company Size', required: true, conditional: false },
+  { id: 'bf4', type: 'rating', label: 'Rate your current process (1–5)', required: false, conditional: true },
+  { id: 'bf5', type: 'textarea', label: 'Additional Comments', required: false, conditional: false },
+];
+
+const FB_DROPDOWN_OPTS = ['1–10 employees', '11–50 employees', '51–200 employees', '201–500 employees', '500+ employees'];
+
+const FB_MOCK_ANALYTICS = {
+  submissions: 47,
+  completionRate: 74,
+  avgTime: '2m 34s',
+  topDropoff: 'Rating field',
+  fields: [
+    { label: 'Full Name', fillRate: 99 },
+    { label: 'Work Email', fillRate: 97 },
+    { label: 'Company Size', fillRate: 94, opts: [{ v: '1–10', p: 28 }, { v: '11–50', p: 35 }, { v: '51–200', p: 22 }, { v: '201–500', p: 11 }, { v: '500+', p: 4 }] },
+    { label: 'Rate your current process', fillRate: 79, avgRating: 3.8 },
+    { label: 'Additional Comments', fillRate: 41 },
+  ] as Array<{ label: string; fillRate: number; opts?: { v: string; p: number }[]; avgRating?: number }>,
+};
+
+function FormBuilderDemo() {
+  const [tab, setTab] = useState<'build' | 'preview' | 'results'>('build');
+  const [fields, setFields] = useState<BField[]>(INIT_BUILDER_FIELDS.map(f => ({ ...f })));
+  const [editId, setEditId] = useState<string | null>(null);
+  const [draft, setDraft] = useState('');
+  const [pvValues, setPvValues] = useState<Record<string, string>>({});
+  const [pvRating, setPvRating] = useState(0);
+  const [pvStarHover, setPvStarHover] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
+  const [extraSubs, setExtraSubs] = useState(0);
+  const nextId = useRef(200);
+
+  const addField = (type: string) => {
+    const labels: Record<string, string> = {
+      text: 'New Short Text', textarea: 'New Long Text', dropdown: 'New Dropdown',
+      checkbox: 'New Checkboxes', rating: 'New Rating', file: 'File Upload',
+    };
+    setFields(f => [...f, { id: `bf${nextId.current++}`, type, label: labels[type] ?? 'New Field', required: false, conditional: false }]);
+  };
+
+  const remove = (id: string) => setFields(f => f.filter(x => x.id !== id));
+
+  const move = (id: string, d: -1 | 1) => setFields(prev => {
+    const i = prev.findIndex(x => x.id === id);
+    const j = i + d;
+    if (j < 0 || j >= prev.length) return prev;
+    const a = [...prev];
+    [a[i], a[j]] = [a[j], a[i]];
+    return a;
+  });
+
+  const toggleReq = (id: string) => setFields(f => f.map(x => x.id === id ? { ...x, required: !x.required } : x));
+
+  const startEdit = (f: BField) => { setEditId(f.id); setDraft(f.label); };
+  const endEdit = () => {
+    if (editId) setFields(f => f.map(x => x.id === editId ? { ...x, label: draft.trim() || x.label } : x));
+    setEditId(null); setDraft('');
+  };
+
+  const handleSubmit = () => { setSubmitted(true); setExtraSubs(c => c + 1); };
+  const resetPreview = () => { setSubmitted(false); setPvValues({}); setPvRating(0); };
+
+  const dropdownField = fields.find(f => f.type === 'dropdown');
+  const dropdownValue = dropdownField ? (pvValues[dropdownField.id] ?? '') : '';
+  const showConditional = dropdownValue !== '' && dropdownValue !== '1–10 employees';
+
+  const totalSubs = FB_MOCK_ANALYTICS.submissions + extraSubs;
+
+  const tabBtn = (t: 'build' | 'preview' | 'results', label: string) => (
+    <button
+      key={t}
+      onClick={() => { setTab(t); if (t !== 'preview') resetPreview(); }}
+      style={{
+        padding: '8px 16px',
+        background: tab === t ? 'var(--navy)' : '#f0f4f8',
+        color: tab === t ? '#fff' : 'var(--text-secondary)',
+        border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 700, fontSize: '13px',
+      }}
+    >
+      {label}
+    </button>
+  );
+
+  const typeIcon = (type: string) => FB_FIELD_TYPES.find(t => t.type === type)?.icon ?? '📄';
+
+  return (
+    <div>
+      <div style={{ display: 'flex', gap: '6px', marginBottom: '20px', flexWrap: 'wrap' }}>
+        {tabBtn('build', '🔨 Builder')}
+        {tabBtn('preview', '👁 Preview')}
+        {tabBtn('results', `📊 Results (${totalSubs})`)}
+      </div>
+
+      {/* ── Build Tab ── */}
+      {tab === 'build' && (
+        <div>
+          <div style={{ background: '#f0f4f8', borderRadius: '10px', padding: '12px 16px', marginBottom: '16px' }}>
+            <div style={{ ...labelStyle, marginBottom: '8px', display: 'block' }}>Add Field</div>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              {FB_FIELD_TYPES.map(t => (
+                <button
+                  key={t.type}
+                  onClick={() => addField(t.type)}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '5px',
+                    padding: '6px 12px', background: '#fff',
+                    border: '1px solid var(--border)', borderRadius: '6px',
+                    cursor: 'pointer', fontSize: '12px', fontWeight: 600, color: 'var(--navy)',
+                  }}
+                >
+                  <span>{t.icon}</span> {t.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden', marginBottom: '12px' }}>
+            {fields.map((f, i) => (
+              <div
+                key={f.id}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '10px',
+                  padding: '12px 16px',
+                  borderBottom: i < fields.length - 1 ? '1px solid var(--border)' : 'none',
+                  background: editId === f.id ? '#f0f7ff' : i % 2 === 0 ? '#fff' : '#fafafa',
+                }}
+              >
+                <span style={{ fontSize: '18px', flexShrink: 0 }}>{typeIcon(f.type)}</span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  {editId === f.id ? (
+                    <input
+                      autoFocus
+                      value={draft}
+                      onChange={e => setDraft(e.target.value)}
+                      onBlur={endEdit}
+                      onKeyDown={e => e.key === 'Enter' && endEdit()}
+                      style={{ ...inputStyle, width: '100%', boxSizing: 'border-box' as const }}
+                    />
+                  ) : (
+                    <div
+                      onClick={() => startEdit(f)}
+                      title="Click to edit label"
+                      style={{ fontWeight: 600, fontSize: '14px', color: 'var(--navy)', cursor: 'text', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+                    >
+                      {f.label}
+                    </div>
+                  )}
+                  <div style={{ display: 'flex', gap: '6px', marginTop: '4px', flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: '11px', color: '#6b7280', textTransform: 'uppercase' as const, fontWeight: 600 }}>
+                      {FB_FIELD_TYPES.find(t => t.type === f.type)?.label ?? f.type}
+                    </span>
+                    {f.required && (
+                      <span style={{ fontSize: '11px', background: '#fef3c7', color: '#92400e', borderRadius: '4px', padding: '1px 6px', fontWeight: 700 }}>Required</span>
+                    )}
+                    {f.conditional && (
+                      <span style={{ fontSize: '11px', background: '#dbeafe', color: '#1d4ed8', borderRadius: '4px', padding: '1px 6px', fontWeight: 700 }}>⚡ Conditional</span>
+                    )}
+                  </div>
+                </div>
+                <div style={{ display: 'flex', gap: '4px', flexShrink: 0 }}>
+                  <button onClick={() => toggleReq(f.id)} title={f.required ? 'Mark optional' : 'Mark required'} style={iconBtnStyle}>{f.required ? '★' : '☆'}</button>
+                  <button onClick={() => move(f.id, -1)} disabled={i === 0} style={{ ...iconBtnStyle, opacity: i === 0 ? 0.3 : 1 }}>↑</button>
+                  <button onClick={() => move(f.id, 1)} disabled={i === fields.length - 1} style={{ ...iconBtnStyle, opacity: i === fields.length - 1 ? 0.3 : 1 }}>↓</button>
+                  <button onClick={() => remove(f.id)} style={{ ...iconBtnStyle, color: '#c0392b' }}>✕</button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+            {fields.length} fields · {fields.filter(f => f.required).length} required
+            {fields.some(f => f.conditional) && ' · conditional logic active'}
+          </div>
+        </div>
+      )}
+
+      {/* ── Preview Tab ── */}
+      {tab === 'preview' && (
+        <div>
+          {submitted ? (
+            <div style={{ textAlign: 'center', padding: '48px 20px' }}>
+              <div style={{ fontSize: '52px', marginBottom: '12px' }}>🎉</div>
+              <div style={{ fontWeight: 800, fontSize: '20px', color: 'var(--navy)', marginBottom: '8px' }}>Response Submitted!</div>
+              <div style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>You are response #{totalSubs}. Thank you!</div>
+              <button onClick={resetPreview} style={{ background: 'linear-gradient(to bottom,#f5c26b,#e47911)', border: '1px solid #c07600', color: '#111', fontWeight: 700, padding: '10px 22px', borderRadius: '6px', cursor: 'pointer' }}>
+                ↺ Submit Another Response
+              </button>
+            </div>
+          ) : (
+            <div>
+              <div style={{ background: '#f8f9fa', borderRadius: '10px', padding: '24px', border: '1px solid var(--border)' }}>
+                <div style={{ fontSize: '18px', fontWeight: 800, color: 'var(--navy)', marginBottom: '4px' }}>Lead Interest Survey</div>
+                <div style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '24px' }}>Built with FormBuilder · Unlimited responses · No response caps</div>
+                {fields.map(f => {
+                  if (f.conditional && !showConditional) return null;
+                  return (
+                    <div key={f.id} style={{ marginBottom: '18px' }}>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, marginBottom: '6px', color: 'var(--navy)' }}>
+                        {f.label}{f.required && <span style={{ color: '#c0392b', marginLeft: '3px' }}>*</span>}
+                      </label>
+                      {f.type === 'text' && (
+                        <input type="text" value={pvValues[f.id] ?? ''} onChange={e => setPvValues(v => ({ ...v, [f.id]: e.target.value }))} placeholder={f.label} style={inputStyle} />
+                      )}
+                      {f.type === 'textarea' && (
+                        <textarea value={pvValues[f.id] ?? ''} onChange={e => setPvValues(v => ({ ...v, [f.id]: e.target.value }))} placeholder="Type your response…" rows={3} style={{ ...inputStyle, resize: 'vertical' as const }} />
+                      )}
+                      {f.type === 'dropdown' && (
+                        <select value={pvValues[f.id] ?? ''} onChange={e => setPvValues(v => ({ ...v, [f.id]: e.target.value }))} style={{ ...inputStyle, background: '#fff' }}>
+                          <option value="">Select an option…</option>
+                          {FB_DROPDOWN_OPTS.map(o => <option key={o} value={o}>{o}</option>)}
+                        </select>
+                      )}
+                      {f.type === 'checkbox' && (
+                        <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '8px' }}>
+                          {['Option A', 'Option B', 'Option C'].map(o => (
+                            <label key={o} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontWeight: 400, fontSize: '14px', color: 'var(--text-secondary)' }}>
+                              <input type="checkbox" style={{ width: '16px', height: '16px' }} /> {o}
+                            </label>
+                          ))}
+                        </div>
+                      )}
+                      {f.type === 'rating' && (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          {[1, 2, 3, 4, 5].map(n => (
+                            <span
+                              key={n}
+                              onClick={() => setPvRating(n)}
+                              onMouseEnter={() => setPvStarHover(n)}
+                              onMouseLeave={() => setPvStarHover(0)}
+                              style={{ fontSize: '28px', cursor: 'pointer', transition: 'transform .1s', transform: (pvStarHover || pvRating) >= n ? 'scale(1.15)' : 'scale(1)' }}
+                            >
+                              {(pvStarHover || pvRating) >= n ? '⭐' : '☆'}
+                            </span>
+                          ))}
+                          {pvRating > 0 && <span style={{ fontSize: '13px', color: 'var(--text-secondary)', marginLeft: '6px' }}>{pvRating}/5</span>}
+                        </div>
+                      )}
+                      {f.type === 'file' && (
+                        <div style={{ border: '2px dashed var(--border)', borderRadius: '8px', padding: '20px', textAlign: 'center', color: 'var(--text-secondary)', fontSize: '13px' }}>
+                          📎 Drag & drop or <span style={{ color: 'var(--navy)', fontWeight: 700, cursor: 'pointer' }}>browse files</span>
+                        </div>
+                      )}
+                      {f.conditional && showConditional && (
+                        <div style={{ marginTop: '4px', fontSize: '11px', color: '#6b7280' }}>⚡ Shown because you selected 11+ employees — conditional logic active</div>
+                      )}
+                    </div>
+                  );
+                })}
+                <button
+                  onClick={handleSubmit}
+                  style={{ background: 'linear-gradient(to bottom,#f5c26b,#e47911)', border: '1px solid #c07600', color: '#111', fontWeight: 700, padding: '12px 32px', borderRadius: '6px', cursor: 'pointer', fontSize: '15px', marginTop: '8px' }}
+                >
+                  Submit Response →
+                </button>
+              </div>
+              <div style={{ marginTop: '10px', fontSize: '12px', color: 'var(--text-secondary)', textAlign: 'center' }}>
+                🔒 Responses secured · No response caps · Unlimited submissions
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── Results Tab ── */}
+      {tab === 'results' && (
+        <div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '10px', marginBottom: '20px' }}>
+            {[
+              { label: 'Total Submissions', value: String(totalSubs), color: 'var(--navy)' },
+              { label: 'Completion Rate', value: `${FB_MOCK_ANALYTICS.completionRate}%`, color: '#16a34a' },
+              { label: 'Avg. Time', value: FB_MOCK_ANALYTICS.avgTime, color: 'var(--orange)' },
+              { label: 'Top Drop-off', value: FB_MOCK_ANALYTICS.topDropoff, color: '#c0392b' },
+            ].map((s, i) => (
+              <div key={i} style={resultCard}>
+                <div style={resultLabel}>{s.label}</div>
+                <div style={{ fontSize: i === 3 ? '11px' : '22px', fontWeight: 800, color: s.color, marginTop: '4px' }}>{s.value}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ ...labelStyle, display: 'block', marginBottom: '10px' }}>Field Response Rates</div>
+          <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
+            {FB_MOCK_ANALYTICS.fields.map((f, i) => (
+              <div key={i} style={{ padding: '14px 16px', borderBottom: i < FB_MOCK_ANALYTICS.fields.length - 1 ? '1px solid var(--border)' : 'none', background: i % 2 === 0 ? '#fff' : '#fafafa' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
+                  <span style={{ fontWeight: 600, fontSize: '13px', color: 'var(--navy)' }}>{f.label}</span>
+                  <span style={{ fontWeight: 700, fontSize: '13px', color: f.fillRate >= 90 ? '#16a34a' : f.fillRate >= 70 ? 'var(--orange)' : '#c0392b' }}>{f.fillRate}% filled</span>
+                </div>
+                <div style={{ background: '#f0f0f0', borderRadius: '4px', height: '6px', marginBottom: '6px' }}>
+                  <div style={{ background: 'var(--orange)', borderRadius: '4px', height: '6px', width: `${f.fillRate}%` }} />
+                </div>
+                {f.opts && (
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '4px' }}>
+                    {f.opts.map((o, j) => (
+                      <span key={j} style={{ fontSize: '11px', background: '#f0f4f8', color: 'var(--navy)', padding: '2px 8px', borderRadius: '4px', fontWeight: 600 }}>{o.v}: {o.p}%</span>
+                    ))}
+                  </div>
+                )}
+                {f.avgRating !== undefined && (
+                  <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '4px' }}>Avg rating: ⭐ {f.avgRating.toFixed(1)} / 5</div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ─── Shared styles ─── */
 const labelStyle: React.CSSProperties = {
   display: 'block',
@@ -871,6 +1203,16 @@ const resultValue: React.CSSProperties = {
   fontWeight: 800,
 };
 
+const iconBtnStyle: React.CSSProperties = {
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  padding: '4px 6px',
+  borderRadius: '4px',
+  fontSize: '14px',
+  color: 'var(--text-secondary)',
+};
+
 /* ─── Main export ─── */
 const demoMap: Record<string, React.ReactNode> = {
   'payroll-calc': <PayrollDemo />,
@@ -878,6 +1220,7 @@ const demoMap: Record<string, React.ReactNode> = {
   'email-sig-gen': <EmailSigDemo />,
   'time-tracker': <TimeTrackerDemo />,
   'contract-gen': <ContractGenDemo />,
+  'form-builder': <FormBuilderDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {
