@@ -1049,7 +1049,12 @@ export const tools: Tool[] = [
       { city: 'Escondido', state: 'CA', population: '153,000', competitionLevel: 'low' },
       { city: 'Oceanside', state: 'CA', population: '175,000', competitionLevel: 'low' },
       { city: 'Pasadena', state: 'CA', population: '141,000', competitionLevel: 'low' },
-      { city: 'Torrance', state: 'CA', population: '145,000', competitionLevel: 'low' }
+      { city: 'Torrance', state: 'CA', population: '145,000', competitionLevel: 'low' },
+      { city: 'Hillsboro', state: 'OR', population: '106,000', competitionLevel: 'low', localContext: 'Marketing and communications teams at Hillsboro\'s technology employer cluster — anchored by Intel\'s massive Jones Farm and Ronler Acres campuses, which together employ over 20,000 people and form the cornerstone of Oregon\'s Silicon Forest — use EmailSigGen to create consistent, branded email signatures across large technical departments without paying Exclaimer\'s $45/month minimum for a team smaller than 25 users.' },
+      { city: 'Buffalo', state: 'NY', population: '278,000', competitionLevel: 'low', localContext: 'Marketing and corporate communications teams at Buffalo\'s resurgent employer base — including M&T Bank\'s downtown banking headquarters, the Hauptman-Woodward Medical Research Institute near the University at Buffalo South Campus, and the growing Tesla supply chain operations at the SolarCity campus on South Park Avenue — use EmailSigGen to deploy consistent branded signatures across growing departments without WiseStamp\'s per-user pricing that scales against team growth.' },
+      { city: 'College Station', state: 'TX', population: '120,000', competitionLevel: 'low', localContext: 'Communications and marketing teams at Texas A&M University — one of the largest universities in the United States with over 74,000 enrolled students and one of only 17 institutions nationwide with land, sea, and space grants — and at the surrounding AgriLife Research station and private-sector technology transfer companies use EmailSigGen to maintain branded signature consistency across distributed departments without the IT admin overhead that CodeTwo or Exclaimer require.' },
+      { city: 'Pittsburgh', state: 'PA', population: '302,000', competitionLevel: 'low', localContext: 'Marketing and corporate communications teams at Pittsburgh\'s technology and healthcare powerhouses — including the creative agencies and vendor teams serving Carnegie Mellon University\'s world-ranked computer science and robotics programs in Oakland, UPMC\'s global health network, and PNC Financial Services\' corporate communications department in the Golden Triangle — use EmailSigGen to deploy consistent branded signatures without WiseStamp\'s per-user billing that punishes growing organizations.' },
+      { city: 'Wichita', state: 'KS', population: '395,000', competitionLevel: 'medium', localContext: 'Marketing and business development teams at Wichita\'s dominant aviation manufacturing employers — including Spirit AeroSystems, the world\'s largest independent aerostructures manufacturer employing over 10,000 people locally, and the corporate communications team at Koch Industries\' global headquarters — use EmailSigGen to maintain consistent branded email signatures across large sales and marketing departments without CodeTwo\'s Microsoft 365-only limitation that excludes Gmail and Apple Mail users.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1195,7 +1200,12 @@ export const tools: Tool[] = [
       { city: 'Ogden', state: 'UT', population: '87,000', competitionLevel: 'low' },
       { city: 'St. George', state: 'UT', population: '90,000', competitionLevel: 'low' },
       { city: 'Orem', state: 'UT', population: '98,000', competitionLevel: 'low' },
-      { city: 'Pueblo', state: 'CO', population: '111,000', competitionLevel: 'low' }
+      { city: 'Pueblo', state: 'CO', population: '111,000', competitionLevel: 'low' },
+      { city: 'Bloomington', state: 'IL', population: '78,000', competitionLevel: 'low', localContext: 'Agencies, consultants, and technology vendors in Bloomington\'s corporate-dense economy — serving the massive State Farm Insurance global headquarters complex on State Farm Boulevard (one of the largest insurance companies in the US, employing thousands in the local community) and the professional services ecosystem it anchors — use ClientPortal to deliver polished branded client portals without SuiteDash\'s configuration process that takes weeks to set up.' },
+      { city: 'Lake Charles', state: 'LA', population: '78,000', competitionLevel: 'low', localContext: 'Engineering firms, environmental consultants, and construction project managers serving Lake Charles\' LNG and petrochemical corridor — including the contractor network around Sabine Pass LNG Terminal (one of the world\'s largest LNG export facilities) and Westlake Chemical\'s major manufacturing campus on I-10 — use ClientPortal to share project documents, approval requests, and milestone updates in a secure branded portal rather than email threads and shared drives.' },
+      { city: 'Gresham', state: 'OR', population: '114,000', competitionLevel: 'low', localContext: 'Creative agencies, IT consultants, and professional service firms in Gresham\'s east Portland metro market — serving the outdoor industry supplier base, Columbia Sportswear\'s distribution network, and technology vendors near Mt. Hood Community College\'s growing workforce programs — use ClientPortal to give clients a branded project hub for file sharing and approvals instead of managing every engagement across Dropbox folders, Slack threads, and disconnected email chains.' },
+      { city: 'Loveland', state: 'CO', population: '78,000', competitionLevel: 'low', localContext: 'Technology consultants, marketing agencies, and engineering firms in Loveland\'s Northern Colorado business community — near the HP and Agilent Technology legacy campuses on South College Avenue that anchored the regional tech corridor for decades, and alongside the growing Fort Collins–Loveland metro tech ecosystem — use ClientPortal to share project updates, invoices, and deliverables in a single branded portal without the fragmented per-user pricing that makes Copilot expensive as teams scale.' },
+      { city: 'Santa Fe', state: 'NM', population: '85,000', competitionLevel: 'low', localContext: 'Architecture firms, government contractors, and professional service firms in Santa Fe — where Los Alamos National Laboratory\'s vast contractor and vendor ecosystem extends into the state capital, and where New Mexico state government agencies generate consistent demand for professional consulting services — use ClientPortal to manage client deliverables, compliance documents, and approval workflows in a secure branded portal that signals credibility to public-sector clients who expect professional, organized service delivery.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1416,7 +1426,12 @@ export const tools: Tool[] = [
       { city: 'Fall River', state: 'MA', population: '92,000', competitionLevel: 'low' },
       { city: 'Miramar', state: 'FL', population: '138,000', competitionLevel: 'low' },
       { city: 'Georgetown', state: 'TX', population: '83,000', competitionLevel: 'low' },
-      { city: 'Wichita Falls', state: 'TX', population: '101,000', competitionLevel: 'low' }
+      { city: 'Wichita Falls', state: 'TX', population: '101,000', competitionLevel: 'low' },
+      { city: 'Brooklyn Park', state: 'MN', population: '82,000', competitionLevel: 'low', localContext: 'Freelancers and professional service firms in Brooklyn Park\'s northwest Minneapolis metro — including IT consultants and independent contractors serving the Pentair global headquarters along Pennsylvania Avenue and the growing healthcare technology vendor community north of the I-694 corridor — use TimeTracker to log billable hours per client, attribute time to projects, and generate invoice-ready reports without Toggl\'s 2024 redesign that disrupted established workflows for thousands of independent professionals.' },
+      { city: 'Plano', state: 'TX', population: '285,000', competitionLevel: 'low', localContext: 'Consultants, IT contractors, and professional service firms in Plano\'s major corporate city — home to Toyota North America\'s US headquarters on Legacy Drive, Liberty Mutual\'s national servicing center, and dozens of Fortune 500 regional offices at Legacy Town Center and Granite Park — use TimeTracker to capture billable hours across multi-client engagements and export clean, invoice-ready reports without Harvest\'s $14/user monthly fee that adds up quickly for solo and small-team consultants.' },
+      { city: 'Clinton Township', state: 'MI', population: '100,000', competitionLevel: 'low', localContext: 'Independent contractors and professional service firms in Clinton Township\'s Macomb County business community — including the engineering consultants and IT vendors supporting the General Motors Technical Center corridor in nearby Warren, one of the world\'s largest automotive R&D complexes, as well as the dense commercial strip along Garfield Road — use TimeTracker to log project time across multiple automotive clients without the GPS surveillance features that make Hubstaff feel invasive in independent contractor relationships.' },
+      { city: 'Decatur', state: 'IL', population: '72,000', competitionLevel: 'low', localContext: 'Agricultural consultants, engineers, and professional service firms in Decatur\'s industry-driven economy — serving the vendor and contractor ecosystem around Archer Daniels Midland\'s global headquarters on East Main Street (one of the world\'s largest agricultural processors by revenue) and Caterpillar\'s major Decatur manufacturing facility producing large construction equipment — use TimeTracker to log billable hours on project work without TimeCamp\'s buggy automatic tracking or Toggl\'s interface overhaul that reset familiar workflows.' },
+      { city: 'Baytown', state: 'TX', population: '80,000', competitionLevel: 'low', localContext: 'Environmental consultants, safety engineers, and professional services contractors serving Baytown\'s massive petrochemical corridor — including the vendor community supporting ExxonMobil\'s Baytown Complex, one of the largest integrated refinery and chemical plants in the world and the anchor of the Houston Ship Channel industrial zone — use TimeTracker to capture billable hours on shift-based project work and generate client invoices without Toggl\'s 2024 interface disruption that broke established contractor workflows across the industry.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1487,7 +1502,12 @@ export const tools: Tool[] = [
       { city: 'Sunrise', state: 'FL', population: '97,000', competitionLevel: 'low' },
       { city: 'Pompano Beach', state: 'FL', population: '114,000', competitionLevel: 'low' },
       { city: 'Pawtucket', state: 'RI', population: '75,000', competitionLevel: 'low' },
-      { city: 'Layton', state: 'UT', population: '87,000', competitionLevel: 'low' }
+      { city: 'Layton', state: 'UT', population: '87,000', competitionLevel: 'low' },
+      { city: 'Cincinnati', state: 'OH', population: '309,000', competitionLevel: 'low', localContext: 'Freelancers, agencies, and professional service firms in Cincinnati\'s diverse economy — serving the consultant and vendor community supporting Procter & Gamble\'s global headquarters in the Evendale area, Kroger\'s corporate HQ near Eden Park, and Great American Insurance Group\'s tower at Great American Ballpark — use ContractGen to generate and e-sign NDAs and service agreements without DocuSign\'s $25/user fee that turns every new client engagement into an added monthly cost.' },
+      { city: 'Tulsa', state: 'OK', population: '413,000', competitionLevel: 'medium', localContext: 'Energy consultants, engineering contractors, and professional services firms in Tulsa\'s oil-and-gas capital — including vendors serving Williams Companies, ONE Gas, and the BOK Financial network along Riverside Drive and the Williams Center downtown — use ContractGen to generate and e-sign consulting contracts and service agreements without PandaDoc\'s bundled proposal features that inflate the monthly bill for teams who simply need reliable contract generation and signing.' },
+      { city: 'Beaverton', state: 'OR', population: '98,000', competitionLevel: 'low', localContext: 'Freelancers, designers, and technology contractors in Beaverton\'s tech-rich business environment — including the creative agency and vendor ecosystem serving Nike\'s global headquarters at One Bowerman Drive, one of the world\'s most design-driven corporate campuses — use ContractGen to generate professional NDAs and service agreements in seconds without DocuSign\'s $25/user monthly fee for what is often a single one-time signing event per project.' },
+      { city: 'Troy', state: 'MI', population: '87,000', competitionLevel: 'low', localContext: 'Engineering consultants, IT contractors, and professional service firms in Troy\'s dense corporate corridor — including vendors serving Altair Engineering\'s global headquarters on Big Beaver Road and the thick automotive supplier belt throughout Oakland and Macomb counties — use ContractGen to issue and sign vendor NDAs and consulting agreements in minutes without Adobe Sign\'s monthly overhead or PandaDoc\'s proposal-bundled pricing.' },
+      { city: 'Brownsville', state: 'TX', population: '183,000', competitionLevel: 'low', localContext: 'Construction contractors, engineering firms, and logistics vendors in Brownsville\'s rapidly expanding economy — including the contractor and professional services ecosystem that has grown around SpaceX\'s Starbase launch facility at Boca Chica Beach, one of the most significant new industrial developments on the Texas Gulf Coast — use ContractGen to generate and e-sign service agreements and safety waivers without HelloSign\'s free tier limit of just 3 documents per month, which is insufficient for any active contracting operation.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1636,6 +1656,78 @@ export const tools: Tool[] = [
     dateAdded: '2026-04-27',
     waitlistCount: 0,
     slug: 'form-builder'
+  },
+  {
+    id: 'job-description-generator',
+    name: 'JobDescriptionGen',
+    tagline: 'Generate bias-free, ATS-optimized job descriptions in 30 seconds',
+    description: 'JobDescriptionGen is the best job description generator for HR teams and recruiters who need to write compliant, compelling job postings without Textio\'s $600/seat/year price tag. Paste a job title and bullet points and get a complete, structured job description in 30 seconds — with real-time bias language detection, EEOC/ADA compliance checking, Google Jobs SEO optimization, and ATS formatting validation built in. What is the best job description software for small business? JobDescriptionGen gives growing teams the hiring toolkit that enterprise companies pay thousands for — without the annual contract or implementation consultant.',
+    category: 'hr',
+    status: 'demo',
+    icon: '💼',
+    features: [
+      'AI job description generator — complete, structured JD from role title and bullet points in 30 seconds',
+      'Real-time bias language detector — flags gender-coded words like "rockstar" and "aggressive" with specific word-by-word replacement suggestions',
+      'EEOC/ADA compliance checker — auto-inserts required equal opportunity boilerplate and flags missing legally required language',
+      'Google Jobs SEO optimizer — validates keyword density, structured data requirements, and title formatting for Google Jobs indexing',
+      'Role template library — 50+ pre-built templates for Engineering, Sales, Marketing, Operations, HR, Finance, Customer Support, and Legal',
+      'ATS formatting validator — ensures structured parsing by Greenhouse, Lever, Workday, BambooHR, and 10+ other systems',
+      'Salary range inserter — embed transparent salary bands with local market context by city and role type',
+      'One-click multi-format export — download as PDF, copy as plain text for ATS paste, or export to Word with your logo'
+    ],
+    keywords: [
+      'job description generator software',
+      'AI job description writer',
+      'best job description tool for HR teams',
+      'bias-free job description generator',
+      'EEOC compliant job description tool',
+      'Textio alternative',
+      'Ongig alternative',
+      'cheaper than Textio',
+      'free job description generator',
+      'job description software for small business',
+      'how to write a job description that attracts candidates',
+      'ATS optimized job description generator',
+      'job description template library for HR',
+      'remove bias from job descriptions automatically',
+      'job posting generator with EEOC language',
+      'what is the best job description software for small business',
+      'how to write a bias-free job description',
+      'how to optimize job descriptions for Google Jobs',
+      'what words to avoid in job descriptions',
+      'best job description generator 2026'
+    ],
+    competitors: [
+      { name: 'Textio', priceRange: '$600-$1,200/seat/yr', topComplaint: 'Expensive annual contracts; bias scores are vague without specific word fixes; requires dedicated training to extract value from the tool (G2)' },
+      { name: 'Ongig', priceRange: '$10,000+/yr', topComplaint: 'Sales-only access with no self-service option; completely inaccessible for companies under 100 employees; implementation takes months (Capterra)' },
+      { name: 'Workable', priceRange: '$299-$499/mo', topComplaint: 'JD writing tools locked inside a full ATS subscription; cannot use the description builder as a standalone tool (Reddit r/recruiting)' },
+      { name: 'JDXpert', priceRange: 'Enterprise custom pricing', topComplaint: 'Enterprise-only, requires IT integration, overkill for teams posting fewer than 50 jobs per year; no self-service tier (G2)' },
+      { name: 'ChatGPT (generic AI)', priceRange: 'Free', topComplaint: 'Output sounds like every other JD — generic, unformatted, no compliance checking, no bias detection, no ATS structure (Reddit r/recruiting)' },
+      { name: 'LinkedIn Job Post Templates', priceRange: 'Free', topComplaint: 'One-size-fits-all with no customization, no SEO optimization, no EEOC verification, and no ATS field mapping — attracts low-quality applicant pools (G2)' }
+    ],
+    competitorFixes: [
+      'AI-generated JD from just a role title and bullet points in 30 seconds — no Textio subscription or HR copywriter required',
+      'Word-by-word bias fixes with specific replacement suggestions — not a vague score that tells you nothing actionable',
+      'EEOC/ADA boilerplate auto-inserted and verified — legal compliance without the $500/hour HR attorney review',
+      'Google Jobs SEO built in — your JD ranks in job search results instead of being invisible on page 8',
+      'Works standalone — no ATS subscription or enterprise contract required to write better, more effective job descriptions',
+      'Flat monthly pricing with unlimited JDs — not $600/seat/year for a tool your team uses multiple times per week'
+    ],
+    targetCities: [
+      { city: 'Woodbridge', state: 'NJ', population: '100,000', competitionLevel: 'low', localContext: 'HR teams and talent acquisition managers at the pharmaceutical and technology companies in Woodbridge\'s New Jersey Turnpike corridor — including the life sciences contractors and healthcare IT vendors near Raritan Center Business Park and the Metropark transit hub, one of the densest concentrations of Fortune 500 satellite offices in central New Jersey — use JobDescriptionGen to produce bias-free, ATS-ready job descriptions without Textio\'s $600/seat/year enterprise contract.' },
+      { city: 'Hollywood', state: 'FL', population: '152,000', competitionLevel: 'low', localContext: 'Talent acquisition and HR teams at Hollywood\'s healthcare, hospitality, and professional services employers — including the hiring managers at Memorial Healthcare System (one of the largest public hospital systems in Florida, headquartered in Hollywood) and the corporate staffing teams along the US-1 professional services corridor between Fort Lauderdale and Miami — use JobDescriptionGen to write compliant, Google Jobs-optimized job postings that attract qualified applicants without Ongig\'s $10,000+/year enterprise licensing.' },
+      { city: 'Daytona Beach', state: 'FL', population: '72,000', competitionLevel: 'low', localContext: 'HR departments at Daytona Beach\'s anchor employers — including Embry-Riddle Aeronautical University, the world\'s largest aviation-focused university with 11,000+ students on its Daytona Beach campus, and the healthcare hiring teams across Volusia County — use JobDescriptionGen to create ATS-ready, EEOC-compliant job descriptions for specialized technical and clinical roles without starting from a generic LinkedIn template that attracts unqualified applicants.' },
+      { city: 'Farmington Hills', state: 'MI', population: '81,000', competitionLevel: 'low', localContext: 'Recruiting and HR managers at Farmington Hills\' substantial corporate community — including the professional services firms, automotive technology vendors, and legal and financial services employers operating along 12 Mile Road and Orchard Lake Road — use JobDescriptionGen to write structured, bias-free job descriptions that rank on LinkedIn Recruiter and Google Jobs without subscribing to Textio\'s annual enterprise license for a writing tool they use a few times each week.' },
+      { city: 'Southfield', state: 'MI', population: '72,000', competitionLevel: 'low', localContext: 'HR directors and talent acquisition managers at Southfield\'s dense cluster of corporate headquarters and staffing firms — including the professional employer organizations, technology employers, and healthcare vendors anchored by the Telegraph Road business corridor and the Southfield Town Center office complex — use JobDescriptionGen to generate compliant, bias-screened job descriptions in 30 seconds without relying on outdated copy-paste JD templates that fail to attract qualified applicants in a competitive Michigan talent market.' },
+      { city: 'Conway', state: 'AR', population: '71,000', competitionLevel: 'low', localContext: 'HR teams and hiring managers at Conway\'s growing technology and professional employers — including the talent acquisition staff at Acxiom Corporation\'s global data solutions headquarters (one of the world\'s largest data marketing companies, founded and headquartered in Conway) and the University of Central Arkansas with its 11,000+ enrolled students — use JobDescriptionGen to create bias-free, EEOC-compliant job descriptions that attract diverse candidates without the enterprise pricing that makes Textio inaccessible for mid-market employers.' },
+      { city: 'Kissimmee', state: 'FL', population: '72,000', competitionLevel: 'low', localContext: 'HR directors and hiring managers at Kissimmee\'s tourism, healthcare, and logistics employers — including the hospitality operators serving the Walt Disney World and SeaWorld attraction corridor in Osceola County and the expanding healthcare teams at HCA Florida Osceola Hospital — use JobDescriptionGen to write structured, EEOC-compliant job postings for seasonal and year-round roles without the compliance risk of recycling old JDs that contain outdated or unintentionally exclusionary language.' },
+      { city: 'Lakewood', state: 'NJ', population: '127,000', competitionLevel: 'low', localContext: 'HR teams and recruiters at Lakewood\'s active business and healthcare community — including the logistics and distribution operators along the I-195 and Route 9 commercial corridor in Ocean County and the healthcare providers serving one of New Jersey\'s fastest-growing municipalities — use JobDescriptionGen to generate ATS-ready, EEOC-compliant job descriptions that parse correctly in Greenhouse, Lever, and BambooHR without the manual field configuration that generic job description templates require.' },
+      { city: 'Clovis', state: 'CA', population: '124,000', competitionLevel: 'low', localContext: 'HR teams and hiring managers at Clovis\'s growing healthcare, education, and professional services employers — including the talent acquisition teams at Clovis Community College and the healthcare hiring managers serving the Valley Children\'s Healthcare network in the greater Fresno-Clovis metropolitan area — use JobDescriptionGen to create structured, keyword-optimized job descriptions that attract qualified candidates in the Central Valley\'s competitive labor market without producing generic AI output that reads identically to every other posting on Indeed.' },
+      { city: 'Palm Coast', state: 'FL', population: '87,000', competitionLevel: 'low', localContext: 'Growing businesses, healthcare employers, and municipal agencies in Palm Coast\'s fast-developing Flagler County economy — including the HR teams at AdventHealth Palm Coast (the county\'s largest employer) and the construction and logistics companies serving one of Florida\'s fastest-growing coastal communities — use JobDescriptionGen to write professional, EEOC-compliant job postings that look polished and credible to applicants who increasingly judge employer quality by the care and structure visible in the job description itself.' }
+    ],
+    dateAdded: '2026-05-17',
+    waitlistCount: 0,
+    slug: 'job-description-gen'
   }
 ];
 
@@ -1756,6 +1848,20 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'FormBuilder', cities: ['Glendale CA', 'Schaumburg IL', 'Anchorage AK', 'Modesto CA', 'Santa Barbara CA', 'Temecula CA', 'Scottsdale AZ', 'Lawton OK', 'South Jordan UT', 'San Marcos TX'] }
     ],
     researchNotes: 'Session 7: Added 20 new cities across 5 existing tools with unique localContext — each city page cites real employers, landmarks, and industries specific to that city (John Deere Quad Cities HQ for Davenport IA; 3M/Ecolab HQs for Saint Paul MN; MasterCard Tech Center for O\'Fallon MO; Intel Fab 11X for Rio Rancho NM; Oracle Health/Cerner for Lee\'s Summit MO; IDEXX/Unum/WEX HQs for Portland ME; Booz Allen Hamilton/MITRE for Alexandria VA; Nestlé USA/Disney animation for Glendale CA; Procore Technologies HQ for Santa Barbara CA; Gallo Winery HQ for Modesto CA; etc.). Built ContractGen interactive demo: 4-step NDA/contract workflow with template selection, auto-fill fields (party names, date, jurisdiction, duration), live contract text preview, signature capture simulation with cursive rendering, and completion confirmation. Built FormBuilder (Marketing) — Typeform ($50/mo, 10 response free tier limit) and JotForm ($34-$99/mo, 5-form/100-submission cap) are the primary acquisition targets; 6 competitors validated at $5K+/mo ARR; 10 cities launched all with localContext. Total: 21 tools, 360+ city SEO pages.'
+  },
+  {
+    date: '2026-05-17',
+    toolsAdded: ['JobDescriptionGen'],
+    toolsUpdated: ['EmailSigGen', 'ClientPortal', 'ContractGen', 'TimeTracker', 'FormBuilder'],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'EmailSigGen', cities: ['Hillsboro OR', 'Buffalo NY', 'College Station TX', 'Pittsburgh PA', 'Wichita KS'] },
+      { tool: 'ClientPortal', cities: ['Bloomington IL', 'Lake Charles LA', 'Gresham OR', 'Loveland CO', 'Santa Fe NM'] },
+      { tool: 'ContractGen', cities: ['Cincinnati OH', 'Tulsa OK', 'Beaverton OR', 'Troy MI', 'Brownsville TX'] },
+      { tool: 'TimeTracker', cities: ['Brooklyn Park MN', 'Plano TX', 'Clinton Township MI', 'Decatur IL', 'Baytown TX'] },
+      { tool: 'JobDescriptionGen', cities: ['Woodbridge NJ', 'Hollywood FL', 'Daytona Beach FL', 'Farmington Hills MI', 'Southfield MI', 'Conway AR', 'Kissimmee FL', 'Lakewood NJ', 'Clovis CA', 'Palm Coast FL'] }
+    ],
+    researchNotes: 'Session 8: Added 20 cities with unique localContext across 4 underrepresented tools — EmailSigGen (Intel Silicon Forest HQ in Hillsboro OR; M&T Bank/Tesla Buffalo NY; Texas A&M College Station TX; CMU/UPMC Pittsburgh PA; Spirit AeroSystems/Koch Industries Wichita KS), ClientPortal (State Farm HQ Bloomington IL; Sabine Pass LNG Lake Charles LA; Columbia Sportswear network Gresham OR; HP legacy campus Loveland CO; Los Alamos contractor ecosystem Santa Fe NM), ContractGen (P&G/Kroger HQ Cincinnati OH; Williams Companies/BOK Financial Tulsa OK; Nike World HQ Beaverton OR; Altair Engineering Troy MI; SpaceX Starbase Brownsville TX), TimeTracker (Pentair HQ Brooklyn Park MN; Toyota North America HQ Plano TX; GM Technical Center corridor Clinton Township MI; ADM HQ Decatur IL; ExxonMobil Baytown Complex TX). Built FormBuilder interactive 3-tab demo: Builder tab with clickable field type palette (6 types), form canvas with inline label editing, required star toggle, conditional logic badge, and up/down reorder; Preview tab with live conditional field rendering (rating field appears only when company size >10 employees), fully interactive form inputs, and submission counter; Results tab with mock analytics including total submissions, completion rate, per-field fill rates with inline breakdowns. Built JobDescriptionGen (HR) — Textio ($600-$1,200/seat/yr) and Ongig ($10,000+/yr) are primary acquisition targets; 6 competitors validated including ChatGPT gap (no bias/compliance/ATS); 10 cities all with employer-specific localContext. Total: 22 tools, 400+ city SEO pages.'
   }
 ];
 

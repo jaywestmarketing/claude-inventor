@@ -414,6 +414,55 @@ export const sessionHistory: SessionEntry[] = [
       'Expand CommissionCalc cities — target Great Lakes and Mountain West sales-heavy markets (Columbus OH, Salt Lake City area, Denver tech corridor)',
       'Refresh SocialQueue keywords — "TikTok content scheduler" and "LinkedIn thought leadership scheduler" both trending in Q2 2026 per Google Trends'
     ]
+  },
+  {
+    sessionDate: '2026-05-17',
+    sessionNumber: 8,
+    toolsAdded: [
+      { name: 'JobDescriptionGen', slug: 'job-description-gen', category: 'hr' }
+    ],
+    toolsUpdated: [
+      { name: 'EmailSigGen', changes: ['Added 5 cities with localContext: Hillsboro OR (Intel Silicon Forest campuses), Buffalo NY (M&T Bank HQ + Tesla SolarCity campus), College Station TX (Texas A&M University 74K students), Pittsburgh PA (CMU Robotics + UPMC network), Wichita KS (Spirit AeroSystems + Koch Industries HQs) — now 15 total'] },
+      { name: 'ClientPortal', changes: ['Added 5 cities with localContext: Bloomington IL (State Farm Insurance global HQ), Lake Charles LA (Sabine Pass LNG Terminal + Westlake Chemical), Gresham OR (Columbia Sportswear distribution network), Loveland CO (HP legacy campus + Northern CO tech corridor), Santa Fe NM (Los Alamos contractor ecosystem + NM state government) — now 15 total'] },
+      { name: 'ContractGen', changes: ['Added 5 cities with localContext: Cincinnati OH (P&G HQ + Kroger HQ + Great American Insurance), Tulsa OK (Williams Companies + BOK Financial energy corridor), Beaverton OR (Nike World HQ at One Bowerman Drive), Troy MI (Altair Engineering HQ + automotive supplier belt), Brownsville TX (SpaceX Starbase contractor ecosystem) — now 15 total'] },
+      { name: 'TimeTracker', changes: ['Added 5 cities with localContext: Brooklyn Park MN (Pentair global HQ), Plano TX (Toyota North America HQ + Liberty Mutual servicing center), Clinton Township MI (GM Technical Center corridor in Warren), Decatur IL (ADM global HQ + Caterpillar manufacturing), Baytown TX (ExxonMobil Baytown Complex) — now 15 total'] },
+      { name: 'FormBuilder', changes: ['Added interactive 3-tab demo: Builder tab with 6-type field palette (click to add), form canvas with inline label editing, required toggle, conditional logic badge (⚡), and up/down reorder; Preview tab with live form render, dynamic conditional field (rating shows only when company size is 11+ employees), all input types functional, real submission counter; Results tab with mock analytics (47 submissions, 74% completion, per-field fill rates, dropdown option breakdown, average rating display)'] }
+    ],
+    keywordsResearched: [
+      {
+        tool: 'JobDescriptionGen',
+        keywords: ['job description generator software', 'AI job description writer', 'bias-free job description generator', 'EEOC compliant job description tool', 'ATS optimized job description'],
+        trending: ['remove bias from job descriptions', 'Google Jobs SEO for job postings', 'Textio alternative for small business', 'job description compliance checker']
+      }
+    ],
+    citiesAdded: [
+      { tool: 'EmailSigGen', cities: ['Hillsboro OR', 'Buffalo NY', 'College Station TX', 'Pittsburgh PA', 'Wichita KS'] },
+      { tool: 'ClientPortal', cities: ['Bloomington IL', 'Lake Charles LA', 'Gresham OR', 'Loveland CO', 'Santa Fe NM'] },
+      { tool: 'ContractGen', cities: ['Cincinnati OH', 'Tulsa OK', 'Beaverton OR', 'Troy MI', 'Brownsville TX'] },
+      { tool: 'TimeTracker', cities: ['Brooklyn Park MN', 'Plano TX', 'Clinton Township MI', 'Decatur IL', 'Baytown TX'] },
+      { tool: 'JobDescriptionGen', cities: ['Woodbridge NJ', 'Hollywood FL', 'Daytona Beach FL', 'Farmington Hills MI', 'Southfield MI', 'Conway AR', 'Kissimmee FL', 'Lakewood NJ', 'Clovis CA', 'Palm Coast FL'] }
+    ],
+    competitorChanges: [
+      { tool: 'JobDescriptionGen', notes: 'Textio at $600-$1,200/seat/yr with vague bias scores (G2 confirmed). Ongig at $10,000+/yr with sales-only access (Capterra). Workable JD tool buried inside full ATS ($299-$499/mo). JDXpert enterprise-only. ChatGPT gap: no compliance, no bias detection, no ATS formatting — validated demand for structured JD generator. 6 competitors all validated at $5K+/mo ARR.' }
+    ],
+    seoUpdates: [
+      '20 new city SEO pages across 4 tools — all with unique localContext citing real employers, landmarks, and industries',
+      'EmailSigGen: Intel Silicon Forest (Hillsboro), M&T Bank HQ + Tesla campus (Buffalo), Texas A&M University (College Station), CMU Robotics/UPMC (Pittsburgh), Spirit AeroSystems/Koch Industries (Wichita)',
+      'ClientPortal: State Farm Insurance HQ (Bloomington IL), Sabine Pass LNG Terminal (Lake Charles LA), Columbia Sportswear network (Gresham OR), HP legacy campus (Loveland CO), Los Alamos contractor ecosystem (Santa Fe NM)',
+      'ContractGen: P&G/Kroger HQ (Cincinnati OH), Williams Companies/BOK Financial (Tulsa OK), Nike World HQ (Beaverton OR), Altair Engineering HQ (Troy MI), SpaceX Starbase contractor community (Brownsville TX)',
+      'TimeTracker: Pentair global HQ (Brooklyn Park MN), Toyota North America HQ (Plano TX), GM Technical Center corridor (Clinton Township MI), ADM global HQ (Decatur IL), ExxonMobil Baytown Complex (Baytown TX)',
+      'JobDescriptionGen launched with 10 cities all carrying localContext — Acxiom HQ (Conway AR), Embry-Riddle University (Daytona Beach FL), Memorial Healthcare System (Hollywood FL), AdventHealth Palm Coast (Palm Coast FL)',
+      'FormBuilder demo upgraded: 3-tab interactive builder/preview/results replacing static demo; conditional logic demonstration now live in preview tab',
+      'Total: 22 tools, 400+ city SEO pages'
+    ],
+    nextSessionPlan: [
+      'Build VendorPortal tool (Operations) — Precoro/Coupa inaccessible for SMBs under $10M revenue; no operations tool targets vendor invoice management; validated pain from r/smallbusiness procurement threads',
+      'Add interactive demo for JobDescriptionGen — show AI generating a real JD from a role title + bullets, with live bias word highlighting and EEOC compliance badge',
+      'Add localContext to 20 more existing cities from Sessions 1-4 that predate the localContext system — prioritize OnboardFlow, LeadPilot, and ExpenseBot cities which have no localContext',
+      'Expand CommissionCalc cities — Great Lakes and Mountain West sales-heavy markets: Columbus OH, Salt Lake City metro, Denver tech corridor',
+      'Refresh SocialQueue keywords — "TikTok content scheduler" and "LinkedIn thought leadership scheduler" trending in Q2 2026',
+      'Update CalendarFlow competitor data — research Calendly pricing changes and new complaints in 2026'
+    ]
   }
 ];
 
