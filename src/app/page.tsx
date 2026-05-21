@@ -6,7 +6,7 @@ import { tools } from '@/data/tools';
 export const metadata: Metadata = {
   title: 'Free Business Automation Tools — HR, Finance, Marketing, Sales | AutomateStack',
   description:
-    'Discover 17 free AI-powered business automation tools. Replace Mailchimp, Zendesk, BambooHR, HubSpot, and ADP with affordable alternatives built for small business. Free demos, no credit card.',
+    'Discover 23 free AI-powered business automation tools. Replace Mailchimp, Zendesk, BambooHR, HubSpot, and ADP with affordable alternatives built for small business. Free demos, no credit card.',
   alternates: { canonical: '/' },
 };
 
@@ -19,7 +19,7 @@ export default function Home() {
     <>
       {/* ── Hero ── */}
       <header className="hero">
-        <p className="hero-eyebrow">17 Free Tools &nbsp;·&nbsp; No Credit Card Required</p>
+        <p className="hero-eyebrow">{tools.length} Free Tools &nbsp;·&nbsp; No Credit Card Required</p>
         <h1>
           Business Automation Tools<br />
           <span>Built to Replace $100/mo Software</span>
@@ -165,7 +165,7 @@ export default function Home() {
           <div style={{ maxWidth: '740px' }}>
             {[
               ['What is AutomateStack?',
-               'AutomateStack is a collection of 17 free AI-powered business automation tools covering HR, finance, marketing, sales, operations, and productivity. New tools are added daily based on market research and waitlist demand.'],
+               'AutomateStack is a collection of 23 free AI-powered business automation tools covering HR, finance, marketing, sales, operations, and productivity. New tools are added daily based on market research and waitlist demand.'],
               ['Are these tools really free?',
                'Yes — every tool has a free demo you can use right now with no account required. Join the waitlist to be first in line when the full version launches. We believe in transparent, affordable pricing with no per-seat traps.'],
               ['How are tools selected and validated?',
