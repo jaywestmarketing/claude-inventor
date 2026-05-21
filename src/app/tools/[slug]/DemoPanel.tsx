@@ -1161,6 +1161,395 @@ function FormBuilderDemo() {
   );
 }
 
+/* ─── Job Description Generator ─── */
+
+const JD_ROLES = [
+  { title: 'Marketing Manager', dept: 'Marketing', salary: '$75,000 – $95,000', responsibilities: ['Lead all digital and content marketing initiatives', 'Manage a team of 3 content creators and one analyst', 'Own campaign strategy across email, social, and paid channels', 'Report weekly KPIs to executive leadership'] },
+  { title: 'Software Engineer', dept: 'Engineering', salary: '$110,000 – $140,000', responsibilities: ['Design and build scalable backend services', 'Participate in sprint planning and daily standups', 'Review pull requests and mentor junior engineers', 'Collaborate with product and design on feature specs'] },
+  { title: 'Sales Account Executive', dept: 'Sales', salary: '$65,000 – $85,000 + commission', responsibilities: ['Prospect and close new enterprise accounts', 'Manage a pipeline of 40+ active opportunities', 'Conduct product demos and handle objections', 'Collaborate with customer success on handoffs'] },
+  { title: 'HR Coordinator', dept: 'Human Resources', salary: '$50,000 – $65,000', responsibilities: ['Support full-cycle recruiting for 5+ open roles', 'Coordinate onboarding for all new hires', 'Maintain HRIS data accuracy and compliance', 'Administer benefits enrollment and answer employee questions'] },
+  { title: 'Operations Manager', dept: 'Operations', salary: '$80,000 – $100,000', responsibilities: ['Oversee daily workflow across 3 operational departments', 'Identify inefficiencies and implement process improvements', 'Manage vendor relationships and negotiate contracts', 'Report operational metrics to the executive team'] },
+  { title: 'Customer Support Specialist', dept: 'Customer Success', salary: '$42,000 – $55,000', responsibilities: ['Resolve customer tickets within 24-hour SLA', 'Maintain customer satisfaction score above 90%', 'Document common issues for knowledge base articles', 'Escalate complex cases to engineering with full context'] },
+];
+
+const BIAS_WORDS: Record<string, string> = {
+  'rockstar': 'high performer',
+  'ninja': 'expert',
+  'guru': 'specialist',
+  'aggressive': 'results-driven',
+  'dominant': 'highly effective',
+  'killer instinct': 'competitive drive',
+  'crushing it': 'exceeding targets',
+};
+
+function buildJD(role: typeof JD_ROLES[0]) {
+  return `${role.title.toUpperCase()}
+${role.dept} Department · Full-Time · In-Office / Hybrid
+
+ABOUT THE ROLE
+We are seeking a talented and motivated ${role.title} to join our growing team. In this role, you will be a key contributor to our ${role.dept.toLowerCase()} strategy, driving meaningful outcomes and working closely with cross-functional stakeholders.
+
+KEY RESPONSIBILITIES
+${role.responsibilities.map(r => `• ${r}`).join('\n')}
+
+REQUIREMENTS
+• 3+ years of experience in a similar role
+• Proven track record of delivering measurable results
+• Strong communication and collaborative working style
+• Familiarity with industry-standard tools and best practices
+• Bachelor's degree or equivalent practical experience
+
+COMPENSATION & BENEFITS
+${role.salary} annually, based on experience
+• Comprehensive health, dental, and vision insurance
+• 401(k) with 4% employer match
+• 18 days PTO + 10 company holidays
+• Remote work flexibility after 90 days
+
+EQUAL OPPORTUNITY EMPLOYER
+We are an equal opportunity employer and value diversity at our company. We do not discriminate on the basis of race, religion, color, national origin, gender, sexual orientation, age, marital status, veteran status, or disability status.`;
+}
+
+function JobDescriptionGenDemo() {
+  const [selectedRole, setSelectedRole] = useState(0);
+  const [customBullets, setCustomBullets] = useState('');
+  const [step, setStep] = useState<'input' | 'generating' | 'jd' | 'ats'>('input');
+  const [progress, setProgress] = useState(0);
+  const [showBias, setShowBias] = useState(true);
+  const [copied, setCopied] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const role = JD_ROLES[selectedRole];
+  const jdText = buildJD(role);
+
+  const startGenerate = () => {
+    setStep('generating');
+    setProgress(0);
+    let p = 0;
+    timerRef.current = setInterval(() => {
+      p += Math.random() * 18 + 8;
+      if (p >= 100) {
+        p = 100;
+        if (timerRef.current) clearInterval(timerRef.current);
+        setTimeout(() => setStep('jd'), 300);
+      }
+      setProgress(Math.min(100, p));
+    }, 120);
+  };
+
+  const reset = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    setStep('input');
+    setProgress(0);
+    setShowBias(true);
+    setCopied(false);
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(jdText).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    });
+  };
+
+  const renderJDWithBias = (text: string) => {
+    if (!showBias) return <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: 0 }}>{text}</pre>;
+    const biasLower = Object.keys(BIAS_WORDS);
+    const parts: React.ReactNode[] = [];
+    let remaining = text;
+    let key = 0;
+    while (remaining.length > 0) {
+      let earliest = -1;
+      let earliestWord = '';
+      for (const bw of biasLower) {
+        const idx = remaining.toLowerCase().indexOf(bw);
+        if (idx !== -1 && (earliest === -1 || idx < earliest)) {
+          earliest = idx;
+          earliestWord = bw;
+        }
+      }
+      if (earliest === -1) {
+        parts.push(<span key={key++}>{remaining}</span>);
+        break;
+      }
+      if (earliest > 0) parts.push(<span key={key++}>{remaining.slice(0, earliest)}</span>);
+      const matched = remaining.slice(earliest, earliest + earliestWord.length);
+      parts.push(
+        <span key={key++} style={{ background: '#fef08a', borderRadius: '3px', padding: '0 2px', cursor: 'help' }} title={`Bias detected → try: "${BIAS_WORDS[earliestWord]}"`}>
+          {matched}
+          <sup style={{ fontSize: '9px', color: '#b45309', marginLeft: '2px', fontWeight: 800 }}>bias</sup>
+        </span>
+      );
+      remaining = remaining.slice(earliest + earliestWord.length);
+    }
+    return <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: 0, lineHeight: 1.7 }}>{parts}</pre>;
+  };
+
+  const hasBiasWords = jdText.split(' ').some(w => Object.keys(BIAS_WORDS).includes(w.toLowerCase().replace(/[^a-z ]/g, '')));
+
+  return (
+    <div>
+      {/* ── Step: Input ── */}
+      {step === 'input' && (
+        <div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px', marginBottom: '20px' }}>
+            <div style={{ gridColumn: '1 / -1' }}>
+              <label style={labelStyle}>Select a Role Template</label>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '8px' }}>
+                {JD_ROLES.map((r, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setSelectedRole(i)}
+                    style={{
+                      padding: '10px 14px',
+                      background: selectedRole === i ? 'var(--navy)' : '#f0f4f8',
+                      color: selectedRole === i ? '#fff' : 'var(--navy)',
+                      border: selectedRole === i ? 'none' : '1px solid var(--border)',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                      fontWeight: 700,
+                      fontSize: '13px',
+                      textAlign: 'left' as const,
+                    }}
+                  >
+                    <div>{r.title}</div>
+                    <div style={{ fontSize: '11px', opacity: 0.7, fontWeight: 400, marginTop: '2px' }}>{r.dept}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ gridColumn: '1 / -1' }}>
+              <label style={labelStyle}>Additional Responsibilities (optional)</label>
+              <textarea
+                value={customBullets}
+                onChange={e => setCustomBullets(e.target.value)}
+                placeholder="Add any extra responsibilities, one per line…"
+                rows={3}
+                style={{ ...inputStyle, resize: 'vertical' as const, fontFamily: 'inherit' }}
+              />
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '16px' }}>
+            <button
+              onClick={startGenerate}
+              style={{
+                background: 'linear-gradient(to bottom,#f5c26b,#e47911)',
+                border: '1px solid #c07600',
+                color: '#111',
+                fontWeight: 700,
+                padding: '11px 28px',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontSize: '14px',
+              }}
+            >
+              ✨ Generate Job Description
+            </button>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              <span style={{ background: '#dcfce7', color: '#15803d', fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>✓ Bias detection</span>
+              <span style={{ background: '#dcfce7', color: '#15803d', fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>✓ EEOC compliant</span>
+              <span style={{ background: '#dcfce7', color: '#15803d', fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>✓ ATS-ready</span>
+            </div>
+          </div>
+
+          <div style={{ background: '#f0f4f8', borderRadius: '8px', padding: '14px 18px' }}>
+            <div style={{ fontWeight: 700, fontSize: '13px', color: 'var(--navy)', marginBottom: '4px' }}>Selected: {role.title}</div>
+            <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+              {role.dept} · {role.salary} · {role.responsibilities.length} responsibilities pre-loaded
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Step: Generating ── */}
+      {step === 'generating' && (
+        <div style={{ textAlign: 'center', padding: '48px 20px' }}>
+          <div style={{ fontSize: '44px', marginBottom: '20px' }}>🤖</div>
+          <div style={{ fontWeight: 800, fontSize: '18px', color: 'var(--navy)', marginBottom: '8px' }}>
+            Generating {role.title} JD…
+          </div>
+          <div style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '24px' }}>
+            Writing responsibilities, requirements, EEOC language, and compensation section
+          </div>
+          <div style={{ background: '#f0f0f0', borderRadius: '8px', height: '10px', maxWidth: '320px', margin: '0 auto 12px', overflow: 'hidden' }}>
+            <div style={{
+              background: 'linear-gradient(to right, var(--navy), var(--orange))',
+              borderRadius: '8px',
+              height: '10px',
+              width: `${progress}%`,
+              transition: 'width 0.15s ease',
+            }} />
+          </div>
+          <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
+            {progress < 40 ? 'Drafting responsibilities…' : progress < 70 ? 'Checking for bias words…' : progress < 90 ? 'Adding EEOC boilerplate…' : 'Formatting for ATS…'}
+          </div>
+        </div>
+      )}
+
+      {/* ── Step: JD Output ── */}
+      {step === 'jd' && (
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', flex: 1 }}>
+              <span style={{ background: '#dcfce7', color: '#15803d', fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>✓ EEOC Compliant</span>
+              <span style={{ background: '#dcfce7', color: '#15803d', fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>✓ ATS-Formatted</span>
+              <span style={{ background: '#dbeafe', color: '#1d4ed8', fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>
+                🔍 Bias Check: {hasBiasWords ? 'Issues Found' : 'All Clear'}
+              </span>
+            </div>
+            <div style={{ display: 'flex', gap: '6px', flexShrink: 0, flexWrap: 'wrap' }}>
+              <button
+                onClick={() => setShowBias(b => !b)}
+                style={{
+                  padding: '6px 12px',
+                  background: showBias ? '#fef3c7' : '#f0f4f8',
+                  border: `1px solid ${showBias ? '#fcd34d' : 'var(--border)'}`,
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  color: showBias ? '#92400e' : 'var(--text-secondary)',
+                }}
+              >
+                {showBias ? '🔍 Bias ON' : '🔍 Bias OFF'}
+              </button>
+              <button
+                onClick={() => setStep('ats')}
+                style={{ padding: '6px 12px', background: '#f0f4f8', border: '1px solid var(--border)', borderRadius: '6px', cursor: 'pointer', fontSize: '12px', fontWeight: 700, color: 'var(--navy)' }}
+              >
+                ATS Preview →
+              </button>
+            </div>
+          </div>
+
+          {showBias && hasBiasWords && (
+            <div style={{ background: '#fffbeb', border: '1px solid #fcd34d', borderRadius: '8px', padding: '12px 16px', marginBottom: '14px' }}>
+              <div style={{ fontWeight: 700, fontSize: '13px', color: '#92400e', marginBottom: '6px' }}>⚠️ Bias Words Detected</div>
+              <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                {Object.entries(BIAS_WORDS).filter(([w]) => jdText.toLowerCase().includes(w)).map(([word, fix]) => (
+                  <span key={word} style={{ fontSize: '12px', background: '#fef08a', color: '#78350f', padding: '3px 8px', borderRadius: '4px', fontWeight: 600 }}>
+                    &quot;{word}&quot; → &quot;{fix}&quot;
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div style={{
+            background: '#fff',
+            border: '1px solid var(--border)',
+            borderRadius: '8px',
+            padding: '24px 28px',
+            fontFamily: 'Georgia, serif',
+            fontSize: '13px',
+            lineHeight: '1.75',
+            color: '#1a1a1a',
+            maxHeight: '360px',
+            overflowY: 'auto',
+            marginBottom: '14px',
+            boxShadow: '0 2px 8px rgba(0,0,0,.06)',
+          }}>
+            {renderJDWithBias(jdText)}
+          </div>
+
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            <button
+              onClick={handleCopy}
+              style={{ background: 'linear-gradient(to bottom,#f5c26b,#e47911)', border: '1px solid #c07600', color: '#111', fontWeight: 700, padding: '9px 20px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px' }}
+            >
+              {copied ? '✓ Copied!' : '📋 Copy JD'}
+            </button>
+            <button
+              onClick={reset}
+              style={{ background: '#fff', border: '1px solid var(--border)', color: 'var(--text-secondary)', padding: '9px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px' }}
+            >
+              ↺ New JD
+            </button>
+          </div>
+          <p style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '10px' }}>
+            Hover over highlighted words to see bias-free replacements. Toggle bias detection on/off above.
+          </p>
+        </div>
+      )}
+
+      {/* ── Step: ATS Preview ── */}
+      {step === 'ats' && (
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', flexWrap: 'wrap' }}>
+            <div style={{ fontWeight: 700, fontSize: '14px', color: 'var(--navy)' }}>ATS Field Mapping Preview</div>
+            <span style={{ background: '#dcfce7', color: '#15803d', fontSize: '11px', fontWeight: 700, padding: '3px 10px', borderRadius: '20px' }}>✓ Greenhouse Compatible</span>
+            <span style={{ background: '#dcfce7', color: '#15803d', fontSize: '11px', fontWeight: 700, padding: '3px 10px', borderRadius: '20px' }}>✓ Lever Compatible</span>
+            <button
+              onClick={() => setStep('jd')}
+              style={{ marginLeft: 'auto', background: 'none', border: '1px solid var(--border)', color: 'var(--text-secondary)', padding: '6px 14px', borderRadius: '6px', cursor: 'pointer', fontSize: '12px' }}
+            >
+              ← Back to JD
+            </button>
+          </div>
+
+          <div style={{ border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden', marginBottom: '14px' }}>
+            {[
+              { field: 'Job Title', value: role.title },
+              { field: 'Department', value: role.dept },
+              { field: 'Employment Type', value: 'Full-Time' },
+              { field: 'Location', value: 'On-site / Hybrid' },
+              { field: 'Salary Range', value: role.salary },
+              { field: 'EEOC Statement', value: '✓ Auto-included — "We are an equal opportunity employer…"' },
+              { field: 'ADA Accommodation', value: '✓ Auto-included — "Reasonable accommodations may be made…"' },
+            ].map((row, i) => (
+              <div key={i} style={{
+                display: 'grid',
+                gridTemplateColumns: '160px 1fr',
+                padding: '12px 16px',
+                borderBottom: i < 6 ? '1px solid var(--border)' : 'none',
+                background: i % 2 === 0 ? '#fff' : '#fafafa',
+                gap: '16px',
+                alignItems: 'start',
+              }}>
+                <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase' as const, letterSpacing: '.04em', paddingTop: '2px' }}>{row.field}</div>
+                <div style={{ fontSize: '13px', color: row.value.startsWith('✓') ? '#15803d' : 'var(--navy)', fontWeight: row.value.startsWith('✓') ? 700 : 500 }}>{row.value}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ background: '#f0f7ff', border: '1px solid #bfdbfe', borderRadius: '8px', padding: '14px 18px', marginBottom: '14px' }}>
+            <div style={{ fontWeight: 700, fontSize: '13px', color: '#1d4ed8', marginBottom: '6px' }}>📊 Optimization Score: 94 / 100</div>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              {[
+                { label: 'Keyword Density', score: '96%' },
+                { label: 'Readability', score: 'Grade 10' },
+                { label: 'Inclusive Language', score: '✓ Pass' },
+                { label: 'Sections Complete', score: '7 / 7' },
+              ].map((s, i) => (
+                <div key={i} style={{ fontSize: '12px', color: '#1d4ed8' }}>
+                  <span style={{ fontWeight: 600 }}>{s.label}:</span> {s.score}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            <button
+              onClick={handleCopy}
+              style={{ background: 'linear-gradient(to bottom,#f5c26b,#e47911)', border: '1px solid #c07600', color: '#111', fontWeight: 700, padding: '9px 20px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px' }}
+            >
+              {copied ? '✓ Copied!' : '📋 Copy Full JD'}
+            </button>
+            <button
+              onClick={reset}
+              style={{ background: '#fff', border: '1px solid var(--border)', color: 'var(--text-secondary)', padding: '9px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px' }}
+            >
+              ↺ Generate New JD
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ─── Shared styles ─── */
 const labelStyle: React.CSSProperties = {
   display: 'block',
@@ -1221,6 +1610,7 @@ const demoMap: Record<string, React.ReactNode> = {
   'time-tracker': <TimeTrackerDemo />,
   'contract-gen': <ContractGenDemo />,
   'form-builder': <FormBuilderDemo />,
+  'job-description-gen': <JobDescriptionGenDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {
