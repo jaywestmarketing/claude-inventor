@@ -1912,6 +1912,149 @@ export const tools: Tool[] = [
     dateAdded: '2026-05-22',
     waitlistCount: 0,
     slug: 'lead-magnet'
+  },
+  // ── BATCH 1 ──────────────────────────────────────────────────────────────
+  {
+    id: 'applicant-tracking-system',
+    name: 'HireTrack',
+    tagline: 'Free applicant tracking system for small business hiring',
+    description: 'HireTrack is the best free applicant tracking system for small businesses — manage the entire candidate journey from job post to offer letter without expensive per-seat pricing. What is the best ATS for small business? HireTrack provides Greenhouse-level hiring workflows at zero cost, replacing messy email threads and spreadsheets with a visual Kanban pipeline that keeps every recruiter, hiring manager, and HR team member aligned.',
+    category: 'hr',
+    status: 'demo',
+    icon: '🔍',
+    features: [
+      'Drag-and-drop Kanban hiring pipeline (Applied → Phone Screen → Interview → Offer → Hired)',
+      'Candidate profile cards with resume attach, status history, and hiring notes',
+      'Interview scheduling with automated calendar invites sent directly to candidates',
+      'Collaborative team feedback scores — 1-5 rating plus comment per interviewer per round',
+      'Job description template library covering 50+ common roles across all departments',
+      'Offer letter builder with e-signature collection and audit trail',
+      'Source tracking — know which channel (LinkedIn, Indeed, referral, career site) produces your best hires',
+      'EEOC-compliant equal opportunity data collection for federal reporting requirements'
+    ],
+    keywords: [
+      'applicant tracking system small business',
+      'free ATS software',
+      'best ATS for small business 2026',
+      'applicant tracking software',
+      'hiring software for startups',
+      'Greenhouse alternative',
+      'Lever alternative',
+      'Workable alternative',
+      'JazzHR alternative',
+      'cheaper than BambooHR hiring',
+      'ATS software for HR teams',
+      'simple applicant tracking tool',
+      'small business recruiting software',
+      'ATS without annual contract',
+      'free hiring pipeline tool',
+      'what is the best ATS for small business',
+      'how to track job applicants',
+      'what is applicant tracking software',
+      'how to manage hiring pipeline',
+      'what ATS does not require annual contract'
+    ],
+    competitors: [
+      { name: 'Greenhouse', priceRange: '$6-$12/emp/mo', topComplaint: 'Requires annual contracts and implementation support — too complex for sub-100-person teams (G2)' },
+      { name: 'Lever', priceRange: '$5-$10/emp/mo', topComplaint: 'Pricing is not transparent and the renewal process is frustrating (Capterra)' },
+      { name: 'Workable', priceRange: '$189-$375/mo flat', topComplaint: 'Limited reporting in the basic plan and customization is restricted to higher tiers (G2)' },
+      { name: 'JazzHR', priceRange: '$39-$199/mo', topComplaint: 'Reporting is clunky and hard to export — mobile app is barely functional (Capterra)' },
+      { name: 'BambooHR Hiring', priceRange: '$6-$9/emp/mo', topComplaint: 'ATS is buried inside the full HRIS — overkill if you just need pipeline tracking (G2)' }
+    ],
+    competitorFixes: [
+      'No annual contracts — cancel anytime, month-to-month pricing when you are ready to upgrade',
+      'Instant setup in under 5 minutes — no implementation team or consultant required',
+      'Full EEOC-compliant reporting built into every plan, not a paid add-on',
+      'Mobile-first candidate profiles — review applications and give interview feedback from your phone',
+      'Flat transparent pricing — one price covers unlimited open jobs and unlimited team members',
+      'Source attribution tracking included — know which recruiting channels produce your best hires'
+    ],
+    targetCities: [
+      { city: 'Anaheim', state: 'CA', population: '346,000', competitionLevel: 'low', localContext: 'HR and talent acquisition teams at Anaheim\'s major employers — including the 30,000+ cast members and corporate staff at Disney Resort (with one of the largest seasonal hiring operations in Southern California) and the HR departments at Boeing Defense on East Ball Road — use HireTrack to manage high-volume applicant pipelines without Greenhouse\'s annual contract minimums.' },
+      { city: 'Birmingham', state: 'AL', population: '210,000', competitionLevel: 'low', localContext: 'HR and recruiting teams at Birmingham\'s anchor employers — including the talent acquisition departments at UAB Health System (Alabama\'s largest employer with 23,000 employees on University Boulevard) and Protective Life Corporation downtown — use HireTrack to manage candidate pipelines across multiple open roles without per-seat ATS pricing that grows with every hire.' },
+      { city: 'Newark', state: 'NJ', population: '310,000', competitionLevel: 'low', localContext: 'Recruiting and HR teams at Newark\'s major employers — including the talent acquisition staff at Prudential Financial\'s global HQ at 751 Broad Street (9,000 Newark employees) and the HR departments serving the growing Audible/Amazon campus near Ironbound — use HireTrack to track applicants across multiple roles without paying Lever\'s per-employee licensing fees.' },
+      { city: 'Jersey City', state: 'NJ', population: '292,000', competitionLevel: 'low', localContext: 'Talent acquisition and HR operations teams at Jersey City\'s financial services giants — including the recruiting coordinators at Goldman Sachs\'s Jersey City campus (3,000+ employees, one of the firm\'s largest US offices) and JPMorgan Chase\'s MetroTech operations hub on Hudson Street — use HireTrack to run structured hiring pipelines without Workable\'s $375/month flat rate.' },
+      { city: 'Arlington', state: 'VA', population: '230,000', competitionLevel: 'low', localContext: 'HR and talent acquisition teams at Arlington\'s rapidly growing employer base — including the recruiting teams supporting Amazon\'s HQ2 National Landing campus (25,000 jobs planned along the Crystal Drive / Pentagon City corridor) and the talent operations at Booz Allen Hamilton\'s Rosslyn headquarters — use HireTrack to scale hiring without Greenhouse\'s implementation consultant requirements.' },
+      { city: 'Danbury', state: 'CT', population: '84,000', competitionLevel: 'low', localContext: 'HR managers and talent teams at Danbury\'s corporate headquarters cluster — including the recruiting staff at Linde plc\'s global HQ on Old Ridgebury Road (the world\'s largest industrial gases company, formerly Praxair) and Western Connecticut Health Network — use HireTrack to track candidates from first application to signed offer without JazzHR\'s clunky mobile interface.' },
+      { city: 'Orlando', state: 'FL', population: '320,000', competitionLevel: 'low', localContext: 'Recruiting and HR operations teams at Orlando\'s technology and healthcare employers — including the talent acquisition departments at Lockheed Martin\'s Orlando engineering campus on Challenger Parkway (7,000+ engineers) and AdventHealth\'s Central Florida system hiring portal — use HireTrack to manage high-volume healthcare and aerospace recruiting pipelines without complex ATS implementations.' },
+      { city: 'Redmond', state: 'WA', population: '70,000', competitionLevel: 'low', localContext: 'HR and recruiting teams at Redmond\'s technology giants — including the talent acquisition coordinators supporting Microsoft\'s sprawling Redmond campus (50,000+ employees across hundreds of buildings on Microsoft Way) and Nintendo of America\'s Redmond headquarters — use HireTrack to track contractor and full-time applicant pipelines without Lever\'s opaque annual pricing.' },
+      { city: 'Boynton Beach', state: 'FL', population: '80,000', competitionLevel: 'low', localContext: 'HR departments and recruiting teams at Boynton Beach\'s I-95 corridor employers — including the talent acquisition staff at ADT\'s Corporate Center Drive headquarters and Modernizing Medicine\'s Boynton Beach campus (EHR software company, one of Palm Beach County\'s largest tech employers) — use HireTrack to standardize hiring workflows without BambooHR\'s bundled HRIS overhead.' },
+      { city: 'Deerfield Beach', state: 'FL', population: '77,000', competitionLevel: 'low', localContext: 'Talent acquisition and HR teams at Deerfield Beach\'s corporate anchors — including the recruiting operations at ODP Corporation (Office Depot parent, headquartered on Military Trail with 6,000+ Florida employees) and the HR departments supporting Broward County\'s growing healthcare and logistics employers along I-95 — use HireTrack to track applicants through every stage of the hiring funnel without annual ATS contracts.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'hire-track'
+  },
+  {
+    id: 'performance-review-tool',
+    name: 'PerformanceReview',
+    tagline: 'Free 360-degree performance review and OKR tracking software',
+    description: 'PerformanceReview is the best free performance review software for small businesses — build structured 360-degree feedback cycles, track OKRs and team goals, and give every manager real-time visibility into employee progress. What is the best performance review tool for small business? PerformanceReview replaces Word templates emailed around and clunky spreadsheet review trackers with professional feedback cycles that HR, managers, and employees actually complete.',
+    category: 'hr',
+    status: 'demo',
+    icon: '⭐',
+    features: [
+      '360-degree review builder — self-review, peer feedback, manager review, and upward feedback in one cycle',
+      'OKR and goal setting with quarterly progress tracking and key result status updates',
+      'Automated review cycle scheduling — annual, semi-annual, quarterly, or project-based triggers',
+      'Real-time employee performance dashboards with trend charts across review periods',
+      'Custom rating scales, competency frameworks, and weighted scoring per role type',
+      'Anonymous peer feedback with cryptographic anonymity guarantees — employees actually participate',
+      'Review history and career growth trajectory charts for manager 1:1 conversations',
+      'Compensation review integration — link review scores to raise and bonus decision workflows'
+    ],
+    keywords: [
+      'performance review software small business',
+      'free 360 degree review tool',
+      'best performance management software 2026',
+      'OKR tracking software',
+      'employee performance review tool',
+      'Lattice alternative',
+      '15Five alternative',
+      'Culture Amp alternative',
+      'Betterworks alternative',
+      'cheaper performance review software',
+      '360 feedback tool for teams',
+      'employee goal tracking software',
+      'OKR software without per seat pricing',
+      'performance review cycle automation',
+      'free goal setting tool for managers',
+      'what is the best performance review software for small business',
+      'how to run 360 degree reviews',
+      'what is OKR tracking software',
+      'how to automate employee performance reviews',
+      'what performance review tool does not charge per employee'
+    ],
+    competitors: [
+      { name: 'Lattice', priceRange: '$9-$15/emp/mo', topComplaint: 'Price creep is real — went from $6 to $12 per employee with barely any feature additions (G2)' },
+      { name: '15Five', priceRange: '$4-$14/emp/mo', topComplaint: 'OKR tracking is buried and hard to build company-level goals that cascade down (Capterra)' },
+      { name: 'Culture Amp', priceRange: '$5-$10/emp/mo', topComplaint: 'Limited customization on survey templates — everything looks the same regardless of company (G2)' },
+      { name: 'Betterworks', priceRange: '$8-$15/emp/mo', topComplaint: 'Implementation takes 4-6 weeks and requires their professional services team (G2)' },
+      { name: 'Workday Performance', priceRange: 'Enterprise pricing', topComplaint: 'Way too expensive and bloated for mid-size companies that just need review cycles (Capterra)' }
+    ],
+    competitorFixes: [
+      'Self-review, peer, manager, and upward feedback in a single cycle — no bolted-on modules or extra cost',
+      'OKR and goal tracking built into every review — not a separate Lattice Grow add-on',
+      'Setup in under 10 minutes — create your first review cycle today, not after a 6-week implementation',
+      'Anonymous peer feedback with guarantees employees can trust — drives real participation rates',
+      'Flat pricing — no per-employee cost creep as you hire and grow your team',
+      'Custom competency frameworks — tailor rating scales to your industry, seniority levels, and values'
+    ],
+    targetCities: [
+      { city: 'Livermore', state: 'CA', population: '95,000', competitionLevel: 'low', localContext: 'HR and people operations teams at Livermore\'s national laboratory and technology employers — including the talent management staff supporting Lawrence Livermore National Laboratory (8,000 researchers and engineers on East Avenue) and Sandia National Laboratories\' California site — use PerformanceReview to run structured 360-degree feedback cycles that match the rigorous scientific culture without Lattice\'s $12/employee monthly overhead.' },
+      { city: 'Tracy', state: 'CA', population: '95,000', competitionLevel: 'low', localContext: 'HR managers and operations leads at Tracy\'s major logistics and distribution employers — including the people operations teams at Amazon\'s massive Tracy fulfillment center on Naglee Road (one of Northern California\'s largest FCs) and the supply chain managers at the Central Valley\'s growing warehouse corridor — use PerformanceReview to run quarterly OKR check-ins for hourly and salaried teams alike.' },
+      { city: 'Berkeley', state: 'CA', population: '120,000', competitionLevel: 'low', localContext: 'People operations and HR teams at Berkeley\'s research and biotech employers — including the talent management staff at Bayer HealthCare Pharmaceuticals\'s Berkeley research campus (occupying the former Shering-Plough site) and the HR departments at UC Berkeley spinoff startups in the Bancroft and Shattuck biotech corridor — use PerformanceReview to run 360 feedback cycles and OKR tracking that match UC Berkeley\'s performance-driven culture.' },
+      { city: 'Santa Maria', state: 'CA', population: '107,000', competitionLevel: 'low', localContext: 'HR teams and managers at Santa Maria\'s major employers — including the supervisors and people leads supporting civilian and contractor staff at Vandenberg Space Force Base (10,000+ military and civilian personnel, one of the West Coast\'s largest federal installations on Highway 1 north of Lompoc) and Allan Hancock College\'s administrative staff — use PerformanceReview to standardize annual review cycles across diverse team types.' },
+      { city: 'Whittier', state: 'CA', population: '86,000', competitionLevel: 'low', localContext: 'HR and talent management teams at Whittier\'s healthcare and education anchors — including the people operations staff at PIH Health Whittier Hospital on Workman Mill Road (the primary regional medical center for East Los Angeles County) and Rio Hondo College (20,000 students) — use PerformanceReview to run semi-annual employee evaluations without the complexity and cost of Culture Amp.' },
+      { city: 'Sandy', state: 'UT', population: '95,000', competitionLevel: 'low', localContext: 'HR operations and people teams at Sandy\'s South Valley technology employers — including the talent management staff at the Intermountain Healthcare corporate offices along 9000 South and the tech companies and SaaS startups growing in Sandy\'s Silicon Slopes I-15 corridor — use PerformanceReview to run structured OKR cycles and 360 feedback that keep fast-growing teams aligned without Betterworks\' 6-week implementation.' },
+      { city: 'Rockville', state: 'MD', population: '70,000', competitionLevel: 'low', localContext: 'HR and people operations teams at Rockville\'s federal research and biotech employers — including the talent management staff at the NIH main campus (spanning the Bethesda-Rockville border on Wisconsin Avenue with 20,000+ researchers) and Novavax\'s Rockville vaccine research headquarters on Firstfield Road — use PerformanceReview to run structured 360 review cycles that align with federal performance management standards.' },
+      { city: 'Gaithersburg', state: 'MD', population: '70,000', competitionLevel: 'low', localContext: 'HR directors and people operations leads at Gaithersburg\'s federal and corporate campus employers — including the talent management teams supporting NIST\'s main campus on Quince Orchard Road (the National Institute of Standards and Technology, employing 3,500+ scientists and engineers) and Sodexo\'s North American headquarters staff — use PerformanceReview to run annual and project-based review cycles aligned with federal review standards.' },
+      { city: 'Framingham', state: 'MA', population: '73,000', competitionLevel: 'low', localContext: 'HR leaders and people operations teams at Framingham\'s major corporate employers — including the talent management staff at TJX Companies\' global headquarters on Commerce Way (the parent company of T.J. Maxx and Marshalls, with 330,000 employees worldwide) and the HR teams at Mass General Brigham\'s Framingham specialty care site — use PerformanceReview to standardize semi-annual reviews across large retail and healthcare workforces.' },
+      { city: 'Noblesville', state: 'IN', population: '72,000', competitionLevel: 'low', localContext: 'HR managers and talent development teams at Noblesville\'s growing Hamilton County employers — including the people operations staff at Riverview Health on Hospital Drive (Hamilton County\'s largest healthcare employer) and the HR directors at the professional services firms and logistics companies growing in the Federal Hill Commerce Park corridor — use PerformanceReview to run structured OKR reviews and 360 feedback without Lattice\'s per-employee pricing.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'performance-review'
   }
 ];
 
@@ -2078,6 +2221,17 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'LeadMagnet', cities: ['Chula Vista CA', 'Sunnyvale CA', 'Bellevue WA', 'Garden Grove CA', 'St. Petersburg FL', 'Santa Ana CA', 'Hawthorne CA', 'El Monte CA', 'Auburn WA', 'Honolulu HI'] }
     ],
     researchNotes: 'Session 10: Added 20 new city SEO pages with unique localContext across 5 underrepresented tools — InventoryTracker (Tesla Gigafactory Fremont CA; Taylor Farms salad bowl capital Salinas CA; Weyerhaeuser HQ Federal Way WA; Boston Scientific cardiac mfg Maple Grove MN), FormBuilder (Texas A&M Research Valley Bryan TX; Napa Valley wine country hospitality; DFW professional services Flower Mound TX; John Muir Health Concord CA), JobDescriptionGen (Cal State East Bay Hayward CA; Amazon Inland Empire fulfillment Moreno Valley CA; I-25 tech corridor Castle Rock CO; TSMC East Valley Queen Creek AZ), VendorPortal (Patagonia global HQ Ventura CA; Touro University Mare Island Vallejo CA; East Bay industrial Antioch CA; Sharp Grossmont Hospital El Cajon CA), TimeTracker (MIT/Harvard Kendall Square Cambridge MA; Assembly Row tech freelancers Somerville MA; Intel/NVIDIA Silicon Valley contractors Santa Clara CA; SoFi Stadium entertainment Inglewood CA). Built VendorPortal interactive product demo: 3-tab UI showing Vendors list with status badges and vendor onboarding simulation (invite → pending → active flow), Invoices dashboard with approve/reject workflow and multi-approver chain simulation, and Contracts timeline with 90/30/7-day color-coded renewal alerts and renew action. Built LeadMagnet (Marketing) — landing page + lead magnet builder targeting Leadpages ($37-$99/mo), Unbounce ($74-$649/mo), ClickFunnels ($97-$297/mo), Instapage ($99-$499/mo), and Carrd (no file delivery) — 6 competitors validated at $5K+/mo ARR; launched with 10 cities all with employer-specific localContext including Patagonia HQ context for Ventura CA and Boeing Auburn WA; LeadMagnet interactive demo included at launch showing builder/preview/analytics 3-tab interface. Total: 24 tools, 480+ city SEO pages.'
+  },
+  {
+    date: '2026-05-22',
+    toolsAdded: ['HireTrack', 'PerformanceReview'],
+    toolsUpdated: [],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'HireTrack', cities: ['Anaheim CA', 'Birmingham AL', 'Newark NJ', 'Jersey City NJ', 'Arlington VA', 'Danbury CT', 'Orlando FL', 'Redmond WA', 'Boynton Beach FL', 'Deerfield Beach FL'] },
+      { tool: 'PerformanceReview', cities: ['Livermore CA', 'Tracy CA', 'Berkeley CA', 'Santa Maria CA', 'Whittier CA', 'Sandy UT', 'Rockville MD', 'Gaithersburg MD', 'Framingham MA', 'Noblesville IN'] }
+    ],
+    researchNotes: 'Session 11 Batch 1: Built HireTrack (HR - ATS) — Greenhouse ($6-12/emp/mo), Lever, Workable ($189+/mo), JazzHR ($39-199/mo), BambooHR Hiring all validated at >$5K/mo. Key complaints: annual contracts, implementation consultants, expensive mobile apps. 10 cities with localContext — Disney Resort/Boeing Anaheim; UAB Health/Protective Life Birmingham; Prudential HQ Newark; Goldman Sachs Jersey City; Amazon HQ2/Booz Allen Arlington VA; Linde plc HQ Danbury CT; Lockheed Martin Orlando; Microsoft campus Redmond WA; ADT HQ Boynton Beach; Office Depot HQ Deerfield Beach FL. Built PerformanceReview (HR - 360 reviews) — Lattice ($9-15/emp/mo), 15Five, Culture Amp, Betterworks, Workday Performance all validated. Key complaints: per-employee price creep, rigid templates, slow implementation. 10 cities with localContext — LLNL/Sandia Livermore CA; Amazon FC Tracy CA; Bayer HealthCare Berkeley CA; Vandenberg SFB Santa Maria CA; PIH Health Whittier CA; Silicon Slopes Sandy UT; NIH Rockville MD; NIST Gaithersburg MD; TJX Companies Framingham MA; Riverview Health Noblesville IN.'
   }
 ];
 
