@@ -346,28 +346,36 @@ If running low on context:
 19. **ContractGen** (Sales) — E-signature & contract generation — `contract-gen` — 10 cities
 
 ### Session 6 (2026-04-17) — 1 Tool + 20 Cities + localContext SEO + TimeTracker Demo
-20. **InventoryTracker** (Operations) — Multi-location inventory & stock tracking — `inventory-tracker` — 10 cities
+20. **InventoryTracker** (Operations) — Multi-location inventory & stock tracking — `inventory-tracker` — 14 cities
 
-### UI/SEO Upgrades (Sessions 4–6)
+### Sessions 7-9 (2026-04-27 → 2026-05-21) — 3 Tools + 60 Cities + 4 Demos
+21. **FormBuilder** (Marketing) — Conditional logic form builder — `form-builder` — 14 cities (+ interactive 3-tab Builder/Preview/Results demo)
+22. **JobDescriptionGen** (HR) — AI job description generator — `job-description-gen` — 14 cities (+ interactive AI generation + bias detection demo)
+23. **VendorPortal** (Operations) — Vendor invoice & contract management — `vendor-portal` — 14 cities (+ interactive 3-tab Vendors/Invoices/Contracts product demo)
+
+### Session 10 (2026-05-22) — 1 Tool + 20 Cities + VendorPortal Product Demo
+24. **LeadMagnet** (Marketing) — Landing page + lead magnet builder — `lead-magnet` — 10 cities (+ interactive Builder/Preview/Analytics demo)
+
+### UI/SEO Upgrades (Sessions 4–10)
 - Redesigned: PayPal navy nav + Amazon orange CTA cards (no glass-morphism)
 - Web3Forms integrated for real email capture (key: 7d643d3d-…)
 - Schema.org @graph consolidated in layout.tsx (Organization + WebSite + FAQPage)
-- AEO descriptions on all new tools ("what is the best X" answered in first 150 words)
-- Interactive demos added: PayrollCalc (payroll estimator), CommissionCalc (tier builder), EmailSigGen (live signature preview), TimeTracker (live stopwatch + daily log + weekly chart)
+- AEO descriptions on all tools ("what is the best X" answered in first 150 words)
+- Interactive demos: PayrollCalc, CommissionCalc, EmailSigGen, TimeTracker, ContractGen, FormBuilder, JobDescriptionGen, VendorPortal, LeadMagnet
 - DemoPanel.tsx component renders slug-conditional demos above waitlist CTA
 - CityTarget interface upgraded: optional `localContext` field for city-specific E-E-A-T content
 - CityDetailClient renders blue callout box with unique local sentence when localContext is present
-- 30 new city pages with localContext referencing real employers, landmarks, and industries
+- 200+ city pages with localContext referencing real employers, landmarks, and industries
 
 ### Static HTML Demos (in `public/tools/`)
 - **Smart Invoice Generator** — `public/tools/smart-invoice-generator/`
 - **AI Meeting Notes Summarizer** — `public/tools/ai-meeting-notes/`
 
-**Total: 20 Next.js tools, ~320 city SEO pages**
+**Total: 24 Next.js tools, ~480 city SEO pages**
 
 ## QUEUED TOOLS (Prioritized)
-1. **FormBuilder** (Marketing) — Typeform $50/mo complaints; JotForm feature-gating on free tier
-2. **JobDescriptionGen** (HR) — Textio/Ongig pricing; generic JD generators lack compliance
-3. **VendorPortal** (Operations) — Vendor invoice tracking; Precoro/Coupa inaccessible for SMB
-4. Add interactive demo for ContractGen (template preview + e-sign simulation)
-5. Add localContext to 20 more existing cities from Sessions 1-3 (predate the localContext system)
+1. **ClientIntake** (Sales/Marketing) — Agency client onboarding: intake form + document collection + branded portal; gap between simple FormBuilder and full ClientPortal
+2. Add localContext to Session 1-3 older cities — OnboardFlow (Boise ID: HP/Micron; Chattanooga TN: VW plant; Fayetteville AR: Walmart HQ adjacent; Huntsville AL: NASA Marshall; Spokane WA: WSU/Kaiser), LeadPilot (Durham NC: Research Triangle; Knoxville TN: UT/Oak Ridge), ExpenseBot (Baton Rouge LA: ExxonMobil; Des Moines IA: Wells Fargo/Principal; Dayton OH: Wright-Patterson AFB)
+3. Expand InventoryTracker cities — Midwest manufacturing and Southeast retail hubs: Columbus IN (Cummins HQ), Cookeville TN (TTM Technologies), Hattiesburg MS (Gulf South distribution)
+4. Refresh SocialQueue keywords — TikTok content scheduler + LinkedIn thought leadership scheduling trending in Q2 2026
+5. Update CalendarFlow competitor data — Calendly Q1 2026 price changes, new G2/Reddit complaints

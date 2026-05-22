@@ -1550,6 +1550,615 @@ function JobDescriptionGenDemo() {
   );
 }
 
+/* ─── Vendor Portal ─── */
+
+interface VendorRow {
+  id: string;
+  name: string;
+  type: string;
+  status: 'active' | 'pending' | 'onboarding';
+  lastInvoice: string;
+  contractExp: string;
+}
+
+interface InvoiceRow {
+  id: string;
+  vendor: string;
+  amount: string;
+  submitted: string;
+  status: 'pending' | 'approved' | 'paid';
+  approvers: string[];
+  approvedCount: number;
+}
+
+interface ContractRow {
+  id: string;
+  vendor: string;
+  value: string;
+  expDate: string;
+  daysLeft: number;
+}
+
+const INIT_VENDORS: VendorRow[] = [
+  { id: 'v1', name: 'Apex Cleaning Services', type: 'Facilities', status: 'active', lastInvoice: 'May 1, 2026', contractExp: 'Dec 31, 2026' },
+  { id: 'v2', name: 'TechSupply Co.', type: 'IT Hardware', status: 'active', lastInvoice: 'Apr 28, 2026', contractExp: 'Mar 15, 2027' },
+  { id: 'v3', name: 'Riverside Catering', type: 'Food & Beverage', status: 'pending', lastInvoice: '—', contractExp: '—' },
+  { id: 'v4', name: 'ProStaff Solutions', type: 'Staffing', status: 'active', lastInvoice: 'May 5, 2026', contractExp: 'Jun 30, 2026' },
+  { id: 'v5', name: 'CloudGuard Security', type: 'IT Services', status: 'onboarding', lastInvoice: '—', contractExp: '—' },
+];
+
+const INIT_INVOICES: InvoiceRow[] = [
+  { id: 'INV-2847', vendor: 'Apex Cleaning Services', amount: '$3,400.00', submitted: 'May 8, 2026', status: 'pending', approvers: ['Dept Manager', 'Finance Lead', 'CFO'], approvedCount: 0 },
+  { id: 'INV-2839', vendor: 'TechSupply Co.', amount: '$12,750.00', submitted: 'May 6, 2026', status: 'pending', approvers: ['Dept Manager', 'Finance Lead', 'CFO'], approvedCount: 1 },
+  { id: 'INV-2831', vendor: 'ProStaff Solutions', amount: '$8,100.00', submitted: 'May 2, 2026', status: 'approved', approvers: ['Dept Manager', 'Finance Lead', 'CFO'], approvedCount: 3 },
+  { id: 'INV-2820', vendor: 'TechSupply Co.', amount: '$4,290.00', submitted: 'Apr 25, 2026', status: 'paid', approvers: ['Dept Manager', 'Finance Lead', 'CFO'], approvedCount: 3 },
+];
+
+const INIT_CONTRACTS: ContractRow[] = [
+  { id: 'c1', vendor: 'ProStaff Solutions', value: '$96,000/yr', expDate: 'Jun 30, 2026', daysLeft: 39 },
+  { id: 'c2', vendor: 'Apex Cleaning Services', value: '$40,800/yr', expDate: 'Dec 31, 2026', daysLeft: 223 },
+  { id: 'c3', vendor: 'TechSupply Co.', value: '$85,000/yr', expDate: 'Mar 15, 2027', daysLeft: 297 },
+  { id: 'c4', vendor: 'DataVault Backup', value: '$18,000/yr', expDate: 'May 29, 2026', daysLeft: 7 },
+];
+
+function VendorPortalDemo() {
+  const [tab, setTab] = useState<'vendors' | 'invoices' | 'contracts'>('vendors');
+  const [vendors, setVendors] = useState<VendorRow[]>(INIT_VENDORS.map(v => ({ ...v })));
+  const [invoices, setInvoices] = useState<InvoiceRow[]>(INIT_INVOICES.map(i => ({ ...i })));
+  const [contracts, setContracts] = useState<ContractRow[]>(INIT_CONTRACTS.map(c => ({ ...c })));
+  const [inviteEmail, setInviteEmail] = useState('');
+  const [inviteStep, setInviteStep] = useState<'idle' | 'form' | 'sending' | 'done'>('idle');
+  const [approvingId, setApprovingId] = useState<string | null>(null);
+  const [renewingId, setRenewingId] = useState<string | null>(null);
+
+  const statusBadge = (s: VendorRow['status']) => {
+    const map = { active: ['#dcfce7', '#15803d', 'Active'], pending: ['#fef3c7', '#92400e', 'Pending'], onboarding: ['#dbeafe', '#1d4ed8', 'Onboarding'] };
+    const [bg, color, label] = map[s];
+    return <span style={{ background: bg, color, fontSize: '11px', fontWeight: 700, padding: '2px 8px', borderRadius: '20px' }}>{label}</span>;
+  };
+
+  const invoiceStatusBadge = (s: InvoiceRow['status']) => {
+    const map = { pending: ['#fef3c7', '#92400e', '⏳ Pending'], approved: ['#dcfce7', '#15803d', '✓ Approved'], paid: ['#e0f2fe', '#0369a1', '💳 Paid'] };
+    const [bg, color, label] = map[s];
+    return <span style={{ background: bg, color, fontSize: '11px', fontWeight: 700, padding: '2px 8px', borderRadius: '20px' }}>{label}</span>;
+  };
+
+  const alertColor = (days: number) => {
+    if (days <= 7) return { bg: '#fee2e2', color: '#991b1b', icon: '🔴' };
+    if (days <= 30) return { bg: '#fef3c7', color: '#92400e', icon: '🟡' };
+    return { bg: '#dcfce7', color: '#15803d', icon: '🟢' };
+  };
+
+  const handleInvite = () => {
+    if (!inviteEmail.trim()) return;
+    setInviteStep('sending');
+    setTimeout(() => {
+      setVendors(prev => [...prev, {
+        id: `v${Date.now()}`,
+        name: inviteEmail.includes('@') ? inviteEmail.split('@')[0].replace(/[._]/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) : inviteEmail,
+        type: 'New Vendor',
+        status: 'pending',
+        lastInvoice: '—',
+        contractExp: '—',
+      }]);
+      setInviteStep('done');
+    }, 1400);
+  };
+
+  const handleApprove = (id: string) => {
+    setApprovingId(id);
+    setTimeout(() => {
+      setInvoices(prev => prev.map(inv => {
+        if (inv.id !== id) return inv;
+        const next = inv.approvedCount + 1;
+        return { ...inv, approvedCount: next, status: next >= inv.approvers.length ? 'approved' : 'pending' };
+      }));
+      setApprovingId(null);
+    }, 900);
+  };
+
+  const handleRenew = (id: string) => {
+    setRenewingId(id);
+    setTimeout(() => {
+      setContracts(prev => prev.map(c => c.id !== id ? c : { ...c, daysLeft: 365, expDate: 'May 22, 2027' }));
+      setRenewingId(null);
+    }, 1200);
+  };
+
+  const tabBtn = (t: typeof tab, label: string, count?: number) => (
+    <button
+      key={t}
+      onClick={() => { setTab(t); setInviteStep('idle'); setInviteEmail(''); }}
+      style={{
+        padding: '8px 16px',
+        background: tab === t ? 'var(--navy)' : '#f0f4f8',
+        color: tab === t ? '#fff' : 'var(--text-secondary)',
+        border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 700, fontSize: '13px',
+        display: 'flex', alignItems: 'center', gap: '6px',
+      }}
+    >
+      {label}
+      {count !== undefined && (
+        <span style={{ background: tab === t ? 'rgba(255,255,255,.25)' : 'var(--border)', color: tab === t ? '#fff' : 'var(--text-secondary)', borderRadius: '20px', padding: '1px 7px', fontSize: '11px' }}>
+          {count}
+        </span>
+      )}
+    </button>
+  );
+
+  const pendingInvoices = invoices.filter(i => i.status === 'pending').length;
+  const expiringContracts = contracts.filter(c => c.daysLeft <= 30).length;
+
+  return (
+    <div>
+      <div style={{ display: 'flex', gap: '6px', marginBottom: '20px', flexWrap: 'wrap' }}>
+        {tabBtn('vendors', '🏢 Vendors', vendors.length)}
+        {tabBtn('invoices', '📄 Invoices', pendingInvoices > 0 ? pendingInvoices : undefined)}
+        {tabBtn('contracts', '📋 Contracts', expiringContracts > 0 ? expiringContracts : undefined)}
+      </div>
+
+      {/* ── Vendors Tab ── */}
+      {tab === 'vendors' && (
+        <div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
+            <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
+              {vendors.filter(v => v.status === 'active').length} active · {vendors.filter(v => v.status !== 'active').length} pending / onboarding
+            </div>
+            {inviteStep === 'idle' && (
+              <button
+                onClick={() => setInviteStep('form')}
+                style={{ background: 'linear-gradient(to bottom,#f5c26b,#e47911)', border: '1px solid #c07600', color: '#111', fontWeight: 700, padding: '8px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px' }}
+              >
+                + Invite Vendor
+              </button>
+            )}
+          </div>
+
+          {inviteStep === 'form' && (
+            <div style={{ background: '#f0f7ff', border: '1px solid #bfdbfe', borderRadius: '10px', padding: '16px', marginBottom: '14px' }}>
+              <div style={{ fontWeight: 700, fontSize: '13px', color: 'var(--navy)', marginBottom: '10px' }}>Send Vendor Onboarding Invite</div>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                <input
+                  type="email"
+                  value={inviteEmail}
+                  onChange={e => setInviteEmail(e.target.value)}
+                  placeholder="vendor@company.com"
+                  style={{ ...inputStyle, flex: 1, minWidth: '200px' }}
+                  onKeyDown={e => e.key === 'Enter' && handleInvite()}
+                />
+                <button
+                  onClick={handleInvite}
+                  disabled={!inviteEmail.trim()}
+                  style={{ background: inviteEmail.trim() ? 'var(--navy)' : '#ccc', border: 'none', color: '#fff', fontWeight: 700, padding: '8px 18px', borderRadius: '6px', cursor: inviteEmail.trim() ? 'pointer' : 'not-allowed', fontSize: '13px' }}
+                >
+                  Send Invite
+                </button>
+                <button onClick={() => { setInviteStep('idle'); setInviteEmail(''); }} style={{ background: '#fff', border: '1px solid var(--border)', color: 'var(--text-secondary)', padding: '8px 12px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px' }}>Cancel</button>
+              </div>
+              <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '8px' }}>Vendor receives a self-service link to upload W-9, insurance cert, and banking info.</div>
+            </div>
+          )}
+
+          {inviteStep === 'sending' && (
+            <div style={{ background: '#f0f7ff', border: '1px solid #bfdbfe', borderRadius: '10px', padding: '16px', marginBottom: '14px', textAlign: 'center', color: 'var(--navy)', fontWeight: 600, fontSize: '13px' }}>
+              Sending onboarding link to {inviteEmail}…
+            </div>
+          )}
+
+          {inviteStep === 'done' && (
+            <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '10px', padding: '14px 16px', marginBottom: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ color: '#15803d', fontWeight: 700, fontSize: '13px' }}>✓ Invite sent — vendor added with Pending status</div>
+              <button onClick={() => { setInviteStep('idle'); setInviteEmail(''); }} style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '12px' }}>Dismiss</button>
+            </div>
+          )}
+
+          <div style={{ border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', padding: '10px 16px', background: '#f8f9fa', borderBottom: '1px solid var(--border)', gap: '8px' }}>
+              {['Vendor', 'Type', 'Status', 'Last Invoice', 'Contract Exp'].map((h, i) => (
+                <div key={i} style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase' as const, letterSpacing: '.04em' }}>{h}</div>
+              ))}
+            </div>
+            {vendors.map((v, i) => (
+              <div key={v.id} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', padding: '12px 16px', borderBottom: i < vendors.length - 1 ? '1px solid var(--border)' : 'none', background: i % 2 === 0 ? '#fff' : '#fafafa', gap: '8px', alignItems: 'center' }}>
+                <div style={{ fontWeight: 600, fontSize: '14px', color: 'var(--navy)' }}>{v.name}</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{v.type}</div>
+                <div>{statusBadge(v.status)}</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{v.lastInvoice}</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{v.contractExp}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── Invoices Tab ── */}
+      {tab === 'invoices' && (
+        <div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '10px', marginBottom: '18px' }}>
+            {[
+              { label: 'Pending Approval', value: String(invoices.filter(i => i.status === 'pending').length), color: '#92400e' },
+              { label: 'Approved', value: String(invoices.filter(i => i.status === 'approved').length), color: '#15803d' },
+              { label: 'Paid', value: String(invoices.filter(i => i.status === 'paid').length), color: '#0369a1' },
+              { label: 'Total This Month', value: '$28,540', color: 'var(--navy)' },
+            ].map((s, i) => (
+              <div key={i} style={resultCard}>
+                <div style={resultLabel}>{s.label}</div>
+                <div style={{ fontSize: '22px', fontWeight: 800, color: s.color, marginTop: '4px' }}>{s.value}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden' }}>
+            {invoices.map((inv, i) => (
+              <div key={inv.id} style={{ padding: '14px 16px', borderBottom: i < invoices.length - 1 ? '1px solid var(--border)' : 'none', background: i % 2 === 0 ? '#fff' : '#fafafa' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', flexWrap: 'wrap', gap: '8px' }}>
+                  <div>
+                    <div style={{ fontWeight: 700, fontSize: '14px', color: 'var(--navy)' }}>{inv.id}</div>
+                    <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '2px' }}>{inv.vendor} · Submitted {inv.submitted}</div>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                    <span style={{ fontWeight: 800, fontSize: '15px', color: 'var(--navy)' }}>{inv.amount}</span>
+                    {invoiceStatusBadge(inv.status)}
+                  </div>
+                </div>
+
+                {/* Approval chain */}
+                <div style={{ display: 'flex', gap: '6px', alignItems: 'center', flexWrap: 'wrap' }}>
+                  {inv.approvers.map((ap, j) => {
+                    const done = j < inv.approvedCount;
+                    const current = j === inv.approvedCount && inv.status === 'pending';
+                    return (
+                      <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <div style={{
+                          display: 'flex', alignItems: 'center', gap: '4px',
+                          padding: '4px 10px',
+                          background: done ? '#dcfce7' : current ? '#fef3c7' : '#f0f0f0',
+                          borderRadius: '20px',
+                          fontSize: '11px',
+                          fontWeight: 600,
+                          color: done ? '#15803d' : current ? '#92400e' : '#9ca3af',
+                        }}>
+                          {done ? '✓' : current ? '⏳' : '○'} {ap}
+                        </div>
+                        {j < inv.approvers.length - 1 && <span style={{ color: '#d1d5db', fontSize: '12px' }}>→</span>}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {inv.status === 'pending' && (
+                  <div style={{ marginTop: '10px' }}>
+                    <button
+                      onClick={() => handleApprove(inv.id)}
+                      disabled={approvingId === inv.id}
+                      style={{
+                        background: approvingId === inv.id ? '#ccc' : 'linear-gradient(to bottom,#4ade80,#16a34a)',
+                        border: '1px solid #15803d',
+                        color: '#fff',
+                        fontWeight: 700,
+                        padding: '7px 16px',
+                        borderRadius: '6px',
+                        cursor: approvingId === inv.id ? 'not-allowed' : 'pointer',
+                        fontSize: '13px',
+                      }}
+                    >
+                      {approvingId === inv.id ? 'Approving…' : `✓ Approve — ${inv.approvers[inv.approvedCount]}`}
+                    </button>
+                    <span style={{ fontSize: '12px', color: 'var(--text-secondary)', marginLeft: '10px' }}>
+                      {inv.approvedCount}/{inv.approvers.length} approvals complete
+                    </span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── Contracts Tab ── */}
+      {tab === 'contracts' && (
+        <div>
+          <div style={{ background: '#fffbeb', border: '1px solid #fcd34d', borderRadius: '8px', padding: '12px 16px', marginBottom: '16px', display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '18px' }}>⚠️</span>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '13px', color: '#92400e' }}>{expiringContracts} contract{expiringContracts !== 1 ? 's' : ''} expiring within 30 days</div>
+              <div style={{ fontSize: '12px', color: '#78350f' }}>Renew now to avoid service interruptions and emergency pricing.</div>
+            </div>
+          </div>
+
+          <div style={{ border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden' }}>
+            {contracts.map((c, i) => {
+              const alert = alertColor(c.daysLeft);
+              return (
+                <div key={c.id} style={{ padding: '16px', borderBottom: i < contracts.length - 1 ? '1px solid var(--border)' : 'none', background: i % 2 === 0 ? '#fff' : '#fafafa' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px' }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 700, fontSize: '14px', color: 'var(--navy)' }}>{c.vendor}</div>
+                      <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '2px' }}>{c.value} · Expires {c.expDate}</div>
+                      <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span style={{ background: alert.bg, color: alert.color, fontSize: '11px', fontWeight: 700, padding: '2px 8px', borderRadius: '20px' }}>
+                          {alert.icon} {c.daysLeft} days remaining
+                        </span>
+                      </div>
+                      <div style={{ marginTop: '8px', background: '#f0f0f0', borderRadius: '4px', height: '6px', width: '240px', maxWidth: '100%' }}>
+                        <div style={{
+                          background: c.daysLeft <= 7 ? '#dc2626' : c.daysLeft <= 30 ? '#f59e0b' : '#16a34a',
+                          borderRadius: '4px', height: '6px',
+                          width: `${Math.min(100, (c.daysLeft / 365) * 100)}%`,
+                        }} />
+                      </div>
+                    </div>
+                    <div>
+                      {c.daysLeft <= 90 && c.daysLeft > 0 && (
+                        <button
+                          onClick={() => handleRenew(c.id)}
+                          disabled={renewingId === c.id}
+                          style={{
+                            background: renewingId === c.id ? '#ccc' : c.daysLeft <= 30 ? 'linear-gradient(to bottom,#f5c26b,#e47911)' : '#fff',
+                            border: c.daysLeft <= 30 ? '1px solid #c07600' : '1px solid var(--border)',
+                            color: renewingId === c.id ? '#fff' : c.daysLeft <= 30 ? '#111' : 'var(--navy)',
+                            fontWeight: 700,
+                            padding: '8px 16px',
+                            borderRadius: '6px',
+                            cursor: renewingId === c.id ? 'not-allowed' : 'pointer',
+                            fontSize: '13px',
+                          }}
+                        >
+                          {renewingId === c.id ? 'Renewing…' : '↺ Renew Contract'}
+                        </button>
+                      )}
+                      {(c.daysLeft === 365 || c.daysLeft > 90) && (
+                        <span style={{ fontSize: '12px', color: '#15803d', fontWeight: 600 }}>✓ Active</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div style={{ marginTop: '10px', fontSize: '12px', color: 'var(--text-secondary)' }}>
+            🔔 Automatic alerts sent at 90, 30, and 7 days before expiration. All vendors notified simultaneously.
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── Lead Magnet Builder ─── */
+
+const LM_TEMPLATES = [
+  { id: 'pdf', icon: '📄', label: 'PDF Guide', cta: 'Download Free Guide', preview: '#dbeafe' },
+  { id: 'checklist', icon: '✅', label: 'Checklist', cta: 'Get the Checklist', preview: '#dcfce7' },
+  { id: 'webinar', icon: '🎥', label: 'Webinar Signup', cta: 'Reserve My Seat', preview: '#fef3c7' },
+  { id: 'trial', icon: '🚀', label: 'Free Trial', cta: 'Start Free Trial', preview: '#f3e8ff' },
+];
+
+function LeadMagnetDemo() {
+  const [tab, setTab] = useState<'builder' | 'preview' | 'analytics'>('builder');
+  const [template, setTemplate] = useState('pdf');
+  const [headline, setHeadline] = useState('Free Guide: 10 Ways to Automate Your Business in 2026');
+  const [subheadline, setSubheadline] = useState('Download the free PDF used by 3,200+ small business owners to save 10+ hours per week.');
+  const [ctaText, setCtaText] = useState('Download Free Guide');
+  const [submitted, setSubmitted] = useState(false);
+  const [previewEmail, setPreviewEmail] = useState('');
+  const [signups, setSignups] = useState(127);
+  const [published, setPublished] = useState(false);
+  const [publishing, setPublishing] = useState(false);
+
+  const tpl = LM_TEMPLATES.find(t => t.id === template)!;
+
+  const handlePreviewSubmit = () => {
+    if (!previewEmail.trim()) return;
+    setSubmitted(true);
+    setSignups(s => s + 1);
+  };
+
+  const handlePublish = () => {
+    setPublishing(true);
+    setTimeout(() => { setPublishing(false); setPublished(true); }, 1500);
+  };
+
+  const convRate = ((signups / 1843) * 100).toFixed(1);
+
+  const tabBtn = (t: typeof tab, label: string) => (
+    <button
+      key={t}
+      onClick={() => { setTab(t); setSubmitted(false); setPreviewEmail(''); }}
+      style={{
+        padding: '8px 16px',
+        background: tab === t ? 'var(--navy)' : '#f0f4f8',
+        color: tab === t ? '#fff' : 'var(--text-secondary)',
+        border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 700, fontSize: '13px',
+      }}
+    >
+      {label}
+    </button>
+  );
+
+  return (
+    <div>
+      <div style={{ display: 'flex', gap: '6px', marginBottom: '20px', flexWrap: 'wrap' }}>
+        {tabBtn('builder', '🔨 Builder')}
+        {tabBtn('preview', '📱 Live Preview')}
+        {tabBtn('analytics', `📊 Analytics (${signups})`)}
+      </div>
+
+      {/* ── Builder Tab ── */}
+      {tab === 'builder' && (
+        <div>
+          <div style={{ marginBottom: '16px' }}>
+            <div style={{ ...labelStyle, marginBottom: '8px', display: 'block' }}>Lead Magnet Type</div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '8px' }}>
+              {LM_TEMPLATES.map(t => (
+                <button
+                  key={t.id}
+                  onClick={() => { setTemplate(t.id); setCtaText(t.cta); }}
+                  style={{
+                    padding: '12px',
+                    background: template === t.id ? 'var(--navy)' : '#f0f4f8',
+                    color: template === t.id ? '#fff' : 'var(--navy)',
+                    border: template === t.id ? 'none' : '1px solid var(--border)',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontWeight: 700,
+                    fontSize: '13px',
+                    textAlign: 'center' as const,
+                  }}
+                >
+                  <div style={{ fontSize: '22px', marginBottom: '4px' }}>{t.icon}</div>
+                  <div>{t.label}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gap: '12px', marginBottom: '18px' }}>
+            <div>
+              <label style={labelStyle}>Headline</label>
+              <input type="text" value={headline} onChange={e => setHeadline(e.target.value)} style={inputStyle} />
+            </div>
+            <div>
+              <label style={labelStyle}>Sub-headline / Description</label>
+              <textarea value={subheadline} onChange={e => setSubheadline(e.target.value)} rows={2} style={{ ...inputStyle, resize: 'vertical' as const, fontFamily: 'inherit' }} />
+            </div>
+            <div>
+              <label style={labelStyle}>Button CTA Text</label>
+              <input type="text" value={ctaText} onChange={e => setCtaText(e.target.value)} style={inputStyle} />
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+            {!published ? (
+              <button
+                onClick={handlePublish}
+                disabled={publishing}
+                style={{
+                  background: publishing ? '#ccc' : 'linear-gradient(to bottom,#f5c26b,#e47911)',
+                  border: publishing ? 'none' : '1px solid #c07600',
+                  color: publishing ? '#fff' : '#111',
+                  fontWeight: 700,
+                  padding: '10px 24px',
+                  borderRadius: '6px',
+                  cursor: publishing ? 'not-allowed' : 'pointer',
+                  fontSize: '14px',
+                }}
+              >
+                {publishing ? '⚡ Publishing…' : '🚀 Publish Page'}
+              </button>
+            ) : (
+              <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+                <div style={{ background: '#dcfce7', border: '1px solid #bbf7d0', borderRadius: '8px', padding: '8px 16px', fontWeight: 700, fontSize: '13px', color: '#15803d' }}>
+                  ✓ Live at yourdomain.com/free-guide
+                </div>
+                <button onClick={() => { setTab('preview'); }} style={{ background: '#fff', border: '1px solid var(--border)', color: 'var(--navy)', padding: '8px 14px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px', fontWeight: 600 }}>
+                  View Live →
+                </button>
+              </div>
+            )}
+            <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+              <span style={{ background: '#dcfce7', color: '#15803d', fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>✓ SSL included</span>
+              <span style={{ background: '#dcfce7', color: '#15803d', fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>✓ Auto file delivery</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Preview Tab ── */}
+      {tab === 'preview' && (
+        <div>
+          <div style={{ background: '#1a1a1a', borderRadius: '10px', padding: '4px', marginBottom: '12px' }}>
+            <div style={{ background: '#2d2d2d', borderRadius: '8px 8px 0 0', padding: '8px 16px', display: 'flex', gap: '6px', alignItems: 'center' }}>
+              {['#ff5f57', '#ffbd2e', '#28c840'].map((c, i) => <div key={i} style={{ width: '10px', height: '10px', borderRadius: '50%', background: c }} />)}
+              <div style={{ background: '#3d3d3d', borderRadius: '4px', padding: '3px 20px', fontSize: '11px', color: '#9ca3af', marginLeft: '10px', flex: 1, maxWidth: '240px' }}>yourdomain.com/free-guide</div>
+            </div>
+            <div style={{ background: tpl.preview, borderRadius: '0 0 8px 8px', padding: '40px 24px', textAlign: 'center', minHeight: '280px', display: 'flex', flexDirection: 'column' as const, alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ fontSize: '40px', marginBottom: '12px' }}>{tpl.icon}</div>
+              <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#1a1a1a', marginBottom: '10px', lineHeight: 1.3, maxWidth: '400px' }}>{headline || 'Your Headline Here'}</h3>
+              <p style={{ fontSize: '14px', color: '#4b5563', marginBottom: '24px', maxWidth: '360px', lineHeight: 1.6 }}>{subheadline}</p>
+              {!submitted ? (
+                <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '10px', width: '100%', maxWidth: '300px' }}>
+                  <input
+                    type="email"
+                    value={previewEmail}
+                    onChange={e => setPreviewEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    style={{ ...inputStyle, textAlign: 'center', fontSize: '14px', padding: '12px', border: '2px solid #d1d5db' }}
+                    onKeyDown={e => e.key === 'Enter' && handlePreviewSubmit()}
+                  />
+                  <button
+                    onClick={handlePreviewSubmit}
+                    style={{ background: 'var(--navy)', border: 'none', color: '#fff', fontWeight: 800, padding: '14px', borderRadius: '6px', cursor: 'pointer', fontSize: '15px' }}
+                  >
+                    {ctaText || 'Get Access'}
+                  </button>
+                  <div style={{ fontSize: '11px', color: '#9ca3af' }}>🔒 No spam. Unsubscribe anytime.</div>
+                </div>
+              ) : (
+                <div style={{ background: '#fff', border: '2px solid #16a34a', borderRadius: '12px', padding: '24px 32px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '36px', marginBottom: '8px' }}>🎉</div>
+                  <div style={{ fontWeight: 800, fontSize: '16px', color: '#15803d', marginBottom: '4px' }}>Check your inbox!</div>
+                  <div style={{ fontSize: '13px', color: '#4b5563' }}>We sent your {tpl.label} to {previewEmail}</div>
+                  <button onClick={() => { setSubmitted(false); setPreviewEmail(''); }} style={{ background: 'none', border: 'none', color: '#6b7280', cursor: 'pointer', fontSize: '12px', marginTop: '8px', textDecoration: 'underline' }}>Test again →</button>
+                </div>
+              )}
+            </div>
+          </div>
+          <div style={{ fontSize: '12px', color: 'var(--text-secondary)', textAlign: 'center' }}>
+            📱 Mobile-first · ⚡ Page loads in &lt;1s · 📧 File delivered automatically on signup
+          </div>
+        </div>
+      )}
+
+      {/* ── Analytics Tab ── */}
+      {tab === 'analytics' && (
+        <div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '10px', marginBottom: '20px' }}>
+            {[
+              { label: 'Total Signups', value: String(signups), color: 'var(--navy)' },
+              { label: 'Page Visitors', value: '1,843', color: 'var(--text-secondary)' },
+              { label: 'Opt-in Rate', value: `${convRate}%`, color: '#16a34a' },
+              { label: 'Avg. Mobile', value: '83%', color: 'var(--orange)' },
+            ].map((s, i) => (
+              <div key={i} style={resultCard}>
+                <div style={resultLabel}>{s.label}</div>
+                <div style={{ fontSize: '22px', fontWeight: 800, color: s.color, marginTop: '4px' }}>{s.value}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ ...labelStyle, display: 'block', marginBottom: '10px' }}>Traffic Sources</div>
+          <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden', marginBottom: '18px' }}>
+            {[
+              { source: 'Organic Search', visits: 742, pct: 40 },
+              { source: 'Social Media', visits: 461, pct: 25 },
+              { source: 'Direct', visits: 368, pct: 20 },
+              { source: 'Email / Referral', visits: 276, pct: 15 },
+            ].map((s, i) => (
+              <div key={i} style={{ padding: '12px 16px', borderBottom: i < 3 ? '1px solid var(--border)' : 'none', background: i % 2 === 0 ? '#fff' : '#fafafa' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px', fontSize: '13px' }}>
+                  <span style={{ fontWeight: 600, color: 'var(--navy)' }}>{s.source}</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>{s.visits} visits · <strong style={{ color: 'var(--navy)' }}>{s.pct}%</strong></span>
+                </div>
+                <div style={{ background: '#f0f0f0', borderRadius: '4px', height: '5px' }}>
+                  <div style={{ background: 'var(--orange)', borderRadius: '4px', height: '5px', width: `${s.pct}%` }} />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ background: '#f0f7ff', border: '1px solid #bfdbfe', borderRadius: '8px', padding: '14px 18px' }}>
+            <div style={{ fontWeight: 700, fontSize: '13px', color: '#1d4ed8', marginBottom: '6px' }}>💡 AI Optimization Tip</div>
+            <div style={{ fontSize: '13px', color: '#1d4ed8' }}>
+              Your mobile opt-in rate (83%) is above the benchmark. Try adding social proof (e.g. &ldquo;Join 3,200+ subscribers&rdquo;) to push conversion above 10%.
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ─── Shared styles ─── */
 const labelStyle: React.CSSProperties = {
   display: 'block',
@@ -1611,6 +2220,8 @@ const demoMap: Record<string, React.ReactNode> = {
   'contract-gen': <ContractGenDemo />,
   'form-builder': <FormBuilderDemo />,
   'job-description-gen': <JobDescriptionGenDemo />,
+  'vendor-portal': <VendorPortalDemo />,
+  'lead-magnet': <LeadMagnetDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {
