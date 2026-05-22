@@ -1913,6 +1913,149 @@ export const tools: Tool[] = [
     waitlistCount: 0,
     slug: 'lead-magnet'
   },
+  // ── BATCH 5 ──────────────────────────────────────────────────────────────
+  {
+    id: 'workflow-automation-builder',
+    name: 'WorkflowAutomation',
+    tagline: 'Free no-code workflow automation builder for small business',
+    description: 'WorkflowAutomation is the best free no-code workflow automation tool for small businesses — build automated multi-step workflows connecting your apps and data without writing a single line of code. What is the best workflow automation software for small business? WorkflowAutomation gives growing teams Zapier-level automation capabilities without the task-based pricing that makes costs unpredictable as your team scales.',
+    category: 'operations',
+    status: 'demo',
+    icon: '⚙️',
+    features: [
+      'Visual drag-and-drop workflow canvas — connect triggers and actions in a flowchart interface with zero coding required',
+      '50+ pre-built automation templates for common business processes including lead routing, invoice reminders, and onboarding sequences',
+      'Condition and branch logic — build if/then rules that route data differently based on field values and business rules',
+      'Scheduled automation — run workflows on daily, weekly, or custom-interval triggers without any manual action',
+      'Form-to-workflow integration — trigger automations automatically from web form submissions with field-level data mapping',
+      'Email notification automation — send templated notification emails to internal teams or customers on any workflow event',
+      'Multi-step approval workflow builder — route requests through sequential approval stages with escalation and deadline alerts',
+      'Workflow activity log — track every automation run, outcome, timing, and error for debugging and compliance auditing'
+    ],
+    keywords: [
+      'workflow automation software',
+      'no-code automation tool',
+      'best workflow automation 2026',
+      'business process automation software',
+      'automated workflow builder',
+      'Zapier alternative',
+      'Make Integromat alternative',
+      'n8n alternative',
+      'Power Automate alternative small business',
+      'cheaper than Zapier',
+      'no-code workflow automation small business',
+      'business automation without coding',
+      'workflow automation tool for teams',
+      'automate business processes free',
+      'workflow builder no code',
+      'what is the best workflow automation software',
+      'how to automate business processes without coding',
+      'what is no-code automation',
+      'how to build automated workflows',
+      'what is the best free Zapier alternative'
+    ],
+    competitors: [
+      { name: 'Zapier', priceRange: '$19.99-$799/mo', topComplaint: 'Task-based pricing is unpredictable — costs explode once you automate more than a handful of workflows (G2)' },
+      { name: 'Make (Integromat)', priceRange: '$9-$29/mo', topComplaint: 'Operations-based limits are confusing and the bubble interface has a steep learning curve for non-technical users (Capterra)' },
+      { name: 'n8n', priceRange: '$20/mo self-hosted, $50+/mo cloud', topComplaint: 'Self-hosted setup requires technical expertise — not viable for SMBs without an in-house developer (GitHub Issues)' },
+      { name: 'Power Automate', priceRange: '$15/user/mo', topComplaint: 'Deeply tied to Microsoft 365 — painful to use for teams not fully inside the Office ecosystem (Capterra)' },
+      { name: 'Tray.io', priceRange: '$1,200+/mo', topComplaint: 'Enterprise-only pricing and requires dedicated implementation support — completely inaccessible for small businesses (G2)' }
+    ],
+    competitorFixes: [
+      'Flat unlimited-task pricing — no per-task or per-operation charges that compound unpredictably with automation volume',
+      'Clean drag-and-drop canvas — build complex if/then logic without Make\'s confusing bubble-and-wire interface',
+      'Zero installation required — build and run workflows in your browser without n8n\'s server and Docker setup',
+      'Works with any data stack — integrate with email, web forms, and CSV data without requiring Microsoft 365 like Power Automate',
+      '50+ pre-built templates — launch your first automation in minutes without starting from a blank canvas',
+      'Approval workflows included — route multi-step request approvals without Tray.io\'s enterprise implementation process'
+    ],
+    targetCities: [
+      { city: 'Pittsburg', state: 'CA', population: '75,000', competitionLevel: 'low', localContext: 'Operations managers and IT teams at Pittsburg\'s industrial and healthcare employers — including the process automation leads at the chemical manufacturing and petroleum refining support companies along the Suisun Bay industrial corridor (Pittsburg hosts one of Contra Costa County\'s oldest heavy-industry clusters near the former Dow Chemical site on the waterfront) and the administrative process teams at Sutter Delta Medical Center — use WorkflowAutomation to build approval and notification workflows without Zapier\'s task overage fees.' },
+      { city: 'Redding', state: 'CA', population: '100,000', competitionLevel: 'low', localContext: 'Operations managers and IT teams at Redding\'s healthcare and public sector employers — including the workflow automation staff at Dignity Health\'s Mercy Medical Center Redding (the primary hospital for far Northern California, 267 beds on Court Street) and the administrative process teams at Shasta College and City of Redding municipal offices — use WorkflowAutomation to build approval routing and notification workflows without Power Automate\'s Microsoft ecosystem dependency.' },
+      { city: 'Brentwood', state: 'CA', population: '65,000', competitionLevel: 'low', localContext: 'Business owners and operations managers in Brentwood\'s fast-growing East Contra Costa County economy — including the service businesses, construction contractors, and healthcare clinics expanding along the Sand Creek Road business corridor — use WorkflowAutomation to automate lead routing, appointment confirmations, and customer follow-up sequences without Zapier\'s monthly task limits that hit as business volume grows.' },
+      { city: 'Yuba City', state: 'CA', population: '68,000', competitionLevel: 'low', localContext: 'Operations managers and office administrators at Yuba City\'s agriculture and healthcare employers — including the administrative process teams at Adventist Health Rideout\'s Yuba City regional facilities (serving the Sutter-Yuba County agricultural heartland) and the operations managers at Sunsweet Growers\' processing and administrative offices on Colusa Highway — use WorkflowAutomation to automate order notifications, approval routing, and staff scheduling alerts.' },
+      { city: 'Turlock', state: 'CA', population: '75,000', competitionLevel: 'low', localContext: 'Operations managers and IT teams at Turlock\'s agriculture processing and education employers — including the business process automation teams at Foster Farms\' Central Valley operations (one of the West Coast\'s largest poultry processors) and the administrative automation staff at California State University Stanislaus on Monte Vista Avenue (10,000+ students) — use WorkflowAutomation to route onboarding tasks and trigger email workflows without Make\'s confusing operations-based limits.' },
+      { city: 'Cheyenne', state: 'WY', population: '65,000', competitionLevel: 'low', localContext: 'Operations managers and IT teams at Cheyenne\'s government and data center employers — including the workflow automation teams at Wyoming state government agencies (Cheyenne is the state capital hosting most major state departments) and the operations staff at Microsoft, Google, and Amazon data center campuses along I-25 (Wyoming\'s low energy costs and tax climate make it a major cloud infrastructure hub) — use WorkflowAutomation to build cross-department approval routing and compliance notification workflows.' },
+      { city: 'Lorain', state: 'OH', population: '63,000', competitionLevel: 'low', localContext: 'Operations managers and office staff at Lorain\'s manufacturing and healthcare employers — including the process automation teams at the steel manufacturing and metal fabrication companies along the Black River industrial corridor (Lorain has been a steel industry hub since the early 1900s) and the administrative staff at University Hospitals Elyria Medical Center serving Lorain County — use WorkflowAutomation to automate production approval chains and HR notification workflows without n8n\'s developer-only setup.' },
+      { city: 'Hamilton', state: 'OH', population: '62,000', competitionLevel: 'low', localContext: 'Operations managers and business analysts at Hamilton\'s manufacturing and healthcare employers — including the workflow automation teams at the paper and packaging manufacturers in Butler County\'s industrial corridor along the Great Miami River (Hamilton has been a major papermaking hub since the 1800s) and the administrative automation teams at Fort Hamilton Hospital — use WorkflowAutomation to build purchase approval routing and HR workflows without Power Automate\'s per-user license requirements.' },
+      { city: 'Kokomo', state: 'IN', population: '57,000', competitionLevel: 'low', localContext: 'Operations and IT teams at Kokomo\'s automotive manufacturing employers — including the process automation staff at Stellantis Kokomo Transmission Plant and Kokomo Engine Plant (together employing 4,000+ UAW workers producing core Jeep and Ram powertrain components) and the automation coordinators at Indiana University Kokomo\'s administrative offices — use WorkflowAutomation to automate shift notifications, quality approval routing, and supplier order workflows.' },
+      { city: 'Anderson', state: 'IN', population: '55,000', competitionLevel: 'low', localContext: 'Operations managers and office teams at Anderson\'s manufacturing and healthcare employers — including the workflow automation teams at the automotive parts suppliers and Nestle Purina PetCare\'s Anderson manufacturing facility and the administrative process staff at Community Hospital Anderson — use WorkflowAutomation to build employee onboarding sequences, purchase approval chains, and customer notification workflows without Tray.io\'s enterprise pricing.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'workflow-automation'
+  },
+  {
+    id: 'it-asset-tracker',
+    name: 'AssetTracker',
+    tagline: 'Free IT asset tracker and equipment management tool',
+    description: 'AssetTracker is the best free IT asset management software for small business — track laptops, servers, phones, licenses, and equipment from one dashboard without spreadsheets or a $500/month ITAM platform. What is the best IT asset tracking software for small business? AssetTracker gives IT managers and operations teams real-time asset inventory, employee assignment tracking, and depreciation schedules without AssetPanda\'s annual contracts or Snipe-IT\'s self-hosting complexity.',
+    category: 'operations',
+    status: 'demo',
+    icon: '🖥️',
+    features: [
+      'Asset inventory database — track laptops, monitors, phones, servers, peripherals, and equipment in one searchable register',
+      'Employee assignment tracking — log who has which asset, since when, and expected return date with digital check-in and check-out',
+      'Asset lifecycle and depreciation — record purchase date, cost, warranty expiration, and calculate depreciation for each item',
+      'QR code label generation — print scannable QR asset tags so employees can report issues or request service from their phone',
+      'Maintenance and service log — record repairs, upgrades, and service history per asset with technician notes and dates',
+      'Software license tracker — manage SaaS license counts, renewal dates, and per-seat assignments alongside hardware assets',
+      'Asset dashboard with status alerts — view overdue returns, expiring warranties, and end-of-life assets with one-click action',
+      'CSV import and export — migrate your existing spreadsheet inventory in minutes and export audit-ready reports on demand'
+    ],
+    keywords: [
+      'IT asset tracker',
+      'IT asset management software',
+      'best asset tracking software 2026',
+      'equipment management tool',
+      'IT inventory management software',
+      'AssetPanda alternative',
+      'Snipe-IT alternative',
+      'EZOfficeInventory alternative',
+      'ManageEngine AssetExplorer alternative',
+      'cheaper asset tracking software',
+      'IT asset tracking small business',
+      'equipment checkout tracking software',
+      'laptop inventory management tool',
+      'software license tracking tool',
+      'asset depreciation tracking software',
+      'what is the best IT asset management software',
+      'how to track IT assets without spreadsheets',
+      'what is IT asset management',
+      'how to manage equipment assignments in a small business',
+      'what is the best free asset tracking tool'
+    ],
+    competitors: [
+      { name: 'AssetPanda', priceRange: '$1,500+/yr', topComplaint: 'Expensive for what it is — basic asset tracking should not cost over $1,500 per year for a small IT team (G2)' },
+      { name: 'Snipe-IT', priceRange: 'Free self-hosted / $499+/yr cloud', topComplaint: 'Self-hosting requires a server and technical setup that most small business IT teams don\'t have capacity for (GitHub Issues)' },
+      { name: 'EZOfficeInventory', priceRange: '$35-$195/mo', topComplaint: 'Pricing jumps sharply across plans and the mobile check-out interface is slow for high-volume warehouse environments (Capterra)' },
+      { name: 'Asset Essentials / Brightly', priceRange: '$500+/mo', topComplaint: 'Built for facilities and maintenance management — overkill for IT teams that just need to track who has which laptop (G2)' },
+      { name: 'ManageEngine AssetExplorer', priceRange: '$945+/yr', topComplaint: 'Complex configuration and requires significant IT setup time before you can begin tracking your first asset (Capterra)' }
+    ],
+    competitorFixes: [
+      'No self-hosting or server required — track all your IT assets from your browser without Snipe-IT\'s installation complexity',
+      'Check-in and check-out included — know who has which asset and since when without AssetPanda\'s annual contract fee',
+      'QR code labels built in — generate and print asset tags for any item without purchasing a separate labeling system',
+      'Software license tracking alongside hardware — manage SaaS renewals and seat counts in the same dashboard as physical assets',
+      'CSV import in under 5 minutes — migrate your entire spreadsheet inventory without a data migration consultant',
+      'Depreciation tracking built in — calculate book value and generate audit-ready reports without ManageEngine\'s setup complexity'
+    ],
+    targetCities: [
+      { city: 'Carlsbad', state: 'CA', population: '118,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Carlsbad\'s life sciences and technology employers — including the asset management staff at Viasat\'s Carlsbad headquarters (satellite communications technology, 7,000+ global employees on Carlsbad\'s tech corridor) and Callaway Golf\'s global HQ — use AssetTracker to manage laptops, lab equipment, and SaaS license assignments across their growing teams without AssetPanda\'s annual contract.' },
+      { city: 'Burbank', state: 'CA', population: '104,000', competitionLevel: 'low', localContext: 'IT teams and operations managers at Burbank\'s media and entertainment employers — including the IT asset management staff at The Walt Disney Company\'s ABC offices on Riverside Drive, Warner Bros. Entertainment\'s Burbank studio lot on Pass Avenue, and the media production technology companies serving the Burbank studio complex — use AssetTracker to track production equipment, laptops, and software license counts without EZOfficeInventory\'s per-plan limits.' },
+      { city: 'Manteca', state: 'CA', population: '84,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Manteca\'s logistics and healthcare employers — including the technology asset management teams at the Amazon, Target, and Home Depot distribution centers in Manteca\'s industrial park along the Union Pacific rail corridor (one of the San Joaquin Valley\'s largest logistics clusters) and the IT staff at Doctors Hospital of Manteca — use AssetTracker to manage scanner devices, desktop inventories, and warehouse equipment assignments.' },
+      { city: 'Tulare', state: 'CA', population: '67,000', competitionLevel: 'low', localContext: 'IT teams and operations managers at Tulare\'s agriculture processing and healthcare employers — including the technology asset management staff at Tulare Regional Medical Center on Cherry Avenue and the IT teams at the dairy processing facilities and agricultural supply businesses in San Joaquin Valley\'s Tulare County — use AssetTracker to track equipment assignments, manage license renewals, and calculate depreciation without Snipe-IT\'s server setup requirements.' },
+      { city: 'Lodi', state: 'CA', population: '67,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Lodi\'s wine industry and healthcare employers — including the technology asset staff at the major wine production and bottling facilities (Lodi is California\'s wine grape capital, home to Oak Ridge Winery and dozens of major production operations) and the IT team at Adventist Health Lodi Memorial — use AssetTracker to manage production floor and office IT assets without AssetPanda\'s annual pricing.' },
+      { city: 'Passaic', state: 'NJ', population: '70,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Passaic\'s manufacturing and healthcare employers — including the technology asset management teams at the light manufacturing and textile distribution companies along the Passaic River industrial corridor and the IT staff at St. Mary\'s General Hospital on Bloomfield Avenue — use AssetTracker to track computer and peripheral assignments, license counts, and equipment warranties without ManageEngine\'s complex configuration process.' },
+      { city: 'Meriden', state: 'CT', population: '60,000', competitionLevel: 'low', localContext: 'IT teams and operations managers at Meriden\'s manufacturing and healthcare employers — including the technology asset management staff at Meriden\'s precision manufacturing companies (Meriden has a century-long silverware and hardware manufacturing heritage as a center of Connecticut\'s Yankee manufacturing belt) and the IT team at MidState Medical Center (Hartford HealthCare affiliate) — use AssetTracker to manage equipment checkout, software licenses, and depreciation schedules without EZOfficeInventory\'s steep plan-tier jumps.' },
+      { city: 'Greenwood', state: 'IN', population: '65,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Greenwood\'s retail and logistics employers — including the technology asset management staff at the Amazon fulfillment operations and major retail distribution companies on the south side of Indianapolis in Greenwood\'s industrial corridors — use AssetTracker to track scanner assignments, laptop inventories, and hardware warranty expirations without expensive ITAM platforms designed for enterprise data centers.' },
+      { city: 'Elyria', state: 'OH', population: '54,000', competitionLevel: 'low', localContext: 'IT teams and operations managers at Elyria\'s manufacturing and healthcare employers — including the technology asset management staff at the precision metal and plastics manufacturers in Lorain County\'s industrial corridor (Elyria is Lorain County\'s seat and a historic Great Lakes manufacturing city) and the IT team at University Hospitals Elyria Medical Center — use AssetTracker to manage equipment assignments, software license renewals, and depreciation tracking without Snipe-IT\'s server requirements.' },
+      { city: 'Bartlett', state: 'TN', population: '59,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Bartlett\'s corporate and logistics employers — including the technology asset management staff at the distribution and logistics companies serving Memphis metro\'s northeast suburbs and the IT teams at Shelby County businesses in the Bartlett commercial corridor along Stage Road — use AssetTracker to track laptop assignments, peripheral inventories, and software license counts without AssetPanda\'s annual contract.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'asset-tracker'
+  },
   // ── BATCH 4 ──────────────────────────────────────────────────────────────
   {
     id: 'sop-builder',
@@ -2694,6 +2837,17 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'CRMTracker', cities: ['Waterloo IA', 'Ames IA', 'White Plains NY', 'Bayonne NJ', 'Hoboken NJ', 'Maricopa AZ', 'West Hartford CT', 'Corvallis OR', 'Portland ME', 'Huntersville NC'] }
     ],
     researchNotes: 'Session 11 Batch 4: Built SOPBuilder (Productivity - SOP/knowledge base) — Trainual ($49-199/mo), Process Street ($100+/mo), Notion ($8-16/seat/mo), Confluence ($5-15/seat/mo), Scribe ($23-49/user/mo) all validated. Key complaints: expensive for document storage, engineering-focused UIs, no compliance tracking, steep learning curves. 10 cities — Hemet Valley Medical Hemet CA; Coachella Festival/Eisenhower Health Indio CA; fast-growing Riverside County Lake Elsinore CA; BioMarin/McNeil Petaluma CA; MSY Airport/Ochsner Kenner LA; GE Power turbines Schenectady NY; NIH/Marriott HQ Bethesda MD; Seminole State/Central FL Research Sanford FL; Chewy.com DC/HCA Florida Ocala FL; UNC-Chapel Hill Chapel Hill NC. Built CRMTracker (Sales - CRM/deal pipeline) — Salesforce ($25-300/seat/mo), HubSpot CRM ($45-800/mo), Pipedrive ($14-99/seat/mo), Zoho CRM ($14-52/seat/mo), Close ($29-149/seat/mo) all validated. Key complaints: requires dedicated admin, free plan limits hit fast, overwhelming UI, per-seat pricing. 10 cities — John Deere Waterloo Works Waterloo IA; Danfoss/Iowa State Ames IA; IBM Westchester White Plains NY; Port Jersey corridor Bayonne NJ; Goldman Sachs/Stevens Institute Hoboken NJ; fastest-growing city Maricopa AZ; Blue Back Square/Saint Francis West Hartford CT; HP Corvallis campus/OSU Corvallis OR; Maine Medical Center Portland ME; Novant Health Lake Norman Huntersville NC.'
+  },
+  {
+    date: '2026-05-22',
+    toolsAdded: ['WorkflowAutomation', 'AssetTracker'],
+    toolsUpdated: [],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'WorkflowAutomation', cities: ['Pittsburg CA', 'Redding CA', 'Brentwood CA', 'Yuba City CA', 'Turlock CA', 'Cheyenne WY', 'Lorain OH', 'Hamilton OH', 'Kokomo IN', 'Anderson IN'] },
+      { tool: 'AssetTracker', cities: ['Carlsbad CA', 'Burbank CA', 'Manteca CA', 'Tulare CA', 'Lodi CA', 'Passaic NJ', 'Meriden CT', 'Greenwood IN', 'Elyria OH', 'Bartlett TN'] }
+    ],
+    researchNotes: 'Session 11 Batch 5: Built WorkflowAutomation (Operations - no-code automation) — Zapier ($19.99-799/mo), Make/Integromat ($9-29/mo), n8n (self-hosted/cloud), Power Automate ($15/user/mo), Tray.io ($1,200+/mo) all validated. Key complaints: unpredictable task-based pricing, steep learning curves, self-hosting barriers, Microsoft lock-in. 10 cities — Suisun Bay industrial/Sutter Delta Pittsburg CA; Mercy Medical Dignity Health Redding CA; East Contra Costa growth corridor Brentwood CA; Adventist Health Rideout/Sunsweet Growers Yuba City CA; Foster Farms/CSU Stanislaus Turlock CA; WY state capital/data center hubs Cheyenne WY; Black River steel corridor/UH Elyria Lorain OH; Great Miami River paper manufacturing Hamilton OH; Stellantis powertrain plants Kokomo IN; Nestle Purina/Community Hospital Anderson IN. Built AssetTracker (Operations - IT asset management) — AssetPanda ($1,500+/yr), Snipe-IT (self-hosted), EZOfficeInventory ($35-195/mo), Asset Essentials/Brightly ($500+/mo), ManageEngine AssetExplorer ($945+/yr) all validated. Key complaints: annual contracts, self-hosting complexity, slow mobile interfaces, overkill for IT teams. 10 cities — Viasat/Callaway HQ Carlsbad CA; Disney ABC/Warner Bros Burbank CA; Amazon/Target DC corridor Manteca CA; Tulare Regional Medical Tulare CA; CA wine capital Lodi CA; Passaic River industrial/St. Marys NJ; CT Yankee manufacturing/MidState Medical Meriden CT; Amazon fulfillment south Indy Greenwood IN; Lorain County manufacturing Elyria OH; Memphis northeast suburbs Bartlett TN.'
   }
 ];
 
