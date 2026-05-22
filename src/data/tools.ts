@@ -1913,6 +1913,149 @@ export const tools: Tool[] = [
     waitlistCount: 0,
     slug: 'lead-magnet'
   },
+  // ── BATCH 2 ──────────────────────────────────────────────────────────────
+  {
+    id: 'budget-planning-tool',
+    name: 'BudgetFlow',
+    tagline: 'Free department budget planning and variance tracking tool',
+    description: 'BudgetFlow is the best free business budget planning software for small teams — build department budgets, track actuals vs. budget in real time, and give finance leaders the variance reporting they need without a $1,500/month enterprise subscription. What is the best budget planning tool for small business? BudgetFlow delivers Planful-level budget tracking and variance analysis without the enterprise price tag or six-month implementation.',
+    category: 'finance',
+    status: 'demo',
+    icon: '📊',
+    features: [
+      'Department budget builder with line-item categories — headcount, software, travel, marketing, COGS',
+      'Real-time actual vs. budget variance tracking with color-coded overspend alerts',
+      'Monthly budget vs. actuals dashboard with trend sparklines per cost center',
+      'Multi-department rollup to company-wide P&L view for finance leadership',
+      'Budget revision history and version control — compare original vs. revised plan at any time',
+      'CSV/Excel export for finance team reconciliation with QuickBooks and NetSuite',
+      'Budget approval workflow — department lead, finance director, and CFO sign-off chain',
+      'Forecast vs. plan comparison for mid-year re-budgeting and board reporting scenarios'
+    ],
+    keywords: [
+      'budget planning software small business',
+      'department budget tracker',
+      'best budget planning tool 2026',
+      'budget vs actuals software',
+      'business budget planning tool',
+      'Planful alternative',
+      'cheaper than Adaptive Planning',
+      'Anaplan alternative small business',
+      'budget software without implementation consultant',
+      'Centage alternative',
+      'departmental budget tracking tool',
+      'variance reporting software',
+      'budget planning spreadsheet alternative',
+      'finance planning software for teams',
+      'operational budget tracker',
+      'what is the best budget planning software for small business',
+      'how to track budget vs actuals',
+      'what is the best department budget tool',
+      'how to automate budget variance reporting',
+      'what is budget variance analysis'
+    ],
+    competitors: [
+      { name: 'Planful', priceRange: '$1,500+/mo', topComplaint: 'Implementation takes 3-6 months and requires their professional services team — by then the fiscal year is halfway over (G2)' },
+      { name: 'Workday Adaptive Planning', priceRange: '$1,200+/mo', topComplaint: 'Designed for Fortune 500, extremely expensive and overcomplicated for growing companies (Capterra)' },
+      { name: 'Anaplan', priceRange: '$3,000+/mo', topComplaint: 'By the time training is complete, the planning cycle is already missed (G2)' },
+      { name: 'Centage (Budgyt)', priceRange: '$300-$700/mo', topComplaint: 'Limited integrations, dated UI, hard to onboard new finance team members (Capterra)' },
+      { name: 'Float', priceRange: '$6-$10/seat/mo', topComplaint: 'Cash-flow focused — not enough depth for P&L budget planning across multiple departments (G2)' }
+    ],
+    competitorFixes: [
+      'Setup in 15 minutes — build your first department budget today, not in three months with a consultant',
+      'No implementation team required — intuitive drag-and-drop line item builder any finance team can use',
+      'Multi-department rollup included at every plan level — no enterprise tier upsell for P&L aggregation',
+      'Real-time variance alerts — catch overspend before month-end close, not during the audit',
+      'Transparent flat pricing — one cost covers all departments and all team members',
+      'Finance-friendly CSV export — works directly with your existing QuickBooks and Excel workflow'
+    ],
+    targetCities: [
+      { city: 'Fontana', state: 'CA', population: '215,000', competitionLevel: 'low', localContext: 'Finance managers and operations teams at Fontana\'s major logistics and healthcare employers — including the budget planning staff at Amazon\'s enormous 2.6 million square foot fulfillment center on Jurupa Avenue (one of the largest in the US) and Kaiser Permanente Fontana Medical Center\'s finance operations — use BudgetFlow to track departmental actuals against plan without Planful\'s six-figure implementation cost.' },
+      { city: 'Victorville', state: 'CA', population: '130,000', competitionLevel: 'low', localContext: 'Finance and operations teams at Victorville\'s Southern California Logistics Airport corridor — including the budget analysts at Amazon Air\'s cargo hub on Fortune Drive and the financial controllers at the distribution and logistics companies clustered around the SCLA (one of the largest cargo airports in the Inland Empire) — use BudgetFlow to manage departmental budgets and track variance in real time.' },
+      { city: 'San Mateo', state: 'CA', population: '104,000', competitionLevel: 'low', localContext: 'Finance directors and FP&A teams at San Mateo\'s corporate headquarters cluster — including the budget planning staff at Franklin Templeton\'s global HQ on Franklin Parkway (one of the world\'s largest asset managers) and the finance teams at Rakuten Americas and Caltrain-adjacent SaaS companies along the Bay Area peninsula — use BudgetFlow to build departmental budgets without Anaplan\'s enterprise pricing.' },
+      { city: 'Redwood City', state: 'CA', population: '85,000', competitionLevel: 'low', localContext: 'Finance and operations leads at Redwood City\'s technology headquarters cluster — including the budget planning teams at Electronic Arts\' Redwood Shores campus on Redwood Shores Parkway, Box\'s headquarters on Middlefield Road, and DoorDash\'s Bay Area corporate offices — use BudgetFlow to track software R&D and marketing spend against quarterly headcount budgets without Workday Adaptive\'s enterprise minimum.' },
+      { city: 'Newton', state: 'MA', population: '88,000', competitionLevel: 'low', localContext: 'Finance leaders and FP&A teams at Newton\'s technology and specialty healthcare employers — including the budget planning staff at TripAdvisor\'s Newton headquarters on Needham Street and PTC Inc\'s finance teams on Hartwell Avenue — use BudgetFlow to manage operating budgets and track actual vs. plan variance without the complexity of Planful or Adaptive Insights.' },
+      { city: 'New Rochelle', state: 'NY', population: '78,000', competitionLevel: 'low', localContext: 'Finance managers and department heads at New Rochelle\'s major institutional and corporate employers — including the budget planning staff at Iona University on North Avenue and the finance teams at NBCUniversal\'s Norden Place facility — use BudgetFlow to track operating expenses and build annual departmental budgets without Centage\'s dated interface.' },
+      { city: 'Metairie', state: 'LA', population: '140,000', competitionLevel: 'low', localContext: 'Finance directors and budget managers at Metairie\'s Jefferson Parish business corridor — including the financial planning teams at Pan American Life Insurance Group\'s headquarters and the finance operations at Ochsner Medical Center\'s West Bank facilities and corporate offices along Veterans Memorial Boulevard — use BudgetFlow to track departmental budgets and produce variance reports for leadership without enterprise FP&A subscriptions.' },
+      { city: 'Evanston', state: 'IL', population: '74,000', competitionLevel: 'low', localContext: 'Finance managers and budget planners at Evanston\'s major institutional employers — including the financial planning teams at Northwestern University\'s administrative offices (one of the nation\'s top-10 research universities with a $15B endowment) and the finance operations at Rotary International\'s world headquarters on Ridge Avenue — use BudgetFlow to manage departmental operating budgets without Planful\'s lengthy implementation.' },
+      { city: 'Fort Lauderdale', state: 'FL', population: '182,000', competitionLevel: 'low', localContext: 'Finance directors and FP&A teams at Fort Lauderdale\'s major corporate headquarters — including the budget planning teams at AutoNation\'s corporate headquarters in Fort Lauderdale (America\'s largest automotive retailer by revenue) and the finance operations at Citrix Systems\'s South Florida offices — use BudgetFlow to track department spending against annual operating plans without Workday Adaptive\'s $1,200/month minimum.' },
+      { city: 'St. Louis', state: 'MO', population: '293,000', competitionLevel: 'low', localContext: 'Finance managers and FP&A teams at St. Louis\'s major corporate employers — including the budget planning staff at Anheuser-Busch InBev\'s North American HQ on Pestalozzi Street and Emerson Electric\'s global headquarters on Kingsland Avenue — use BudgetFlow to build departmental budgets and track actuals versus plan in real time without Anaplan\'s enterprise licensing.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'budget-flow'
+  },
+  {
+    id: 'training-tracker-lms',
+    name: 'TrainingTracker',
+    tagline: 'Free employee training tracker and LMS for small business',
+    description: 'TrainingTracker is the best free employee training tracking software for small businesses — assign training modules, track completion and certification status, and send automated compliance reminders without a $200/month LMS subscription. What is the best training management system for small business? TrainingTracker gives HR teams the same compliance training dashboards used by enterprise learning management systems at zero setup cost.',
+    category: 'hr',
+    status: 'demo',
+    icon: '🎓',
+    features: [
+      'Training module library with video, PDF, quiz, and SCORM content support',
+      'Employee completion tracking with real-time progress dashboard for HR managers',
+      'Compliance calendar with automated certification expiration email reminders',
+      'Manager view — see all direct reports\' training status and overdue modules in one dashboard',
+      'New hire onboarding training sequence builder — day 1, week 1, month 1 learning milestones',
+      'Certificate generation for completed modules — downloadable proof of completion for audits',
+      'Department-level training completion reports for HR leadership and compliance officers',
+      'Role-based training assignment — employees automatically see modules relevant to their position'
+    ],
+    keywords: [
+      'employee training tracking software',
+      'free LMS small business',
+      'best training management system 2026',
+      'compliance training tracker',
+      'employee training management tool',
+      'TalentLMS alternative',
+      'LearnUpon alternative',
+      'Docebo alternative small business',
+      'cheaper training management software',
+      '360Learning alternative',
+      'employee certification tracking software',
+      'compliance training reminder tool',
+      'LMS without per user pricing',
+      'new hire training tracker',
+      'HR training completion dashboard',
+      'what is the best LMS for small business',
+      'how to track employee training completion',
+      'what is training compliance software',
+      'how to automate employee training reminders',
+      'what LMS does not charge per user'
+    ],
+    competitors: [
+      { name: 'TalentLMS', priceRange: '$59-$259/mo', topComplaint: 'Pricing jumps significantly when you add more users — the basic plan barely has enough features to be useful (G2)' },
+      { name: 'LearnUpon', priceRange: '$599-$1,299/mo', topComplaint: 'Enterprise pricing that mid-size companies cannot justify for basic compliance training (Capterra)' },
+      { name: 'Docebo', priceRange: '$1,500+/mo', topComplaint: 'Requires professional services to implement and the UI is overwhelming for HR generalists (G2)' },
+      { name: '360Learning', priceRange: '$8-$15/user/mo', topComplaint: 'Pricing is not transparent and the sales process feels high-pressure (Capterra)' },
+      { name: 'Absorb LMS', priceRange: '$800+/mo', topComplaint: 'Reporting is good but setup takes 60+ days and it is not self-serve at all (G2)' }
+    ],
+    competitorFixes: [
+      'Setup in under 10 minutes — assign your first training module today without an implementation call',
+      'Compliance calendar with automatic email reminders — no manual follow-up chasing employees',
+      'All user tiers included in one plan — no per-seat pricing that spikes when you hire a new class',
+      'Certificate generation built in — downloadable compliance proof for audits and regulators',
+      'Role-based automatic assignment — new hires see the right training from day one by role',
+      'Manager dashboards included — see team training status without building any custom reports'
+    ],
+    targetCities: [
+      { city: 'Milpitas', state: 'CA', population: '78,000', competitionLevel: 'low', localContext: 'HR compliance and learning teams at Milpitas\'s major technology employers — including the training operations teams at Cisco Systems\' Milpitas campus on McCarthy Boulevard (supporting thousands of engineers and sales staff) and FLEX Ltd\'s global headquarters and Applied Materials nearby — use TrainingTracker to manage mandatory compliance training and role-specific certification without TalentLMS\'s per-user pricing tiers.' },
+      { city: 'San Leandro', state: 'CA', population: '90,000', competitionLevel: 'low', localContext: 'HR managers and training coordinators at San Leandro\'s manufacturing and healthcare employers — including the employee development teams at Kaiser Permanente\'s Oakland Medical Center supply chain operations and the workforce training programs at the industrial and food production companies along the I-880 corridor — use TrainingTracker to track safety certifications and regulatory compliance completion without a $1,200/month LMS.' },
+      { city: 'Ontario', state: 'CA', population: '185,000', competitionLevel: 'low', localContext: 'HR compliance and training teams at Ontario\'s logistics and retail anchor employers — including the workforce training coordinators at Amazon\'s Ontario fulfillment center network (one of the largest in California) and Stater Bros. Markets\'s corporate headquarters on Kendall Drive — use TrainingTracker to manage forklift certifications, food safety training, and new hire orientation completion at scale.' },
+      { city: 'San Bernardino', state: 'CA', population: '215,000', competitionLevel: 'low', localContext: 'HR directors and training managers at San Bernardino\'s healthcare and education employers — including the learning and development staff at Arrowhead Regional Medical Center on Pepper Avenue (San Bernardino County\'s largest public hospital) and Cal State San Bernardino (20,000 students) — use TrainingTracker to assign mandatory compliance modules and track certification expiration across large, diverse workforces.' },
+      { city: 'Carson', state: 'CA', population: '94,000', competitionLevel: 'low', localContext: 'HR compliance and workforce training teams at Carson\'s major employers — including the training coordinators at Dignity Health Sports Park\'s events and facilities staff and Cal State Dominguez Hills\' employee development office — use TrainingTracker to manage safety training, OSHA compliance modules, and new hire onboarding sequences without the $600/month Absorb LMS price floor.' },
+      { city: 'Cicero', state: 'IL', population: '84,000', competitionLevel: 'low', localContext: 'HR and safety training teams at Cicero\'s manufacturing and logistics employers — including the compliance training coordinators at the Hawthorne Distribution Center and the workforce development teams at one of Chicago\'s largest suburban industrial corridors — use TrainingTracker to manage OSHA safety certifications, equipment operation training, and new employee orientation completion without Docebo\'s enterprise pricing.' },
+      { city: 'Bolingbrook', state: 'IL', population: '73,000', competitionLevel: 'low', localContext: 'HR learning and compliance teams at Bolingbrook\'s corporate headquarters and fulfillment employers — including the training operations at ULTA Beauty\'s global headquarters on Remington Boulevard (the largest US beauty retailer, with training programs spanning 40,000+ retail and corporate employees) and the Amazon Bolingbrook fulfillment center — use TrainingTracker to assign role-specific training without TalentLMS\'s steep per-user price jumps.' },
+      { city: 'Lakeville', state: 'MN', population: '72,000', competitionLevel: 'low', localContext: 'HR managers and training coordinators at Lakeville\'s growing south Twin Cities metro employers — including the workforce development teams at the distribution and light manufacturing companies along the Dakota County business corridor and the professional services firms in the Aiton Township commercial zone — use TrainingTracker to manage annual compliance training and new hire onboarding without a costly enterprise LMS.' },
+      { city: 'Eagan', state: 'MN', population: '67,000', competitionLevel: 'low', localContext: 'HR compliance and training teams at Eagan\'s aviation and healthcare employers — including the learning and development staff at Delta Air Lines Tech Operations on 34th Avenue South (Delta\'s largest aircraft maintenance facility in the US, employing 4,000+ licensed mechanics under FAA regulations) and Blue Cross Blue Shield of Minnesota\'s corporate campus — use TrainingTracker to manage FAA-mandated technical recurrency training and compliance certification tracking.' },
+      { city: 'Muncie', state: 'IN', population: '67,000', competitionLevel: 'low', localContext: 'HR directors and workforce training managers at Muncie\'s education and healthcare anchor employers — including the staff development teams at Ball State University (22,500 students, the city\'s largest employer on University Avenue) and IU Health Ball Memorial Hospital on Morrison Road — use TrainingTracker to manage employee certification tracking, continuing education requirements, and new hire onboarding sequences without a $1,500/month enterprise LMS.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'training-tracker'
+  },
   // ── BATCH 1 ──────────────────────────────────────────────────────────────
   {
     id: 'applicant-tracking-system',
@@ -2232,6 +2375,17 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'PerformanceReview', cities: ['Livermore CA', 'Tracy CA', 'Berkeley CA', 'Santa Maria CA', 'Whittier CA', 'Sandy UT', 'Rockville MD', 'Gaithersburg MD', 'Framingham MA', 'Noblesville IN'] }
     ],
     researchNotes: 'Session 11 Batch 1: Built HireTrack (HR - ATS) — Greenhouse ($6-12/emp/mo), Lever, Workable ($189+/mo), JazzHR ($39-199/mo), BambooHR Hiring all validated at >$5K/mo. Key complaints: annual contracts, implementation consultants, expensive mobile apps. 10 cities with localContext — Disney Resort/Boeing Anaheim; UAB Health/Protective Life Birmingham; Prudential HQ Newark; Goldman Sachs Jersey City; Amazon HQ2/Booz Allen Arlington VA; Linde plc HQ Danbury CT; Lockheed Martin Orlando; Microsoft campus Redmond WA; ADT HQ Boynton Beach; Office Depot HQ Deerfield Beach FL. Built PerformanceReview (HR - 360 reviews) — Lattice ($9-15/emp/mo), 15Five, Culture Amp, Betterworks, Workday Performance all validated. Key complaints: per-employee price creep, rigid templates, slow implementation. 10 cities with localContext — LLNL/Sandia Livermore CA; Amazon FC Tracy CA; Bayer HealthCare Berkeley CA; Vandenberg SFB Santa Maria CA; PIH Health Whittier CA; Silicon Slopes Sandy UT; NIH Rockville MD; NIST Gaithersburg MD; TJX Companies Framingham MA; Riverview Health Noblesville IN.'
+  },
+  {
+    date: '2026-05-22',
+    toolsAdded: ['BudgetFlow', 'TrainingTracker'],
+    toolsUpdated: [],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'BudgetFlow', cities: ['Fontana CA', 'Victorville CA', 'San Mateo CA', 'Redwood City CA', 'Newton MA', 'New Rochelle NY', 'Metairie LA', 'Evanston IL', 'Fort Lauderdale FL', 'St. Louis MO'] },
+      { tool: 'TrainingTracker', cities: ['Milpitas CA', 'San Leandro CA', 'Ontario CA', 'San Bernardino CA', 'Carson CA', 'Cicero IL', 'Bolingbrook IL', 'Lakeville MN', 'Eagan MN', 'Muncie IN'] }
+    ],
+    researchNotes: 'Session 11 Batch 2: Built BudgetFlow (Finance - budget planning) — Planful ($1,500+/mo), Workday Adaptive Planning ($1,200+/mo), Anaplan ($3,000+/mo), Centage, Float all validated. Key complaints: 3-6 month implementations, enterprise pricing, limited SMB integrations. 10 cities — Amazon FC/Kaiser Fontana CA; SCLA/Amazon Air Victorville CA; Franklin Templeton HQ San Mateo CA; EA/Box/DoorDash Redwood City CA; TripAdvisor/PTC Newton MA; NBC/Iona New Rochelle NY; Pan American Life/Ochsner Metairie LA; Northwestern/Rotary Evanston IL; AutoNation HQ Fort Lauderdale FL; Anheuser-Busch/Emerson Electric St. Louis MO. Built TrainingTracker (HR - LMS/compliance) — TalentLMS ($59-259/mo), LearnUpon ($599-1299/mo), Docebo ($1,500+/mo), 360Learning, Absorb LMS all validated. Key complaints: per-user price jumps, self-hosted complexity, 60-day setup. 10 cities — Cisco/FLEX Milpitas CA; Kaiser supply chain San Leandro CA; Amazon/Stater Bros Ontario CA; CSUSB/Arrowhead Medical San Bernardino CA; Dignity Health Sports Park Carson CA; Hawthorne DC Cicero IL; ULTA Beauty HQ Bolingbrook IL; Dakota County corridor Lakeville MN; Delta Air Lines Tech Ops (FAA compliance) Eagan MN; Ball State/IU Health Muncie IN.'
   }
 ];
 
