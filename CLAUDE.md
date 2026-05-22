@@ -356,7 +356,19 @@ If running low on context:
 ### Session 10 (2026-05-22) — 1 Tool + 20 Cities + VendorPortal Product Demo
 24. **LeadMagnet** (Marketing) — Landing page + lead magnet builder — `lead-magnet` — 10 cities (+ interactive Builder/Preview/Analytics demo)
 
-### UI/SEO Upgrades (Sessions 4–10)
+### Session 11 (2026-05-22) — 10 Tools + 100 Cities (5 Batch Commits)
+25. **HireTrack** (HR) — Applicant tracking system for small business — `hire-track` — 10 cities
+26. **PerformanceReview** (HR) — 360-degree performance review and OKR tracking — `performance-review` — 10 cities
+27. **BudgetFlow** (Finance) — Department budget planning and variance tracking — `budget-flow` — 10 cities
+28. **TrainingTracker** (HR) — Employee training tracker and LMS — `training-tracker` — 10 cities
+29. **CashFlowPlanner** (Finance) — Cash flow forecasting and runway planning — `cash-flow-planner` — 10 cities
+30. **ProjectTracker** (Productivity) — Visual project tracker and Gantt chart tool — `project-tracker` — 10 cities
+31. **SOPBuilder** (Productivity) — SOP builder and business process knowledge base — `sop-builder` — 10 cities
+32. **CRMTracker** (Sales) — CRM and sales pipeline tracker — `crm-tracker` — 10 cities
+33. **WorkflowAutomation** (Operations) — No-code workflow automation builder — `workflow-automation` — 10 cities
+34. **AssetTracker** (Operations) — IT asset tracker and equipment management — `asset-tracker` — 10 cities
+
+### UI/SEO Upgrades (Sessions 4–11)
 - Redesigned: PayPal navy nav + Amazon orange CTA cards (no glass-morphism)
 - Web3Forms integrated for real email capture (key: 7d643d3d-…)
 - Schema.org @graph consolidated in layout.tsx (Organization + WebSite + FAQPage)
@@ -365,17 +377,19 @@ If running low on context:
 - DemoPanel.tsx component renders slug-conditional demos above waitlist CTA
 - CityTarget interface upgraded: optional `localContext` field for city-specific E-E-A-T content
 - CityDetailClient renders blue callout box with unique local sentence when localContext is present
-- 200+ city pages with localContext referencing real employers, landmarks, and industries
+- 340+ city pages with localContext referencing real employers, landmarks, and industries
 
 ### Static HTML Demos (in `public/tools/`)
 - **Smart Invoice Generator** — `public/tools/smart-invoice-generator/`
 - **AI Meeting Notes Summarizer** — `public/tools/ai-meeting-notes/`
 
-**Total: 24 Next.js tools, ~480 city SEO pages**
+**Total: 34 Next.js tools, ~680 city SEO pages**
 
 ## QUEUED TOOLS (Prioritized)
-1. **ClientIntake** (Sales/Marketing) — Agency client onboarding: intake form + document collection + branded portal; gap between simple FormBuilder and full ClientPortal
-2. Add localContext to Session 1-3 older cities — OnboardFlow (Boise ID: HP/Micron; Chattanooga TN: VW plant; Fayetteville AR: Walmart HQ adjacent; Huntsville AL: NASA Marshall; Spokane WA: WSU/Kaiser), LeadPilot (Durham NC: Research Triangle; Knoxville TN: UT/Oak Ridge), ExpenseBot (Baton Rouge LA: ExxonMobil; Des Moines IA: Wells Fargo/Principal; Dayton OH: Wright-Patterson AFB)
-3. Expand InventoryTracker cities — Midwest manufacturing and Southeast retail hubs: Columbus IN (Cummins HQ), Cookeville TN (TTM Technologies), Hattiesburg MS (Gulf South distribution)
-4. Refresh SocialQueue keywords — TikTok content scheduler + LinkedIn thought leadership scheduling trending in Q2 2026
-5. Update CalendarFlow competitor data — Calendly Q1 2026 price changes, new G2/Reddit complaints
+1. **ClientIntake** (Sales/Marketing) — Agency client onboarding: intake form + document collection + branded portal; gap between simple FormBuilder and full ClientPortal; competitors: HoneyBook ($16-$150/mo), Dubsado ($20-$40/mo), 17hats ($45/mo), Copilot ($39-$99/mo)
+2. Add interactive demo to WorkflowAutomation — 3-panel canvas: trigger selection, action builder with step cards, workflow run log with status indicators (all browser-only simulation)
+3. Add interactive demo to AssetTracker — live asset table with check-out/check-in simulation, QR label preview, and asset health dashboard
+4. Add localContext to Session 1-3 older cities — OnboardFlow (Boise ID: HP/Micron; Chattanooga TN: VW plant; Fayetteville AR: Walmart HQ adjacent; Huntsville AL: NASA Marshall; Spokane WA: WSU/Kaiser), LeadPilot (Durham NC: Research Triangle; Knoxville TN: UT/Oak Ridge), ExpenseBot (Baton Rouge LA: ExxonMobil; Des Moines IA: Wells Fargo/Principal; Dayton OH: Wright-Patterson AFB)
+5. Refresh SocialQueue keywords — TikTok content scheduler + LinkedIn thought leadership scheduling trending in Q2 2026
+6. Update CalendarFlow competitor data — Calendly Q1 2026 price changes, new G2/Reddit complaints
+7. Expand InventoryTracker cities — Midwest manufacturing and Southeast retail hubs: Columbus IN (Cummins HQ), Cookeville TN (TTM Technologies), Hattiesburg MS (Gulf South distribution)
