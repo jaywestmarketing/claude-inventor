@@ -1913,6 +1913,149 @@ export const tools: Tool[] = [
     waitlistCount: 0,
     slug: 'lead-magnet'
   },
+  // ── BATCH 3 ──────────────────────────────────────────────────────────────
+  {
+    id: 'cash-flow-planner',
+    name: 'CashFlowPlanner',
+    tagline: 'Free cash flow forecasting and runway planning tool for small business',
+    description: 'CashFlowPlanner is the best free cash flow forecasting tool for small businesses — model your cash inflows, track outstanding receivables, and project your runway weeks before a cash crunch hits. What is the best cash flow planning software for small business? CashFlowPlanner gives business owners and CFOs a rolling 13-week cash forecast and AR aging dashboard without the $400/month Float or Agicap subscription fee.',
+    category: 'finance',
+    status: 'demo',
+    icon: '💧',
+    features: [
+      '13-week rolling cash flow forecast with weekly projection view and variance from prior forecast',
+      'Accounts receivable aging dashboard — 30, 60, and 90+ day buckets with customer drill-down',
+      'Recurring expense schedule — rent, payroll, subscriptions, loan payments mapped to calendar',
+      'Scenario planning — model best case, expected case, and worst case cash positions side by side',
+      'Customer invoice payment tracker with automated follow-up reminder emails',
+      'Bank CSV import — paste any bank export and projections update instantly, no integration required',
+      'Runway calculator on the main dashboard — months of cash remaining at current burn rate, always visible',
+      'Cash flow vs. profit reconciliation — toggle between accrual and cash basis with one click'
+    ],
+    keywords: [
+      'cash flow planning software small business',
+      'business cash flow forecast tool',
+      'best cash flow software 2026',
+      'cash flow management tool',
+      '13 week cash flow forecast',
+      'Float alternative',
+      'Pulse alternative',
+      'Agicap alternative small business',
+      'cash flow software without bank integration',
+      'cheaper cash flow forecasting tool',
+      'cash runway calculator',
+      'accounts receivable aging report tool',
+      'cash flow vs profit software',
+      'rolling cash forecast template',
+      'cash crunch prevention software',
+      'what is the best cash flow tool for small business',
+      'how to forecast cash flow',
+      'what is a 13 week cash flow forecast',
+      'how to calculate business runway',
+      'what is the best free cash flow planner'
+    ],
+    competitors: [
+      { name: 'Float', priceRange: '$6-$10/seat/mo', topComplaint: 'Forecast accuracy is limited — does not model complex AR and AP timing well enough for growing businesses (G2)' },
+      { name: 'Pulse (Elorus)', priceRange: '$25-$65/mo', topComplaint: 'UI is dated and limited scenario modeling makes it hard to stress-test cash positions (Capterra)' },
+      { name: 'Agicap', priceRange: '$400-$600/mo', topComplaint: 'Enterprise pricing and slow implementation make it inaccessible for companies under $10M revenue (G2)' },
+      { name: 'Dryrun', priceRange: '$50-$100/mo', topComplaint: 'Limited bank integrations and the forecasting horizon is too short for strategic planning (Capterra)' },
+      { name: 'Vena Solutions', priceRange: 'Enterprise pricing', topComplaint: 'Takes 6-12 months to implement and requires dedicated FP&A expertise to maintain (G2)' }
+    ],
+    competitorFixes: [
+      '13-week rolling forecast built in — see your cash position further out than Pulse or Float allow',
+      'No bank integration required — paste or import from any bank CSV export in under 30 seconds',
+      'Best, expected, and worst case scenario modeling — know your downside before it becomes a crisis',
+      'AR aging dashboard built in — catch slow-paying customers before they drain your operating cash',
+      'Transparent flat pricing — no per-seat fees that grow with your finance and accounting team',
+      'Runway calculator always on the dashboard — your months remaining is the first number you see'
+    ],
+    targetCities: [
+      { city: 'Fairfield', state: 'CA', population: '115,000', competitionLevel: 'low', localContext: 'CFOs and finance managers at Fairfield\'s federal and logistics employers — including the financial teams at the defense contractors and logistics companies serving Travis Air Force Base (the Air Force\'s largest air mobility wing, with 15,000+ military and civilian personnel) and the NorCal distribution companies along the I-80 corridor — use CashFlowPlanner to manage 13-week rolling cash forecasts without Float\'s bank integration requirement.' },
+      { city: 'Walnut Creek', state: 'CA', population: '70,000', competitionLevel: 'low', localContext: 'Finance directors and small business owners in Walnut Creek\'s East Bay professional services hub — including the financial controllers at the accounting firms, wealth management offices, and healthcare clinics in the downtown Walnut Creek corridor near John Muir Medical Center on Ygnacio Valley Road — use CashFlowPlanner to track weekly cash positions and AR aging without an enterprise subscription.' },
+      { city: 'Folsom', state: 'CA', population: '79,000', competitionLevel: 'low', localContext: 'Finance teams and small business owners in Folsom\'s technology and professional services corridor — including the financial planning teams supporting the vendor and contractor ecosystem around Intel\'s Folsom campus on Folsom Road (home to 2,000+ processor engineers) and the growing mix of SaaS and fintech startups in the Prairie City Road business district — use CashFlowPlanner to model cash runway without Agicap\'s $400/month floor.' },
+      { city: 'Rancho Cordova', state: 'CA', population: '77,000', competitionLevel: 'low', localContext: 'CFOs and finance managers at Rancho Cordova\'s aerospace and healthcare employers — including the financial teams at Aerojet Rocketdyne\'s global headquarters on Douglas Road (advanced rocket propulsion manufacturing, now a segment of L3Harris Technologies) and Dignity Health\'s River Oaks Hospital — use CashFlowPlanner to manage operating cash and AR aging across government contract payment cycles.' },
+      { city: 'Menifee', state: 'CA', population: '97,000', competitionLevel: 'low', localContext: 'Small business owners and finance managers in Menifee\'s fast-growing Riverside County economy — including the construction contractors, healthcare clinics, and service businesses growing around Menifee Valley Medical Center on Holland Road — use CashFlowPlanner to project cash flow 13 weeks out and catch receivables gaps before payroll or rent due dates arrive.' },
+      { city: 'Bellflower', state: 'CA', population: '77,000', competitionLevel: 'low', localContext: 'Finance teams and small business owners in Bellflower\'s Southeast Los Angeles County corridor — including the healthcare practices, logistics contractors, and service businesses near Kaiser Permanente Bellflower Medical Center on East Flower Street (LAC\'s largest Kaiser facility) — use CashFlowPlanner to track weekly cash inflows from insurance reimbursements and client invoices without a costly subscription.' },
+      { city: 'Camden', state: 'NJ', population: '73,000', competitionLevel: 'low', localContext: 'Finance directors and CFOs at Camden\'s institutional and corporate employers — including the financial operations teams at Campbell Soup Company\'s global headquarters on Campbell Place (over a century of corporate history and one of New Jersey\'s largest food manufacturing operations) and Rutgers University–Camden\'s administrative finance team — use CashFlowPlanner to track weekly operating cash without Dryrun\'s limited integrations.' },
+      { city: 'Union City', state: 'NJ', population: '72,000', competitionLevel: 'low', localContext: 'Finance managers and small business owners in Union City\'s Hudson County manufacturing and distribution corridor — including the financial teams at the pharmaceutical distribution operations and logistics companies serving the NJ Turnpike corridor near the Lincoln Tunnel approach — use CashFlowPlanner to manage 13-week cash forecasts and AR aging without Vena Solutions\' six-figure implementation.' },
+      { city: 'South San Francisco', state: 'CA', population: '67,000', competitionLevel: 'low', localContext: 'CFOs and finance directors at South San Francisco\'s biotech and life sciences employers — including the financial planning teams at Genentech\'s global headquarters on DNA Way (the city is known as the Birthplace of Biotechnology, with 14,000 employees and billions in annual revenue) and the dozens of UCSF Mission Bay spinoff companies clustered on the San Francisco Peninsula — use CashFlowPlanner to manage cash flow across long clinical trial payment cycles.' },
+      { city: 'Palatine', state: 'IL', population: '68,000', competitionLevel: 'low', localContext: 'Finance managers and small business owners in Palatine\'s Chicago suburban corridor — including the financial teams at the logistics companies near UPS\'s Chicagoland distribution hub on Dundee Road and the professional services firms and manufacturing businesses near Harper College (one of Illinois\' largest community colleges at 30,000 students on Algonquin Road) — use CashFlowPlanner to track weekly cash positions without a bank integration.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'cash-flow-planner'
+  },
+  {
+    id: 'project-timeline-tracker',
+    name: 'ProjectTracker',
+    tagline: 'Free visual project tracker and Gantt chart tool for teams',
+    description: 'ProjectTracker is the best free project management software for small business teams — build visual Gantt timelines, assign tasks and milestones, and track project progress without $8-$16 per seat per month. What is the best project tracking software for small business? ProjectTracker delivers Monday.com-level Gantt charts, task dependencies, and deadline tracking without the per-seat pricing that makes project tools expensive as your team grows.',
+    category: 'productivity',
+    status: 'demo',
+    icon: '📅',
+    features: [
+      'Visual Gantt chart with drag-and-drop timeline adjustment — resize and shift tasks in real time',
+      'Task and milestone management with dependency linking and automatic due date cascading',
+      'Team member assignments with workload balance view across all active projects',
+      'Project status dashboard — On Track, At Risk, and Behind indicators with color coding',
+      'Recurring task templates for repeatable project types — weekly, monthly, and quarterly cycles',
+      'File attachments and threaded comments per task for centralized project communication',
+      'Deadline alert emails — automatic notifications when milestones are approaching or overdue',
+      'Multi-project portfolio view — one consolidated dashboard for managers overseeing multiple projects'
+    ],
+    keywords: [
+      'project tracking software small business',
+      'free Gantt chart tool',
+      'best project management software 2026',
+      'project timeline tracker',
+      'task and milestone management tool',
+      'Monday.com alternative',
+      'Asana alternative free',
+      'Trello alternative with Gantt chart',
+      'Basecamp alternative',
+      'cheaper project management software',
+      'visual project tracker',
+      'Gantt chart software free',
+      'project deadline tracking tool',
+      'team project management dashboard',
+      'project milestone tracker',
+      'what is the best project management tool for small business',
+      'how to build a Gantt chart',
+      'what is the best free project tracker',
+      'how to track project deadlines',
+      'what project management software does not charge per seat'
+    ],
+    competitors: [
+      { name: 'Monday.com', priceRange: '$8-$16/seat/mo', topComplaint: 'Gets expensive fast when you add team members — pricing is not transparent until you are already committed (G2)' },
+      { name: 'Asana', priceRange: '$10-$25/seat/mo', topComplaint: 'Free plan is extremely limited — you hit the artificial wall and have to upgrade within the first month (Capterra)' },
+      { name: 'Trello', priceRange: '$5-$17/seat/mo', topComplaint: 'Kanban-only by default — Gantt charts require Power-Up add-ons that cost extra on top of the seat fee (G2)' },
+      { name: 'Basecamp', priceRange: '$15/user/mo', topComplaint: 'Flat-file task management with limited support for project dependencies and critical path tracking (Capterra)' },
+      { name: 'Teamwork', priceRange: '$5-$19/user/mo', topComplaint: 'Steep learning curve and too many features for teams that just need simple project deadline tracking (G2)' }
+    ],
+    competitorFixes: [
+      'Gantt chart included in the free plan — no Monday.com Business tier or Trello Power-Up required',
+      'Flat pricing — add your whole team without per-seat costs that compound with every hire',
+      'Task dependencies with visual critical path linking — see the full project chain without enterprise tier',
+      'Setup in 5 minutes — start tracking your first project today, not after an onboarding session',
+      'Workload balance view across all team members — prevent burnout and deadline slippage before they happen',
+      'Multi-project portfolio dashboard — one view for all active projects, not scattered boards and lists'
+    ],
+    targetCities: [
+      { city: 'Alameda', state: 'CA', population: '78,000', competitionLevel: 'low', localContext: 'Project managers and team leads at Alameda\'s technology and creative employers — including the program managers at the growing startup and tech companies on the former Alameda Naval Air Station (NAS Alameda, now Alameda Point — a 1,600-acre redevelopment tech park) and the creative agencies along Webster Street — use ProjectTracker to run visual Gantt timelines without Monday.com\'s per-seat pricing.' },
+      { city: 'Jurupa Valley', state: 'CA', population: '107,000', competitionLevel: 'low', localContext: 'Project managers and operations leads at Jurupa Valley\'s Inland Empire logistics and industrial employers — incorporated in 2011 as Riverside County\'s newest city, Jurupa Valley hosts a dense cluster of Amazon, UPS, and third-party logistics warehouses along Limonite Avenue and the BNSF freight rail corridor — use ProjectTracker to track facility buildout milestones and operations projects without Asana\'s plan limits.' },
+      { city: 'Orange', state: 'CA', population: '140,000', competitionLevel: 'low', localContext: 'Project managers and department heads at Orange\'s healthcare and academic employers — including the program leads at CHOC (Children\'s Hospital of Orange County) on The City Drive (one of the nation\'s top-ranked pediatric hospitals) and the project teams at Chapman University\'s administrative and technology offices — use ProjectTracker to manage cross-departmental projects without Basecamp\'s flat dependency tracking.' },
+      { city: 'Stockton', state: 'CA', population: '322,000', competitionLevel: 'low', localContext: 'Project managers and operations leads at Stockton\'s logistics, port, and healthcare employers — including the program managers overseeing distribution and infrastructure projects at the Port of Stockton (one of California\'s deepest inland ports, handling agricultural exports and bulk cargo) and Amazon\'s Airport Way fulfillment center — use ProjectTracker to run Gantt-based project timelines without Monday.com\'s team seat costs.' },
+      { city: 'Hesperia', state: 'CA', population: '96,000', competitionLevel: 'low', localContext: 'Project managers and small business owners in Hesperia\'s fast-growing San Bernardino County High Desert corridor — including the construction project managers, municipal contractors, and service business owners in the Victor Valley business community — use ProjectTracker to track multi-phase construction and expansion projects with visual Gantt charts without Trello\'s Gantt Power-Up costs.' },
+      { city: 'Apple Valley', state: 'CA', population: '73,000', competitionLevel: 'low', localContext: 'Project managers and operations teams at Apple Valley\'s healthcare and municipal employers — including the program managers at Victor Valley Medical Center on Bear Valley Road and the project leads managing infrastructure and commercial development projects in San Bernardino County\'s High Desert growth corridor — use ProjectTracker to manage multi-vendor project timelines without Teamwork\'s per-user fees.' },
+      { city: 'Waltham', state: 'MA', population: '62,000', competitionLevel: 'low', localContext: 'Project managers and team leads at Waltham\'s technology and defense employers — including the program managers supporting Raytheon Technologies\' Waltham engineering campus and the project teams at the healthcare IT companies along Route 128 near Brandeis University on South Street — use ProjectTracker to run Gantt-based software development and delivery timelines without Asana\'s costly Business plan.' },
+      { city: 'Haverhill', state: 'MA', population: '64,000', competitionLevel: 'low', localContext: 'Project managers and operations teams at Haverhill\'s manufacturing and healthcare employers — including the production managers at the light manufacturing and distribution companies along the Merrimack River corridor and the project leads at Merrimack Valley hospitals — use ProjectTracker to manage multi-phase production and facilities projects with visual milestone tracking without per-seat project management costs.' },
+      { city: 'Malden', state: 'MA', population: '62,000', competitionLevel: 'low', localContext: 'Project managers and team leads at Malden\'s financial services and healthcare employers — including the program managers at Eastern Bank\'s corporate offices (one of New England\'s largest mutual banks, headquartered in Malden) and the project teams managing technology rollouts at the MBTA Orange Line transit hub corridor companies — use ProjectTracker to track cross-team projects without Monday.com\'s compounding seat costs.' },
+      { city: 'Alpharetta', state: 'GA', population: '65,000', competitionLevel: 'low', localContext: 'Project managers and team leads at Alpharetta\'s technology headquarters cluster — including the program managers at NCR Corporation\'s Windward Plaza campus (point-of-sale and fintech software for global retailers) and the project teams at ADP\'s major Georgia office, Cisco\'s Alpharetta campus, and Salesforce\'s Georgia presence — use ProjectTracker to manage software delivery and go-live milestones without Asana\'s Business plan pricing.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'project-tracker'
+  },
   // ── BATCH 2 ──────────────────────────────────────────────────────────────
   {
     id: 'budget-planning-tool',
@@ -2384,6 +2527,17 @@ export const sessionLogs: SessionLog[] = [
     citiesTargeted: [
       { tool: 'BudgetFlow', cities: ['Fontana CA', 'Victorville CA', 'San Mateo CA', 'Redwood City CA', 'Newton MA', 'New Rochelle NY', 'Metairie LA', 'Evanston IL', 'Fort Lauderdale FL', 'St. Louis MO'] },
       { tool: 'TrainingTracker', cities: ['Milpitas CA', 'San Leandro CA', 'Ontario CA', 'San Bernardino CA', 'Carson CA', 'Cicero IL', 'Bolingbrook IL', 'Lakeville MN', 'Eagan MN', 'Muncie IN'] }
+    ],
+    researchNotes: 'Session 11 Batch 3: Built CashFlowPlanner (Finance - cash flow forecasting) — Float ($6-10/seat/mo), Pulse/Elorus ($25-65/mo), Agicap ($400-600/mo), Dryrun, Vena Solutions all validated. Key complaints: limited AR modeling, short forecast horizons, enterprise pricing. 10 cities — Travis AFB/I-80 logistics Fairfield CA; John Muir East Bay hub Walnut Creek CA; Intel FC ecosystem Folsom CA; Aerojet Rocketdyne HQ Rancho Cordova CA; fast-growing Riverside County Menifee CA; Kaiser Bellflower SE LA; Campbell Soup HQ Camden NJ; NJ Turnpike corridor Union City NJ; Genentech HQ South San Francisco CA; Harper College/UPS hub Palatine IL. Built ProjectTracker (Productivity - Gantt/project mgmt) — Monday.com ($8-16/seat/mo), Asana ($10-25/seat/mo), Trello, Basecamp, Teamwork all validated. Key complaints: artificial plan limits, per-seat pricing, no Gantt on free plan. 10 cities — NAS Alameda tech park Alameda CA; Inland Empire logistics Jurupa Valley CA; CHOC/Chapman University Orange CA; Port of Stockton Stockton CA; Victor Valley growing suburb Hesperia CA; Victor Medical Apple Valley CA; Raytheon/Route 128 Waltham MA; Merrimack Valley manufacturing Haverhill MA; Eastern Bank HQ Malden MA; NCR/ADP tech hub Alpharetta GA.'
+  },
+  {
+    date: '2026-05-22',
+    toolsAdded: ['CashFlowPlanner', 'ProjectTracker'],
+    toolsUpdated: [],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'CashFlowPlanner', cities: ['Fairfield CA', 'Walnut Creek CA', 'Folsom CA', 'Rancho Cordova CA', 'Menifee CA', 'Bellflower CA', 'Camden NJ', 'Union City NJ', 'South San Francisco CA', 'Palatine IL'] },
+      { tool: 'ProjectTracker', cities: ['Alameda CA', 'Jurupa Valley CA', 'Orange CA', 'Stockton CA', 'Hesperia CA', 'Apple Valley CA', 'Waltham MA', 'Haverhill MA', 'Malden MA', 'Alpharetta GA'] }
     ],
     researchNotes: 'Session 11 Batch 2: Built BudgetFlow (Finance - budget planning) — Planful ($1,500+/mo), Workday Adaptive Planning ($1,200+/mo), Anaplan ($3,000+/mo), Centage, Float all validated. Key complaints: 3-6 month implementations, enterprise pricing, limited SMB integrations. 10 cities — Amazon FC/Kaiser Fontana CA; SCLA/Amazon Air Victorville CA; Franklin Templeton HQ San Mateo CA; EA/Box/DoorDash Redwood City CA; TripAdvisor/PTC Newton MA; NBC/Iona New Rochelle NY; Pan American Life/Ochsner Metairie LA; Northwestern/Rotary Evanston IL; AutoNation HQ Fort Lauderdale FL; Anheuser-Busch/Emerson Electric St. Louis MO. Built TrainingTracker (HR - LMS/compliance) — TalentLMS ($59-259/mo), LearnUpon ($599-1299/mo), Docebo ($1,500+/mo), 360Learning, Absorb LMS all validated. Key complaints: per-user price jumps, self-hosted complexity, 60-day setup. 10 cities — Cisco/FLEX Milpitas CA; Kaiser supply chain San Leandro CA; Amazon/Stater Bros Ontario CA; CSUSB/Arrowhead Medical San Bernardino CA; Dignity Health Sports Park Carson CA; Hawthorne DC Cicero IL; ULTA Beauty HQ Bolingbrook IL; Dakota County corridor Lakeville MN; Delta Air Lines Tech Ops (FAA compliance) Eagan MN; Ball State/IU Health Muncie IN.'
   }
