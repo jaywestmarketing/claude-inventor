@@ -1913,6 +1913,149 @@ export const tools: Tool[] = [
     waitlistCount: 0,
     slug: 'lead-magnet'
   },
+  // ── BATCH 4 ──────────────────────────────────────────────────────────────
+  {
+    id: 'sop-builder',
+    name: 'SOPBuilder',
+    tagline: 'Free SOP builder and business process knowledge base',
+    description: 'SOPBuilder is the best free standard operating procedure software for small businesses — create step-by-step SOPs, embed video and screenshots, and build a searchable knowledge base that new employees can use from day one. What is the best SOP tool for small business? SOPBuilder delivers Trainual-level process documentation at zero cost — because your business processes should be written down, not trapped in one person\'s head.',
+    category: 'productivity',
+    status: 'demo',
+    icon: '📋',
+    features: [
+      'Drag-and-drop SOP template builder with numbered steps, images, video embeds, and callout blocks',
+      'Searchable internal knowledge base — employees find the right procedure in seconds by keyword',
+      'SOP version control with change history, author tracking, and one-click rollback to prior versions',
+      'Employee read confirmation — track who has acknowledged each procedure and when',
+      'Category-organized SOP library — HR, Operations, Finance, Sales, and Customer Service sections',
+      'PDF export — generate print-ready or audit-submission procedure documents in one click',
+      'Role-based SOP assignment — employees automatically see procedures relevant to their position',
+      'AI-assisted SOP drafting — paste rough bullet notes and generate a formatted step-by-step procedure'
+    ],
+    keywords: [
+      'SOP builder software',
+      'standard operating procedure tool',
+      'best SOP software 2026',
+      'business process documentation tool',
+      'employee knowledge base software',
+      'Trainual alternative',
+      'Process Street alternative',
+      'Notion SOP alternative',
+      'Confluence alternative small business',
+      'Scribe alternative',
+      'SOP template creator',
+      'business procedure documentation software',
+      'employee training knowledge base',
+      'process documentation tool for teams',
+      'SOP management software',
+      'what is the best SOP tool for small business',
+      'how to create standard operating procedures',
+      'what is SOP software',
+      'how to build a business knowledge base',
+      'what is the best free SOP builder'
+    ],
+    competitors: [
+      { name: 'Trainual', priceRange: '$49-$199/mo', topComplaint: 'Very expensive for what is essentially documented Google Docs with a nicer interface (G2)' },
+      { name: 'Process Street', priceRange: '$100+/mo', topComplaint: 'Overkill for simple SOPs — the workflow builder has a steep learning curve and adds complexity (Capterra)' },
+      { name: 'Notion', priceRange: '$8-$16/seat/mo', topComplaint: 'Flexible but no structure by default — SOPs end up scattered across pages with no consistency (G2)' },
+      { name: 'Confluence', priceRange: '$5-$15/seat/mo', topComplaint: 'Designed for engineering teams and unintuitive for HR or operations managers creating SOPs (Capterra)' },
+      { name: 'Scribe', priceRange: '$23-$49/user/mo', topComplaint: 'Good for screen recordings but limited for building full procedure libraries and compliance documentation (G2)' }
+    ],
+    competitorFixes: [
+      'Pre-built SOP templates for 50+ common business processes — start in minutes, not hours',
+      'Read confirmation tracking — know exactly who has acknowledged each procedure and when',
+      'AI-assisted drafting — turn rough bullet notes into a formatted SOP in seconds without a writer',
+      'Flat pricing — no per-seat cost that grows with every department head or manager you add',
+      'Version control built in — every change is tracked and previous versions are restorable in one click',
+      'PDF export — produce audit-ready procedure binders without any extra step or tool'
+    ],
+    targetCities: [
+      { city: 'Hemet', state: 'CA', population: '85,000', competitionLevel: 'low', localContext: 'HR directors and operations managers at Hemet\'s healthcare and municipal employers — including the process documentation teams at Physicians for Healthy Hospitals\' Hemet Valley Medical Center on Florida Avenue (the primary hospital for the San Jacinto Valley) and the growing service businesses in Riverside County\'s Inland Valley — use SOPBuilder to document clinical and administrative procedures without Trainual\'s $199/month plan.' },
+      { city: 'Indio', state: 'CA', population: '92,000', competitionLevel: 'low', localContext: 'Operations managers and HR teams at Indio\'s hospitality and healthcare employers — including the event operations leads managing procedures for Coachella Valley Music and Arts Festival\'s year-round logistics (held at Empire Polo Club, drawing 125,000+ attendees per weekend) and Eisenhower Health\'s Desert Campus on Monroe Street — use SOPBuilder to document and share event production and patient care procedures across seasonal staff.' },
+      { city: 'Lake Elsinore', state: 'CA', population: '67,000', competitionLevel: 'low', localContext: 'Business owners and operations managers in Lake Elsinore\'s fast-growing Riverside County market — including the construction firms, retail businesses, and service companies expanding along the Lake Elsinore Downtown corridor and the Canyon Lake business community — use SOPBuilder to document standard procedures for scaling operations as the city adds new staff without Notion\'s scattered wiki structure.' },
+      { city: 'Petaluma', state: 'CA', population: '61,000', competitionLevel: 'low', localContext: 'HR managers and operations teams at Petaluma\'s life sciences and consumer health employers — including the process documentation teams at BioMarin Pharmaceutical\'s Petaluma campus on Digital Drive (global rare disease drug development operations) and the compliance staff at McNeill Consumer Healthcare and Clover Sonoma dairy — use SOPBuilder to document GMP and regulatory procedures without Confluence\'s engineering-focused design.' },
+      { city: 'Kenner', state: 'LA', population: '67,000', competitionLevel: 'low', localContext: 'Operations managers and HR teams at Kenner\'s aviation and healthcare employers — including the ground operations procedure teams at companies serving Louis Armstrong New Orleans International Airport (MSY, directly adjacent to Kenner on Veterans Memorial Boulevard) and the administrative operations staff at Ochsner Health System\'s Kenner Regional facilities — use SOPBuilder to document and train staff on airport and clinical service procedures.' },
+      { city: 'Schenectady', state: 'NY', population: '66,000', competitionLevel: 'low', localContext: 'Operations directors and HR managers at Schenectady\'s manufacturing and utility employers — including the technical procedure teams at General Electric\'s Power division turbine manufacturing facilities on River Road (GE was founded in Schenectady and the city remains a GE Power hub) and the Union College administrative staff on Union Street — use SOPBuilder to document engineering maintenance procedures and HR workflows without Trainual\'s cost.' },
+      { city: 'Bethesda', state: 'MD', population: '65,000', competitionLevel: 'low', localContext: 'Operations and HR teams at Bethesda\'s federal research and corporate employers — including the clinical protocol and administrative procedure teams supporting the NIH Clinical Research Center on Wisconsin Avenue (the world\'s largest dedicated clinical research hospital) and Marriott International\'s global headquarters on Fernwood Road — use SOPBuilder to document standard protocols and franchise procedures without Process Street\'s complexity.' },
+      { city: 'Sanford', state: 'FL', population: '63,000', competitionLevel: 'low', localContext: 'Operations managers and HR teams at Sanford\'s technology and education employers — including the process documentation teams at Seminole State College of Florida\'s Sanford campus (30,000 students) and the operations leads at the Central Florida Research Park extension near Orlando — use SOPBuilder to document administrative, safety, and student services procedures without the complexity of Confluence.' },
+      { city: 'Ocala', state: 'FL', population: '65,000', competitionLevel: 'low', localContext: 'Operations managers and HR directors at Ocala\'s logistics and healthcare employers — including the fulfillment operations procedure teams at Chewy.com\'s Ocala distribution center on NW 60th Avenue (one of the largest pet supply fulfillment centers in the Southeast) and the administrative staff at HCA Florida Ocala Hospital — use SOPBuilder to document warehouse, customer service, and HR onboarding procedures at scale.' },
+      { city: 'Chapel Hill', state: 'NC', population: '65,000', competitionLevel: 'low', localContext: 'Operations managers and HR teams at Chapel Hill\'s research and healthcare employers — including the administrative procedure teams at UNC-Chapel Hill\'s research administration offices (30,000 students, one of the nation\'s top public universities on Cameron Avenue) and UNC Health hospital system\'s operational compliance staff — use SOPBuilder to document clinical, research compliance, and administrative procedures without Scribe\'s per-user pricing.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'sop-builder'
+  },
+  {
+    id: 'crm-deal-tracker',
+    name: 'CRMTracker',
+    tagline: 'Free CRM and sales pipeline tracker for small business',
+    description: 'CRMTracker is the best free CRM for small business sales teams — track leads, manage your deal pipeline, log call and email activity, and forecast revenue without $25-$300 per seat. What is the best CRM for small business? CRMTracker gives your sales team the visual pipeline management and deal tracking that Pipedrive and HubSpot charge heavily for, with all the core CRM features a growing team actually uses every day.',
+    category: 'sales',
+    status: 'demo',
+    icon: '🤝',
+    features: [
+      'Visual Kanban deal pipeline — Lead, Qualified, Proposal, Negotiation, Closed Won, and Closed Lost',
+      'Contact and company database with custom fields for any industry or sales process',
+      'Activity logging — calls, emails, meetings, and notes with due date reminders and follow-up triggers',
+      'Deal value and close date tracking with weighted revenue forecast calculation',
+      'Follow-up reminder automation — never let a hot lead go cold with automatic next-action prompts',
+      'Win and loss analysis — understand the reasons deals close or fall through with structured tagging',
+      'Sales rep performance dashboard — pipeline volume, activity counts, and close rate per rep',
+      'Email activity logging — sent emails automatically mapped to deal and contact records'
+    ],
+    keywords: [
+      'free CRM small business',
+      'sales pipeline tracker',
+      'best CRM software 2026',
+      'deal tracking software',
+      'CRM for small business sales team',
+      'Salesforce alternative small business',
+      'HubSpot CRM alternative free',
+      'Pipedrive alternative',
+      'Zoho CRM alternative',
+      'cheaper CRM software',
+      'sales pipeline management tool',
+      'lead tracking software',
+      'contact management CRM',
+      'sales forecast tool small business',
+      'simple CRM without complexity',
+      'what is the best free CRM for small business',
+      'how to track sales pipeline',
+      'what is the best CRM without per seat pricing',
+      'how to manage deals in a CRM',
+      'what CRM works best for small sales teams'
+    ],
+    competitors: [
+      { name: 'Salesforce', priceRange: '$25-$300/seat/mo', topComplaint: 'Too expensive and requires a dedicated Salesforce admin to configure and maintain for small teams (G2)' },
+      { name: 'HubSpot CRM', priceRange: '$45-$800/mo', topComplaint: 'Free plan is very limited — paid tiers jump dramatically in price and the limits hit in the first month (Capterra)' },
+      { name: 'Pipedrive', priceRange: '$14-$99/seat/mo', topComplaint: 'Missing marketing automation and contacts quickly become messy without cleanup tools (G2)' },
+      { name: 'Zoho CRM', priceRange: '$14-$52/seat/mo', topComplaint: 'UI is overwhelming with too many modules — takes weeks of configuration before it is usable (Capterra)' },
+      { name: 'Close', priceRange: '$29-$149/seat/mo', topComplaint: 'Too expensive for what you get — good for inside sales teams but limited for everything else (G2)' }
+    ],
+    competitorFixes: [
+      'No Salesforce admin required — any sales rep can set up and maintain their pipeline in minutes per day',
+      'Full pipeline included at no cost — no artificial HubSpot contact or deal limits to hit in month one',
+      'Follow-up reminders built in — never let a lead go cold without Pipedrive\'s paid automation tier',
+      'Simple and clean UI — zero training required, sales reps are running their pipeline within one hour',
+      'Flat pricing — add your entire sales team at one cost with no per-seat compounding as you scale',
+      'Win-loss analysis included — understand your close rate without custom Salesforce reporting or a BI tool'
+    ],
+    targetCities: [
+      { city: 'Waterloo', state: 'IA', population: '67,000', competitionLevel: 'low', localContext: 'Sales teams and account managers at Waterloo\'s major industrial and healthcare employers — including the inside sales and territory reps at John Deere\'s Waterloo Works tractor manufacturing complex on Ansborough Avenue (5,000+ UAW employees, the largest tractor factory in North America) and the sales teams at Covenant Medical Center — use CRMTracker to manage industrial equipment leads and healthcare contracts without Salesforce\'s admin overhead.' },
+      { city: 'Ames', state: 'IA', population: '67,000', competitionLevel: 'low', localContext: 'Sales teams and business development managers at Ames\'s technology and university-adjacent employers — including the account executives at Danfoss Power Solutions\'s Ames operations (global leader in mobile hydraulics) and the sales and licensing teams serving the Iowa State University research commercialization ecosystem (35,000 students on Lincoln Way) — use CRMTracker to track deals and follow-up tasks without Pipedrive\'s $14/seat floor.' },
+      { city: 'White Plains', state: 'NY', population: '58,000', competitionLevel: 'low', localContext: 'Sales directors and account managers at White Plains\'s Westchester County business hub — including the enterprise sales teams at the IBM Westchester offices on North Castle Drive and the sales representatives managing accounts at the dense cluster of healthcare IT, financial services, and professional services firms in the White Plains downtown corridor near the Galleria mall — use CRMTracker to manage deal pipelines without Zoho CRM\'s overwhelming module structure.' },
+      { city: 'Bayonne', state: 'NJ', population: '67,000', competitionLevel: 'low', localContext: 'Sales and business development teams at Bayonne\'s port logistics and industrial employers — including the account managers at logistics and freight companies serving the Port Jersey container terminal (adjacent to Port Newark on the Kill Van Kull) and the sales reps at the NJ Turnpike industrial corridor manufacturing firms — use CRMTracker to track freight and supply chain deals without HubSpot\'s contact limit restrictions.' },
+      { city: 'Hoboken', state: 'NJ', population: '60,000', competitionLevel: 'low', localContext: 'Sales teams and business development managers at Hoboken\'s technology and financial services employers — including the inside sales and account management teams at Goldman Sachs\'s Hoboken office and the tech company sales reps near Stevens Institute of Technology (7,500 students on Castle Point Terrace) — use CRMTracker to manage B2B software and professional services deal pipelines without Salesforce\'s per-seat cost.' },
+      { city: 'Maricopa', state: 'AZ', population: '60,000', competitionLevel: 'low', localContext: 'Sales teams and real estate professionals in Maricopa, Arizona\'s fastest-growing city of its size — including the new home sales teams at the master-planned communities built by Pulte Homes, DR Horton, and Meritage Homes in Maricopa\'s booming residential corridors and the commercial sales reps at the businesses serving Banner Health\'s Maricopa Medical Center — use CRMTracker to track buyer pipelines without HubSpot\'s deal limits.' },
+      { city: 'West Hartford', state: 'CT', population: '62,000', competitionLevel: 'low', localContext: 'Sales directors and account managers at West Hartford\'s corporate and healthcare employers — including the B2B sales teams at professional services firms along the Blue Back Square corridor and the sales and outreach staff at Saint Francis Hospital and Medical Center on Asylum Avenue — use CRMTracker to manage service and contract pipelines without Pipedrive\'s per-seat pricing as teams grow.' },
+      { city: 'Corvallis', state: 'OR', population: '60,000', competitionLevel: 'low', localContext: 'Sales teams and business development managers at Corvallis\'s technology and university-adjacent employers — including the account executives at HP\'s Corvallis campus (inkjet printer R&D and manufacturing, one of HP\'s longest-standing US engineering sites) and the business development teams at Oregon State University spinoff and research commercialization companies on Campus Way — use CRMTracker to track enterprise deals without Zoho CRM\'s complex setup.' },
+      { city: 'Portland', state: 'ME', population: '68,000', competitionLevel: 'low', localContext: 'Sales directors and account managers at Portland\'s healthcare and professional services employers — including the business development teams serving Maine Medical Center on Bramhall Street (Portland\'s largest employer and Maine\'s flagship hospital) and the B2B sales reps at the growing University of Southern Maine technology and innovation corridor downtown — use CRMTracker to manage healthcare service and contract deals without Salesforce\'s admin complexity.' },
+      { city: 'Huntersville', state: 'NC', population: '65,000', competitionLevel: 'low', localContext: 'Sales teams and business development leads at Huntersville\'s corporate and healthcare employers — including the account managers at the professional services firms clustered along the Birkdale Village corridor and the sales representatives supporting Novant Health\'s Lake Norman Regional Medical Center (Huntersville\'s largest employer on Gilead Road, serving the Charlotte metro\'s north growth corridor) — use CRMTracker to track and follow up on deals without HubSpot\'s paid plan requirements.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'crm-tracker'
+  },
   // ── BATCH 3 ──────────────────────────────────────────────────────────────
   {
     id: 'cash-flow-planner',
@@ -2540,6 +2683,17 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'ProjectTracker', cities: ['Alameda CA', 'Jurupa Valley CA', 'Orange CA', 'Stockton CA', 'Hesperia CA', 'Apple Valley CA', 'Waltham MA', 'Haverhill MA', 'Malden MA', 'Alpharetta GA'] }
     ],
     researchNotes: 'Session 11 Batch 2: Built BudgetFlow (Finance - budget planning) — Planful ($1,500+/mo), Workday Adaptive Planning ($1,200+/mo), Anaplan ($3,000+/mo), Centage, Float all validated. Key complaints: 3-6 month implementations, enterprise pricing, limited SMB integrations. 10 cities — Amazon FC/Kaiser Fontana CA; SCLA/Amazon Air Victorville CA; Franklin Templeton HQ San Mateo CA; EA/Box/DoorDash Redwood City CA; TripAdvisor/PTC Newton MA; NBC/Iona New Rochelle NY; Pan American Life/Ochsner Metairie LA; Northwestern/Rotary Evanston IL; AutoNation HQ Fort Lauderdale FL; Anheuser-Busch/Emerson Electric St. Louis MO. Built TrainingTracker (HR - LMS/compliance) — TalentLMS ($59-259/mo), LearnUpon ($599-1299/mo), Docebo ($1,500+/mo), 360Learning, Absorb LMS all validated. Key complaints: per-user price jumps, self-hosted complexity, 60-day setup. 10 cities — Cisco/FLEX Milpitas CA; Kaiser supply chain San Leandro CA; Amazon/Stater Bros Ontario CA; CSUSB/Arrowhead Medical San Bernardino CA; Dignity Health Sports Park Carson CA; Hawthorne DC Cicero IL; ULTA Beauty HQ Bolingbrook IL; Dakota County corridor Lakeville MN; Delta Air Lines Tech Ops (FAA compliance) Eagan MN; Ball State/IU Health Muncie IN.'
+  },
+  {
+    date: '2026-05-22',
+    toolsAdded: ['SOPBuilder', 'CRMTracker'],
+    toolsUpdated: [],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'SOPBuilder', cities: ['Hemet CA', 'Indio CA', 'Lake Elsinore CA', 'Petaluma CA', 'Kenner LA', 'Schenectady NY', 'Bethesda MD', 'Sanford FL', 'Ocala FL', 'Chapel Hill NC'] },
+      { tool: 'CRMTracker', cities: ['Waterloo IA', 'Ames IA', 'White Plains NY', 'Bayonne NJ', 'Hoboken NJ', 'Maricopa AZ', 'West Hartford CT', 'Corvallis OR', 'Portland ME', 'Huntersville NC'] }
+    ],
+    researchNotes: 'Session 11 Batch 4: Built SOPBuilder (Productivity - SOP/knowledge base) — Trainual ($49-199/mo), Process Street ($100+/mo), Notion ($8-16/seat/mo), Confluence ($5-15/seat/mo), Scribe ($23-49/user/mo) all validated. Key complaints: expensive for document storage, engineering-focused UIs, no compliance tracking, steep learning curves. 10 cities — Hemet Valley Medical Hemet CA; Coachella Festival/Eisenhower Health Indio CA; fast-growing Riverside County Lake Elsinore CA; BioMarin/McNeil Petaluma CA; MSY Airport/Ochsner Kenner LA; GE Power turbines Schenectady NY; NIH/Marriott HQ Bethesda MD; Seminole State/Central FL Research Sanford FL; Chewy.com DC/HCA Florida Ocala FL; UNC-Chapel Hill Chapel Hill NC. Built CRMTracker (Sales - CRM/deal pipeline) — Salesforce ($25-300/seat/mo), HubSpot CRM ($45-800/mo), Pipedrive ($14-99/seat/mo), Zoho CRM ($14-52/seat/mo), Close ($29-149/seat/mo) all validated. Key complaints: requires dedicated admin, free plan limits hit fast, overwhelming UI, per-seat pricing. 10 cities — John Deere Waterloo Works Waterloo IA; Danfoss/Iowa State Ames IA; IBM Westchester White Plains NY; Port Jersey corridor Bayonne NJ; Goldman Sachs/Stevens Institute Hoboken NJ; fastest-growing city Maricopa AZ; Blue Back Square/Saint Francis West Hartford CT; HP Corvallis campus/OSU Corvallis OR; Maine Medical Center Portland ME; Novant Health Lake Norman Huntersville NC.'
   }
 ];
 
