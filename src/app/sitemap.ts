@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { tools } from '@/data/tools';
+import { posts } from '@/data/blog/index';
 
 export const dynamic = 'force-static';
 
@@ -26,6 +27,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
+  const blogIndex = {
+    url: `${baseUrl}/blog`,
+    lastModified: new Date(),
+    changeFrequency: 'daily' as const,
+    priority: 0.9,
+  };
+
+  const blogPostPages = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.updatedAt),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  const aboutPage = {
+    url: `${baseUrl}/about`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  };
+
   return [
     {
       url: baseUrl,
@@ -33,6 +55,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 1,
     },
+    blogIndex,
+    aboutPage,
+    ...blogPostPages,
     ...toolPages,
     ...cityPages,
   ];
