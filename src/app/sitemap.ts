@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { tools } from '@/data/tools';
 import { posts } from '@/data/blog/index';
+import { docs } from '@/data/docs/index';
 
 export const dynamic = 'force-static';
 
@@ -41,6 +42,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const docsIndex = {
+    url: `${baseUrl}/docs`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  };
+
+  const docPages = docs.map((doc) => ({
+    url: `${baseUrl}/docs/${doc.slug}`,
+    lastModified: new Date(doc.updatedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
   const aboutPage = {
     url: `${baseUrl}/about`,
     lastModified: new Date(),
@@ -56,8 +71,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     blogIndex,
+    docsIndex,
     aboutPage,
     ...blogPostPages,
+    ...docPages,
     ...toolPages,
     ...cityPages,
   ];
