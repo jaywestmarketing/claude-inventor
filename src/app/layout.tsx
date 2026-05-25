@@ -185,6 +185,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <span className="site-nav-tagline">Free Business Automation Tools</span>
           <div className="site-nav-spacer" />
           <Link href="/blog" className="site-nav-link">Blog</Link>
+          <Link href="/docs" className="site-nav-link">Docs</Link>
           <Link href="/about" className="site-nav-link">About</Link>
           <Link href="/#faq" className="site-nav-link">FAQ</Link>
         </nav>
@@ -202,6 +203,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/tools/email-campaigns">Email Marketing</Link>
             <Link href="/tools/help-desk-ai">Helpdesk</Link>
             <Link href="/blog">Blog</Link>
+            <Link href="/docs">Docs</Link>
             <Link href="/about">About</Link>
             <Link href="/#faq">FAQ</Link>
           </nav>
