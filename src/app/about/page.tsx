@@ -4,6 +4,15 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'About AutomateStack | Business Automation Tools for Small Business',
   description: 'AutomateStack builds free business automation tools for small business — from HR onboarding and cash flow forecasting to CRM tracking and SOP management. Learn about our methodology and editorial standards.',
+  alternates: {
+    canonical: 'https://automatestack.com/about',
+  },
+  openGraph: {
+    title: 'About AutomateStack | Business Automation Tools for Small Business',
+    description: 'AutomateStack builds free business automation tools for small business — from HR onboarding and cash flow forecasting to CRM tracking and SOP management. Learn about our methodology and editorial standards.',
+    type: 'website',
+    url: 'https://automatestack.com/about',
+  },
 };
 
 export default function AboutPage() {
