@@ -58,17 +58,16 @@ export const metadata: Metadata = {
     title: 'AutomateStack — Free Business Automation Tools',
     description:
       'Free AI-powered tools for HR, invoicing, lead generation, scheduling & expenses. 34 tools. Try any demo free.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'AutomateStack' }],
+    // og-image.png: add a 1200x630 PNG to /public/og-image.png to enable social previews
   },
   twitter: {
     card: 'summary_large_image',
     title: 'AutomateStack — Free Business Automation Tools',
     description:
       'Free AI-powered tools for HR, invoicing, lead generation, scheduling & expenses. 34 tools. Try any demo free.',
-    images: ['/og-image.png'],
   },
-  alternates: { canonical: '/' },
-  verification: { google: '', other: { 'msvalidate.01': '' } },
+  // Add google: 'PASTE_YOUR_GSC_VERIFICATION_CODE_HERE' once verified in Google Search Console
+  // verification: { google: 'xxxx', other: { 'msvalidate.01': 'xxxx' } },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -152,7 +151,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

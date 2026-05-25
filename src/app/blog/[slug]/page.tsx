@@ -21,10 +21,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: post.metaTitle,
     description: post.metaDescription,
     keywords: post.keywords.join(', '),
+    alternates: {
+      canonical: `https://automatestack.com/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
       type: 'article',
+      url: `https://automatestack.com/blog/${post.slug}`,
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       tags: post.tags,
