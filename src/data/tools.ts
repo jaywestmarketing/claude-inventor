@@ -1451,7 +1451,11 @@ export const tools: Tool[] = [
       { city: 'Plano', state: 'TX', population: '285,000', competitionLevel: 'low', localContext: 'Consultants, IT contractors, and professional service firms in Plano\'s major corporate city — home to Toyota North America\'s US headquarters on Legacy Drive, Liberty Mutual\'s national servicing center, and dozens of Fortune 500 regional offices at Legacy Town Center and Granite Park — use TimeTracker to capture billable hours across multi-client engagements and export clean, invoice-ready reports without Harvest\'s $14/user monthly fee that adds up quickly for solo and small-team consultants.' },
       { city: 'Clinton Township', state: 'MI', population: '100,000', competitionLevel: 'low', localContext: 'Independent contractors and professional service firms in Clinton Township\'s Macomb County business community — including the engineering consultants and IT vendors supporting the General Motors Technical Center corridor in nearby Warren, one of the world\'s largest automotive R&D complexes, as well as the dense commercial strip along Garfield Road — use TimeTracker to log project time across multiple automotive clients without the GPS surveillance features that make Hubstaff feel invasive in independent contractor relationships.' },
       { city: 'Decatur', state: 'IL', population: '72,000', competitionLevel: 'low', localContext: 'Agricultural consultants, engineers, and professional service firms in Decatur\'s industry-driven economy — serving the vendor and contractor ecosystem around Archer Daniels Midland\'s global headquarters on East Main Street (one of the world\'s largest agricultural processors by revenue) and Caterpillar\'s major Decatur manufacturing facility producing large construction equipment — use TimeTracker to log billable hours on project work without TimeCamp\'s buggy automatic tracking or Toggl\'s interface overhaul that reset familiar workflows.' },
-      { city: 'Baytown', state: 'TX', population: '80,000', competitionLevel: 'low', localContext: 'Environmental consultants, safety engineers, and professional services contractors serving Baytown\'s massive petrochemical corridor — including the vendor community supporting ExxonMobil\'s Baytown Complex, one of the largest integrated refinery and chemical plants in the world and the anchor of the Houston Ship Channel industrial zone — use TimeTracker to capture billable hours on shift-based project work and generate client invoices without Toggl\'s 2024 interface disruption that broke established contractor workflows across the industry.' }
+      { city: 'Baytown', state: 'TX', population: '80,000', competitionLevel: 'low', localContext: 'Environmental consultants, safety engineers, and professional services contractors serving Baytown\'s massive petrochemical corridor — including the vendor community supporting ExxonMobil\'s Baytown Complex, one of the largest integrated refinery and chemical plants in the world and the anchor of the Houston Ship Channel industrial zone — use TimeTracker to capture billable hours on shift-based project work and generate client invoices without Toggl\'s 2024 interface disruption that broke established contractor workflows across the industry.' },
+      { city: 'Cambridge', state: 'MA', population: '115,000', competitionLevel: 'low', localContext: 'Consultants, software engineers, and research staff in Cambridge\'s world-class innovation ecosystem — including the freelance developers, biotech contractors, and management consultants working in and around Kendall Square (home to MIT, Harvard, Pfizer Research, Google Cambridge, and hundreds of life sciences startups) where tracking billable hours precisely is the difference between a profitable engagement and chronic scope creep — use TimeTracker to log hours by project with a running stopwatch and submit accurate client invoices without Toggl\'s disruptive 2024 redesign.' },
+      { city: 'Somerville', state: 'MA', population: '81,000', competitionLevel: 'low', localContext: 'Freelancers, designers, and consultants in Somerville\'s creative and tech-oriented neighborhoods — including the growing tech workforce near Assembly Row\'s office towers (home to Amazon, Lesley University, and dozens of startups in one of Boston\'s fastest-growing urban corridors along the Green Line Extension) — use TimeTracker to run project timers, log billable hours by client, and build weekly summaries without Harvest\'s $14/user/month fee for a tool they need a fraction of.' },
+      { city: 'Santa Clara', state: 'CA', population: '125,000', competitionLevel: 'low', localContext: 'Contractors, consultants, and engineers in Santa Clara\'s Silicon Valley core — including the independent software developers, project managers, and technical consultants working in and around Intel\'s Robert Noyce Campus on Mission College Boulevard and the NVIDIA offices on Mathilda Avenue — use TimeTracker to track billable hours across multiple simultaneous client engagements, generate detailed daily logs for invoicing, and stay within project budgets without enterprise time-tracking software that assumes a full IT department.' },
+      { city: 'Inglewood', state: 'CA', population: '111,000', competitionLevel: 'low', localContext: 'Marketing professionals, event coordinators, and creative entrepreneurs in Inglewood\'s resurgent entertainment and sports economy — including the event promoters, music industry professionals, sports marketing agencies, and hospitality businesses that orbit SoFi Stadium on Hollywood Park Boulevard and the Kia Forum entertainment complex — use TimeTracker to log billable hours on project work, track event production time, and invoice clients cleanly without Toggl\'s new paid-gated reporting features.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1599,7 +1603,11 @@ export const tools: Tool[] = [
       { city: 'Waukesha', state: 'WI', population: '72,000', competitionLevel: 'low', localContext: 'Medical device suppliers and manufacturers near GE Healthcare\'s global headquarters in Waukesha — one of the world\'s leading MRI system manufacturers — use InventoryTracker to manage high-value component inventory and track shipments to hospital procurement teams nationwide without inFlow\'s unreliable cloud sync.' },
       { city: 'Janesville', state: 'WI', population: '70,000', competitionLevel: 'low', localContext: 'Manufacturing and distribution businesses in Janesville\'s rebuilt industrial base — including the Parker Hannifin operations and the supplier network that grew after GM\'s local plant closure — use InventoryTracker to manage parts and finished goods without expensive legacy inventory systems.' },
       { city: 'Reading', state: 'PA', population: '95,000', competitionLevel: 'low', localContext: 'Retailers and distributors in Reading\'s famous outlet shopping corridor — one of the largest factory outlet destinations on the East Coast — and the logistics teams at Penske Truck Leasing\'s corporate headquarters use InventoryTracker to manage high-SKU inventory without Sortly\'s restrictive per-item pricing.' },
-      { city: 'Elizabeth', state: 'NJ', population: '135,000', competitionLevel: 'medium', localContext: 'Importers, distributors, and logistics companies operating near the Port of Newark-Elizabeth — one of the busiest container ports on the East Coast and the primary gateway for a massive share of US imports — use InventoryTracker to reconcile incoming shipments with warehouse stock in real time.' }
+      { city: 'Elizabeth', state: 'NJ', population: '135,000', competitionLevel: 'medium', localContext: 'Importers, distributors, and logistics companies operating near the Port of Newark-Elizabeth — one of the busiest container ports on the East Coast and the primary gateway for a massive share of US imports — use InventoryTracker to reconcile incoming shipments with warehouse stock in real time.' },
+      { city: 'Fremont', state: 'CA', population: '230,000', competitionLevel: 'low', localContext: 'Inventory and warehouse operations teams at Fremont\'s industrial corridor — including the procurement coordinators managing the components supply chain for Tesla\'s massive Fremont Factory on Tesla Road (one of the most productive auto manufacturing plants in North America, assembling over 500,000 vehicles annually) and the hardware distributors serving Silicon Valley\'s EV and electronics supply chain — use InventoryTracker to manage multi-location stock levels and set automated reorder triggers without Cin7\'s post-acquisition pricing increase.' },
+      { city: 'Salinas', state: 'CA', population: '160,000', competitionLevel: 'low', localContext: 'Inventory and logistics coordinators at Salinas Valley\'s agricultural produce operations — including the warehouse teams at Taylor Farms on Work Ranch Road (America\'s largest salad company, with processing facilities managing millions of pounds of leafy greens weekly) and the agricultural distributors serving what the region brands \'the salad bowl of the world\' — use InventoryTracker to manage perishable stock rotation and real-time inventory levels without Fishbowl\'s desktop-only installation complexity.' },
+      { city: 'Federal Way', state: 'WA', population: '95,000', competitionLevel: 'low', localContext: 'Supply chain and inventory managers at Federal Way\'s Pacific Corridor logistics operations — including the warehouse teams and distribution staff at Federal Way\'s major industrial parks along I-5 and the procurement coordinators near Weyerhaeuser\'s global headquarters on Weyerhaeuser Way South (one of the world\'s largest forest products companies, managing 11 million acres of timberland) — use InventoryTracker to track stock across multiple sites and automate reorder points without inFlow\'s $89–$439/month subscription.' },
+      { city: 'Maple Grove', state: 'MN', population: '73,000', competitionLevel: 'low', localContext: 'Inventory and supply chain teams at Maple Grove\'s medical device manufacturing corridor — including procurement coordinators at Boston Scientific\'s cardiac manufacturing facility on Bass Lake Road (one of the company\'s primary cardiac device production sites, employing thousands of engineers and production staff in the northwest Twin Cities suburbs) and the components suppliers serving the broader medical device ecosystem there — use InventoryTracker to maintain precise component-level stock visibility without the implementation fees that Fishbowl and Cin7 both require.' }
     ],
     dateAdded: '2026-04-17',
     waitlistCount: 0,
@@ -1671,7 +1679,11 @@ export const tools: Tool[] = [
       { city: 'Scottsdale', state: 'AZ', population: '258,000', competitionLevel: 'low', localContext: 'Technology companies, financial services firms, and healthcare organizations headquartered in Scottsdale\'s Camelback Corridor and North Scottsdale business parks — including teams at GoDaddy\'s headquarters and Vanguard\'s largest non-Pennsylvania campus — use FormBuilder to capture customer feedback, job applications, and product interest forms with unlimited responses on the free tier, eliminating the surprise upgrade prompts that Typeform and JotForm trigger mid-campaign.' },
       { city: 'Lawton', state: 'OK', population: '90,000', competitionLevel: 'low', localContext: 'Military contractors, retail businesses, and service providers in Lawton\'s commercial corridor serving Fort Sill — home to the US Army\'s Field Artillery School and one of the largest active-duty military communities in Oklahoma — use FormBuilder to build vendor qualification forms, service intake requests, and event registration pages without paying Wufoo\'s $183/month Business plan just to unlock basic conditional logic.' },
       { city: 'South Jordan', state: 'UT', population: '74,000', competitionLevel: 'low', localContext: 'Technology startups and SaaS companies along Silicon Slopes\' southward expansion into South Jordan — including the growing community of property technology businesses inspired by Entrata\'s property management platform headquartered here — use FormBuilder to create customer onboarding forms, subscription registrations, and product feedback surveys with unlimited submissions, avoiding the JotForm free tier limits that break campaigns mid-month.' },
-      { city: 'San Marcos', state: 'TX', population: '72,000', competitionLevel: 'low', localContext: 'Small businesses, university departments, and event organizers in San Marcos — home to Texas State University with over 35,000 students and the Tanger Outlets retail corridor — use FormBuilder to build student intake forms, vendor applications, and event registrations with conditional logic and professional branding, replacing Google Forms\' bare-bones aesthetic that signals low production value to customers and applicants.' }
+      { city: 'San Marcos', state: 'TX', population: '72,000', competitionLevel: 'low', localContext: 'Small businesses, university departments, and event organizers in San Marcos — home to Texas State University with over 35,000 students and the Tanger Outlets retail corridor — use FormBuilder to build student intake forms, vendor applications, and event registrations with conditional logic and professional branding, replacing Google Forms\' bare-bones aesthetic that signals low production value to customers and applicants.' },
+      { city: 'Bryan', state: 'TX', population: '87,000', competitionLevel: 'low', localContext: 'Marketing teams, event organizers, and small businesses along the Bryan–College Station corridor — including service businesses near Texas A&M University\'s 72,000-student main campus and the Research Valley tech and agritech startups that feed off TAMU\'s commercialization pipeline — use FormBuilder to create unlimited event registration, lead capture, and client intake forms without hitting Typeform\'s 10-response-per-month free tier limit mid-campaign.' },
+      { city: 'Napa', state: 'CA', population: '80,000', competitionLevel: 'low', localContext: 'Winery marketing teams, tasting room managers, and hospitality businesses throughout Napa Valley — including boutique estate wineries and wine club coordinators along the Silverado Trail and Napa\'s Old Town event corridor — use FormBuilder to handle wine club signups, tour reservations, and private event inquiries with beautifully branded forms, without paying JotForm\'s $34/month upgrade just to add a logo and remove the JotForm watermark from their customer-facing pages.' },
+      { city: 'Flower Mound', state: 'TX', population: '80,000', competitionLevel: 'low', localContext: 'Professional services firms, consultancies, and technology companies in Flower Mound\'s affluent Cross Timbers business corridor — including financial advisors, real estate agencies, and SaaS companies operating near FM 2499 and the DFW International Airport\'s south freight campus — use FormBuilder to build conditional-logic client intake forms and feedback surveys without paying Typeform\'s $50/month just to unlock the conditional branching that makes forms feel intelligent rather than generic.' },
+      { city: 'Concord', state: 'CA', population: '130,000', competitionLevel: 'low', localContext: 'Healthcare practices, professional services firms, and businesses in Contra Costa County — including the specialty clinics and administrative offices near John Muir Health\'s Concord Medical Center on Clayton Road (one of the largest hospital networks in the Bay Area) and the commercial businesses along Willow Pass Road — use FormBuilder to create patient intake forms, appointment requests, and staff feedback surveys without the per-submission caps that trigger unexpected upgrade prompts on Typeform and JotForm free plans.' }
     ],
     dateAdded: '2026-04-27',
     waitlistCount: 0,
@@ -1743,7 +1755,11 @@ export const tools: Tool[] = [
       { city: 'Kissimmee', state: 'FL', population: '72,000', competitionLevel: 'low', localContext: 'HR directors and hiring managers at Kissimmee\'s tourism, healthcare, and logistics employers — including the hospitality operators serving the Walt Disney World and SeaWorld attraction corridor in Osceola County and the expanding healthcare teams at HCA Florida Osceola Hospital — use JobDescriptionGen to write structured, EEOC-compliant job postings for seasonal and year-round roles without the compliance risk of recycling old JDs that contain outdated or unintentionally exclusionary language.' },
       { city: 'Lakewood', state: 'NJ', population: '127,000', competitionLevel: 'low', localContext: 'HR teams and recruiters at Lakewood\'s active business and healthcare community — including the logistics and distribution operators along the I-195 and Route 9 commercial corridor in Ocean County and the healthcare providers serving one of New Jersey\'s fastest-growing municipalities — use JobDescriptionGen to generate ATS-ready, EEOC-compliant job descriptions that parse correctly in Greenhouse, Lever, and BambooHR without the manual field configuration that generic job description templates require.' },
       { city: 'Clovis', state: 'CA', population: '124,000', competitionLevel: 'low', localContext: 'HR teams and hiring managers at Clovis\'s growing healthcare, education, and professional services employers — including the talent acquisition teams at Clovis Community College and the healthcare hiring managers serving the Valley Children\'s Healthcare network in the greater Fresno-Clovis metropolitan area — use JobDescriptionGen to create structured, keyword-optimized job descriptions that attract qualified candidates in the Central Valley\'s competitive labor market without producing generic AI output that reads identically to every other posting on Indeed.' },
-      { city: 'Palm Coast', state: 'FL', population: '87,000', competitionLevel: 'low', localContext: 'Growing businesses, healthcare employers, and municipal agencies in Palm Coast\'s fast-developing Flagler County economy — including the HR teams at AdventHealth Palm Coast (the county\'s largest employer) and the construction and logistics companies serving one of Florida\'s fastest-growing coastal communities — use JobDescriptionGen to write professional, EEOC-compliant job postings that look polished and credible to applicants who increasingly judge employer quality by the care and structure visible in the job description itself.' }
+      { city: 'Palm Coast', state: 'FL', population: '87,000', competitionLevel: 'low', localContext: 'Growing businesses, healthcare employers, and municipal agencies in Palm Coast\'s fast-developing Flagler County economy — including the HR teams at AdventHealth Palm Coast (the county\'s largest employer) and the construction and logistics companies serving one of Florida\'s fastest-growing coastal communities — use JobDescriptionGen to write professional, EEOC-compliant job postings that look polished and credible to applicants who increasingly judge employer quality by the care and structure visible in the job description itself.' },
+      { city: 'Hayward', state: 'CA', population: '160,000', competitionLevel: 'low', localContext: 'HR managers and talent acquisition teams at Hayward\'s Bay Area employers — including the biotechnology companies, healthcare practices, and manufacturing firms near Cal State East Bay\'s 14,000-student campus on Carlos Bee Boulevard and the biotech corridor along Industrial Boulevard — use JobDescriptionGen to create EEOC-compliant, ATS-optimized job postings that attract qualified candidates without paying Textio\'s $600/seat annual pricing for what is fundamentally a writing tool used a few times per week.' },
+      { city: 'Moreno Valley', state: 'CA', population: '210,000', competitionLevel: 'low', localContext: 'Workforce coordinators and HR departments at Moreno Valley\'s Inland Empire logistics employers — including the talent acquisition teams at Amazon\'s fulfillment center on Fir Avenue (one of the largest distribution facilities in Southern California, employing thousands) and the IKEA, Target, and FedEx distribution operations nearby — use JobDescriptionGen to scale high-volume hiring through AI-generated job descriptions that cut time-to-fill without enterprise HR writing software.' },
+      { city: 'Castle Rock', state: 'CO', population: '80,000', competitionLevel: 'low', localContext: 'HR teams and hiring managers at Castle Rock\'s growing Douglas County employers — including the technology and professional services companies along the I-25 corridor linking Castle Rock to major employer campuses like Lockheed Martin\'s Space division, DISH Network headquarters, and the Charles Schwab Technology Center in southern Arapahoe County — use JobDescriptionGen to write inclusive, ATS-optimized job descriptions that compete for top talent without the $600/seat Textio pricing.' },
+      { city: 'Queen Creek', state: 'AZ', population: '72,000', competitionLevel: 'low', localContext: 'HR coordinators and recruiting teams at Queen Creek\'s fast-growing East Valley employers — including businesses supplying and supporting TSMC Arizona\'s massive semiconductor fab construction corridor in nearby Chandler (TSMC\'s $40 billion Arizona investment is generating thousands of direct positions and tens of thousands of supply chain jobs in the greater East Valley) — use JobDescriptionGen to create professional, bias-screened job postings quickly without Ongig\'s $10,000/year entry pricing.' }
     ],
     dateAdded: '2026-05-17',
     waitlistCount: 0,
@@ -1815,11 +1831,802 @@ export const tools: Tool[] = [
       { city: 'Harlingen', state: 'TX', population: '74,000', competitionLevel: 'low', localContext: 'Supply chain and AP teams at Harlingen\'s healthcare and cross-border trade businesses — including the procurement managers at Valley Baptist Medical Center (one of the largest hospitals in the Rio Grande Valley, on Garfield Street) and the import-export companies operating near Harlingen\'s foreign trade zone and Valley International Airport — use VendorPortal to manage multi-vendor invoices, compliance documents, and payment schedules without spending $45/user/month on BILL.com for capabilities that don\'t fit their binational supplier base.' },
       { city: 'Gary', state: 'IN', population: '70,000', competitionLevel: 'low', localContext: 'Procurement and vendor management teams at Gary\'s steel and port industrial operations — including the purchasing managers at US Steel\'s Gary Works facility on the Lake Michigan shoreline (one of the largest integrated steel mills in North America, employing thousands in production and maintenance) and the supply chain coordinators for companies operating through the Port of Indiana-Burns Harbor — use VendorPortal to track supplier invoices, material delivery confirmations, and vendor contract renewals.' },
       { city: 'Rialto', state: 'CA', population: '107,000', competitionLevel: 'low', localContext: 'Operations and procurement teams at Rialto\'s massive Inland Empire logistics hub — including the vendor management and AP staff at the warehouse and distribution centers lining the I-10 and I-15 corridors (home to Amazon, Target, Home Depot, and dozens of 3PL providers in one of the world\'s largest goods movement ecosystems) — use VendorPortal to track janitorial, equipment maintenance, staffing, and supply vendor contracts and invoices without enterprise software that assumes a dedicated procurement department.' },
-      { city: 'Wyoming', state: 'MI', population: '78,000', competitionLevel: 'low', localContext: 'Vendor management and purchasing teams at Wyoming\'s manufacturing and distribution employers — including the procurement coordinators at the tier-1 and tier-2 auto suppliers serving the Grand Rapids metro\'s busiest industrial corridor and the distribution companies near Amway\'s global headquarters and distribution complex in nearby Ada Township (one of the largest direct-sales operations in the world) — use VendorPortal to onboard vendors, track payment approvals, and monitor contract expirations without SAP Ariba implementations that take months to go live.' }
+      { city: 'Wyoming', state: 'MI', population: '78,000', competitionLevel: 'low', localContext: 'Vendor management and purchasing teams at Wyoming\'s manufacturing and distribution employers — including the procurement coordinators at the tier-1 and tier-2 auto suppliers serving the Grand Rapids metro\'s busiest industrial corridor and the distribution companies near Amway\'s global headquarters and distribution complex in nearby Ada Township (one of the largest direct-sales operations in the world) — use VendorPortal to onboard vendors, track payment approvals, and monitor contract expirations without SAP Ariba implementations that take months to go live.' },
+      { city: 'Ventura', state: 'CA', population: '110,000', competitionLevel: 'low', localContext: 'Procurement and operations teams at Ventura County businesses — including the supply chain coordinators at Patagonia\'s global headquarters on East Main Street (the pioneering sustainable outdoor gear company managing hundreds of international material vendors and contract manufacturers) and the agriculture, biotechnology, and healthcare companies along the Ventura coastal plain — use VendorPortal to streamline vendor onboarding and invoice approval routing without Coupa\'s enterprise-level implementation costs.' },
+      { city: 'Vallejo', state: 'CA', population: '121,000', competitionLevel: 'low', localContext: 'Accounts payable and procurement teams at Vallejo\'s manufacturing, healthcare, and educational institutions — including the operations staff at Touro University California on the historic Mare Island campus (a former US Navy base redeveloped into a biotech and graduate education hub) and the industrial manufacturers along the Mare Island industrial waterfront — use VendorPortal to centralize vendor documents, track contract renewals, and route invoices without SAP Ariba\'s 6-month implementation timeline.' },
+      { city: 'Antioch', state: 'CA', population: '115,000', competitionLevel: 'low', localContext: 'Finance and operations teams at Antioch\'s growing East Bay industrial base — including the logistics, distribution, and construction companies near the Highway 4 and Sand Creek Road business parks and the businesses managing multi-vendor relationships across the region\'s manufacturing and retail sectors — use VendorPortal to manage vendor onboarding, certificate of insurance tracking, and multi-step invoice approvals without Procurify\'s per-approval pricing that makes costs unpredictable as the vendor base grows.' },
+      { city: 'El Cajon', state: 'CA', population: '100,000', competitionLevel: 'low', localContext: 'Procurement and operations managers at East San Diego County businesses — including the vendor management teams at Sharp Grossmont Hospital on Prospect Avenue (El Cajon\'s largest employer, serving all of San Diego\'s East County with a major medical campus) and the regional healthcare system\'s extensive network of medical supplies, maintenance, and facilities vendors — use VendorPortal to automate vendor document collection, W-9 verification, and invoice approval routing without Coupa\'s or SAP Ariba\'s enterprise pricing.' }
     ],
     dateAdded: '2026-05-21',
     waitlistCount: 0,
     slug: 'vendor-portal'
+  },
+  {
+    id: 'lead-magnet-builder',
+    name: 'LeadMagnet',
+    tagline: 'Build high-converting lead capture pages and deliver your lead magnet automatically',
+    description: 'LeadMagnet is the best free landing page builder for small businesses and marketing teams who need to grow an email list without paying $74/month for Unbounce or $97/month for ClickFunnels. What is the best lead magnet tool for small business? LeadMagnet lets you create unlimited high-converting opt-in pages, upload your PDF guide, checklist, or template, and deliver it automatically to every subscriber — no developer required. Choose from 40+ mobile-first templates, publish in under 5 minutes, and track conversions with a real-time analytics dashboard. Free tier includes unlimited pages, unlimited leads, and automatic file delivery — everything Leadpages locks behind its $99/month plan.',
+    category: 'marketing',
+    status: 'demo',
+    icon: '🧲',
+    features: [
+      'Drag-and-drop landing page builder with 40+ conversion-optimized templates',
+      'Automated lead magnet delivery (PDF, checklist, video link) on email signup',
+      'Integrated email capture with CRM export (CSV, HubSpot, Mailchimp sync)',
+      'Real-time conversion analytics dashboard (visitors, signups, opt-in rate)',
+      'A/B testing for headlines, CTA buttons, and form variants',
+      'Mobile-first responsive design with live desktop and phone preview',
+      'Custom domain publishing with SSL certificate included',
+      'Multi-step thank-you sequences and follow-up email triggers'
+    ],
+    keywords: [
+      'free landing page builder',
+      'lead magnet builder tool',
+      'best landing page software for small business',
+      'email list building tool',
+      'lead capture landing page creator 2026',
+      'Leadpages alternative',
+      'cheaper than Unbounce',
+      'ClickFunnels alternative free',
+      'Instapage alternative for small business',
+      'Carrd alternative with lead magnet delivery',
+      'how to create a lead magnet landing page',
+      'landing page builder without monthly fees',
+      'simple landing page for email list',
+      'landing page for PDF download',
+      'lead magnet funnel builder free',
+      'what is the best landing page builder for small business',
+      'how to build a landing page that converts',
+      'what is a lead magnet and how to create one',
+      'how to deliver a PDF lead magnet automatically',
+      'best free lead magnet tool 2026'
+    ],
+    competitors: [
+      { name: 'Leadpages', priceRange: '$37-$99/mo', topComplaint: 'Templates look dated and conversion analytics are locked behind the $99/month plan — starter tier feels deliberately crippled (G2)' },
+      { name: 'Unbounce', priceRange: '$74-$649/mo', topComplaint: 'Too expensive for small businesses that just need a simple opt-in page — minimum $74/month before you can even publish (Capterra)' },
+      { name: 'ClickFunnels', priceRange: '$97-$297/mo', topComplaint: 'Bloated with upsell funnel features; basic landing page functionality is buried under complexity and the pricing is aggressive (Reddit r/marketing)' },
+      { name: 'Instapage', priceRange: '$99-$499/mo', topComplaint: 'Enterprise pricing and mandatory annual contract; completely overkill for a team that needs a single opt-in page with PDF delivery (G2)' },
+      { name: 'Carrd', priceRange: '$9-$19/mo', topComplaint: 'No lead magnet file delivery, no conversion analytics, no email integrations on the free plan — you build the page but can\'t actually capture leads without stitching in separate tools (ProductHunt)' },
+      { name: 'Mailchimp Landing Pages', priceRange: 'Free (very limited)', topComplaint: 'Permanently tied to Mailchimp list management, no standalone analytics, poor mobile optimization, and can\'t deliver a file automatically on signup (Reddit r/emailmarketing)' }
+    ],
+    competitorFixes: [
+      'Publish your first opt-in page in under 5 minutes — pick a template, upload your lead magnet, go live',
+      'Built-in lead magnet file delivery on every plan — we send your PDF or checklist automatically so you don\'t need Zapier',
+      'Real-time conversion dashboard on the free tier — no upgrade needed to see your visitor-to-signup rate',
+      'Unlimited landing pages and unlimited leads — no per-page pricing, no contact limits, no surprise upgrade walls',
+      'Mobile-first templates that actually convert — 83% of your traffic is on a phone, so every template is built phone-first',
+      'No ClickFunnels complexity — one page, one form, your lead magnet delivered automatically, done'
+    ],
+    targetCities: [
+      { city: 'Chula Vista', state: 'CA', population: '275,000', competitionLevel: 'low', localContext: 'Marketing teams and small business owners in Chula Vista\'s growing Eastlake and Otay Ranch commercial corridors — serving a diverse mix of restaurants, healthcare clinics, real estate agencies, and bilingual professional services firms that collectively make Chula Vista the San Diego metro\'s fastest-growing city by business registration — use LeadMagnet to build professional opt-in pages that deliver free guides and special offers automatically, without the $74/month that Unbounce charges just to go live.' },
+      { city: 'Sunnyvale', state: 'CA', population: '150,000', competitionLevel: 'low', localContext: 'Marketing managers and growth teams at Sunnyvale\'s technology companies — including the SaaS startups, hardware firms, and software contractors near LinkedIn\'s Sunnyvale offices on Stierlin Court and Yahoo\'s Sunnyvale campus on First Avenue — use LeadMagnet to build unlimited high-converting landing pages for product launches, webinar signups, and gated content offers without Leadpages\'s per-page pricing on its starter tier.' },
+      { city: 'Bellevue', state: 'WA', population: '145,000', competitionLevel: 'low', localContext: 'Marketing and demand generation teams at Bellevue\'s growing technology hub — including the SaaS companies, consultancies, and digital agencies in the Bellevue Downtown corridor near T-Mobile\'s headquarters on Factoria Boulevard SE and the dense cluster of Microsoft-ecosystem vendors along the 156th Avenue NE tech spine — use LeadMagnet to create lead capture landing pages for whitepapers, free trials, and gated content without paying Unbounce\'s $149/month base price.' },
+      { city: 'Garden Grove', state: 'CA', population: '170,000', competitionLevel: 'low', localContext: 'Small business owners and marketing teams in Garden Grove\'s diverse commercial district — serving the region\'s automotive businesses, the Vietnamese-American business corridor along Brookhurst Street, hospitality companies near the Disneyland resort cluster, and professional service firms throughout the city — use LeadMagnet to launch email list-building campaigns with free guides and promotional offers delivered automatically, without Carrd\'s missing file delivery and non-existent analytics.' },
+      { city: 'St. Petersburg', state: 'FL', population: '258,000', competitionLevel: 'low', localContext: 'Marketing agencies, small business owners, and creative entrepreneurs in St. Petersburg\'s booming creative and technology district — including the digital studios, consultancies, and hospitality marketing firms in the Edge District and downtown St. Pete waterfront, where the Tampa Bay tech ecosystem\'s west side is anchored by companies like Jabil Circuit and Raymond James Financial\'s coastal offices — use LeadMagnet to build high-converting opt-in pages for clients and their own businesses without ClickFunnels\' $97/month overhead.' },
+      { city: 'Santa Ana', state: 'CA', population: '310,000', competitionLevel: 'low', localContext: 'Small business owners and marketing teams serving Orange County\'s most populous city — including financial services firms, healthcare practices, and professional services businesses along Santa Ana\'s 17th Street business corridor and the bilingual marketing teams serving the city\'s vibrant Latino business community — use LeadMagnet to create email list-building landing pages with automated lead magnet delivery without the page-count limits that Leadpages imposes on its starter plan.' },
+      { city: 'Hawthorne', state: 'CA', population: '86,000', competitionLevel: 'low', localContext: 'Marketing professionals and small business owners in Hawthorne\'s aerospace and innovation corridor — including the agencies and service businesses near SpaceX\'s global headquarters on Rocket Road (the world\'s leading private space launch company, with thousands of engineers and contractors concentrated near LAX) and the defense and aerospace firms along Imperial Highway — use LeadMagnet to build email opt-in pages, event signup flows, and content download pages without Unbounce\'s $74/month minimum.' },
+      { city: 'El Monte', state: 'CA', population: '100,000', competitionLevel: 'low', localContext: 'Small business owners and service firms in El Monte\'s San Gabriel Valley commercial zone — including the logistics companies, light manufacturers, and professional services businesses along Garvey Avenue and Valley Boulevard — use LeadMagnet to build lead generation pages for free consultations, service guides, and promotional offers, delivering them automatically on email signup without paying Leadpages\' $37/month just to publish a single page.' },
+      { city: 'Auburn', state: 'WA', population: '83,000', competitionLevel: 'low', localContext: 'Marketing teams and small business owners in Auburn\'s manufacturing and commercial hub — including the service businesses and supplier marketing teams in the Boeing industrial ecosystem that Auburn hosts on 15th Street NW (Boeing\'s Auburn Manufacturing Center produces critical structural components for 737 and 777 aircraft) — use LeadMagnet to create lead capture pages for supplier qualification outreach, services guides, and trade event signups without enterprise landing page tools.' },
+      { city: 'Honolulu', state: 'HI', population: '350,000', competitionLevel: 'low', localContext: 'Tourism operators, hospitality marketers, and small business owners in Honolulu — including the boutique hotels, activity companies, tour operators, and restaurants along Waikiki\'s Kalakaua Avenue and the Ala Moana business district, where building a direct email list from website traffic is essential for repeat bookings and reducing dependence on Expedia and TripAdvisor — use LeadMagnet to create beautiful opt-in pages that deliver free travel guides, island itineraries, and exclusive discount codes to visitors before they book, without Leadpages\' $99/month plan just to see analytics.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'lead-magnet'
+  },
+  // ── BATCH 5 ──────────────────────────────────────────────────────────────
+  {
+    id: 'workflow-automation-builder',
+    name: 'WorkflowAutomation',
+    tagline: 'Free no-code workflow automation builder for small business',
+    description: 'WorkflowAutomation is the best free no-code workflow automation tool for small businesses — build automated multi-step workflows connecting your apps and data without writing a single line of code. What is the best workflow automation software for small business? WorkflowAutomation gives growing teams Zapier-level automation capabilities without the task-based pricing that makes costs unpredictable as your team scales.',
+    category: 'operations',
+    status: 'demo',
+    icon: '⚙️',
+    features: [
+      'Visual drag-and-drop workflow canvas — connect triggers and actions in a flowchart interface with zero coding required',
+      '50+ pre-built automation templates for common business processes including lead routing, invoice reminders, and onboarding sequences',
+      'Condition and branch logic — build if/then rules that route data differently based on field values and business rules',
+      'Scheduled automation — run workflows on daily, weekly, or custom-interval triggers without any manual action',
+      'Form-to-workflow integration — trigger automations automatically from web form submissions with field-level data mapping',
+      'Email notification automation — send templated notification emails to internal teams or customers on any workflow event',
+      'Multi-step approval workflow builder — route requests through sequential approval stages with escalation and deadline alerts',
+      'Workflow activity log — track every automation run, outcome, timing, and error for debugging and compliance auditing'
+    ],
+    keywords: [
+      'workflow automation software',
+      'no-code automation tool',
+      'best workflow automation 2026',
+      'business process automation software',
+      'automated workflow builder',
+      'Zapier alternative',
+      'Make Integromat alternative',
+      'n8n alternative',
+      'Power Automate alternative small business',
+      'cheaper than Zapier',
+      'no-code workflow automation small business',
+      'business automation without coding',
+      'workflow automation tool for teams',
+      'automate business processes free',
+      'workflow builder no code',
+      'what is the best workflow automation software',
+      'how to automate business processes without coding',
+      'what is no-code automation',
+      'how to build automated workflows',
+      'what is the best free Zapier alternative'
+    ],
+    competitors: [
+      { name: 'Zapier', priceRange: '$19.99-$799/mo', topComplaint: 'Task-based pricing is unpredictable — costs explode once you automate more than a handful of workflows (G2)' },
+      { name: 'Make (Integromat)', priceRange: '$9-$29/mo', topComplaint: 'Operations-based limits are confusing and the bubble interface has a steep learning curve for non-technical users (Capterra)' },
+      { name: 'n8n', priceRange: '$20/mo self-hosted, $50+/mo cloud', topComplaint: 'Self-hosted setup requires technical expertise — not viable for SMBs without an in-house developer (GitHub Issues)' },
+      { name: 'Power Automate', priceRange: '$15/user/mo', topComplaint: 'Deeply tied to Microsoft 365 — painful to use for teams not fully inside the Office ecosystem (Capterra)' },
+      { name: 'Tray.io', priceRange: '$1,200+/mo', topComplaint: 'Enterprise-only pricing and requires dedicated implementation support — completely inaccessible for small businesses (G2)' }
+    ],
+    competitorFixes: [
+      'Flat unlimited-task pricing — no per-task or per-operation charges that compound unpredictably with automation volume',
+      'Clean drag-and-drop canvas — build complex if/then logic without Make\'s confusing bubble-and-wire interface',
+      'Zero installation required — build and run workflows in your browser without n8n\'s server and Docker setup',
+      'Works with any data stack — integrate with email, web forms, and CSV data without requiring Microsoft 365 like Power Automate',
+      '50+ pre-built templates — launch your first automation in minutes without starting from a blank canvas',
+      'Approval workflows included — route multi-step request approvals without Tray.io\'s enterprise implementation process'
+    ],
+    targetCities: [
+      { city: 'Pittsburg', state: 'CA', population: '75,000', competitionLevel: 'low', localContext: 'Operations managers and IT teams at Pittsburg\'s industrial and healthcare employers — including the process automation leads at the chemical manufacturing and petroleum refining support companies along the Suisun Bay industrial corridor (Pittsburg hosts one of Contra Costa County\'s oldest heavy-industry clusters near the former Dow Chemical site on the waterfront) and the administrative process teams at Sutter Delta Medical Center — use WorkflowAutomation to build approval and notification workflows without Zapier\'s task overage fees.' },
+      { city: 'Redding', state: 'CA', population: '100,000', competitionLevel: 'low', localContext: 'Operations managers and IT teams at Redding\'s healthcare and public sector employers — including the workflow automation staff at Dignity Health\'s Mercy Medical Center Redding (the primary hospital for far Northern California, 267 beds on Court Street) and the administrative process teams at Shasta College and City of Redding municipal offices — use WorkflowAutomation to build approval routing and notification workflows without Power Automate\'s Microsoft ecosystem dependency.' },
+      { city: 'Brentwood', state: 'CA', population: '65,000', competitionLevel: 'low', localContext: 'Business owners and operations managers in Brentwood\'s fast-growing East Contra Costa County economy — including the service businesses, construction contractors, and healthcare clinics expanding along the Sand Creek Road business corridor — use WorkflowAutomation to automate lead routing, appointment confirmations, and customer follow-up sequences without Zapier\'s monthly task limits that hit as business volume grows.' },
+      { city: 'Yuba City', state: 'CA', population: '68,000', competitionLevel: 'low', localContext: 'Operations managers and office administrators at Yuba City\'s agriculture and healthcare employers — including the administrative process teams at Adventist Health Rideout\'s Yuba City regional facilities (serving the Sutter-Yuba County agricultural heartland) and the operations managers at Sunsweet Growers\' processing and administrative offices on Colusa Highway — use WorkflowAutomation to automate order notifications, approval routing, and staff scheduling alerts.' },
+      { city: 'Turlock', state: 'CA', population: '75,000', competitionLevel: 'low', localContext: 'Operations managers and IT teams at Turlock\'s agriculture processing and education employers — including the business process automation teams at Foster Farms\' Central Valley operations (one of the West Coast\'s largest poultry processors) and the administrative automation staff at California State University Stanislaus on Monte Vista Avenue (10,000+ students) — use WorkflowAutomation to route onboarding tasks and trigger email workflows without Make\'s confusing operations-based limits.' },
+      { city: 'Cheyenne', state: 'WY', population: '65,000', competitionLevel: 'low', localContext: 'Operations managers and IT teams at Cheyenne\'s government and data center employers — including the workflow automation teams at Wyoming state government agencies (Cheyenne is the state capital hosting most major state departments) and the operations staff at Microsoft, Google, and Amazon data center campuses along I-25 (Wyoming\'s low energy costs and tax climate make it a major cloud infrastructure hub) — use WorkflowAutomation to build cross-department approval routing and compliance notification workflows.' },
+      { city: 'Lorain', state: 'OH', population: '63,000', competitionLevel: 'low', localContext: 'Operations managers and office staff at Lorain\'s manufacturing and healthcare employers — including the process automation teams at the steel manufacturing and metal fabrication companies along the Black River industrial corridor (Lorain has been a steel industry hub since the early 1900s) and the administrative staff at University Hospitals Elyria Medical Center serving Lorain County — use WorkflowAutomation to automate production approval chains and HR notification workflows without n8n\'s developer-only setup.' },
+      { city: 'Hamilton', state: 'OH', population: '62,000', competitionLevel: 'low', localContext: 'Operations managers and business analysts at Hamilton\'s manufacturing and healthcare employers — including the workflow automation teams at the paper and packaging manufacturers in Butler County\'s industrial corridor along the Great Miami River (Hamilton has been a major papermaking hub since the 1800s) and the administrative automation teams at Fort Hamilton Hospital — use WorkflowAutomation to build purchase approval routing and HR workflows without Power Automate\'s per-user license requirements.' },
+      { city: 'Kokomo', state: 'IN', population: '57,000', competitionLevel: 'low', localContext: 'Operations and IT teams at Kokomo\'s automotive manufacturing employers — including the process automation staff at Stellantis Kokomo Transmission Plant and Kokomo Engine Plant (together employing 4,000+ UAW workers producing core Jeep and Ram powertrain components) and the automation coordinators at Indiana University Kokomo\'s administrative offices — use WorkflowAutomation to automate shift notifications, quality approval routing, and supplier order workflows.' },
+      { city: 'Anderson', state: 'IN', population: '55,000', competitionLevel: 'low', localContext: 'Operations managers and office teams at Anderson\'s manufacturing and healthcare employers — including the workflow automation teams at the automotive parts suppliers and Nestle Purina PetCare\'s Anderson manufacturing facility and the administrative process staff at Community Hospital Anderson — use WorkflowAutomation to build employee onboarding sequences, purchase approval chains, and customer notification workflows without Tray.io\'s enterprise pricing.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'workflow-automation'
+  },
+  {
+    id: 'it-asset-tracker',
+    name: 'AssetTracker',
+    tagline: 'Free IT asset tracker and equipment management tool',
+    description: 'AssetTracker is the best free IT asset management software for small business — track laptops, servers, phones, licenses, and equipment from one dashboard without spreadsheets or a $500/month ITAM platform. What is the best IT asset tracking software for small business? AssetTracker gives IT managers and operations teams real-time asset inventory, employee assignment tracking, and depreciation schedules without AssetPanda\'s annual contracts or Snipe-IT\'s self-hosting complexity.',
+    category: 'operations',
+    status: 'demo',
+    icon: '🖥️',
+    features: [
+      'Asset inventory database — track laptops, monitors, phones, servers, peripherals, and equipment in one searchable register',
+      'Employee assignment tracking — log who has which asset, since when, and expected return date with digital check-in and check-out',
+      'Asset lifecycle and depreciation — record purchase date, cost, warranty expiration, and calculate depreciation for each item',
+      'QR code label generation — print scannable QR asset tags so employees can report issues or request service from their phone',
+      'Maintenance and service log — record repairs, upgrades, and service history per asset with technician notes and dates',
+      'Software license tracker — manage SaaS license counts, renewal dates, and per-seat assignments alongside hardware assets',
+      'Asset dashboard with status alerts — view overdue returns, expiring warranties, and end-of-life assets with one-click action',
+      'CSV import and export — migrate your existing spreadsheet inventory in minutes and export audit-ready reports on demand'
+    ],
+    keywords: [
+      'IT asset tracker',
+      'IT asset management software',
+      'best asset tracking software 2026',
+      'equipment management tool',
+      'IT inventory management software',
+      'AssetPanda alternative',
+      'Snipe-IT alternative',
+      'EZOfficeInventory alternative',
+      'ManageEngine AssetExplorer alternative',
+      'cheaper asset tracking software',
+      'IT asset tracking small business',
+      'equipment checkout tracking software',
+      'laptop inventory management tool',
+      'software license tracking tool',
+      'asset depreciation tracking software',
+      'what is the best IT asset management software',
+      'how to track IT assets without spreadsheets',
+      'what is IT asset management',
+      'how to manage equipment assignments in a small business',
+      'what is the best free asset tracking tool'
+    ],
+    competitors: [
+      { name: 'AssetPanda', priceRange: '$1,500+/yr', topComplaint: 'Expensive for what it is — basic asset tracking should not cost over $1,500 per year for a small IT team (G2)' },
+      { name: 'Snipe-IT', priceRange: 'Free self-hosted / $499+/yr cloud', topComplaint: 'Self-hosting requires a server and technical setup that most small business IT teams don\'t have capacity for (GitHub Issues)' },
+      { name: 'EZOfficeInventory', priceRange: '$35-$195/mo', topComplaint: 'Pricing jumps sharply across plans and the mobile check-out interface is slow for high-volume warehouse environments (Capterra)' },
+      { name: 'Asset Essentials / Brightly', priceRange: '$500+/mo', topComplaint: 'Built for facilities and maintenance management — overkill for IT teams that just need to track who has which laptop (G2)' },
+      { name: 'ManageEngine AssetExplorer', priceRange: '$945+/yr', topComplaint: 'Complex configuration and requires significant IT setup time before you can begin tracking your first asset (Capterra)' }
+    ],
+    competitorFixes: [
+      'No self-hosting or server required — track all your IT assets from your browser without Snipe-IT\'s installation complexity',
+      'Check-in and check-out included — know who has which asset and since when without AssetPanda\'s annual contract fee',
+      'QR code labels built in — generate and print asset tags for any item without purchasing a separate labeling system',
+      'Software license tracking alongside hardware — manage SaaS renewals and seat counts in the same dashboard as physical assets',
+      'CSV import in under 5 minutes — migrate your entire spreadsheet inventory without a data migration consultant',
+      'Depreciation tracking built in — calculate book value and generate audit-ready reports without ManageEngine\'s setup complexity'
+    ],
+    targetCities: [
+      { city: 'Carlsbad', state: 'CA', population: '118,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Carlsbad\'s life sciences and technology employers — including the asset management staff at Viasat\'s Carlsbad headquarters (satellite communications technology, 7,000+ global employees on Carlsbad\'s tech corridor) and Callaway Golf\'s global HQ — use AssetTracker to manage laptops, lab equipment, and SaaS license assignments across their growing teams without AssetPanda\'s annual contract.' },
+      { city: 'Burbank', state: 'CA', population: '104,000', competitionLevel: 'low', localContext: 'IT teams and operations managers at Burbank\'s media and entertainment employers — including the IT asset management staff at The Walt Disney Company\'s ABC offices on Riverside Drive, Warner Bros. Entertainment\'s Burbank studio lot on Pass Avenue, and the media production technology companies serving the Burbank studio complex — use AssetTracker to track production equipment, laptops, and software license counts without EZOfficeInventory\'s per-plan limits.' },
+      { city: 'Manteca', state: 'CA', population: '84,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Manteca\'s logistics and healthcare employers — including the technology asset management teams at the Amazon, Target, and Home Depot distribution centers in Manteca\'s industrial park along the Union Pacific rail corridor (one of the San Joaquin Valley\'s largest logistics clusters) and the IT staff at Doctors Hospital of Manteca — use AssetTracker to manage scanner devices, desktop inventories, and warehouse equipment assignments.' },
+      { city: 'Tulare', state: 'CA', population: '67,000', competitionLevel: 'low', localContext: 'IT teams and operations managers at Tulare\'s agriculture processing and healthcare employers — including the technology asset management staff at Tulare Regional Medical Center on Cherry Avenue and the IT teams at the dairy processing facilities and agricultural supply businesses in San Joaquin Valley\'s Tulare County — use AssetTracker to track equipment assignments, manage license renewals, and calculate depreciation without Snipe-IT\'s server setup requirements.' },
+      { city: 'Lodi', state: 'CA', population: '67,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Lodi\'s wine industry and healthcare employers — including the technology asset staff at the major wine production and bottling facilities (Lodi is California\'s wine grape capital, home to Oak Ridge Winery and dozens of major production operations) and the IT team at Adventist Health Lodi Memorial — use AssetTracker to manage production floor and office IT assets without AssetPanda\'s annual pricing.' },
+      { city: 'Passaic', state: 'NJ', population: '70,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Passaic\'s manufacturing and healthcare employers — including the technology asset management teams at the light manufacturing and textile distribution companies along the Passaic River industrial corridor and the IT staff at St. Mary\'s General Hospital on Bloomfield Avenue — use AssetTracker to track computer and peripheral assignments, license counts, and equipment warranties without ManageEngine\'s complex configuration process.' },
+      { city: 'Meriden', state: 'CT', population: '60,000', competitionLevel: 'low', localContext: 'IT teams and operations managers at Meriden\'s manufacturing and healthcare employers — including the technology asset management staff at Meriden\'s precision manufacturing companies (Meriden has a century-long silverware and hardware manufacturing heritage as a center of Connecticut\'s Yankee manufacturing belt) and the IT team at MidState Medical Center (Hartford HealthCare affiliate) — use AssetTracker to manage equipment checkout, software licenses, and depreciation schedules without EZOfficeInventory\'s steep plan-tier jumps.' },
+      { city: 'Greenwood', state: 'IN', population: '65,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Greenwood\'s retail and logistics employers — including the technology asset management staff at the Amazon fulfillment operations and major retail distribution companies on the south side of Indianapolis in Greenwood\'s industrial corridors — use AssetTracker to track scanner assignments, laptop inventories, and hardware warranty expirations without expensive ITAM platforms designed for enterprise data centers.' },
+      { city: 'Elyria', state: 'OH', population: '54,000', competitionLevel: 'low', localContext: 'IT teams and operations managers at Elyria\'s manufacturing and healthcare employers — including the technology asset management staff at the precision metal and plastics manufacturers in Lorain County\'s industrial corridor (Elyria is Lorain County\'s seat and a historic Great Lakes manufacturing city) and the IT team at University Hospitals Elyria Medical Center — use AssetTracker to manage equipment assignments, software license renewals, and depreciation tracking without Snipe-IT\'s server requirements.' },
+      { city: 'Bartlett', state: 'TN', population: '59,000', competitionLevel: 'low', localContext: 'IT managers and operations teams at Bartlett\'s corporate and logistics employers — including the technology asset management staff at the distribution and logistics companies serving Memphis metro\'s northeast suburbs and the IT teams at Shelby County businesses in the Bartlett commercial corridor along Stage Road — use AssetTracker to track laptop assignments, peripheral inventories, and software license counts without AssetPanda\'s annual contract.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'asset-tracker'
+  },
+  // ── BATCH 4 ──────────────────────────────────────────────────────────────
+  {
+    id: 'sop-builder',
+    name: 'SOPBuilder',
+    tagline: 'Free SOP builder and business process knowledge base',
+    description: 'SOPBuilder is the best free standard operating procedure software for small businesses — create step-by-step SOPs, embed video and screenshots, and build a searchable knowledge base that new employees can use from day one. What is the best SOP tool for small business? SOPBuilder delivers Trainual-level process documentation at zero cost — because your business processes should be written down, not trapped in one person\'s head.',
+    category: 'productivity',
+    status: 'demo',
+    icon: '📋',
+    features: [
+      'Drag-and-drop SOP template builder with numbered steps, images, video embeds, and callout blocks',
+      'Searchable internal knowledge base — employees find the right procedure in seconds by keyword',
+      'SOP version control with change history, author tracking, and one-click rollback to prior versions',
+      'Employee read confirmation — track who has acknowledged each procedure and when',
+      'Category-organized SOP library — HR, Operations, Finance, Sales, and Customer Service sections',
+      'PDF export — generate print-ready or audit-submission procedure documents in one click',
+      'Role-based SOP assignment — employees automatically see procedures relevant to their position',
+      'AI-assisted SOP drafting — paste rough bullet notes and generate a formatted step-by-step procedure'
+    ],
+    keywords: [
+      'SOP builder software',
+      'standard operating procedure tool',
+      'best SOP software 2026',
+      'business process documentation tool',
+      'employee knowledge base software',
+      'Trainual alternative',
+      'Process Street alternative',
+      'Notion SOP alternative',
+      'Confluence alternative small business',
+      'Scribe alternative',
+      'SOP template creator',
+      'business procedure documentation software',
+      'employee training knowledge base',
+      'process documentation tool for teams',
+      'SOP management software',
+      'what is the best SOP tool for small business',
+      'how to create standard operating procedures',
+      'what is SOP software',
+      'how to build a business knowledge base',
+      'what is the best free SOP builder'
+    ],
+    competitors: [
+      { name: 'Trainual', priceRange: '$49-$199/mo', topComplaint: 'Very expensive for what is essentially documented Google Docs with a nicer interface (G2)' },
+      { name: 'Process Street', priceRange: '$100+/mo', topComplaint: 'Overkill for simple SOPs — the workflow builder has a steep learning curve and adds complexity (Capterra)' },
+      { name: 'Notion', priceRange: '$8-$16/seat/mo', topComplaint: 'Flexible but no structure by default — SOPs end up scattered across pages with no consistency (G2)' },
+      { name: 'Confluence', priceRange: '$5-$15/seat/mo', topComplaint: 'Designed for engineering teams and unintuitive for HR or operations managers creating SOPs (Capterra)' },
+      { name: 'Scribe', priceRange: '$23-$49/user/mo', topComplaint: 'Good for screen recordings but limited for building full procedure libraries and compliance documentation (G2)' }
+    ],
+    competitorFixes: [
+      'Pre-built SOP templates for 50+ common business processes — start in minutes, not hours',
+      'Read confirmation tracking — know exactly who has acknowledged each procedure and when',
+      'AI-assisted drafting — turn rough bullet notes into a formatted SOP in seconds without a writer',
+      'Flat pricing — no per-seat cost that grows with every department head or manager you add',
+      'Version control built in — every change is tracked and previous versions are restorable in one click',
+      'PDF export — produce audit-ready procedure binders without any extra step or tool'
+    ],
+    targetCities: [
+      { city: 'Hemet', state: 'CA', population: '85,000', competitionLevel: 'low', localContext: 'HR directors and operations managers at Hemet\'s healthcare and municipal employers — including the process documentation teams at Physicians for Healthy Hospitals\' Hemet Valley Medical Center on Florida Avenue (the primary hospital for the San Jacinto Valley) and the growing service businesses in Riverside County\'s Inland Valley — use SOPBuilder to document clinical and administrative procedures without Trainual\'s $199/month plan.' },
+      { city: 'Indio', state: 'CA', population: '92,000', competitionLevel: 'low', localContext: 'Operations managers and HR teams at Indio\'s hospitality and healthcare employers — including the event operations leads managing procedures for Coachella Valley Music and Arts Festival\'s year-round logistics (held at Empire Polo Club, drawing 125,000+ attendees per weekend) and Eisenhower Health\'s Desert Campus on Monroe Street — use SOPBuilder to document and share event production and patient care procedures across seasonal staff.' },
+      { city: 'Lake Elsinore', state: 'CA', population: '67,000', competitionLevel: 'low', localContext: 'Business owners and operations managers in Lake Elsinore\'s fast-growing Riverside County market — including the construction firms, retail businesses, and service companies expanding along the Lake Elsinore Downtown corridor and the Canyon Lake business community — use SOPBuilder to document standard procedures for scaling operations as the city adds new staff without Notion\'s scattered wiki structure.' },
+      { city: 'Petaluma', state: 'CA', population: '61,000', competitionLevel: 'low', localContext: 'HR managers and operations teams at Petaluma\'s life sciences and consumer health employers — including the process documentation teams at BioMarin Pharmaceutical\'s Petaluma campus on Digital Drive (global rare disease drug development operations) and the compliance staff at McNeill Consumer Healthcare and Clover Sonoma dairy — use SOPBuilder to document GMP and regulatory procedures without Confluence\'s engineering-focused design.' },
+      { city: 'Kenner', state: 'LA', population: '67,000', competitionLevel: 'low', localContext: 'Operations managers and HR teams at Kenner\'s aviation and healthcare employers — including the ground operations procedure teams at companies serving Louis Armstrong New Orleans International Airport (MSY, directly adjacent to Kenner on Veterans Memorial Boulevard) and the administrative operations staff at Ochsner Health System\'s Kenner Regional facilities — use SOPBuilder to document and train staff on airport and clinical service procedures.' },
+      { city: 'Schenectady', state: 'NY', population: '66,000', competitionLevel: 'low', localContext: 'Operations directors and HR managers at Schenectady\'s manufacturing and utility employers — including the technical procedure teams at General Electric\'s Power division turbine manufacturing facilities on River Road (GE was founded in Schenectady and the city remains a GE Power hub) and the Union College administrative staff on Union Street — use SOPBuilder to document engineering maintenance procedures and HR workflows without Trainual\'s cost.' },
+      { city: 'Bethesda', state: 'MD', population: '65,000', competitionLevel: 'low', localContext: 'Operations and HR teams at Bethesda\'s federal research and corporate employers — including the clinical protocol and administrative procedure teams supporting the NIH Clinical Research Center on Wisconsin Avenue (the world\'s largest dedicated clinical research hospital) and Marriott International\'s global headquarters on Fernwood Road — use SOPBuilder to document standard protocols and franchise procedures without Process Street\'s complexity.' },
+      { city: 'Sanford', state: 'FL', population: '63,000', competitionLevel: 'low', localContext: 'Operations managers and HR teams at Sanford\'s technology and education employers — including the process documentation teams at Seminole State College of Florida\'s Sanford campus (30,000 students) and the operations leads at the Central Florida Research Park extension near Orlando — use SOPBuilder to document administrative, safety, and student services procedures without the complexity of Confluence.' },
+      { city: 'Ocala', state: 'FL', population: '65,000', competitionLevel: 'low', localContext: 'Operations managers and HR directors at Ocala\'s logistics and healthcare employers — including the fulfillment operations procedure teams at Chewy.com\'s Ocala distribution center on NW 60th Avenue (one of the largest pet supply fulfillment centers in the Southeast) and the administrative staff at HCA Florida Ocala Hospital — use SOPBuilder to document warehouse, customer service, and HR onboarding procedures at scale.' },
+      { city: 'Chapel Hill', state: 'NC', population: '65,000', competitionLevel: 'low', localContext: 'Operations managers and HR teams at Chapel Hill\'s research and healthcare employers — including the administrative procedure teams at UNC-Chapel Hill\'s research administration offices (30,000 students, one of the nation\'s top public universities on Cameron Avenue) and UNC Health hospital system\'s operational compliance staff — use SOPBuilder to document clinical, research compliance, and administrative procedures without Scribe\'s per-user pricing.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'sop-builder'
+  },
+  {
+    id: 'crm-deal-tracker',
+    name: 'CRMTracker',
+    tagline: 'Free CRM and sales pipeline tracker for small business',
+    description: 'CRMTracker is the best free CRM for small business sales teams — track leads, manage your deal pipeline, log call and email activity, and forecast revenue without $25-$300 per seat. What is the best CRM for small business? CRMTracker gives your sales team the visual pipeline management and deal tracking that Pipedrive and HubSpot charge heavily for, with all the core CRM features a growing team actually uses every day.',
+    category: 'sales',
+    status: 'demo',
+    icon: '🤝',
+    features: [
+      'Visual Kanban deal pipeline — Lead, Qualified, Proposal, Negotiation, Closed Won, and Closed Lost',
+      'Contact and company database with custom fields for any industry or sales process',
+      'Activity logging — calls, emails, meetings, and notes with due date reminders and follow-up triggers',
+      'Deal value and close date tracking with weighted revenue forecast calculation',
+      'Follow-up reminder automation — never let a hot lead go cold with automatic next-action prompts',
+      'Win and loss analysis — understand the reasons deals close or fall through with structured tagging',
+      'Sales rep performance dashboard — pipeline volume, activity counts, and close rate per rep',
+      'Email activity logging — sent emails automatically mapped to deal and contact records'
+    ],
+    keywords: [
+      'free CRM small business',
+      'sales pipeline tracker',
+      'best CRM software 2026',
+      'deal tracking software',
+      'CRM for small business sales team',
+      'Salesforce alternative small business',
+      'HubSpot CRM alternative free',
+      'Pipedrive alternative',
+      'Zoho CRM alternative',
+      'cheaper CRM software',
+      'sales pipeline management tool',
+      'lead tracking software',
+      'contact management CRM',
+      'sales forecast tool small business',
+      'simple CRM without complexity',
+      'what is the best free CRM for small business',
+      'how to track sales pipeline',
+      'what is the best CRM without per seat pricing',
+      'how to manage deals in a CRM',
+      'what CRM works best for small sales teams'
+    ],
+    competitors: [
+      { name: 'Salesforce', priceRange: '$25-$300/seat/mo', topComplaint: 'Too expensive and requires a dedicated Salesforce admin to configure and maintain for small teams (G2)' },
+      { name: 'HubSpot CRM', priceRange: '$45-$800/mo', topComplaint: 'Free plan is very limited — paid tiers jump dramatically in price and the limits hit in the first month (Capterra)' },
+      { name: 'Pipedrive', priceRange: '$14-$99/seat/mo', topComplaint: 'Missing marketing automation and contacts quickly become messy without cleanup tools (G2)' },
+      { name: 'Zoho CRM', priceRange: '$14-$52/seat/mo', topComplaint: 'UI is overwhelming with too many modules — takes weeks of configuration before it is usable (Capterra)' },
+      { name: 'Close', priceRange: '$29-$149/seat/mo', topComplaint: 'Too expensive for what you get — good for inside sales teams but limited for everything else (G2)' }
+    ],
+    competitorFixes: [
+      'No Salesforce admin required — any sales rep can set up and maintain their pipeline in minutes per day',
+      'Full pipeline included at no cost — no artificial HubSpot contact or deal limits to hit in month one',
+      'Follow-up reminders built in — never let a lead go cold without Pipedrive\'s paid automation tier',
+      'Simple and clean UI — zero training required, sales reps are running their pipeline within one hour',
+      'Flat pricing — add your entire sales team at one cost with no per-seat compounding as you scale',
+      'Win-loss analysis included — understand your close rate without custom Salesforce reporting or a BI tool'
+    ],
+    targetCities: [
+      { city: 'Waterloo', state: 'IA', population: '67,000', competitionLevel: 'low', localContext: 'Sales teams and account managers at Waterloo\'s major industrial and healthcare employers — including the inside sales and territory reps at John Deere\'s Waterloo Works tractor manufacturing complex on Ansborough Avenue (5,000+ UAW employees, the largest tractor factory in North America) and the sales teams at Covenant Medical Center — use CRMTracker to manage industrial equipment leads and healthcare contracts without Salesforce\'s admin overhead.' },
+      { city: 'Ames', state: 'IA', population: '67,000', competitionLevel: 'low', localContext: 'Sales teams and business development managers at Ames\'s technology and university-adjacent employers — including the account executives at Danfoss Power Solutions\'s Ames operations (global leader in mobile hydraulics) and the sales and licensing teams serving the Iowa State University research commercialization ecosystem (35,000 students on Lincoln Way) — use CRMTracker to track deals and follow-up tasks without Pipedrive\'s $14/seat floor.' },
+      { city: 'White Plains', state: 'NY', population: '58,000', competitionLevel: 'low', localContext: 'Sales directors and account managers at White Plains\'s Westchester County business hub — including the enterprise sales teams at the IBM Westchester offices on North Castle Drive and the sales representatives managing accounts at the dense cluster of healthcare IT, financial services, and professional services firms in the White Plains downtown corridor near the Galleria mall — use CRMTracker to manage deal pipelines without Zoho CRM\'s overwhelming module structure.' },
+      { city: 'Bayonne', state: 'NJ', population: '67,000', competitionLevel: 'low', localContext: 'Sales and business development teams at Bayonne\'s port logistics and industrial employers — including the account managers at logistics and freight companies serving the Port Jersey container terminal (adjacent to Port Newark on the Kill Van Kull) and the sales reps at the NJ Turnpike industrial corridor manufacturing firms — use CRMTracker to track freight and supply chain deals without HubSpot\'s contact limit restrictions.' },
+      { city: 'Hoboken', state: 'NJ', population: '60,000', competitionLevel: 'low', localContext: 'Sales teams and business development managers at Hoboken\'s technology and financial services employers — including the inside sales and account management teams at Goldman Sachs\'s Hoboken office and the tech company sales reps near Stevens Institute of Technology (7,500 students on Castle Point Terrace) — use CRMTracker to manage B2B software and professional services deal pipelines without Salesforce\'s per-seat cost.' },
+      { city: 'Maricopa', state: 'AZ', population: '60,000', competitionLevel: 'low', localContext: 'Sales teams and real estate professionals in Maricopa, Arizona\'s fastest-growing city of its size — including the new home sales teams at the master-planned communities built by Pulte Homes, DR Horton, and Meritage Homes in Maricopa\'s booming residential corridors and the commercial sales reps at the businesses serving Banner Health\'s Maricopa Medical Center — use CRMTracker to track buyer pipelines without HubSpot\'s deal limits.' },
+      { city: 'West Hartford', state: 'CT', population: '62,000', competitionLevel: 'low', localContext: 'Sales directors and account managers at West Hartford\'s corporate and healthcare employers — including the B2B sales teams at professional services firms along the Blue Back Square corridor and the sales and outreach staff at Saint Francis Hospital and Medical Center on Asylum Avenue — use CRMTracker to manage service and contract pipelines without Pipedrive\'s per-seat pricing as teams grow.' },
+      { city: 'Corvallis', state: 'OR', population: '60,000', competitionLevel: 'low', localContext: 'Sales teams and business development managers at Corvallis\'s technology and university-adjacent employers — including the account executives at HP\'s Corvallis campus (inkjet printer R&D and manufacturing, one of HP\'s longest-standing US engineering sites) and the business development teams at Oregon State University spinoff and research commercialization companies on Campus Way — use CRMTracker to track enterprise deals without Zoho CRM\'s complex setup.' },
+      { city: 'Portland', state: 'ME', population: '68,000', competitionLevel: 'low', localContext: 'Sales directors and account managers at Portland\'s healthcare and professional services employers — including the business development teams serving Maine Medical Center on Bramhall Street (Portland\'s largest employer and Maine\'s flagship hospital) and the B2B sales reps at the growing University of Southern Maine technology and innovation corridor downtown — use CRMTracker to manage healthcare service and contract deals without Salesforce\'s admin complexity.' },
+      { city: 'Huntersville', state: 'NC', population: '65,000', competitionLevel: 'low', localContext: 'Sales teams and business development leads at Huntersville\'s corporate and healthcare employers — including the account managers at the professional services firms clustered along the Birkdale Village corridor and the sales representatives supporting Novant Health\'s Lake Norman Regional Medical Center (Huntersville\'s largest employer on Gilead Road, serving the Charlotte metro\'s north growth corridor) — use CRMTracker to track and follow up on deals without HubSpot\'s paid plan requirements.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'crm-tracker'
+  },
+  // ── BATCH 3 ──────────────────────────────────────────────────────────────
+  {
+    id: 'cash-flow-planner',
+    name: 'CashFlowPlanner',
+    tagline: 'Free cash flow forecasting and runway planning tool for small business',
+    description: 'CashFlowPlanner is the best free cash flow forecasting tool for small businesses — model your cash inflows, track outstanding receivables, and project your runway weeks before a cash crunch hits. What is the best cash flow planning software for small business? CashFlowPlanner gives business owners and CFOs a rolling 13-week cash forecast and AR aging dashboard without the $400/month Float or Agicap subscription fee.',
+    category: 'finance',
+    status: 'demo',
+    icon: '💧',
+    features: [
+      '13-week rolling cash flow forecast with weekly projection view and variance from prior forecast',
+      'Accounts receivable aging dashboard — 30, 60, and 90+ day buckets with customer drill-down',
+      'Recurring expense schedule — rent, payroll, subscriptions, loan payments mapped to calendar',
+      'Scenario planning — model best case, expected case, and worst case cash positions side by side',
+      'Customer invoice payment tracker with automated follow-up reminder emails',
+      'Bank CSV import — paste any bank export and projections update instantly, no integration required',
+      'Runway calculator on the main dashboard — months of cash remaining at current burn rate, always visible',
+      'Cash flow vs. profit reconciliation — toggle between accrual and cash basis with one click'
+    ],
+    keywords: [
+      'cash flow planning software small business',
+      'business cash flow forecast tool',
+      'best cash flow software 2026',
+      'cash flow management tool',
+      '13 week cash flow forecast',
+      'Float alternative',
+      'Pulse alternative',
+      'Agicap alternative small business',
+      'cash flow software without bank integration',
+      'cheaper cash flow forecasting tool',
+      'cash runway calculator',
+      'accounts receivable aging report tool',
+      'cash flow vs profit software',
+      'rolling cash forecast template',
+      'cash crunch prevention software',
+      'what is the best cash flow tool for small business',
+      'how to forecast cash flow',
+      'what is a 13 week cash flow forecast',
+      'how to calculate business runway',
+      'what is the best free cash flow planner'
+    ],
+    competitors: [
+      { name: 'Float', priceRange: '$6-$10/seat/mo', topComplaint: 'Forecast accuracy is limited — does not model complex AR and AP timing well enough for growing businesses (G2)' },
+      { name: 'Pulse (Elorus)', priceRange: '$25-$65/mo', topComplaint: 'UI is dated and limited scenario modeling makes it hard to stress-test cash positions (Capterra)' },
+      { name: 'Agicap', priceRange: '$400-$600/mo', topComplaint: 'Enterprise pricing and slow implementation make it inaccessible for companies under $10M revenue (G2)' },
+      { name: 'Dryrun', priceRange: '$50-$100/mo', topComplaint: 'Limited bank integrations and the forecasting horizon is too short for strategic planning (Capterra)' },
+      { name: 'Vena Solutions', priceRange: 'Enterprise pricing', topComplaint: 'Takes 6-12 months to implement and requires dedicated FP&A expertise to maintain (G2)' }
+    ],
+    competitorFixes: [
+      '13-week rolling forecast built in — see your cash position further out than Pulse or Float allow',
+      'No bank integration required — paste or import from any bank CSV export in under 30 seconds',
+      'Best, expected, and worst case scenario modeling — know your downside before it becomes a crisis',
+      'AR aging dashboard built in — catch slow-paying customers before they drain your operating cash',
+      'Transparent flat pricing — no per-seat fees that grow with your finance and accounting team',
+      'Runway calculator always on the dashboard — your months remaining is the first number you see'
+    ],
+    targetCities: [
+      { city: 'Fairfield', state: 'CA', population: '115,000', competitionLevel: 'low', localContext: 'CFOs and finance managers at Fairfield\'s federal and logistics employers — including the financial teams at the defense contractors and logistics companies serving Travis Air Force Base (the Air Force\'s largest air mobility wing, with 15,000+ military and civilian personnel) and the NorCal distribution companies along the I-80 corridor — use CashFlowPlanner to manage 13-week rolling cash forecasts without Float\'s bank integration requirement.' },
+      { city: 'Walnut Creek', state: 'CA', population: '70,000', competitionLevel: 'low', localContext: 'Finance directors and small business owners in Walnut Creek\'s East Bay professional services hub — including the financial controllers at the accounting firms, wealth management offices, and healthcare clinics in the downtown Walnut Creek corridor near John Muir Medical Center on Ygnacio Valley Road — use CashFlowPlanner to track weekly cash positions and AR aging without an enterprise subscription.' },
+      { city: 'Folsom', state: 'CA', population: '79,000', competitionLevel: 'low', localContext: 'Finance teams and small business owners in Folsom\'s technology and professional services corridor — including the financial planning teams supporting the vendor and contractor ecosystem around Intel\'s Folsom campus on Folsom Road (home to 2,000+ processor engineers) and the growing mix of SaaS and fintech startups in the Prairie City Road business district — use CashFlowPlanner to model cash runway without Agicap\'s $400/month floor.' },
+      { city: 'Rancho Cordova', state: 'CA', population: '77,000', competitionLevel: 'low', localContext: 'CFOs and finance managers at Rancho Cordova\'s aerospace and healthcare employers — including the financial teams at Aerojet Rocketdyne\'s global headquarters on Douglas Road (advanced rocket propulsion manufacturing, now a segment of L3Harris Technologies) and Dignity Health\'s River Oaks Hospital — use CashFlowPlanner to manage operating cash and AR aging across government contract payment cycles.' },
+      { city: 'Menifee', state: 'CA', population: '97,000', competitionLevel: 'low', localContext: 'Small business owners and finance managers in Menifee\'s fast-growing Riverside County economy — including the construction contractors, healthcare clinics, and service businesses growing around Menifee Valley Medical Center on Holland Road — use CashFlowPlanner to project cash flow 13 weeks out and catch receivables gaps before payroll or rent due dates arrive.' },
+      { city: 'Bellflower', state: 'CA', population: '77,000', competitionLevel: 'low', localContext: 'Finance teams and small business owners in Bellflower\'s Southeast Los Angeles County corridor — including the healthcare practices, logistics contractors, and service businesses near Kaiser Permanente Bellflower Medical Center on East Flower Street (LAC\'s largest Kaiser facility) — use CashFlowPlanner to track weekly cash inflows from insurance reimbursements and client invoices without a costly subscription.' },
+      { city: 'Camden', state: 'NJ', population: '73,000', competitionLevel: 'low', localContext: 'Finance directors and CFOs at Camden\'s institutional and corporate employers — including the financial operations teams at Campbell Soup Company\'s global headquarters on Campbell Place (over a century of corporate history and one of New Jersey\'s largest food manufacturing operations) and Rutgers University–Camden\'s administrative finance team — use CashFlowPlanner to track weekly operating cash without Dryrun\'s limited integrations.' },
+      { city: 'Union City', state: 'NJ', population: '72,000', competitionLevel: 'low', localContext: 'Finance managers and small business owners in Union City\'s Hudson County manufacturing and distribution corridor — including the financial teams at the pharmaceutical distribution operations and logistics companies serving the NJ Turnpike corridor near the Lincoln Tunnel approach — use CashFlowPlanner to manage 13-week cash forecasts and AR aging without Vena Solutions\' six-figure implementation.' },
+      { city: 'South San Francisco', state: 'CA', population: '67,000', competitionLevel: 'low', localContext: 'CFOs and finance directors at South San Francisco\'s biotech and life sciences employers — including the financial planning teams at Genentech\'s global headquarters on DNA Way (the city is known as the Birthplace of Biotechnology, with 14,000 employees and billions in annual revenue) and the dozens of UCSF Mission Bay spinoff companies clustered on the San Francisco Peninsula — use CashFlowPlanner to manage cash flow across long clinical trial payment cycles.' },
+      { city: 'Palatine', state: 'IL', population: '68,000', competitionLevel: 'low', localContext: 'Finance managers and small business owners in Palatine\'s Chicago suburban corridor — including the financial teams at the logistics companies near UPS\'s Chicagoland distribution hub on Dundee Road and the professional services firms and manufacturing businesses near Harper College (one of Illinois\' largest community colleges at 30,000 students on Algonquin Road) — use CashFlowPlanner to track weekly cash positions without a bank integration.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'cash-flow-planner'
+  },
+  {
+    id: 'project-timeline-tracker',
+    name: 'ProjectTracker',
+    tagline: 'Free visual project tracker and Gantt chart tool for teams',
+    description: 'ProjectTracker is the best free project management software for small business teams — build visual Gantt timelines, assign tasks and milestones, and track project progress without $8-$16 per seat per month. What is the best project tracking software for small business? ProjectTracker delivers Monday.com-level Gantt charts, task dependencies, and deadline tracking without the per-seat pricing that makes project tools expensive as your team grows.',
+    category: 'productivity',
+    status: 'demo',
+    icon: '📅',
+    features: [
+      'Visual Gantt chart with drag-and-drop timeline adjustment — resize and shift tasks in real time',
+      'Task and milestone management with dependency linking and automatic due date cascading',
+      'Team member assignments with workload balance view across all active projects',
+      'Project status dashboard — On Track, At Risk, and Behind indicators with color coding',
+      'Recurring task templates for repeatable project types — weekly, monthly, and quarterly cycles',
+      'File attachments and threaded comments per task for centralized project communication',
+      'Deadline alert emails — automatic notifications when milestones are approaching or overdue',
+      'Multi-project portfolio view — one consolidated dashboard for managers overseeing multiple projects'
+    ],
+    keywords: [
+      'project tracking software small business',
+      'free Gantt chart tool',
+      'best project management software 2026',
+      'project timeline tracker',
+      'task and milestone management tool',
+      'Monday.com alternative',
+      'Asana alternative free',
+      'Trello alternative with Gantt chart',
+      'Basecamp alternative',
+      'cheaper project management software',
+      'visual project tracker',
+      'Gantt chart software free',
+      'project deadline tracking tool',
+      'team project management dashboard',
+      'project milestone tracker',
+      'what is the best project management tool for small business',
+      'how to build a Gantt chart',
+      'what is the best free project tracker',
+      'how to track project deadlines',
+      'what project management software does not charge per seat'
+    ],
+    competitors: [
+      { name: 'Monday.com', priceRange: '$8-$16/seat/mo', topComplaint: 'Gets expensive fast when you add team members — pricing is not transparent until you are already committed (G2)' },
+      { name: 'Asana', priceRange: '$10-$25/seat/mo', topComplaint: 'Free plan is extremely limited — you hit the artificial wall and have to upgrade within the first month (Capterra)' },
+      { name: 'Trello', priceRange: '$5-$17/seat/mo', topComplaint: 'Kanban-only by default — Gantt charts require Power-Up add-ons that cost extra on top of the seat fee (G2)' },
+      { name: 'Basecamp', priceRange: '$15/user/mo', topComplaint: 'Flat-file task management with limited support for project dependencies and critical path tracking (Capterra)' },
+      { name: 'Teamwork', priceRange: '$5-$19/user/mo', topComplaint: 'Steep learning curve and too many features for teams that just need simple project deadline tracking (G2)' }
+    ],
+    competitorFixes: [
+      'Gantt chart included in the free plan — no Monday.com Business tier or Trello Power-Up required',
+      'Flat pricing — add your whole team without per-seat costs that compound with every hire',
+      'Task dependencies with visual critical path linking — see the full project chain without enterprise tier',
+      'Setup in 5 minutes — start tracking your first project today, not after an onboarding session',
+      'Workload balance view across all team members — prevent burnout and deadline slippage before they happen',
+      'Multi-project portfolio dashboard — one view for all active projects, not scattered boards and lists'
+    ],
+    targetCities: [
+      { city: 'Alameda', state: 'CA', population: '78,000', competitionLevel: 'low', localContext: 'Project managers and team leads at Alameda\'s technology and creative employers — including the program managers at the growing startup and tech companies on the former Alameda Naval Air Station (NAS Alameda, now Alameda Point — a 1,600-acre redevelopment tech park) and the creative agencies along Webster Street — use ProjectTracker to run visual Gantt timelines without Monday.com\'s per-seat pricing.' },
+      { city: 'Jurupa Valley', state: 'CA', population: '107,000', competitionLevel: 'low', localContext: 'Project managers and operations leads at Jurupa Valley\'s Inland Empire logistics and industrial employers — incorporated in 2011 as Riverside County\'s newest city, Jurupa Valley hosts a dense cluster of Amazon, UPS, and third-party logistics warehouses along Limonite Avenue and the BNSF freight rail corridor — use ProjectTracker to track facility buildout milestones and operations projects without Asana\'s plan limits.' },
+      { city: 'Orange', state: 'CA', population: '140,000', competitionLevel: 'low', localContext: 'Project managers and department heads at Orange\'s healthcare and academic employers — including the program leads at CHOC (Children\'s Hospital of Orange County) on The City Drive (one of the nation\'s top-ranked pediatric hospitals) and the project teams at Chapman University\'s administrative and technology offices — use ProjectTracker to manage cross-departmental projects without Basecamp\'s flat dependency tracking.' },
+      { city: 'Stockton', state: 'CA', population: '322,000', competitionLevel: 'low', localContext: 'Project managers and operations leads at Stockton\'s logistics, port, and healthcare employers — including the program managers overseeing distribution and infrastructure projects at the Port of Stockton (one of California\'s deepest inland ports, handling agricultural exports and bulk cargo) and Amazon\'s Airport Way fulfillment center — use ProjectTracker to run Gantt-based project timelines without Monday.com\'s team seat costs.' },
+      { city: 'Hesperia', state: 'CA', population: '96,000', competitionLevel: 'low', localContext: 'Project managers and small business owners in Hesperia\'s fast-growing San Bernardino County High Desert corridor — including the construction project managers, municipal contractors, and service business owners in the Victor Valley business community — use ProjectTracker to track multi-phase construction and expansion projects with visual Gantt charts without Trello\'s Gantt Power-Up costs.' },
+      { city: 'Apple Valley', state: 'CA', population: '73,000', competitionLevel: 'low', localContext: 'Project managers and operations teams at Apple Valley\'s healthcare and municipal employers — including the program managers at Victor Valley Medical Center on Bear Valley Road and the project leads managing infrastructure and commercial development projects in San Bernardino County\'s High Desert growth corridor — use ProjectTracker to manage multi-vendor project timelines without Teamwork\'s per-user fees.' },
+      { city: 'Waltham', state: 'MA', population: '62,000', competitionLevel: 'low', localContext: 'Project managers and team leads at Waltham\'s technology and defense employers — including the program managers supporting Raytheon Technologies\' Waltham engineering campus and the project teams at the healthcare IT companies along Route 128 near Brandeis University on South Street — use ProjectTracker to run Gantt-based software development and delivery timelines without Asana\'s costly Business plan.' },
+      { city: 'Haverhill', state: 'MA', population: '64,000', competitionLevel: 'low', localContext: 'Project managers and operations teams at Haverhill\'s manufacturing and healthcare employers — including the production managers at the light manufacturing and distribution companies along the Merrimack River corridor and the project leads at Merrimack Valley hospitals — use ProjectTracker to manage multi-phase production and facilities projects with visual milestone tracking without per-seat project management costs.' },
+      { city: 'Malden', state: 'MA', population: '62,000', competitionLevel: 'low', localContext: 'Project managers and team leads at Malden\'s financial services and healthcare employers — including the program managers at Eastern Bank\'s corporate offices (one of New England\'s largest mutual banks, headquartered in Malden) and the project teams managing technology rollouts at the MBTA Orange Line transit hub corridor companies — use ProjectTracker to track cross-team projects without Monday.com\'s compounding seat costs.' },
+      { city: 'Alpharetta', state: 'GA', population: '65,000', competitionLevel: 'low', localContext: 'Project managers and team leads at Alpharetta\'s technology headquarters cluster — including the program managers at NCR Corporation\'s Windward Plaza campus (point-of-sale and fintech software for global retailers) and the project teams at ADP\'s major Georgia office, Cisco\'s Alpharetta campus, and Salesforce\'s Georgia presence — use ProjectTracker to manage software delivery and go-live milestones without Asana\'s Business plan pricing.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'project-tracker'
+  },
+  // ── BATCH 2 ──────────────────────────────────────────────────────────────
+  {
+    id: 'budget-planning-tool',
+    name: 'BudgetFlow',
+    tagline: 'Free department budget planning and variance tracking tool',
+    description: 'BudgetFlow is the best free business budget planning software for small teams — build department budgets, track actuals vs. budget in real time, and give finance leaders the variance reporting they need without a $1,500/month enterprise subscription. What is the best budget planning tool for small business? BudgetFlow delivers Planful-level budget tracking and variance analysis without the enterprise price tag or six-month implementation.',
+    category: 'finance',
+    status: 'demo',
+    icon: '📊',
+    features: [
+      'Department budget builder with line-item categories — headcount, software, travel, marketing, COGS',
+      'Real-time actual vs. budget variance tracking with color-coded overspend alerts',
+      'Monthly budget vs. actuals dashboard with trend sparklines per cost center',
+      'Multi-department rollup to company-wide P&L view for finance leadership',
+      'Budget revision history and version control — compare original vs. revised plan at any time',
+      'CSV/Excel export for finance team reconciliation with QuickBooks and NetSuite',
+      'Budget approval workflow — department lead, finance director, and CFO sign-off chain',
+      'Forecast vs. plan comparison for mid-year re-budgeting and board reporting scenarios'
+    ],
+    keywords: [
+      'budget planning software small business',
+      'department budget tracker',
+      'best budget planning tool 2026',
+      'budget vs actuals software',
+      'business budget planning tool',
+      'Planful alternative',
+      'cheaper than Adaptive Planning',
+      'Anaplan alternative small business',
+      'budget software without implementation consultant',
+      'Centage alternative',
+      'departmental budget tracking tool',
+      'variance reporting software',
+      'budget planning spreadsheet alternative',
+      'finance planning software for teams',
+      'operational budget tracker',
+      'what is the best budget planning software for small business',
+      'how to track budget vs actuals',
+      'what is the best department budget tool',
+      'how to automate budget variance reporting',
+      'what is budget variance analysis'
+    ],
+    competitors: [
+      { name: 'Planful', priceRange: '$1,500+/mo', topComplaint: 'Implementation takes 3-6 months and requires their professional services team — by then the fiscal year is halfway over (G2)' },
+      { name: 'Workday Adaptive Planning', priceRange: '$1,200+/mo', topComplaint: 'Designed for Fortune 500, extremely expensive and overcomplicated for growing companies (Capterra)' },
+      { name: 'Anaplan', priceRange: '$3,000+/mo', topComplaint: 'By the time training is complete, the planning cycle is already missed (G2)' },
+      { name: 'Centage (Budgyt)', priceRange: '$300-$700/mo', topComplaint: 'Limited integrations, dated UI, hard to onboard new finance team members (Capterra)' },
+      { name: 'Float', priceRange: '$6-$10/seat/mo', topComplaint: 'Cash-flow focused — not enough depth for P&L budget planning across multiple departments (G2)' }
+    ],
+    competitorFixes: [
+      'Setup in 15 minutes — build your first department budget today, not in three months with a consultant',
+      'No implementation team required — intuitive drag-and-drop line item builder any finance team can use',
+      'Multi-department rollup included at every plan level — no enterprise tier upsell for P&L aggregation',
+      'Real-time variance alerts — catch overspend before month-end close, not during the audit',
+      'Transparent flat pricing — one cost covers all departments and all team members',
+      'Finance-friendly CSV export — works directly with your existing QuickBooks and Excel workflow'
+    ],
+    targetCities: [
+      { city: 'Fontana', state: 'CA', population: '215,000', competitionLevel: 'low', localContext: 'Finance managers and operations teams at Fontana\'s major logistics and healthcare employers — including the budget planning staff at Amazon\'s enormous 2.6 million square foot fulfillment center on Jurupa Avenue (one of the largest in the US) and Kaiser Permanente Fontana Medical Center\'s finance operations — use BudgetFlow to track departmental actuals against plan without Planful\'s six-figure implementation cost.' },
+      { city: 'Victorville', state: 'CA', population: '130,000', competitionLevel: 'low', localContext: 'Finance and operations teams at Victorville\'s Southern California Logistics Airport corridor — including the budget analysts at Amazon Air\'s cargo hub on Fortune Drive and the financial controllers at the distribution and logistics companies clustered around the SCLA (one of the largest cargo airports in the Inland Empire) — use BudgetFlow to manage departmental budgets and track variance in real time.' },
+      { city: 'San Mateo', state: 'CA', population: '104,000', competitionLevel: 'low', localContext: 'Finance directors and FP&A teams at San Mateo\'s corporate headquarters cluster — including the budget planning staff at Franklin Templeton\'s global HQ on Franklin Parkway (one of the world\'s largest asset managers) and the finance teams at Rakuten Americas and Caltrain-adjacent SaaS companies along the Bay Area peninsula — use BudgetFlow to build departmental budgets without Anaplan\'s enterprise pricing.' },
+      { city: 'Redwood City', state: 'CA', population: '85,000', competitionLevel: 'low', localContext: 'Finance and operations leads at Redwood City\'s technology headquarters cluster — including the budget planning teams at Electronic Arts\' Redwood Shores campus on Redwood Shores Parkway, Box\'s headquarters on Middlefield Road, and DoorDash\'s Bay Area corporate offices — use BudgetFlow to track software R&D and marketing spend against quarterly headcount budgets without Workday Adaptive\'s enterprise minimum.' },
+      { city: 'Newton', state: 'MA', population: '88,000', competitionLevel: 'low', localContext: 'Finance leaders and FP&A teams at Newton\'s technology and specialty healthcare employers — including the budget planning staff at TripAdvisor\'s Newton headquarters on Needham Street and PTC Inc\'s finance teams on Hartwell Avenue — use BudgetFlow to manage operating budgets and track actual vs. plan variance without the complexity of Planful or Adaptive Insights.' },
+      { city: 'New Rochelle', state: 'NY', population: '78,000', competitionLevel: 'low', localContext: 'Finance managers and department heads at New Rochelle\'s major institutional and corporate employers — including the budget planning staff at Iona University on North Avenue and the finance teams at NBCUniversal\'s Norden Place facility — use BudgetFlow to track operating expenses and build annual departmental budgets without Centage\'s dated interface.' },
+      { city: 'Metairie', state: 'LA', population: '140,000', competitionLevel: 'low', localContext: 'Finance directors and budget managers at Metairie\'s Jefferson Parish business corridor — including the financial planning teams at Pan American Life Insurance Group\'s headquarters and the finance operations at Ochsner Medical Center\'s West Bank facilities and corporate offices along Veterans Memorial Boulevard — use BudgetFlow to track departmental budgets and produce variance reports for leadership without enterprise FP&A subscriptions.' },
+      { city: 'Evanston', state: 'IL', population: '74,000', competitionLevel: 'low', localContext: 'Finance managers and budget planners at Evanston\'s major institutional employers — including the financial planning teams at Northwestern University\'s administrative offices (one of the nation\'s top-10 research universities with a $15B endowment) and the finance operations at Rotary International\'s world headquarters on Ridge Avenue — use BudgetFlow to manage departmental operating budgets without Planful\'s lengthy implementation.' },
+      { city: 'Fort Lauderdale', state: 'FL', population: '182,000', competitionLevel: 'low', localContext: 'Finance directors and FP&A teams at Fort Lauderdale\'s major corporate headquarters — including the budget planning teams at AutoNation\'s corporate headquarters in Fort Lauderdale (America\'s largest automotive retailer by revenue) and the finance operations at Citrix Systems\'s South Florida offices — use BudgetFlow to track department spending against annual operating plans without Workday Adaptive\'s $1,200/month minimum.' },
+      { city: 'St. Louis', state: 'MO', population: '293,000', competitionLevel: 'low', localContext: 'Finance managers and FP&A teams at St. Louis\'s major corporate employers — including the budget planning staff at Anheuser-Busch InBev\'s North American HQ on Pestalozzi Street and Emerson Electric\'s global headquarters on Kingsland Avenue — use BudgetFlow to build departmental budgets and track actuals versus plan in real time without Anaplan\'s enterprise licensing.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'budget-flow'
+  },
+  {
+    id: 'training-tracker-lms',
+    name: 'TrainingTracker',
+    tagline: 'Free employee training tracker and LMS for small business',
+    description: 'TrainingTracker is the best free employee training tracking software for small businesses — assign training modules, track completion and certification status, and send automated compliance reminders without a $200/month LMS subscription. What is the best training management system for small business? TrainingTracker gives HR teams the same compliance training dashboards used by enterprise learning management systems at zero setup cost.',
+    category: 'hr',
+    status: 'demo',
+    icon: '🎓',
+    features: [
+      'Training module library with video, PDF, quiz, and SCORM content support',
+      'Employee completion tracking with real-time progress dashboard for HR managers',
+      'Compliance calendar with automated certification expiration email reminders',
+      'Manager view — see all direct reports\' training status and overdue modules in one dashboard',
+      'New hire onboarding training sequence builder — day 1, week 1, month 1 learning milestones',
+      'Certificate generation for completed modules — downloadable proof of completion for audits',
+      'Department-level training completion reports for HR leadership and compliance officers',
+      'Role-based training assignment — employees automatically see modules relevant to their position'
+    ],
+    keywords: [
+      'employee training tracking software',
+      'free LMS small business',
+      'best training management system 2026',
+      'compliance training tracker',
+      'employee training management tool',
+      'TalentLMS alternative',
+      'LearnUpon alternative',
+      'Docebo alternative small business',
+      'cheaper training management software',
+      '360Learning alternative',
+      'employee certification tracking software',
+      'compliance training reminder tool',
+      'LMS without per user pricing',
+      'new hire training tracker',
+      'HR training completion dashboard',
+      'what is the best LMS for small business',
+      'how to track employee training completion',
+      'what is training compliance software',
+      'how to automate employee training reminders',
+      'what LMS does not charge per user'
+    ],
+    competitors: [
+      { name: 'TalentLMS', priceRange: '$59-$259/mo', topComplaint: 'Pricing jumps significantly when you add more users — the basic plan barely has enough features to be useful (G2)' },
+      { name: 'LearnUpon', priceRange: '$599-$1,299/mo', topComplaint: 'Enterprise pricing that mid-size companies cannot justify for basic compliance training (Capterra)' },
+      { name: 'Docebo', priceRange: '$1,500+/mo', topComplaint: 'Requires professional services to implement and the UI is overwhelming for HR generalists (G2)' },
+      { name: '360Learning', priceRange: '$8-$15/user/mo', topComplaint: 'Pricing is not transparent and the sales process feels high-pressure (Capterra)' },
+      { name: 'Absorb LMS', priceRange: '$800+/mo', topComplaint: 'Reporting is good but setup takes 60+ days and it is not self-serve at all (G2)' }
+    ],
+    competitorFixes: [
+      'Setup in under 10 minutes — assign your first training module today without an implementation call',
+      'Compliance calendar with automatic email reminders — no manual follow-up chasing employees',
+      'All user tiers included in one plan — no per-seat pricing that spikes when you hire a new class',
+      'Certificate generation built in — downloadable compliance proof for audits and regulators',
+      'Role-based automatic assignment — new hires see the right training from day one by role',
+      'Manager dashboards included — see team training status without building any custom reports'
+    ],
+    targetCities: [
+      { city: 'Milpitas', state: 'CA', population: '78,000', competitionLevel: 'low', localContext: 'HR compliance and learning teams at Milpitas\'s major technology employers — including the training operations teams at Cisco Systems\' Milpitas campus on McCarthy Boulevard (supporting thousands of engineers and sales staff) and FLEX Ltd\'s global headquarters and Applied Materials nearby — use TrainingTracker to manage mandatory compliance training and role-specific certification without TalentLMS\'s per-user pricing tiers.' },
+      { city: 'San Leandro', state: 'CA', population: '90,000', competitionLevel: 'low', localContext: 'HR managers and training coordinators at San Leandro\'s manufacturing and healthcare employers — including the employee development teams at Kaiser Permanente\'s Oakland Medical Center supply chain operations and the workforce training programs at the industrial and food production companies along the I-880 corridor — use TrainingTracker to track safety certifications and regulatory compliance completion without a $1,200/month LMS.' },
+      { city: 'Ontario', state: 'CA', population: '185,000', competitionLevel: 'low', localContext: 'HR compliance and training teams at Ontario\'s logistics and retail anchor employers — including the workforce training coordinators at Amazon\'s Ontario fulfillment center network (one of the largest in California) and Stater Bros. Markets\'s corporate headquarters on Kendall Drive — use TrainingTracker to manage forklift certifications, food safety training, and new hire orientation completion at scale.' },
+      { city: 'San Bernardino', state: 'CA', population: '215,000', competitionLevel: 'low', localContext: 'HR directors and training managers at San Bernardino\'s healthcare and education employers — including the learning and development staff at Arrowhead Regional Medical Center on Pepper Avenue (San Bernardino County\'s largest public hospital) and Cal State San Bernardino (20,000 students) — use TrainingTracker to assign mandatory compliance modules and track certification expiration across large, diverse workforces.' },
+      { city: 'Carson', state: 'CA', population: '94,000', competitionLevel: 'low', localContext: 'HR compliance and workforce training teams at Carson\'s major employers — including the training coordinators at Dignity Health Sports Park\'s events and facilities staff and Cal State Dominguez Hills\' employee development office — use TrainingTracker to manage safety training, OSHA compliance modules, and new hire onboarding sequences without the $600/month Absorb LMS price floor.' },
+      { city: 'Cicero', state: 'IL', population: '84,000', competitionLevel: 'low', localContext: 'HR and safety training teams at Cicero\'s manufacturing and logistics employers — including the compliance training coordinators at the Hawthorne Distribution Center and the workforce development teams at one of Chicago\'s largest suburban industrial corridors — use TrainingTracker to manage OSHA safety certifications, equipment operation training, and new employee orientation completion without Docebo\'s enterprise pricing.' },
+      { city: 'Bolingbrook', state: 'IL', population: '73,000', competitionLevel: 'low', localContext: 'HR learning and compliance teams at Bolingbrook\'s corporate headquarters and fulfillment employers — including the training operations at ULTA Beauty\'s global headquarters on Remington Boulevard (the largest US beauty retailer, with training programs spanning 40,000+ retail and corporate employees) and the Amazon Bolingbrook fulfillment center — use TrainingTracker to assign role-specific training without TalentLMS\'s steep per-user price jumps.' },
+      { city: 'Lakeville', state: 'MN', population: '72,000', competitionLevel: 'low', localContext: 'HR managers and training coordinators at Lakeville\'s growing south Twin Cities metro employers — including the workforce development teams at the distribution and light manufacturing companies along the Dakota County business corridor and the professional services firms in the Aiton Township commercial zone — use TrainingTracker to manage annual compliance training and new hire onboarding without a costly enterprise LMS.' },
+      { city: 'Eagan', state: 'MN', population: '67,000', competitionLevel: 'low', localContext: 'HR compliance and training teams at Eagan\'s aviation and healthcare employers — including the learning and development staff at Delta Air Lines Tech Operations on 34th Avenue South (Delta\'s largest aircraft maintenance facility in the US, employing 4,000+ licensed mechanics under FAA regulations) and Blue Cross Blue Shield of Minnesota\'s corporate campus — use TrainingTracker to manage FAA-mandated technical recurrency training and compliance certification tracking.' },
+      { city: 'Muncie', state: 'IN', population: '67,000', competitionLevel: 'low', localContext: 'HR directors and workforce training managers at Muncie\'s education and healthcare anchor employers — including the staff development teams at Ball State University (22,500 students, the city\'s largest employer on University Avenue) and IU Health Ball Memorial Hospital on Morrison Road — use TrainingTracker to manage employee certification tracking, continuing education requirements, and new hire onboarding sequences without a $1,500/month enterprise LMS.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'training-tracker'
+  },
+  // ── BATCH 1 ──────────────────────────────────────────────────────────────
+  {
+    id: 'applicant-tracking-system',
+    name: 'HireTrack',
+    tagline: 'Free applicant tracking system for small business hiring',
+    description: 'HireTrack is the best free applicant tracking system for small businesses — manage the entire candidate journey from job post to offer letter without expensive per-seat pricing. What is the best ATS for small business? HireTrack provides Greenhouse-level hiring workflows at zero cost, replacing messy email threads and spreadsheets with a visual Kanban pipeline that keeps every recruiter, hiring manager, and HR team member aligned.',
+    category: 'hr',
+    status: 'demo',
+    icon: '🔍',
+    features: [
+      'Drag-and-drop Kanban hiring pipeline (Applied → Phone Screen → Interview → Offer → Hired)',
+      'Candidate profile cards with resume attach, status history, and hiring notes',
+      'Interview scheduling with automated calendar invites sent directly to candidates',
+      'Collaborative team feedback scores — 1-5 rating plus comment per interviewer per round',
+      'Job description template library covering 50+ common roles across all departments',
+      'Offer letter builder with e-signature collection and audit trail',
+      'Source tracking — know which channel (LinkedIn, Indeed, referral, career site) produces your best hires',
+      'EEOC-compliant equal opportunity data collection for federal reporting requirements'
+    ],
+    keywords: [
+      'applicant tracking system small business',
+      'free ATS software',
+      'best ATS for small business 2026',
+      'applicant tracking software',
+      'hiring software for startups',
+      'Greenhouse alternative',
+      'Lever alternative',
+      'Workable alternative',
+      'JazzHR alternative',
+      'cheaper than BambooHR hiring',
+      'ATS software for HR teams',
+      'simple applicant tracking tool',
+      'small business recruiting software',
+      'ATS without annual contract',
+      'free hiring pipeline tool',
+      'what is the best ATS for small business',
+      'how to track job applicants',
+      'what is applicant tracking software',
+      'how to manage hiring pipeline',
+      'what ATS does not require annual contract'
+    ],
+    competitors: [
+      { name: 'Greenhouse', priceRange: '$6-$12/emp/mo', topComplaint: 'Requires annual contracts and implementation support — too complex for sub-100-person teams (G2)' },
+      { name: 'Lever', priceRange: '$5-$10/emp/mo', topComplaint: 'Pricing is not transparent and the renewal process is frustrating (Capterra)' },
+      { name: 'Workable', priceRange: '$189-$375/mo flat', topComplaint: 'Limited reporting in the basic plan and customization is restricted to higher tiers (G2)' },
+      { name: 'JazzHR', priceRange: '$39-$199/mo', topComplaint: 'Reporting is clunky and hard to export — mobile app is barely functional (Capterra)' },
+      { name: 'BambooHR Hiring', priceRange: '$6-$9/emp/mo', topComplaint: 'ATS is buried inside the full HRIS — overkill if you just need pipeline tracking (G2)' }
+    ],
+    competitorFixes: [
+      'No annual contracts — cancel anytime, month-to-month pricing when you are ready to upgrade',
+      'Instant setup in under 5 minutes — no implementation team or consultant required',
+      'Full EEOC-compliant reporting built into every plan, not a paid add-on',
+      'Mobile-first candidate profiles — review applications and give interview feedback from your phone',
+      'Flat transparent pricing — one price covers unlimited open jobs and unlimited team members',
+      'Source attribution tracking included — know which recruiting channels produce your best hires'
+    ],
+    targetCities: [
+      { city: 'Anaheim', state: 'CA', population: '346,000', competitionLevel: 'low', localContext: 'HR and talent acquisition teams at Anaheim\'s major employers — including the 30,000+ cast members and corporate staff at Disney Resort (with one of the largest seasonal hiring operations in Southern California) and the HR departments at Boeing Defense on East Ball Road — use HireTrack to manage high-volume applicant pipelines without Greenhouse\'s annual contract minimums.' },
+      { city: 'Birmingham', state: 'AL', population: '210,000', competitionLevel: 'low', localContext: 'HR and recruiting teams at Birmingham\'s anchor employers — including the talent acquisition departments at UAB Health System (Alabama\'s largest employer with 23,000 employees on University Boulevard) and Protective Life Corporation downtown — use HireTrack to manage candidate pipelines across multiple open roles without per-seat ATS pricing that grows with every hire.' },
+      { city: 'Newark', state: 'NJ', population: '310,000', competitionLevel: 'low', localContext: 'Recruiting and HR teams at Newark\'s major employers — including the talent acquisition staff at Prudential Financial\'s global HQ at 751 Broad Street (9,000 Newark employees) and the HR departments serving the growing Audible/Amazon campus near Ironbound — use HireTrack to track applicants across multiple roles without paying Lever\'s per-employee licensing fees.' },
+      { city: 'Jersey City', state: 'NJ', population: '292,000', competitionLevel: 'low', localContext: 'Talent acquisition and HR operations teams at Jersey City\'s financial services giants — including the recruiting coordinators at Goldman Sachs\'s Jersey City campus (3,000+ employees, one of the firm\'s largest US offices) and JPMorgan Chase\'s MetroTech operations hub on Hudson Street — use HireTrack to run structured hiring pipelines without Workable\'s $375/month flat rate.' },
+      { city: 'Arlington', state: 'VA', population: '230,000', competitionLevel: 'low', localContext: 'HR and talent acquisition teams at Arlington\'s rapidly growing employer base — including the recruiting teams supporting Amazon\'s HQ2 National Landing campus (25,000 jobs planned along the Crystal Drive / Pentagon City corridor) and the talent operations at Booz Allen Hamilton\'s Rosslyn headquarters — use HireTrack to scale hiring without Greenhouse\'s implementation consultant requirements.' },
+      { city: 'Danbury', state: 'CT', population: '84,000', competitionLevel: 'low', localContext: 'HR managers and talent teams at Danbury\'s corporate headquarters cluster — including the recruiting staff at Linde plc\'s global HQ on Old Ridgebury Road (the world\'s largest industrial gases company, formerly Praxair) and Western Connecticut Health Network — use HireTrack to track candidates from first application to signed offer without JazzHR\'s clunky mobile interface.' },
+      { city: 'Orlando', state: 'FL', population: '320,000', competitionLevel: 'low', localContext: 'Recruiting and HR operations teams at Orlando\'s technology and healthcare employers — including the talent acquisition departments at Lockheed Martin\'s Orlando engineering campus on Challenger Parkway (7,000+ engineers) and AdventHealth\'s Central Florida system hiring portal — use HireTrack to manage high-volume healthcare and aerospace recruiting pipelines without complex ATS implementations.' },
+      { city: 'Redmond', state: 'WA', population: '70,000', competitionLevel: 'low', localContext: 'HR and recruiting teams at Redmond\'s technology giants — including the talent acquisition coordinators supporting Microsoft\'s sprawling Redmond campus (50,000+ employees across hundreds of buildings on Microsoft Way) and Nintendo of America\'s Redmond headquarters — use HireTrack to track contractor and full-time applicant pipelines without Lever\'s opaque annual pricing.' },
+      { city: 'Boynton Beach', state: 'FL', population: '80,000', competitionLevel: 'low', localContext: 'HR departments and recruiting teams at Boynton Beach\'s I-95 corridor employers — including the talent acquisition staff at ADT\'s Corporate Center Drive headquarters and Modernizing Medicine\'s Boynton Beach campus (EHR software company, one of Palm Beach County\'s largest tech employers) — use HireTrack to standardize hiring workflows without BambooHR\'s bundled HRIS overhead.' },
+      { city: 'Deerfield Beach', state: 'FL', population: '77,000', competitionLevel: 'low', localContext: 'Talent acquisition and HR teams at Deerfield Beach\'s corporate anchors — including the recruiting operations at ODP Corporation (Office Depot parent, headquartered on Military Trail with 6,000+ Florida employees) and the HR departments supporting Broward County\'s growing healthcare and logistics employers along I-95 — use HireTrack to track applicants through every stage of the hiring funnel without annual ATS contracts.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'hire-track'
+  },
+  {
+    id: 'performance-review-tool',
+    name: 'PerformanceReview',
+    tagline: 'Free 360-degree performance review and OKR tracking software',
+    description: 'PerformanceReview is the best free performance review software for small businesses — build structured 360-degree feedback cycles, track OKRs and team goals, and give every manager real-time visibility into employee progress. What is the best performance review tool for small business? PerformanceReview replaces Word templates emailed around and clunky spreadsheet review trackers with professional feedback cycles that HR, managers, and employees actually complete.',
+    category: 'hr',
+    status: 'demo',
+    icon: '⭐',
+    features: [
+      '360-degree review builder — self-review, peer feedback, manager review, and upward feedback in one cycle',
+      'OKR and goal setting with quarterly progress tracking and key result status updates',
+      'Automated review cycle scheduling — annual, semi-annual, quarterly, or project-based triggers',
+      'Real-time employee performance dashboards with trend charts across review periods',
+      'Custom rating scales, competency frameworks, and weighted scoring per role type',
+      'Anonymous peer feedback with cryptographic anonymity guarantees — employees actually participate',
+      'Review history and career growth trajectory charts for manager 1:1 conversations',
+      'Compensation review integration — link review scores to raise and bonus decision workflows'
+    ],
+    keywords: [
+      'performance review software small business',
+      'free 360 degree review tool',
+      'best performance management software 2026',
+      'OKR tracking software',
+      'employee performance review tool',
+      'Lattice alternative',
+      '15Five alternative',
+      'Culture Amp alternative',
+      'Betterworks alternative',
+      'cheaper performance review software',
+      '360 feedback tool for teams',
+      'employee goal tracking software',
+      'OKR software without per seat pricing',
+      'performance review cycle automation',
+      'free goal setting tool for managers',
+      'what is the best performance review software for small business',
+      'how to run 360 degree reviews',
+      'what is OKR tracking software',
+      'how to automate employee performance reviews',
+      'what performance review tool does not charge per employee'
+    ],
+    competitors: [
+      { name: 'Lattice', priceRange: '$9-$15/emp/mo', topComplaint: 'Price creep is real — went from $6 to $12 per employee with barely any feature additions (G2)' },
+      { name: '15Five', priceRange: '$4-$14/emp/mo', topComplaint: 'OKR tracking is buried and hard to build company-level goals that cascade down (Capterra)' },
+      { name: 'Culture Amp', priceRange: '$5-$10/emp/mo', topComplaint: 'Limited customization on survey templates — everything looks the same regardless of company (G2)' },
+      { name: 'Betterworks', priceRange: '$8-$15/emp/mo', topComplaint: 'Implementation takes 4-6 weeks and requires their professional services team (G2)' },
+      { name: 'Workday Performance', priceRange: 'Enterprise pricing', topComplaint: 'Way too expensive and bloated for mid-size companies that just need review cycles (Capterra)' }
+    ],
+    competitorFixes: [
+      'Self-review, peer, manager, and upward feedback in a single cycle — no bolted-on modules or extra cost',
+      'OKR and goal tracking built into every review — not a separate Lattice Grow add-on',
+      'Setup in under 10 minutes — create your first review cycle today, not after a 6-week implementation',
+      'Anonymous peer feedback with guarantees employees can trust — drives real participation rates',
+      'Flat pricing — no per-employee cost creep as you hire and grow your team',
+      'Custom competency frameworks — tailor rating scales to your industry, seniority levels, and values'
+    ],
+    targetCities: [
+      { city: 'Livermore', state: 'CA', population: '95,000', competitionLevel: 'low', localContext: 'HR and people operations teams at Livermore\'s national laboratory and technology employers — including the talent management staff supporting Lawrence Livermore National Laboratory (8,000 researchers and engineers on East Avenue) and Sandia National Laboratories\' California site — use PerformanceReview to run structured 360-degree feedback cycles that match the rigorous scientific culture without Lattice\'s $12/employee monthly overhead.' },
+      { city: 'Tracy', state: 'CA', population: '95,000', competitionLevel: 'low', localContext: 'HR managers and operations leads at Tracy\'s major logistics and distribution employers — including the people operations teams at Amazon\'s massive Tracy fulfillment center on Naglee Road (one of Northern California\'s largest FCs) and the supply chain managers at the Central Valley\'s growing warehouse corridor — use PerformanceReview to run quarterly OKR check-ins for hourly and salaried teams alike.' },
+      { city: 'Berkeley', state: 'CA', population: '120,000', competitionLevel: 'low', localContext: 'People operations and HR teams at Berkeley\'s research and biotech employers — including the talent management staff at Bayer HealthCare Pharmaceuticals\'s Berkeley research campus (occupying the former Shering-Plough site) and the HR departments at UC Berkeley spinoff startups in the Bancroft and Shattuck biotech corridor — use PerformanceReview to run 360 feedback cycles and OKR tracking that match UC Berkeley\'s performance-driven culture.' },
+      { city: 'Santa Maria', state: 'CA', population: '107,000', competitionLevel: 'low', localContext: 'HR teams and managers at Santa Maria\'s major employers — including the supervisors and people leads supporting civilian and contractor staff at Vandenberg Space Force Base (10,000+ military and civilian personnel, one of the West Coast\'s largest federal installations on Highway 1 north of Lompoc) and Allan Hancock College\'s administrative staff — use PerformanceReview to standardize annual review cycles across diverse team types.' },
+      { city: 'Whittier', state: 'CA', population: '86,000', competitionLevel: 'low', localContext: 'HR and talent management teams at Whittier\'s healthcare and education anchors — including the people operations staff at PIH Health Whittier Hospital on Workman Mill Road (the primary regional medical center for East Los Angeles County) and Rio Hondo College (20,000 students) — use PerformanceReview to run semi-annual employee evaluations without the complexity and cost of Culture Amp.' },
+      { city: 'Sandy', state: 'UT', population: '95,000', competitionLevel: 'low', localContext: 'HR operations and people teams at Sandy\'s South Valley technology employers — including the talent management staff at the Intermountain Healthcare corporate offices along 9000 South and the tech companies and SaaS startups growing in Sandy\'s Silicon Slopes I-15 corridor — use PerformanceReview to run structured OKR cycles and 360 feedback that keep fast-growing teams aligned without Betterworks\' 6-week implementation.' },
+      { city: 'Rockville', state: 'MD', population: '70,000', competitionLevel: 'low', localContext: 'HR and people operations teams at Rockville\'s federal research and biotech employers — including the talent management staff at the NIH main campus (spanning the Bethesda-Rockville border on Wisconsin Avenue with 20,000+ researchers) and Novavax\'s Rockville vaccine research headquarters on Firstfield Road — use PerformanceReview to run structured 360 review cycles that align with federal performance management standards.' },
+      { city: 'Gaithersburg', state: 'MD', population: '70,000', competitionLevel: 'low', localContext: 'HR directors and people operations leads at Gaithersburg\'s federal and corporate campus employers — including the talent management teams supporting NIST\'s main campus on Quince Orchard Road (the National Institute of Standards and Technology, employing 3,500+ scientists and engineers) and Sodexo\'s North American headquarters staff — use PerformanceReview to run annual and project-based review cycles aligned with federal review standards.' },
+      { city: 'Framingham', state: 'MA', population: '73,000', competitionLevel: 'low', localContext: 'HR leaders and people operations teams at Framingham\'s major corporate employers — including the talent management staff at TJX Companies\' global headquarters on Commerce Way (the parent company of T.J. Maxx and Marshalls, with 330,000 employees worldwide) and the HR teams at Mass General Brigham\'s Framingham specialty care site — use PerformanceReview to standardize semi-annual reviews across large retail and healthcare workforces.' },
+      { city: 'Noblesville', state: 'IN', population: '72,000', competitionLevel: 'low', localContext: 'HR managers and talent development teams at Noblesville\'s growing Hamilton County employers — including the people operations staff at Riverview Health on Hospital Drive (Hamilton County\'s largest healthcare employer) and the HR directors at the professional services firms and logistics companies growing in the Federal Hill Commerce Park corridor — use PerformanceReview to run structured OKR reviews and 360 feedback without Lattice\'s per-employee pricing.' }
+    ],
+    dateAdded: '2026-05-22',
+    waitlistCount: 0,
+    slug: 'performance-review'
   }
 ];
 
@@ -1971,6 +2778,76 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'VendorPortal', cities: ['Clifton NJ', 'Yonkers NY', 'Buckeye AZ', 'Vacaville CA', 'Missouri City TX', 'Mission TX', 'Harlingen TX', 'Gary IN', 'Rialto CA', 'Wyoming MI'] }
     ],
     researchNotes: 'Session 9: Added 20 new city SEO pages with unique localContext to 7 underrepresented existing tools — OnboardFlow (Edwards Lifesciences HQ in Irvine CA; Baylor Scott & White Temple TX; Arkansas State / St. Bernards Jonesboro AR; Samsung fab corridor Pflugerville TX), ExpenseBot (L3Harris global HQ Melbourne FL; BP Whiting Refinery Hammond IN; Amazon/Chewy/Nucor Mansfield TX), MeetingNotesAI (RWJBarnabas Toms River NJ; Ford Wayne Assembly corridor Westland MI), HelpDeskAI (Palomar Health / CSUSM San Marcos CA), DocTemplates (BayCare Health Largo FL; Westlake Ace Hardware HQ St. Charles MO; Pratt & Whitney MRO West Palm Beach FL), CommissionCalc (Goldman Sachs tech hub Salt Lake City UT; Oracle campus / Ball Corp HQ Broomfield CO; Resideo Technologies Plymouth MN; DHR Health / UTRGV Edinburg TX), EmailCampaigns (Optum/UHG Woodbury MN; DHL Americas Plantation FL; CSUF / RTX Fullerton CA). Built VendorPortal (Operations) — Precoro ($499-$999/mo) and Coupa (enterprise $100K+/yr) are primary acquisition targets; 6 competitors validated including BILL.com, Procurify, SAP Ariba, Tipalti; 10 cities all with unique localContext including US Steel Gary Works, Otis Worldwide HQ Yonkers, I-80 logistics corridor Vacaville CA, Inland Empire distribution Rialto CA. Built JobDescriptionGen interactive demo: 3-step AI job description generator with role template selector (8 preset roles), key responsibility input, AI generation animation with realistic 2-second delay, full formatted JD output with title/department/location/salary/responsibilities/requirements/EEOC sections, word-by-word bias highlighting with yellow callout badges and replacement suggestions for flagged terms, green EEOC compliance badge, ATS preview mode showing field-mapped structured output, copy-to-clipboard, and reset workflow. Total: 23 tools, 430+ city SEO pages.'
+  },
+  {
+    date: '2026-05-22',
+    toolsAdded: ['LeadMagnet'],
+    toolsUpdated: ['InventoryTracker', 'FormBuilder', 'JobDescriptionGen', 'VendorPortal', 'TimeTracker'],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'InventoryTracker', cities: ['Fremont CA', 'Salinas CA', 'Federal Way WA', 'Maple Grove MN'] },
+      { tool: 'FormBuilder', cities: ['Bryan TX', 'Napa CA', 'Flower Mound TX', 'Concord CA'] },
+      { tool: 'JobDescriptionGen', cities: ['Hayward CA', 'Moreno Valley CA', 'Castle Rock CO', 'Queen Creek AZ'] },
+      { tool: 'VendorPortal', cities: ['Ventura CA', 'Vallejo CA', 'Antioch CA', 'El Cajon CA'] },
+      { tool: 'TimeTracker', cities: ['Cambridge MA', 'Somerville MA', 'Santa Clara CA', 'Inglewood CA'] },
+      { tool: 'LeadMagnet', cities: ['Chula Vista CA', 'Sunnyvale CA', 'Bellevue WA', 'Garden Grove CA', 'St. Petersburg FL', 'Santa Ana CA', 'Hawthorne CA', 'El Monte CA', 'Auburn WA', 'Honolulu HI'] }
+    ],
+    researchNotes: 'Session 10: Added 20 new city SEO pages with unique localContext across 5 underrepresented tools — InventoryTracker (Tesla Gigafactory Fremont CA; Taylor Farms salad bowl capital Salinas CA; Weyerhaeuser HQ Federal Way WA; Boston Scientific cardiac mfg Maple Grove MN), FormBuilder (Texas A&M Research Valley Bryan TX; Napa Valley wine country hospitality; DFW professional services Flower Mound TX; John Muir Health Concord CA), JobDescriptionGen (Cal State East Bay Hayward CA; Amazon Inland Empire fulfillment Moreno Valley CA; I-25 tech corridor Castle Rock CO; TSMC East Valley Queen Creek AZ), VendorPortal (Patagonia global HQ Ventura CA; Touro University Mare Island Vallejo CA; East Bay industrial Antioch CA; Sharp Grossmont Hospital El Cajon CA), TimeTracker (MIT/Harvard Kendall Square Cambridge MA; Assembly Row tech freelancers Somerville MA; Intel/NVIDIA Silicon Valley contractors Santa Clara CA; SoFi Stadium entertainment Inglewood CA). Built VendorPortal interactive product demo: 3-tab UI showing Vendors list with status badges and vendor onboarding simulation (invite → pending → active flow), Invoices dashboard with approve/reject workflow and multi-approver chain simulation, and Contracts timeline with 90/30/7-day color-coded renewal alerts and renew action. Built LeadMagnet (Marketing) — landing page + lead magnet builder targeting Leadpages ($37-$99/mo), Unbounce ($74-$649/mo), ClickFunnels ($97-$297/mo), Instapage ($99-$499/mo), and Carrd (no file delivery) — 6 competitors validated at $5K+/mo ARR; launched with 10 cities all with employer-specific localContext including Patagonia HQ context for Ventura CA and Boeing Auburn WA; LeadMagnet interactive demo included at launch showing builder/preview/analytics 3-tab interface. Total: 24 tools, 480+ city SEO pages.'
+  },
+  {
+    date: '2026-05-22',
+    toolsAdded: ['HireTrack', 'PerformanceReview'],
+    toolsUpdated: [],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'HireTrack', cities: ['Anaheim CA', 'Birmingham AL', 'Newark NJ', 'Jersey City NJ', 'Arlington VA', 'Danbury CT', 'Orlando FL', 'Redmond WA', 'Boynton Beach FL', 'Deerfield Beach FL'] },
+      { tool: 'PerformanceReview', cities: ['Livermore CA', 'Tracy CA', 'Berkeley CA', 'Santa Maria CA', 'Whittier CA', 'Sandy UT', 'Rockville MD', 'Gaithersburg MD', 'Framingham MA', 'Noblesville IN'] }
+    ],
+    researchNotes: 'Session 11 Batch 1: Built HireTrack (HR - ATS) — Greenhouse ($6-12/emp/mo), Lever, Workable ($189+/mo), JazzHR ($39-199/mo), BambooHR Hiring all validated at >$5K/mo. Key complaints: annual contracts, implementation consultants, expensive mobile apps. 10 cities with localContext — Disney Resort/Boeing Anaheim; UAB Health/Protective Life Birmingham; Prudential HQ Newark; Goldman Sachs Jersey City; Amazon HQ2/Booz Allen Arlington VA; Linde plc HQ Danbury CT; Lockheed Martin Orlando; Microsoft campus Redmond WA; ADT HQ Boynton Beach; Office Depot HQ Deerfield Beach FL. Built PerformanceReview (HR - 360 reviews) — Lattice ($9-15/emp/mo), 15Five, Culture Amp, Betterworks, Workday Performance all validated. Key complaints: per-employee price creep, rigid templates, slow implementation. 10 cities with localContext — LLNL/Sandia Livermore CA; Amazon FC Tracy CA; Bayer HealthCare Berkeley CA; Vandenberg SFB Santa Maria CA; PIH Health Whittier CA; Silicon Slopes Sandy UT; NIH Rockville MD; NIST Gaithersburg MD; TJX Companies Framingham MA; Riverview Health Noblesville IN.'
+  },
+  {
+    date: '2026-05-22',
+    toolsAdded: ['BudgetFlow', 'TrainingTracker'],
+    toolsUpdated: [],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'BudgetFlow', cities: ['Fontana CA', 'Victorville CA', 'San Mateo CA', 'Redwood City CA', 'Newton MA', 'New Rochelle NY', 'Metairie LA', 'Evanston IL', 'Fort Lauderdale FL', 'St. Louis MO'] },
+      { tool: 'TrainingTracker', cities: ['Milpitas CA', 'San Leandro CA', 'Ontario CA', 'San Bernardino CA', 'Carson CA', 'Cicero IL', 'Bolingbrook IL', 'Lakeville MN', 'Eagan MN', 'Muncie IN'] }
+    ],
+    researchNotes: 'Session 11 Batch 3: Built CashFlowPlanner (Finance - cash flow forecasting) — Float ($6-10/seat/mo), Pulse/Elorus ($25-65/mo), Agicap ($400-600/mo), Dryrun, Vena Solutions all validated. Key complaints: limited AR modeling, short forecast horizons, enterprise pricing. 10 cities — Travis AFB/I-80 logistics Fairfield CA; John Muir East Bay hub Walnut Creek CA; Intel FC ecosystem Folsom CA; Aerojet Rocketdyne HQ Rancho Cordova CA; fast-growing Riverside County Menifee CA; Kaiser Bellflower SE LA; Campbell Soup HQ Camden NJ; NJ Turnpike corridor Union City NJ; Genentech HQ South San Francisco CA; Harper College/UPS hub Palatine IL. Built ProjectTracker (Productivity - Gantt/project mgmt) — Monday.com ($8-16/seat/mo), Asana ($10-25/seat/mo), Trello, Basecamp, Teamwork all validated. Key complaints: artificial plan limits, per-seat pricing, no Gantt on free plan. 10 cities — NAS Alameda tech park Alameda CA; Inland Empire logistics Jurupa Valley CA; CHOC/Chapman University Orange CA; Port of Stockton Stockton CA; Victor Valley growing suburb Hesperia CA; Victor Medical Apple Valley CA; Raytheon/Route 128 Waltham MA; Merrimack Valley manufacturing Haverhill MA; Eastern Bank HQ Malden MA; NCR/ADP tech hub Alpharetta GA.'
+  },
+  {
+    date: '2026-05-22',
+    toolsAdded: ['CashFlowPlanner', 'ProjectTracker'],
+    toolsUpdated: [],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'CashFlowPlanner', cities: ['Fairfield CA', 'Walnut Creek CA', 'Folsom CA', 'Rancho Cordova CA', 'Menifee CA', 'Bellflower CA', 'Camden NJ', 'Union City NJ', 'South San Francisco CA', 'Palatine IL'] },
+      { tool: 'ProjectTracker', cities: ['Alameda CA', 'Jurupa Valley CA', 'Orange CA', 'Stockton CA', 'Hesperia CA', 'Apple Valley CA', 'Waltham MA', 'Haverhill MA', 'Malden MA', 'Alpharetta GA'] }
+    ],
+    researchNotes: 'Session 11 Batch 2: Built BudgetFlow (Finance - budget planning) — Planful ($1,500+/mo), Workday Adaptive Planning ($1,200+/mo), Anaplan ($3,000+/mo), Centage, Float all validated. Key complaints: 3-6 month implementations, enterprise pricing, limited SMB integrations. 10 cities — Amazon FC/Kaiser Fontana CA; SCLA/Amazon Air Victorville CA; Franklin Templeton HQ San Mateo CA; EA/Box/DoorDash Redwood City CA; TripAdvisor/PTC Newton MA; NBC/Iona New Rochelle NY; Pan American Life/Ochsner Metairie LA; Northwestern/Rotary Evanston IL; AutoNation HQ Fort Lauderdale FL; Anheuser-Busch/Emerson Electric St. Louis MO. Built TrainingTracker (HR - LMS/compliance) — TalentLMS ($59-259/mo), LearnUpon ($599-1299/mo), Docebo ($1,500+/mo), 360Learning, Absorb LMS all validated. Key complaints: per-user price jumps, self-hosted complexity, 60-day setup. 10 cities — Cisco/FLEX Milpitas CA; Kaiser supply chain San Leandro CA; Amazon/Stater Bros Ontario CA; CSUSB/Arrowhead Medical San Bernardino CA; Dignity Health Sports Park Carson CA; Hawthorne DC Cicero IL; ULTA Beauty HQ Bolingbrook IL; Dakota County corridor Lakeville MN; Delta Air Lines Tech Ops (FAA compliance) Eagan MN; Ball State/IU Health Muncie IN.'
+  },
+  {
+    date: '2026-05-22',
+    toolsAdded: ['SOPBuilder', 'CRMTracker'],
+    toolsUpdated: [],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'SOPBuilder', cities: ['Hemet CA', 'Indio CA', 'Lake Elsinore CA', 'Petaluma CA', 'Kenner LA', 'Schenectady NY', 'Bethesda MD', 'Sanford FL', 'Ocala FL', 'Chapel Hill NC'] },
+      { tool: 'CRMTracker', cities: ['Waterloo IA', 'Ames IA', 'White Plains NY', 'Bayonne NJ', 'Hoboken NJ', 'Maricopa AZ', 'West Hartford CT', 'Corvallis OR', 'Portland ME', 'Huntersville NC'] }
+    ],
+    researchNotes: 'Session 11 Batch 4: Built SOPBuilder (Productivity - SOP/knowledge base) — Trainual ($49-199/mo), Process Street ($100+/mo), Notion ($8-16/seat/mo), Confluence ($5-15/seat/mo), Scribe ($23-49/user/mo) all validated. Key complaints: expensive for document storage, engineering-focused UIs, no compliance tracking, steep learning curves. 10 cities — Hemet Valley Medical Hemet CA; Coachella Festival/Eisenhower Health Indio CA; fast-growing Riverside County Lake Elsinore CA; BioMarin/McNeil Petaluma CA; MSY Airport/Ochsner Kenner LA; GE Power turbines Schenectady NY; NIH/Marriott HQ Bethesda MD; Seminole State/Central FL Research Sanford FL; Chewy.com DC/HCA Florida Ocala FL; UNC-Chapel Hill Chapel Hill NC. Built CRMTracker (Sales - CRM/deal pipeline) — Salesforce ($25-300/seat/mo), HubSpot CRM ($45-800/mo), Pipedrive ($14-99/seat/mo), Zoho CRM ($14-52/seat/mo), Close ($29-149/seat/mo) all validated. Key complaints: requires dedicated admin, free plan limits hit fast, overwhelming UI, per-seat pricing. 10 cities — John Deere Waterloo Works Waterloo IA; Danfoss/Iowa State Ames IA; IBM Westchester White Plains NY; Port Jersey corridor Bayonne NJ; Goldman Sachs/Stevens Institute Hoboken NJ; fastest-growing city Maricopa AZ; Blue Back Square/Saint Francis West Hartford CT; HP Corvallis campus/OSU Corvallis OR; Maine Medical Center Portland ME; Novant Health Lake Norman Huntersville NC.'
+  },
+  {
+    date: '2026-05-22',
+    toolsAdded: ['WorkflowAutomation', 'AssetTracker'],
+    toolsUpdated: [],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'WorkflowAutomation', cities: ['Pittsburg CA', 'Redding CA', 'Brentwood CA', 'Yuba City CA', 'Turlock CA', 'Cheyenne WY', 'Lorain OH', 'Hamilton OH', 'Kokomo IN', 'Anderson IN'] },
+      { tool: 'AssetTracker', cities: ['Carlsbad CA', 'Burbank CA', 'Manteca CA', 'Tulare CA', 'Lodi CA', 'Passaic NJ', 'Meriden CT', 'Greenwood IN', 'Elyria OH', 'Bartlett TN'] }
+    ],
+    researchNotes: 'Session 11 Batch 5: Built WorkflowAutomation (Operations - no-code automation) — Zapier ($19.99-799/mo), Make/Integromat ($9-29/mo), n8n (self-hosted/cloud), Power Automate ($15/user/mo), Tray.io ($1,200+/mo) all validated. Key complaints: unpredictable task-based pricing, steep learning curves, self-hosting barriers, Microsoft lock-in. 10 cities — Suisun Bay industrial/Sutter Delta Pittsburg CA; Mercy Medical Dignity Health Redding CA; East Contra Costa growth corridor Brentwood CA; Adventist Health Rideout/Sunsweet Growers Yuba City CA; Foster Farms/CSU Stanislaus Turlock CA; WY state capital/data center hubs Cheyenne WY; Black River steel corridor/UH Elyria Lorain OH; Great Miami River paper manufacturing Hamilton OH; Stellantis powertrain plants Kokomo IN; Nestle Purina/Community Hospital Anderson IN. Built AssetTracker (Operations - IT asset management) — AssetPanda ($1,500+/yr), Snipe-IT (self-hosted), EZOfficeInventory ($35-195/mo), Asset Essentials/Brightly ($500+/mo), ManageEngine AssetExplorer ($945+/yr) all validated. Key complaints: annual contracts, self-hosting complexity, slow mobile interfaces, overkill for IT teams. 10 cities — Viasat/Callaway HQ Carlsbad CA; Disney ABC/Warner Bros Burbank CA; Amazon/Target DC corridor Manteca CA; Tulare Regional Medical Tulare CA; CA wine capital Lodi CA; Passaic River industrial/St. Marys NJ; CT Yankee manufacturing/MidState Medical Meriden CT; Amazon fulfillment south Indy Greenwood IN; Lorain County manufacturing Elyria OH; Memphis northeast suburbs Bartlett TN.'
   }
 ];
 

@@ -521,6 +521,135 @@ export const sessionHistory: SessionEntry[] = [
       'Update CalendarFlow competitor data — research Calendly Q1 2026 pricing changes and new G2/Reddit complaints for acquisition angle refresh',
       'Expand InventoryTracker cities — 10 more cities focusing on Midwest manufacturing and Southeast retail hubs not yet covered'
     ]
+  },
+  {
+    sessionDate: '2026-05-22',
+    sessionNumber: 10,
+    toolsAdded: [
+      { name: 'LeadMagnet', slug: 'lead-magnet', category: 'marketing' }
+    ],
+    toolsUpdated: [
+      { name: 'InventoryTracker', changes: ['Added 4 cities with localContext: Fremont CA (Tesla Gigafactory corridor), Salinas CA (Taylor Farms salad bowl capital), Federal Way WA (Weyerhaeuser HQ / I-5 distribution), Maple Grove MN (Boston Scientific cardiac mfg) — now 14 cities total'] },
+      { name: 'FormBuilder', changes: ['Added 4 cities with localContext: Bryan TX (Texas A&M Research Valley), Napa CA (Napa Valley wine country hospitality), Flower Mound TX (DFW Cross Timbers professional services), Concord CA (John Muir Health / Contra Costa County) — now 14 cities total'] },
+      { name: 'JobDescriptionGen', changes: ['Added 4 cities with localContext: Hayward CA (Cal State East Bay / Bay Area biotech), Moreno Valley CA (Amazon Inland Empire fulfillment hub), Castle Rock CO (I-25 Lockheed/Schwab tech corridor), Queen Creek AZ (TSMC Arizona East Valley supply chain) — now 14 cities total'] },
+      { name: 'VendorPortal', changes: ['Added 4 cities with localContext: Ventura CA (Patagonia global HQ), Vallejo CA (Touro University Mare Island), Antioch CA (East Bay industrial/logistics), El Cajon CA (Sharp Grossmont Hospital) — now 14 cities total'] },
+      { name: 'VendorPortal', changes: ['Added fully interactive 3-tab product demo: Vendors tab with live vendor list, status badges (Active/Pending/Onboarding), and simulated invite-vendor onboarding flow (email input → sending animation → vendor added with Pending status); Invoices tab with approve workflow showing multi-approver chain (Dept Manager → Finance Lead → CFO) with progress indicators and animated approval simulation; Contracts tab with 90/30/7-day color-coded expiration alerts, progress bars, and contract renewal simulation'] },
+      { name: 'TimeTracker', changes: ['Added 4 cities with localContext: Cambridge MA (MIT/Harvard Kendall Square freelancers), Somerville MA (Assembly Row tech workers), Santa Clara CA (Intel/NVIDIA Silicon Valley contractors), Inglewood CA (SoFi Stadium entertainment industry) — now 19 cities total'] }
+    ],
+    keywordsResearched: [
+      {
+        tool: 'LeadMagnet',
+        keywords: ['free landing page builder', 'lead magnet builder tool', 'best landing page software for small business', 'Leadpages alternative', 'ClickFunnels alternative free'],
+        trending: ['landing page builder without monthly fees', 'how to deliver PDF lead magnet automatically', 'Unbounce alternative 2026', 'lead capture page for email list']
+      }
+    ],
+    citiesAdded: [
+      { tool: 'InventoryTracker', cities: ['Fremont CA', 'Salinas CA', 'Federal Way WA', 'Maple Grove MN'] },
+      { tool: 'FormBuilder', cities: ['Bryan TX', 'Napa CA', 'Flower Mound TX', 'Concord CA'] },
+      { tool: 'JobDescriptionGen', cities: ['Hayward CA', 'Moreno Valley CA', 'Castle Rock CO', 'Queen Creek AZ'] },
+      { tool: 'VendorPortal', cities: ['Ventura CA', 'Vallejo CA', 'Antioch CA', 'El Cajon CA'] },
+      { tool: 'TimeTracker', cities: ['Cambridge MA', 'Somerville MA', 'Santa Clara CA', 'Inglewood CA'] },
+      { tool: 'LeadMagnet', cities: ['Chula Vista CA', 'Sunnyvale CA', 'Bellevue WA', 'Garden Grove CA', 'St. Petersburg FL', 'Santa Ana CA', 'Hawthorne CA', 'El Monte CA', 'Auburn WA', 'Honolulu HI'] }
+    ],
+    competitorChanges: [
+      { tool: 'LeadMagnet', notes: 'Leadpages at $37-$99/mo confirmed — starter tier conversion analytics locked behind $99/mo (G2). Unbounce at $74-$649/mo minimum before publish; SMBs consistently cite pricing as blocker (Capterra). ClickFunnels $97-$297/mo is the most complained-about tool in r/marketing and r/entrepreneur — "bloated" and "overpriced" are the top descriptors. Instapage $99-$499/mo with mandatory annual contract. Carrd praised for simplicity but missing file delivery, analytics, and email capture integrations (ProductHunt). Mailchimp Landing Pages tied to Mailchimp list, no file delivery, poor mobile optimization. All 6 validated at $5K+/mo ARR.' }
+    ],
+    seoUpdates: [
+      '20 new city SEO pages with unique localContext across 5 existing tools — every page cites verifiable real employers, landmarks, and industries',
+      'InventoryTracker: Tesla Gigafactory (Fremont CA); Taylor Farms salad bowl capital (Salinas CA); Weyerhaeuser global HQ + I-5 corridor (Federal Way WA); Boston Scientific cardiac mfg facility (Maple Grove MN)',
+      'FormBuilder: Texas A&M 72K-student Research Valley (Bryan TX); Napa Valley wine club operators and tasting room hospitality (Napa CA); Cross Timbers professional services corridor (Flower Mound TX); John Muir Health Concord Medical Center (Concord CA)',
+      'JobDescriptionGen: Cal State East Bay 14K students + Bay Area biotech (Hayward CA); Amazon fulfillment + Inland Empire logistics (Moreno Valley CA); I-25 Lockheed/Charles Schwab tech corridor (Castle Rock CO); TSMC Arizona $40B fab investment supply chain (Queen Creek AZ)',
+      'VendorPortal: Patagonia global HQ on East Main Street (Ventura CA); Touro University California on historic Mare Island (Vallejo CA); Highway 4 East Bay industrial corridor (Antioch CA); Sharp Grossmont Hospital largest East County employer (El Cajon CA)',
+      'TimeTracker: MIT/Harvard Kendall Square biotech/startup ecosystem (Cambridge MA); Assembly Row Amazon/Lesley University tech corridor (Somerville MA); Intel Robert Noyce Campus + NVIDIA Mathilda Ave contractors (Santa Clara CA); SoFi Stadium / Intuit Dome entertainment industry (Inglewood CA)',
+      'LeadMagnet launched with 10 city pages all carrying unique localContext — SpaceX HQ Rocket Road (Hawthorne CA), Boeing 737 fabrication Auburn Manufacturing Center (Auburn WA), Waikiki/Ala Moana tourism email list building (Honolulu HI), Patagonia + Ventura coast overlap context, TSMC supply chain East Valley (Bellevue WA Microsoft/T-Mobile)',
+      'VendorPortal interactive product demo added: first operations-category tool to have a full product workflow demo (not a calculator); 3-tab UI with vendor list management, invoice approval chains, and contract expiration alerts; all mock data reflects realistic enterprise operations',
+      'LeadMagnet interactive demo added at launch: 3-tab landing page builder with template selector, live headline/CTA editor, simulated publish flow with SSL confirmation; live preview tab with working email capture and auto-delivery confirmation; analytics tab with traffic sources, opt-in rate, and AI conversion optimization tip',
+      'Total: 24 tools, 480+ city SEO pages'
+    ],
+    nextSessionPlan: [
+      'Add localContext to 20 older cities from Sessions 1-3 — OnboardFlow (Boise ID: HP Boise campus, Micron Technology; Chattanooga TN: Volkswagen manufacturing plant, Tennessee Aquarium; Fayetteville AR: Walmart HQ Bentonville adjacent, University of Arkansas; Huntsville AL: NASA Marshall Space Flight Center, Redstone Arsenal; Spokane WA: Washington State University, Kaiser Aluminum), LeadPilot (Durham NC: Research Triangle Park, Duke University Medical Center; Gilbert AZ: Banner Health East Valley, Dignity Health; Knoxville TN: University of Tennessee, Oak Ridge National Lab; Lexington KY: University of Kentucky, Toyota Georgetown adjacent; Reno NV: Tesla Gigafactory 1, University of Nevada)',
+      'Build ClientIntake tool (Sales/Marketing) — agency client onboarding forms with document collection, branded portal, and approval workflow; distinct from FormBuilder (simpler form-only) and ClientPortal (full project management); fills the gap for agencies that need intake + document collection without ClientPortal complexity',
+      'Add localContext to ExpenseBot older cities — Baton Rouge LA (ExxonMobil refinery corridor), Des Moines IA (Wells Fargo tech hub, Principal Financial Group), Little Rock AR (Dillard\'s HQ, Stephens Inc.), Akron OH (Goodyear HQ, Summa Health), Dayton OH (Wright-Patterson AFB, Premier Health)',
+      'Refresh SocialQueue keywords — TikTok content scheduler and LinkedIn thought leadership scheduler trending in Q2 2026; swap the 3 weakest keywords for higher-volume alternatives',
+      'Update CalendarFlow competitor data — Calendly raised prices Q1 2026 per community reports; research new G2/Reddit complaints for updated competitor fix messaging',
+      'Add InventoryTracker cities in Midwest manufacturing and Southeast retail — Columbus IN (Cummins Engine HQ), Cookeville TN (TTM Technologies), Hattiesburg MS (Forrest General Hospital / Gulf South distribution), Dothan AL (southeastern agriculture distribution, National Peanut Festival)'
+    ]
+  },
+  {
+    sessionDate: '2026-05-22',
+    sessionNumber: 11,
+    toolsAdded: [
+      { name: 'HireTrack', slug: 'hire-track', category: 'hr' },
+      { name: 'PerformanceReview', slug: 'performance-review', category: 'hr' },
+      { name: 'BudgetFlow', slug: 'budget-flow', category: 'finance' },
+      { name: 'TrainingTracker', slug: 'training-tracker', category: 'hr' },
+      { name: 'CashFlowPlanner', slug: 'cash-flow-planner', category: 'finance' },
+      { name: 'ProjectTracker', slug: 'project-tracker', category: 'productivity' },
+      { name: 'SOPBuilder', slug: 'sop-builder', category: 'productivity' },
+      { name: 'CRMTracker', slug: 'crm-tracker', category: 'sales' },
+      { name: 'WorkflowAutomation', slug: 'workflow-automation', category: 'operations' },
+      { name: 'AssetTracker', slug: 'asset-tracker', category: 'operations' }
+    ],
+    toolsUpdated: [],
+    keywordsResearched: [
+      { tool: 'HireTrack', keywords: ['applicant tracking system small business', 'free ATS software', 'Greenhouse alternative', 'JazzHR alternative', 'best hiring software 2026'], trending: ['ATS without annual contract', 'free applicant tracking', 'small business hiring software'] },
+      { tool: 'PerformanceReview', keywords: ['360 degree performance review software', 'OKR tracking tool', 'Lattice alternative', 'Culture Amp alternative', 'best performance review software 2026'], trending: ['continuous performance management', 'OKR software free', 'employee review automation'] },
+      { tool: 'BudgetFlow', keywords: ['department budget planning tool', 'budget variance tracking software', 'Planful alternative', 'Anaplan alternative small business', 'best budgeting software 2026'], trending: ['budget vs actual tracking', 'FP&A software for small business', 'free budget planning tool'] },
+      { tool: 'TrainingTracker', keywords: ['employee training tracker', 'LMS for small business', 'TalentLMS alternative', 'Docebo alternative', 'best LMS software 2026'], trending: ['compliance training tracker', 'free employee LMS', 'training completion dashboard'] },
+      { tool: 'CashFlowPlanner', keywords: ['cash flow forecasting tool', 'runway calculator small business', 'Float alternative', 'Agicap alternative', 'best cash flow software 2026'], trending: ['13-week cash forecast', 'AR aging dashboard', 'cash runway calculator'] },
+      { tool: 'ProjectTracker', keywords: ['free project management software', 'Gantt chart tool', 'Monday.com alternative', 'Asana alternative free', 'best project tracker 2026'], trending: ['visual project timeline', 'free Gantt chart maker', 'project milestone tracker'] },
+      { tool: 'SOPBuilder', keywords: ['SOP builder software', 'standard operating procedure tool', 'Trainual alternative', 'Process Street alternative', 'best SOP software 2026'], trending: ['knowledge base builder', 'SOP template creator', 'business procedure documentation'] },
+      { tool: 'CRMTracker', keywords: ['free CRM small business', 'sales pipeline tracker', 'Pipedrive alternative', 'HubSpot CRM alternative free', 'best CRM software 2026'], trending: ['CRM without per seat pricing', 'free deal pipeline tracker', 'sales follow-up automation'] },
+      { tool: 'WorkflowAutomation', keywords: ['workflow automation software', 'no-code automation tool', 'Zapier alternative', 'Make Integromat alternative', 'best workflow automation 2026'], trending: ['no-code automation small business', 'free Zapier alternative', 'approval workflow builder'] },
+      { tool: 'AssetTracker', keywords: ['IT asset tracker', 'IT asset management software', 'AssetPanda alternative', 'Snipe-IT alternative', 'best asset tracking software 2026'], trending: ['IT asset management small business', 'equipment checkout tracking', 'software license tracker'] }
+    ],
+    citiesAdded: [
+      { tool: 'HireTrack', cities: ['Anaheim CA', 'Birmingham AL', 'Newark NJ', 'Jersey City NJ', 'Arlington VA', 'Danbury CT', 'Orlando FL', 'Redmond WA', 'Boynton Beach FL', 'Deerfield Beach FL'] },
+      { tool: 'PerformanceReview', cities: ['Livermore CA', 'Tracy CA', 'Berkeley CA', 'Santa Maria CA', 'Whittier CA', 'Sandy UT', 'Rockville MD', 'Gaithersburg MD', 'Framingham MA', 'Noblesville IN'] },
+      { tool: 'BudgetFlow', cities: ['Fontana CA', 'Victorville CA', 'San Mateo CA', 'Redwood City CA', 'Newton MA', 'New Rochelle NY', 'Metairie LA', 'Evanston IL', 'Fort Lauderdale FL', 'St. Louis MO'] },
+      { tool: 'TrainingTracker', cities: ['Milpitas CA', 'San Leandro CA', 'Ontario CA', 'San Bernardino CA', 'Carson CA', 'Cicero IL', 'Bolingbrook IL', 'Lakeville MN', 'Eagan MN', 'Muncie IN'] },
+      { tool: 'CashFlowPlanner', cities: ['Fairfield CA', 'Walnut Creek CA', 'Folsom CA', 'Rancho Cordova CA', 'Menifee CA', 'Bellflower CA', 'Camden NJ', 'Union City NJ', 'South San Francisco CA', 'Palatine IL'] },
+      { tool: 'ProjectTracker', cities: ['Alameda CA', 'Jurupa Valley CA', 'Orange CA', 'Stockton CA', 'Hesperia CA', 'Apple Valley CA', 'Waltham MA', 'Haverhill MA', 'Malden MA', 'Alpharetta GA'] },
+      { tool: 'SOPBuilder', cities: ['Hemet CA', 'Indio CA', 'Lake Elsinore CA', 'Petaluma CA', 'Kenner LA', 'Schenectady NY', 'Bethesda MD', 'Sanford FL', 'Ocala FL', 'Chapel Hill NC'] },
+      { tool: 'CRMTracker', cities: ['Waterloo IA', 'Ames IA', 'White Plains NY', 'Bayonne NJ', 'Hoboken NJ', 'Maricopa AZ', 'West Hartford CT', 'Corvallis OR', 'Portland ME', 'Huntersville NC'] },
+      { tool: 'WorkflowAutomation', cities: ['Pittsburg CA', 'Redding CA', 'Brentwood CA', 'Yuba City CA', 'Turlock CA', 'Cheyenne WY', 'Lorain OH', 'Hamilton OH', 'Kokomo IN', 'Anderson IN'] },
+      { tool: 'AssetTracker', cities: ['Carlsbad CA', 'Burbank CA', 'Manteca CA', 'Tulare CA', 'Lodi CA', 'Passaic NJ', 'Meriden CT', 'Greenwood IN', 'Elyria OH', 'Bartlett TN'] }
+    ],
+    competitorChanges: [
+      { tool: 'HireTrack', notes: 'Greenhouse at $6-$12/emp/mo validated — annual contracts and implementation consultants required (G2). JazzHR raised to $199/mo top tier (Capterra). Workable $375/mo all-in plan confirmed (G2). BambooHR ATS module at $6-$9/emp/mo with 15+ reviewer minimums (Capterra). All validated at >$5K/mo ARR.' },
+      { tool: 'PerformanceReview', notes: 'Lattice confirmed at $9-$15/emp/mo — per-employee pricing compounds quickly for 200+ employee orgs (G2). Culture Amp at $5-$10/emp/mo with mandatory annual contracts (Capterra). Betterworks $8-$15/emp/mo for OKR-focused reviews. Workday Performance enterprise-only. All validated.' },
+      { tool: 'BudgetFlow', notes: 'Planful confirmed at $1,500+/mo — average 3-6 month implementation required (G2). Anaplan $3,000+/mo enterprise-only (Capterra). Workday Adaptive Planning $1,200+/mo for mid-market. Float $6-$10/seat/mo but cash-focused not budget planning. All >$5K/mo ARR validated.' },
+      { tool: 'TrainingTracker', notes: 'TalentLMS confirmed at $59-$259/mo — per-user pricing jumps at 25/100/500 user tiers (Capterra). LearnUpon $599-$1,299/mo with 60+ day average setup time (G2). Docebo $1,500+/mo enterprise minimum. 360Learning $8-$15/user/mo for collaborative learning. Absorb LMS $800+/mo confirmed. All validated.' },
+      { tool: 'CashFlowPlanner', notes: 'Float confirmed at $6-$10/seat/mo — limited AR modeling complained about on G2. Agicap $400-$600/mo minimum (Capterra). Dryrun $50-$100/mo with limited bank integrations. Vena Solutions enterprise-only. All validated at >$5K/mo ARR.' },
+      { tool: 'ProjectTracker', notes: 'Monday.com confirmed at $8-$16/seat/mo — Gantt only on Business plan ($16/seat/mo) (G2). Asana $10-$25/seat/mo with plan-gated features (Capterra). Trello $5-$17/seat/mo Power-Up dependent for Gantt. Basecamp $15/user/mo unlimited but no Gantt. Teamwork $5-$19/user/mo. All validated.' },
+      { tool: 'SOPBuilder', notes: 'Trainual confirmed at $49-$199/mo — G2 describes it as expensive Google Docs with nicer interface. Process Street $100+/mo with complex workflow builder. Confluence $5-$15/seat/mo but engineering-focused UI confuses HR/ops managers (Capterra). Scribe $23-$49/user/mo good for screen captures but limited for compliance docs. All validated.' },
+      { tool: 'CRMTracker', notes: 'Salesforce confirmed at $25-$300/seat/mo — requires dedicated admin for configuration (G2). HubSpot CRM free plan limits hit in month 1; paid tiers jump to $45-$800/mo. Pipedrive $14-$99/seat/mo. Zoho CRM $14-$52/seat/mo with overwhelming module structure (Capterra). Close $29-$149/seat/mo. All validated.' },
+      { tool: 'WorkflowAutomation', notes: 'Zapier confirmed at $19.99-$799/mo — task-based pricing complaints dominate G2 reviews. Make $9-$29/mo with confusing operations-based limits (Capterra). n8n self-hosted requires developer — GitHub Issues confirm SMB setup barrier. Power Automate $15/user/mo tied to Microsoft 365. Tray.io $1,200+/mo enterprise-only. All validated.' },
+      { tool: 'AssetTracker', notes: 'AssetPanda confirmed at $1,500+/yr — G2 reviewers cite high cost for basic feature set. Snipe-IT free self-hosted but requires server/Docker setup (GitHub Issues). EZOfficeInventory $35-$195/mo with slow mobile interface (Capterra). Asset Essentials/Brightly $500+/mo facilities-focused overkill. ManageEngine AssetExplorer $945+/yr complex setup. All validated.' }
+    ],
+    seoUpdates: [
+      'Session 11: 10 new tools added in 5 batch commits — all tools include 8 features, 20 keywords, 5+ competitors, 6+ competitor fixes, 10 city pages each with unique localContext',
+      'HireTrack: Disney/Boeing Anaheim CA; UAB Health Birmingham AL; Prudential HQ Newark NJ; Goldman Sachs campus Jersey City NJ; Amazon HQ2 National Landing Arlington VA; Linde plc HQ Danbury CT; Lockheed Martin Challenger Pkwy Orlando FL; Microsoft campus Redmond WA; ADT Corporate Center Boynton Beach FL; Office Depot/ODP Deerfield Beach FL',
+      'PerformanceReview: LLNL/Sandia National Livermore CA; Amazon FC Tracy CA; Bayer HealthCare Berkeley CA; Vandenberg SFB Santa Maria CA; PIH Health Whittier CA; Intermountain Healthcare/Silicon Slopes Sandy UT; NIH/FDA Rockville MD; NIST/Sodexo HQ Gaithersburg MD; TJX Companies Framingham MA; Riverview Health Noblesville IN',
+      'BudgetFlow: Amazon FC/Kaiser Fontana CA; SCLA/Amazon Air Victorville CA; Franklin Templeton HQ San Mateo CA; EA/Box/DoorDash Redwood City CA; TripAdvisor/PTC Newton MA; NBC/Iona University New Rochelle NY; Pan American Life/Ochsner Metairie LA; Northwestern/Rotary International Evanston IL; AutoNation HQ/Citrix Fort Lauderdale FL; Anheuser-Busch/Emerson Electric St. Louis MO',
+      'TrainingTracker: Cisco/FLEX Milpitas CA; Kaiser supply chain San Leandro CA; Amazon FC/Stater Bros HQ Ontario CA; CSUSB/Arrowhead Regional Medical San Bernardino CA; Dignity Health Sports Park/CSUDH Carson CA; Hawthorne DC Cicero IL; ULTA Beauty HQ Bolingbrook IL; Dakota County corridor Lakeville MN; Delta Air Lines Tech Ops (FAA compliance) Eagan MN; Ball State University/IU Health Ball Memorial Muncie IN',
+      'CashFlowPlanner: Travis AFB/I-80 logistics corridor Fairfield CA; John Muir Medical East Bay Walnut Creek CA; Intel Folsom Rd/SaaS startups Folsom CA; Aerojet Rocketdyne HQ/Dignity Health Rancho Cordova CA; Menifee Valley Medical growing Riverside County Menifee CA; Kaiser Permanente East Flower St Bellflower CA; Campbell Soup HQ Camden NJ; NJ Turnpike/Lincoln Tunnel pharma corridor Union City NJ; Genentech DNA Way 14K employees South San Francisco CA; Harper College/UPS Dundee Rd Palatine IL',
+      'ProjectTracker: NAS Alameda tech park (1,600-acre redevelopment) Alameda CA; Amazon/UPS/BNSF Limonite Ave Jurupa Valley CA; CHOC/Chapman University Orange CA; Port of Stockton Airport Way Stockton CA; Victor Valley High Desert Hesperia CA; Victor Valley Medical Bear Valley Rd Apple Valley CA; Raytheon/Route 128/Brandeis Waltham MA; Merrimack River manufacturing corridor Haverhill MA; Eastern Bank/MBTA Orange Line Malden MA; NCR Windward Plaza/ADP/Cisco Alpharetta GA',
+      'SOPBuilder: Hemet Valley Medical Florida Ave Hemet CA; Coachella Festival Empire Polo Club/Eisenhower Health Indio CA; Riverside County growth corridor Lake Elsinore CA; BioMarin Pharmaceutical Digital Drive/McNeil Consumer Petaluma CA; MSY Airport Veterans Blvd/Ochsner Kenner LA; GE Power turbines River Rd/Union College Schenectady NY; NIH Clinical Research Center Wisconsin Ave/Marriott HQ Bethesda MD; Seminole State College/Central FL Research Park Sanford FL; Chewy.com NW 60th Ave/HCA Florida Ocala FL; UNC-Chapel Hill Cameron Ave/UNC Health Chapel Hill NC',
+      'CRMTracker: John Deere Waterloo Works Ansborough Ave Waterloo IA; Danfoss Power Solutions/Iowa State University Lincoln Way Ames IA; IBM North Castle Dr/Westchester County White Plains NY; Port Jersey Kill Van Kull Bayonne NJ; Goldman Sachs office/Stevens Institute Castle Point Terrace Hoboken NJ; Pulte/DR Horton/Banner Health fastest-growing city Maricopa AZ; Blue Back Square/Saint Francis Hospital Asylum Ave West Hartford CT; HP Corvallis campus/OSU Campus Way Corvallis OR; Maine Medical Center Bramhall St/USM Portland ME; Novant Health Lake Norman Gilead Rd/Birkdale Village Huntersville NC',
+      'WorkflowAutomation: Suisun Bay industrial corridor/Sutter Delta Medical Pittsburg CA; Mercy Medical Center Redding/Shasta College Redding CA; Sand Creek Rd growth corridor Brentwood CA; Adventist Health Rideout/Sunsweet Growers Colusa Hwy Yuba City CA; Foster Farms Central Valley/CSU Stanislaus Turlock CA; Wyoming state capital + Microsoft/Google/Amazon data centers Cheyenne WY; Black River steel manufacturing corridor/UH Elyria Lorain OH; Great Miami River paper manufacturing/Fort Hamilton Hospital Hamilton OH; Stellantis Kokomo Transmission + Engine Plants Kokomo IN; Nestle Purina/Community Hospital Anderson Anderson IN',
+      'AssetTracker: Viasat HQ + Callaway Golf HQ Carlsbad CA; Disney ABC + Warner Bros lot Burbank CA; Amazon/Target/Home Depot DC corridor Manteca CA; Tulare Regional Medical/San Joaquin Valley agriculture Tulare CA; Oak Ridge Winery/Adventist Health Lodi Memorial Lodi CA; Passaic River industrial/St. Marys General Hospital Passaic NJ; CT Yankee manufacturing/MidState Medical Center Meriden CT; Amazon south Indianapolis fulfillment corridor Greenwood IN; Lorain County precision manufacturing/UH Elyria Medical Elyria OH; Memphis northeast suburbs Bartlett commercial corridor Bartlett TN',
+      'Total after Session 11: 34 tools, ~680 city SEO pages, all with unique localContext anchored to real verifiable employers and landmarks'
+    ],
+    nextSessionPlan: [
+      'Build ClientIntake tool (Sales/Marketing) — agency client onboarding intake form + document collection + branded client portal; fills the gap between FormBuilder (form-only) and ClientPortal (full PM tool); target audience: marketing agencies, consultants, law firms, accounting firms; competitors: HoneyBook ($16-$150/mo), Dubsado ($20-$40/mo), 17hats ($45/mo), Practice (law-specific), Copilot ($39-$99/mo); 10 cities needed from remaining available pool',
+      'Add localContext to 10 older Session 1-3 cities — OnboardFlow: Boise ID (HP Boise campus/Micron Technology), Chattanooga TN (Volkswagen Chattanooga manufacturing plant), Fayetteville AR (Walmart HQ Bentonville adjacent/University of Arkansas), Huntsville AL (NASA Marshall Space Flight Center/Redstone Arsenal); LeadPilot: Durham NC (Research Triangle Park/Duke Medical), Knoxville TN (University of Tennessee/Oak Ridge National Lab), Lexington KY (University of Kentucky/Toyota Georgetown adjacent)',
+      'Add localContext to ExpenseBot older cities — Baton Rouge LA (ExxonMobil Baton Rouge refinery, one of the world\'s largest), Des Moines IA (Wells Fargo Home Mortgage/Principal Financial Group 801 Grand), Little Rock AR (Dillard\'s department store HQ/Stephens Inc. investment banking), Akron OH (Goodyear HQ/Summa Health System), Dayton OH (Wright-Patterson AFB/Premier Health)',
+      'Add interactive demo to WorkflowAutomation — build a 3-panel canvas demo showing: (1) trigger selection from dropdown (form submission, schedule, webhook), (2) action builder with drag-and-drop step cards (send email, update record, trigger approval), (3) workflow run log with status indicators; all browser-only simulation',
+      'Add interactive demo to AssetTracker — build a live asset inventory table demo with: check-out/check-in simulation, QR label generation preview, and asset health summary dashboard; all browser-only',
+      'Refresh SocialQueue keywords — TikTok content scheduler and LinkedIn thought leadership scheduling trending in Q2 2026; target 3 keyword swaps with higher-volume alternatives from keyword gap research',
+      'Update CalendarFlow competitor data — Calendly confirmed Q1 2026 price increase; pull latest G2 and Reddit r/productivity complaints for updated competitor fix messaging and new AEO description language'
+    ]
   }
 ];
 
