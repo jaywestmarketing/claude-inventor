@@ -57,18 +57,17 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: 'AutomateStack — Free Business Automation Tools',
     description:
-      'Free AI-powered tools for HR, invoicing, lead generation, scheduling & expenses. 17 tools. Try any demo free.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'AutomateStack' }],
+      'Free AI-powered tools for HR, invoicing, lead generation, scheduling & expenses. 34 tools. Try any demo free.',
+    // og-image.png: add a 1200x630 PNG to /public/og-image.png to enable social previews
   },
   twitter: {
     card: 'summary_large_image',
     title: 'AutomateStack — Free Business Automation Tools',
     description:
-      'Free AI-powered tools for HR, invoicing, lead generation, scheduling & expenses. 17 tools. Try any demo free.',
-    images: ['/og-image.png'],
+      'Free AI-powered tools for HR, invoicing, lead generation, scheduling & expenses. 34 tools. Try any demo free.',
   },
-  alternates: { canonical: '/' },
-  verification: { google: '', other: { 'msvalidate.01': '' } },
+  // Add google: 'PASTE_YOUR_GSC_VERIFICATION_CODE_HERE' once verified in Google Search Console
+  // verification: { google: 'xxxx', other: { 'msvalidate.01': 'xxxx' } },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -82,7 +81,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         url: SITE_URL,
         description:
           'AutomateStack builds free AI-powered business automation tools for HR managers, office managers, small business owners, and growing teams.',
-        sameAs: [],
+        sameAs: [
+          'https://twitter.com/automatestack',
+          'https://linkedin.com/company/automatestack',
+        ],
       },
       {
         '@type': 'WebSite',
@@ -102,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         url: SITE_URL,
         name: 'Free Business Automation Tools — AutomateStack',
         description:
-          'A growing collection of 17 free AI-powered business automation tools covering HR, finance, marketing, sales, operations, and productivity.',
+          'A growing collection of 34 free AI-powered business automation tools covering HR, finance, marketing, sales, operations, and productivity.',
         publisher: { '@id': `${SITE_URL}/#organization` },
       },
       {
@@ -113,7 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             name: 'What is AutomateStack?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'AutomateStack is a growing collection of 17 free AI-powered business automation tools for HR managers, small business owners, office managers, and professionals. Tools cover employee onboarding, invoicing, lead generation, scheduling, expense management, payroll, helpdesk, email marketing, social media scheduling, and more.',
+              text: 'AutomateStack is a growing collection of 34 free AI-powered business automation tools for HR managers, small business owners, office managers, and professionals. Tools cover employee onboarding, invoicing, lead generation, scheduling, expense management, payroll, helpdesk, email marketing, social media scheduling, and more.',
             },
           },
           {
@@ -149,7 +151,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -183,6 +184,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Link>
           <span className="site-nav-tagline">Free Business Automation Tools</span>
           <div className="site-nav-spacer" />
+          <Link href="/blog" className="site-nav-link">Blog</Link>
+          <Link href="/docs" className="site-nav-link">Docs</Link>
+          <Link href="/about" className="site-nav-link">About</Link>
           <Link href="/#faq" className="site-nav-link">FAQ</Link>
         </nav>
 
@@ -198,6 +202,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/tools/lead-pilot">Lead Gen</Link>
             <Link href="/tools/email-campaigns">Email Marketing</Link>
             <Link href="/tools/help-desk-ai">Helpdesk</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/docs">Docs</Link>
+            <Link href="/about">About</Link>
             <Link href="/#faq">FAQ</Link>
           </nav>
           <p>
