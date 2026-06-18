@@ -2211,6 +2211,304 @@ const iconBtnStyle: React.CSSProperties = {
   color: 'var(--text-secondary)',
 };
 
+/* ─── Workflow Automation Builder ─── */
+function WorkflowAutomationDemo() {
+  type StepType = { id: number; type: string; label: string };
+  const [trigger, setTrigger] = useState('form-submission');
+  const [steps, setSteps] = useState<StepType[]>([
+    { id: 1, type: 'send-email', label: 'Send welcome email to submitter' },
+    { id: 2, type: 'create-task', label: 'Create follow-up task for sales team' },
+    { id: 3, type: 'add-to-crm', label: 'Add contact as new CRM lead' },
+  ]);
+  const [tab, setTab] = useState<'build' | 'log'>('build');
+  const [runState, setRunState] = useState<'idle' | 'running' | 'done'>('idle');
+  const [runStep, setRunStep] = useState(0);
+  type RunEntry = { id: string; ts: string; status: 'success' | 'failed'; steps: number; trigger: string; error?: string };
+  const [runLog, setRunLog] = useState<RunEntry[]>([
+    { id: 'RUN-0041', ts: '4m ago', status: 'success', steps: 3, trigger: 'Form submitted — Maya Chen' },
+    { id: 'RUN-0040', ts: '2h ago', status: 'success', steps: 3, trigger: 'Form submitted — James Park' },
+    { id: 'RUN-0039', ts: '5h ago', status: 'failed', steps: 2, trigger: 'Form submitted — Taylor Brooks', error: 'Step 3: CRM API timeout after 30s' },
+    { id: 'RUN-0038', ts: 'yesterday', status: 'success', steps: 3, trigger: 'Form submitted — Priya Sharma' },
+    { id: 'RUN-0037', ts: '2 days ago', status: 'success', steps: 3, trigger: 'Form submitted — Marcus Johnson' },
+  ]);
+  const nextId = useRef(4);
+
+  const triggerOptions = [
+    { value: 'form-submission', icon: '📋', label: 'New Form Submission', desc: 'When a contact or intake form is submitted' },
+    { value: 'schedule-daily', icon: '⏰', label: 'Daily at 9:00 AM', desc: 'Runs automatically every weekday morning' },
+    { value: 'webhook', icon: '🔗', label: 'Webhook Received', desc: 'When your app POSTs to the webhook URL' },
+    { value: 'email-arrives', icon: '✉️', label: 'Email Arrives', desc: 'When a new email matches your subject filter' },
+    { value: 'record-updated', icon: '🔄', label: 'Record Updated', desc: 'When a CRM deal or contact field changes' },
+  ];
+
+  const actionOptions = [
+    { value: 'send-email', icon: '✉️', label: 'Send Email' },
+    { value: 'create-task', icon: '✅', label: 'Create Task' },
+    { value: 'add-to-crm', icon: '🤝', label: 'Add to CRM' },
+    { value: 'send-slack', icon: '💬', label: 'Send Slack Message' },
+    { value: 'trigger-approval', icon: '✍️', label: 'Trigger Approval' },
+    { value: 'update-record', icon: '🔄', label: 'Update Record' },
+  ];
+
+  const addStep = () => {
+    setSteps(prev => [...prev, { id: nextId.current++, type: 'send-email', label: '' }]);
+  };
+
+  const removeStep = (id: number) => {
+    if (steps.length <= 1) return;
+    setSteps(prev => prev.filter(s => s.id !== id));
+  };
+
+  const moveStep = (id: number, dir: 'up' | 'down') => {
+    setSteps(prev => {
+      const idx = prev.findIndex(s => s.id === id);
+      if (dir === 'up' && idx === 0) return prev;
+      if (dir === 'down' && idx === prev.length - 1) return prev;
+      const next = [...prev];
+      const swap = dir === 'up' ? idx - 1 : idx + 1;
+      [next[idx], next[swap]] = [next[swap], next[idx]];
+      return next;
+    });
+  };
+
+  const updateStep = (id: number, field: 'type' | 'label', val: string) => {
+    setSteps(prev => prev.map(s => s.id === id ? { ...s, [field]: val } : s));
+  };
+
+  const handleRun = () => {
+    if (runState === 'running') return;
+    setRunState('running');
+    setRunStep(0);
+    setTab('log');
+    let cur = 0;
+    const interval = setInterval(() => {
+      cur++;
+      setRunStep(cur);
+      if (cur >= steps.length) {
+        clearInterval(interval);
+        setTimeout(() => {
+          setRunState('done');
+          const trigOpt = triggerOptions.find(t => t.value === trigger);
+          const trigLabel = trigOpt ? `${trigOpt.label}` : 'Workflow triggered';
+          const newRun: RunEntry = {
+            id: `RUN-${String(Date.now()).slice(-4)}`,
+            ts: 'just now',
+            status: 'success',
+            steps: steps.length,
+            trigger: trigLabel,
+          };
+          setRunLog(prev => [newRun, ...prev]);
+          setTimeout(() => setRunState('idle'), 500);
+        }, 400);
+      }
+    }, 700);
+  };
+
+  const trig = triggerOptions.find(t => t.value === trigger)!;
+
+  const tabStyle = (active: boolean): React.CSSProperties => ({
+    padding: '8px 18px',
+    borderRadius: '6px 6px 0 0',
+    border: '1px solid var(--border)',
+    borderBottom: active ? '2px solid var(--orange)' : '1px solid var(--border)',
+    background: active ? '#fff' : '#f8f9fa',
+    fontWeight: active ? 700 : 400,
+    fontSize: '13px',
+    cursor: 'pointer',
+    color: active ? 'var(--navy)' : 'var(--text-secondary)',
+    marginRight: '4px',
+  });
+
+  const actionIcon = (type: string) => actionOptions.find(a => a.value === type)?.icon ?? '⚙️';
+  const actionLabel = (type: string) => actionOptions.find(a => a.value === type)?.label ?? 'Action';
+
+  return (
+    <div>
+      {/* Tabs */}
+      <div style={{ display: 'flex', borderBottom: '1px solid var(--border)', marginBottom: '20px' }}>
+        <button style={tabStyle(tab === 'build')} onClick={() => setTab('build')}>🔧 Build</button>
+        <button style={tabStyle(tab === 'log')} onClick={() => setTab('log')}>📋 Run Log</button>
+      </div>
+
+      {/* ── Build Tab ── */}
+      {tab === 'build' && (
+        <div>
+          {/* Trigger Block */}
+          <div style={{ marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '.06em', color: '#7c3aed', background: '#f3e8ff', padding: '2px 8px', borderRadius: '10px' }}>TRIGGER</span>
+          </div>
+          <div style={{ background: 'linear-gradient(135deg, #f3e8ff 0%, #ede9fe 100%)', border: '2px solid #a78bfa', borderRadius: '12px', padding: '14px 16px', marginBottom: '8px' }}>
+            <div style={{ fontSize: '11px', fontWeight: 700, color: '#7c3aed', marginBottom: '8px', textTransform: 'uppercase' as const, letterSpacing: '.05em' }}>When this happens…</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' as const }}>
+              <span style={{ fontSize: '22px' }}>{trig.icon}</span>
+              <select
+                value={trigger}
+                onChange={e => setTrigger(e.target.value)}
+                style={{ ...inputStyle, flex: 1, minWidth: '200px', fontWeight: 600 }}
+              >
+                {triggerOptions.map(opt => (
+                  <option key={opt.value} value={opt.value}>{opt.label}</option>
+                ))}
+              </select>
+            </div>
+            <div style={{ fontSize: '12px', color: '#7c3aed', marginTop: '8px' }}>{trig.desc}</div>
+          </div>
+
+          {/* Connector arrow */}
+          <div style={{ textAlign: 'center' as const, fontSize: '20px', color: 'var(--text-secondary)', margin: '4px 0', lineHeight: 1 }}>↓</div>
+
+          {/* Action Steps */}
+          <div style={{ marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '.06em', color: '#0369a1', background: '#e0f2fe', padding: '2px 8px', borderRadius: '10px' }}>ACTIONS</span>
+          </div>
+
+          {steps.map((step, idx) => (
+            <div key={step.id}>
+              <div style={{ background: '#f0f7ff', border: '1px solid #bfdbfe', borderRadius: '10px', padding: '12px 14px', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <div style={{ background: 'var(--navy)', color: '#fff', borderRadius: '50%', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 700, flexShrink: 0, marginTop: '2px' }}>{idx + 1}</div>
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column' as const, gap: '8px' }}>
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' as const, alignItems: 'center' }}>
+                    <span style={{ fontSize: '16px' }}>{actionIcon(step.type)}</span>
+                    <select
+                      value={step.type}
+                      onChange={e => updateStep(step.id, 'type', e.target.value)}
+                      style={{ ...inputStyle, width: 'auto', minWidth: '160px', fontWeight: 600 }}
+                    >
+                      {actionOptions.map(opt => (
+                        <option key={opt.value} value={opt.value}>{opt.icon} {opt.label}</option>
+                      ))}
+                    </select>
+                    <span style={{ fontSize: '12px', color: 'var(--text-secondary)', fontStyle: 'italic' }}>{actionLabel(step.type)}</span>
+                  </div>
+                  <input
+                    type="text"
+                    value={step.label}
+                    onChange={e => updateStep(step.id, 'label', e.target.value)}
+                    placeholder={`Describe what this ${actionLabel(step.type).toLowerCase()} does…`}
+                    style={{ ...inputStyle, fontSize: '12px' }}
+                  />
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '4px', flexShrink: 0 }}>
+                  <button onClick={() => moveStep(step.id, 'up')} disabled={idx === 0} title="Move up" style={{ ...iconBtnStyle, opacity: idx === 0 ? 0.3 : 1 }}>↑</button>
+                  <button onClick={() => moveStep(step.id, 'down')} disabled={idx === steps.length - 1} title="Move down" style={{ ...iconBtnStyle, opacity: idx === steps.length - 1 ? 0.3 : 1 }}>↓</button>
+                  <button onClick={() => removeStep(step.id)} disabled={steps.length <= 1} title="Remove step" style={{ ...iconBtnStyle, color: steps.length <= 1 ? '#ccc' : '#c0392b' }}>✕</button>
+                </div>
+              </div>
+              {idx < steps.length - 1 && (
+                <div style={{ textAlign: 'center' as const, fontSize: '18px', color: 'var(--text-secondary)', margin: '4px 0', lineHeight: 1 }}>↓</div>
+              )}
+            </div>
+          ))}
+
+          {/* Add Step */}
+          <div style={{ margin: '10px 0' }}>
+            <button
+              onClick={addStep}
+              style={{ width: '100%', padding: '10px', border: '2px dashed #bfdbfe', borderRadius: '10px', background: 'none', cursor: 'pointer', color: '#0369a1', fontWeight: 600, fontSize: '13px' }}
+            >
+              + Add Action Step
+            </button>
+          </div>
+
+          {/* Run Workflow */}
+          <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'flex-end' }}>
+            <button
+              onClick={handleRun}
+              disabled={runState === 'running'}
+              style={{
+                background: runState === 'running' ? '#aaa' : 'linear-gradient(to bottom,#f5c26b,#e47911)',
+                border: runState === 'running' ? 'none' : '1px solid #c07600',
+                color: '#111',
+                fontWeight: 700,
+                padding: '10px 28px',
+                borderRadius: '8px',
+                cursor: runState === 'running' ? 'not-allowed' : 'pointer',
+                fontSize: '14px',
+              }}
+            >
+              {runState === 'running' ? '⏳ Running…' : '▶ Run Workflow'}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ── Run Log Tab ── */}
+      {tab === 'log' && (
+        <div>
+          {/* Running indicator */}
+          {runState === 'running' && (
+            <div style={{ background: '#f0f7ff', border: '1px solid #bfdbfe', borderRadius: '10px', padding: '16px', marginBottom: '16px' }}>
+              <div style={{ fontWeight: 700, color: 'var(--navy)', fontSize: '14px', marginBottom: '12px' }}>⏳ Running workflow…</div>
+              {steps.map((step, idx) => {
+                const done = idx < runStep;
+                const active = idx === runStep - 1 && runState === 'running';
+                return (
+                  <div key={step.id} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '6px 0', borderBottom: idx < steps.length - 1 ? '1px solid #e0e0e0' : 'none' }}>
+                    <div style={{ width: '20px', textAlign: 'center' as const, fontSize: '14px' }}>
+                      {done ? '✅' : active ? '⏳' : '⬜'}
+                    </div>
+                    <div style={{ fontSize: '13px', color: done ? '#15803d' : active ? 'var(--navy)' : 'var(--text-secondary)', fontWeight: done || active ? 600 : 400 }}>
+                      Step {idx + 1}: {actionIcon(step.type)} {actionLabel(step.type)}{step.label ? ` — ${step.label}` : ''}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Log entries */}
+          <div style={{ border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '90px 1fr 80px 60px', padding: '10px 14px', background: '#f8f9fa', borderBottom: '1px solid var(--border)', gap: '8px' }}>
+              {['Run ID', 'Trigger', 'Status', 'Steps'].map((h, i) => (
+                <div key={i} style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase' as const, letterSpacing: '.04em' }}>{h}</div>
+              ))}
+            </div>
+            {runLog.map((run, i) => (
+              <div key={run.id} style={{ display: 'grid', gridTemplateColumns: '90px 1fr 80px 60px', padding: '12px 14px', borderBottom: i < runLog.length - 1 ? '1px solid var(--border)' : 'none', background: i % 2 === 0 ? '#fff' : '#fafafa', gap: '8px', alignItems: 'center' }}>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: 'var(--navy)', fontFamily: 'monospace' }}>{run.id}</div>
+                <div>
+                  <div style={{ fontSize: '13px', color: 'var(--navy)', fontWeight: 500 }}>{run.trigger}</div>
+                  {run.error && <div style={{ fontSize: '11px', color: '#c0392b', marginTop: '2px' }}>⚠ {run.error}</div>}
+                  <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '1px' }}>{run.ts}</div>
+                </div>
+                <div>
+                  <span style={{
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    padding: '3px 8px',
+                    borderRadius: '10px',
+                    background: run.status === 'success' ? '#f0fdf4' : '#fef2f2',
+                    color: run.status === 'success' ? '#15803d' : '#c0392b',
+                    border: `1px solid ${run.status === 'success' ? '#bbf7d0' : '#fecaca'}`,
+                  }}>
+                    {run.status === 'success' ? '✓ Success' : '✕ Failed'}
+                  </span>
+                </div>
+                <div style={{ fontSize: '13px', color: 'var(--text-secondary)', textAlign: 'center' as const }}>{run.steps}</div>
+              </div>
+            ))}
+          </div>
+
+          {runLog.length === 0 && (
+            <div style={{ padding: '40px', textAlign: 'center' as const, color: 'var(--text-secondary)', fontSize: '14px' }}>
+              No runs yet — go to Build tab and click Run Workflow.
+            </div>
+          )}
+
+          <div style={{ marginTop: '12px', display: 'flex', justifyContent: 'flex-end' }}>
+            <button
+              onClick={() => setTab('build')}
+              style={{ padding: '8px 18px', border: '1px solid var(--border)', borderRadius: '6px', background: '#fff', cursor: 'pointer', fontSize: '13px', color: 'var(--navy)' }}
+            >
+              ← Back to Builder
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ─── Main export ─── */
 const demoMap: Record<string, React.ReactNode> = {
   'payroll-calc': <PayrollDemo />,
@@ -2222,6 +2520,7 @@ const demoMap: Record<string, React.ReactNode> = {
   'job-description-gen': <JobDescriptionGenDemo />,
   'vendor-portal': <VendorPortalDemo />,
   'lead-magnet': <LeadMagnetDemo />,
+  'workflow-automation': <WorkflowAutomationDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {
