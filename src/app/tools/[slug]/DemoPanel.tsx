@@ -2211,6 +2211,225 @@ const iconBtnStyle: React.CSSProperties = {
   color: 'var(--text-secondary)',
 };
 
+/* ─── WorkflowAutomation Demo ─── */
+type WFTrigger = { id: string; label: string; icon: string; description: string };
+type WFAction = { id: string; label: string; icon: string; color: string };
+type WFLogEntry = { step: string; status: 'running' | 'success' | 'error'; ts: string; detail: string };
+
+const WF_TRIGGERS: WFTrigger[] = [
+  { id: 'form', label: 'Form Submission', icon: '📋', description: 'Triggers when a form is submitted on your site' },
+  { id: 'schedule', label: 'Daily Schedule', icon: '🕐', description: 'Runs automatically at a time you configure each day' },
+  { id: 'webhook', label: 'Incoming Webhook', icon: '🔗', description: 'Fires when an external app sends a POST to your webhook URL' },
+];
+
+const WF_ACTIONS: WFAction[] = [
+  { id: 'email', label: 'Send Email', icon: '📧', color: '#2563eb' },
+  { id: 'record', label: 'Update Record', icon: '💾', color: '#059669' },
+  { id: 'approval', label: 'Trigger Approval', icon: '✅', color: '#7c3aed' },
+  { id: 'wait', label: 'Wait / Delay', icon: '⏳', color: '#d97706' },
+  { id: 'notify', label: 'Send Notification', icon: '🔔', color: '#dc2626' },
+];
+
+function WorkflowAutomationDemo() {
+  const [tab, setTab] = useState<'trigger' | 'actions' | 'log'>('trigger');
+  const [selectedTrigger, setSelectedTrigger] = useState<string>('form');
+  const [actionSteps, setActionSteps] = useState<WFAction[]>([WF_ACTIONS[0], WF_ACTIONS[1]]);
+  const [runLog, setRunLog] = useState<WFLogEntry[]>([]);
+  const [running, setRunning] = useState(false);
+  const [ran, setRan] = useState(false);
+
+  const trigger = WF_TRIGGERS.find(t => t.id === selectedTrigger)!;
+
+  function addAction(action: WFAction) {
+    if (actionSteps.length < 5) setActionSteps(prev => [...prev, action]);
+  }
+
+  function removeAction(idx: number) {
+    setActionSteps(prev => prev.filter((_, i) => i !== idx));
+  }
+
+  async function runWorkflow() {
+    if (running) return;
+    setRunning(true);
+    setRan(false);
+    setRunLog([]);
+    setTab('log');
+
+    const now = () => new Date().toLocaleTimeString('en-US', { hour12: false });
+
+    const steps: Array<() => WFLogEntry> = [
+      () => ({ step: `Trigger: ${trigger.icon} ${trigger.label}`, status: 'success', ts: now(), detail: 'Event received. Workflow started.' }),
+      ...actionSteps.map(a => () => ({
+        step: `${a.icon} ${a.label}`,
+        status: (Math.random() > 0.08 ? 'success' : 'error') as 'success' | 'error',
+        ts: now(),
+        detail: a.id === 'email' ? 'Email dispatched to john@example.com'
+          : a.id === 'record' ? 'Record #4821 updated in CRM'
+          : a.id === 'approval' ? 'Approval request sent to manager@example.com'
+          : a.id === 'wait' ? 'Waited 30 minutes before next step'
+          : 'Push notification delivered to 3 subscribers',
+      })),
+      () => ({ step: '✓ Workflow complete', status: 'success', ts: now(), detail: `Ran ${actionSteps.length} action${actionSteps.length !== 1 ? 's' : ''} successfully.` }),
+    ];
+
+    for (let i = 0; i < steps.length; i++) {
+      await new Promise<void>(res => setTimeout(res, 600 + i * 200));
+      const entry = steps[i]();
+      setRunLog(prev => [...prev, { ...entry, status: i > 0 && i < steps.length - 1 ? entry.status : 'success' }]);
+    }
+
+    setRunning(false);
+    setRan(true);
+  }
+
+  const tabBtn = (t: 'trigger' | 'actions' | 'log', label: string) => (
+    <button
+      onClick={() => setTab(t)}
+      style={{
+        padding: '8px 18px', border: 'none', cursor: 'pointer', fontWeight: tab === t ? 700 : 400,
+        background: tab === t ? 'var(--orange)' : '#f1f5f9',
+        color: tab === t ? '#fff' : 'var(--text-secondary)',
+        borderRadius: '6px', fontSize: '13px', transition: 'all .15s',
+      }}
+    >{label}</button>
+  );
+
+  const card: React.CSSProperties = {
+    background: '#fff', border: '1px solid #e2e8f0', borderRadius: '10px',
+    padding: '16px 18px', marginBottom: '10px',
+  };
+
+  return (
+    <div style={{ fontFamily: 'Inter, sans-serif', maxWidth: '680px' }}>
+      <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
+        {tabBtn('trigger', `${trigger.icon} Trigger`)}
+        {tabBtn('actions', `⚡ Actions (${actionSteps.length})`)}
+        {tabBtn('log', ran ? '✓ Run Log' : '▶ Run Log')}
+      </div>
+
+      {/* TRIGGER TAB */}
+      {tab === 'trigger' && (
+        <div>
+          <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '14px' }}>
+            Select what starts your automation workflow:
+          </p>
+          {WF_TRIGGERS.map(t => (
+            <div
+              key={t.id}
+              onClick={() => setSelectedTrigger(t.id)}
+              style={{
+                ...card, cursor: 'pointer', display: 'flex', alignItems: 'flex-start', gap: '14px',
+                border: selectedTrigger === t.id ? '2px solid var(--orange)' : '1px solid #e2e8f0',
+                background: selectedTrigger === t.id ? '#fff7ed' : '#fff',
+              }}
+            >
+              <span style={{ fontSize: '28px', lineHeight: 1 }}>{t.icon}</span>
+              <div>
+                <div style={{ fontWeight: 700, fontSize: '14px', color: '#1e293b' }}>{t.label}</div>
+                <div style={{ fontSize: '12.5px', color: 'var(--text-secondary)', marginTop: '3px' }}>{t.description}</div>
+              </div>
+              {selectedTrigger === t.id && (
+                <span style={{ marginLeft: 'auto', background: 'var(--orange)', color: '#fff', borderRadius: '20px', padding: '2px 10px', fontSize: '11px', fontWeight: 700, whiteSpace: 'nowrap' }}>Selected</span>
+              )}
+            </div>
+          ))}
+          <button
+            onClick={() => setTab('actions')}
+            style={{ marginTop: '10px', background: 'var(--orange)', color: '#fff', border: 'none', borderRadius: '8px', padding: '10px 22px', fontWeight: 700, cursor: 'pointer', fontSize: '14px' }}
+          >
+            Next: Add Actions →
+          </button>
+        </div>
+      )}
+
+      {/* ACTIONS TAB */}
+      {tab === 'actions' && (
+        <div>
+          <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '14px' }}>
+            Build your workflow — add up to 5 action steps:
+          </p>
+          {actionSteps.length === 0 && (
+            <div style={{ ...card, textAlign: 'center', color: 'var(--text-secondary)', fontSize: '13px', padding: '28px' }}>
+              No actions yet. Add actions below.
+            </div>
+          )}
+          {actionSteps.map((a, idx) => (
+            <div key={`${a.id}-${idx}`} style={{ ...card, display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <span style={{ background: a.color, color: '#fff', borderRadius: '8px', width: '34px', height: '34px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', flexShrink: 0 }}>{a.icon}</span>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 600, fontSize: '13.5px' }}>Step {idx + 1}: {a.label}</div>
+              </div>
+              <button onClick={() => removeAction(idx)} style={{ background: 'none', border: '1px solid #e2e8f0', borderRadius: '6px', padding: '4px 10px', cursor: 'pointer', color: '#ef4444', fontSize: '12px' }}>Remove</button>
+            </div>
+          ))}
+          {actionSteps.length < 5 && (
+            <div style={{ marginTop: '12px' }}>
+              <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '8px', fontWeight: 600 }}>+ Add action:</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                {WF_ACTIONS.map(a => (
+                  <button
+                    key={a.id}
+                    onClick={() => addAction(a)}
+                    style={{ background: a.color, color: '#fff', border: 'none', borderRadius: '7px', padding: '7px 14px', cursor: 'pointer', fontSize: '12.5px', fontWeight: 600 }}
+                  >
+                    {a.icon} {a.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          <button
+            onClick={runWorkflow}
+            disabled={actionSteps.length === 0 || running}
+            style={{ marginTop: '18px', background: actionSteps.length === 0 ? '#94a3b8' : 'var(--orange)', color: '#fff', border: 'none', borderRadius: '8px', padding: '11px 24px', fontWeight: 700, cursor: actionSteps.length === 0 ? 'not-allowed' : 'pointer', fontSize: '14px' }}
+          >
+            {running ? '⏳ Running...' : '▶ Run Workflow'}
+          </button>
+        </div>
+      )}
+
+      {/* LOG TAB */}
+      {tab === 'log' && (
+        <div>
+          <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '14px' }}>
+            {ran ? 'Workflow run completed.' : running ? 'Running workflow steps...' : 'Run your workflow to see the execution log.'}
+          </p>
+          {runLog.length === 0 && !running && (
+            <div style={{ ...card, textAlign: 'center', color: 'var(--text-secondary)', fontSize: '13px', padding: '28px' }}>
+              No run data yet. Go to Actions and click &ldquo;Run Workflow&rdquo;.
+            </div>
+          )}
+          {runLog.map((entry, idx) => (
+            <div key={idx} style={{ ...card, display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '8px' }}>
+              <span style={{ fontSize: '18px', lineHeight: 1.2 }}>
+                {entry.status === 'success' ? '✅' : entry.status === 'error' ? '❌' : '⏳'}
+              </span>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 700, fontSize: '13.5px', color: '#1e293b' }}>{entry.step}</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '2px' }}>{entry.detail}</div>
+              </div>
+              <span style={{ fontSize: '11px', color: '#94a3b8', whiteSpace: 'nowrap', paddingTop: '2px' }}>{entry.ts}</span>
+            </div>
+          ))}
+          {running && (
+            <div style={{ ...card, display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-secondary)', fontSize: '13px' }}>
+              <span style={{ animation: 'spin 1s linear infinite', display: 'inline-block' }}>⏳</span> Processing next step...
+            </div>
+          )}
+          {!running && runLog.length > 0 && (
+            <button
+              onClick={() => { setRunLog([]); setRan(false); setTab('actions'); }}
+              style={{ marginTop: '10px', background: '#f1f5f9', color: '#1e293b', border: 'none', borderRadius: '8px', padding: '9px 20px', fontWeight: 600, cursor: 'pointer', fontSize: '13px' }}
+            >
+              ← Edit Workflow
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ─── Main export ─── */
 const demoMap: Record<string, React.ReactNode> = {
   'payroll-calc': <PayrollDemo />,
@@ -2222,6 +2441,7 @@ const demoMap: Record<string, React.ReactNode> = {
   'job-description-gen': <JobDescriptionGenDemo />,
   'vendor-portal': <VendorPortalDemo />,
   'lead-magnet': <LeadMagnetDemo />,
+  'workflow-automation': <WorkflowAutomationDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {
