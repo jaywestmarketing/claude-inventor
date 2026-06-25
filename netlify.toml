@@ -1,20 +1,21 @@
 [build]
-  command = "npm run build"
-  publish = ".next"
+  command   = "npm run build"
+  publish   = "out"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION      = "20"
+  NPM_FLAGS         = "--legacy-peer-deps"
 
 [[plugins]]
-  package = "@netlify/plugin-nextjs"
+  package = "netlify-plugin-bundle-env"
 
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Content-Type-Options = "nosniff"
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options  = "nosniff"
+    X-Frame-Options         = "DENY"
+    X-XSS-Protection        = "1; mode=block"
+    Referrer-Policy         = "strict-origin-when-cross-origin"
 
 [[headers]]
   for = "/_next/static/*"
@@ -24,5 +25,11 @@
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
-    Content-Type = "application/xml"
+    Content-Type  = "application/xml"
     Cache-Control = "public, max-age=3600"
+
+# 404 fallback for direct URL visits on static export
+[[redirects]]
+  from   = "/*"
+  to     = "/404/index.html"
+  status = 404

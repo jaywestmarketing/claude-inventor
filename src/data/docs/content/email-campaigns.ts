@@ -1,0 +1,87 @@
+export const content = `
+<div class="doc-lead">
+  <p>
+    EmailCampaigns is a free email marketing software for small business owners, marketing managers, and solo operators who need to send newsletters, drip sequences, and broadcast campaigns without paying Mailchimp ($13-350/mo) or Klaviyo ($20-700/mo) subscription fees. Small business email marketing has historically meant expensive platforms that charge more as your list grows, complex automation builders that require training, and opaque analytics that hide what is actually driving opens and clicks. <a href='/tools/email-campaigns'>EmailCampaigns email campaign automation tool</a> eliminates all of that friction: build a campaign in minutes using a drag-and-drop email builder, segment contacts by behavior or tag, schedule automated drip sequences, and track performance at the per-contact level. This documentation covers the full feature set including list management, automation setup, A/B testing, compliance tools, and analytics.
+  </p>
+</div>
+
+<h2>Getting Started with EmailCampaigns</h2>
+<ol class="doc-steps">
+  <li><strong>Import your contact list.</strong> Navigate to the Contacts tab and upload a CSV file containing at minimum a column for email address. EmailCampaigns will map additional columns — first name, last name, company, any custom fields — to contact properties automatically. You can also paste a list of email addresses directly or add contacts one at a time. All imported contacts are checked for formatting and duplicates before being added.</li>
+  <li><strong>Create a sender profile.</strong> Go to Settings and enter your From Name, From Email, and Reply-To address. EmailCampaigns uses this information on every campaign you send. A verified sender profile also ensures your campaigns pass SPF and DKIM checks, which are critical for deliverability and inbox placement.</li>
+  <li><strong>Build your first email.</strong> Click New Campaign, choose Broadcast (one-time send) or Sequence (automated drip), then open the drag-and-drop email builder. Select a responsive template, drop in your content blocks — text, image, button, divider — and customize colors and fonts to match your brand. The live preview shows both desktop and mobile rendering side by side.</li>
+  <li><strong>Segment your audience.</strong> Before sending, define who receives this campaign. You can target your full list, a saved segment (contacts tagged "customer" who opened in the last 30 days), or a manual selection. Segmentation runs in real time so you see the exact contact count before confirming the send.</li>
+  <li><strong>Schedule and send.</strong> Choose to send immediately, schedule for a specific date and time, or enable send-time optimization to deliver each email at the hour most likely to be opened based on each subscriber's engagement history. Once sent, the Analytics tab populates with open rates, click rates, bounces, and unsubscribes within minutes.</li>
+</ol>
+
+<h2>Core Features</h2>
+
+<h3>Drag-and-Drop Email Builder with Responsive Templates</h3>
+<p>Building a professional email should not require a designer or knowledge of HTML. The EmailCampaigns drag-and-drop builder offers a library of responsive templates organized by use case — welcome sequences, product announcements, weekly newsletters, promotional offers, and re-engagement campaigns. Each template is pre-tested across major email clients including Gmail, Outlook, Apple Mail, and Samsung Mail.</p>
+<p>Customizing a template is as straightforward as clicking any element and editing it in place. You can add, reorder, or remove content blocks — text, images, buttons, social links, dividers, and video thumbnails — without touching code. The builder saves your brand colors and logo after the first campaign so subsequent emails stay visually consistent without manual setup each time.</p>
+
+<h3>List Segmentation by Tag, Behavior, and Custom Field</h3>
+<p>Sending the same email to your entire list is the fastest way to drive unsubscribes. EmailCampaigns supports dynamic segmentation so you can reach exactly the right contacts at the right time. Segments can be built on any combination of conditions: contact tags (set manually or applied by automation), engagement behavior (opened in last 60 days, clicked a specific link, never opened), purchase or signup date, or any custom field you imported from a CSV.</p>
+<p>Segments update automatically as contacts meet or no longer meet the criteria. A segment for "active subscribers who have not purchased" will always reflect the current state of your list when a campaign is sent to it. You can save segments for reuse, combine them with AND and OR logic, and preview the contact count before scheduling any send.</p>
+
+<h3>Automation Sequences Triggered by Signup, Purchase, or Date</h3>
+<p>Drip campaigns send the right message to each subscriber at the right moment without any manual intervention after initial setup. EmailCampaigns lets you create multi-step sequences triggered by a signup form submission, a tag being applied, a specific date (such as a contact's anniversary or trial expiration), or a link click in a previous email. Each step in the sequence specifies the delay — immediately, after 1 day, after 3 days — and which email to send.</p>
+<p>A typical welcome sequence might send a getting-started email immediately on signup, a case study on day 3, a feature highlight on day 7, and a promotional offer on day 14. Once configured, the sequence runs for every new subscriber automatically. You can edit any step, add new steps, or pause the entire sequence without losing contacts currently progressing through it.</p>
+
+<h3>A/B Testing for Subject Lines and Send Times</h3>
+<p>Small differences in subject lines produce significant differences in open rates. ActiveCampaign ($29-149/mo) charges for A/B testing access on lower-tier plans. EmailCampaigns includes A/B testing on every campaign at no cost. Set up a test by writing two subject lines (or selecting two send times), then choose what percentage of your list receives each variant — typically 20% each — and define the winning metric: open rate, click rate, or click-to-open rate.</p>
+<p>After the test window closes (you set the duration — 2 hours, 4 hours, 24 hours), EmailCampaigns automatically sends the winning variant to the remaining contacts. The test results screen shows the exact performance of each variant, the statistical confidence level, and the projected lift from the winning choice. All A/B test results are saved in the campaign history for future reference.</p>
+
+<h3>Unsubscribe Management and CAN-SPAM Compliance</h3>
+<p>Every email sent through EmailCampaigns includes a one-click unsubscribe link in compliance with CAN-SPAM and GDPR requirements. When a contact unsubscribes, they are immediately removed from all future campaign sends and flagged in the Contacts tab so they are excluded from any imports or re-additions. Contacts can also update their preferences to receive only certain types of emails — promotional versus transactional — without fully unsubscribing.</p>
+<p>The compliance dashboard shows your unsubscribe rate per campaign and your overall list health score. High unsubscribe rates on specific campaigns trigger an alert suggesting you review the segment, subject line, or send frequency. EmailCampaigns also processes bounce reports automatically: hard bounces are suppressed immediately; soft bounces are tracked and suppressed after three consecutive failures.</p>
+
+<h3>Open and Click Tracking with Per-Contact Engagement History</h3>
+<p>Campaign-level statistics tell you what happened in aggregate; per-contact engagement history tells you what each individual subscriber actually read, clicked, and ignored. In the EmailCampaigns Contacts view, each profile shows a chronological feed of every email received, opened, clicked, or forwarded — dating back to the contact's first interaction with your list.</p>
+<p>This data powers two important use cases. First, sales teams can look up a prospect before a call and see exactly which emails and offers they engaged with. Second, automation rules can trigger based on individual behavior — for example, automatically tagging a contact as "high intent" when they click a pricing page link and then moving them into a follow-up sequence. All engagement data is exportable per contact or in bulk CSV format.</p>
+
+<h3>Send-Time Optimization for Per-Subscriber Delivery</h3>
+<p>Most email tools let you schedule a campaign for a fixed time. Send-time optimization is a more sophisticated approach: instead of sending everyone at 10 AM Tuesday, EmailCampaigns analyzes each subscriber's historical open patterns and delivers the email at the time they are individually most likely to open it. A contact who consistently opens emails at 7 AM on weekdays gets the campaign at 7 AM their local time; a contact who opens at 9 PM gets it then.</p>
+<p>The optimization model builds from at least three prior sends to a contact before personalizing delivery time. For new contacts without enough history, the system falls back to the account-level best time based on aggregate engagement data for your audience. Send-time optimization is available on any scheduled campaign with a single toggle and adds no complexity to the workflow.</p>
+
+<h3>CSV Import and Export of Contact Lists</h3>
+<p>EmailCampaigns is designed to work with the contact data you already have, wherever it lives. The CSV importer accepts any column structure: email is required, everything else is optional and mappable to standard or custom contact fields. During import, you can apply tags to the entire batch — useful for segmenting imported lists by source — and preview the first five rows to confirm field mapping before committing.</p>
+<p>Exports are equally flexible. You can export your full contact list, a saved segment, or the respondents from a specific campaign (everyone who opened, clicked, or unsubscribed from a particular send). Export files include all contact fields plus computed engagement metrics. This makes it straightforward to move data into a CRM, hand off a hot-lead segment to sales, or archive a list snapshot for compliance purposes. For additional tips on <a href='/blog/ai-engine-optimization-aeo-guide-2026'>optimizing email content for AI search</a>, see our AEO guide.</p>
+
+<h2>Common Use Cases</h2>
+
+<h3>Weekly Newsletter for a Service Business</h3>
+<p>A consultancy, law firm, or agency that publishes a weekly newsletter needs an email workflow that is fast enough to repeat every seven days without becoming a burden. EmailCampaigns makes this practical by saving your brand template, sender profile, and distribution segment so each week you open a new campaign, paste in the content, update the subject line, and send. Open and click tracking shows which article topics generate the most engagement, so over time you can focus content on what the audience actually reads. Bounce and unsubscribe data highlights list hygiene issues before they affect deliverability.</p>
+
+<h3>E-Commerce Drip Sequence After Purchase</h3>
+<p>An online shop that sells products can dramatically increase repeat purchase rates with a post-purchase email sequence. A five-step drip starting on the day of purchase might include an order confirmation (immediate), a how-to-use guide (day 2), a review request (day 7), a cross-sell recommendation (day 14), and a loyalty discount (day 30). Each email in the sequence is written once and delivered automatically to every buyer. A/B testing the subject lines on the review request step and the cross-sell step reveals which messaging drives the most repeat revenue without any additional manual effort.</p>
+
+<h3>Lead Nurturing for a B2B SaaS or Professional Services Firm</h3>
+<p>A software company or professional services firm collecting trial signups or contact form submissions needs a nurturing sequence that educates prospects and drives them toward a sales conversation. EmailCampaigns supports this with a tag-triggered sequence: when a contact is tagged "trial-signup," a 10-step educational sequence begins covering key features, customer stories, and integration guides over 21 days. Contacts who click the pricing link in any email are automatically tagged "high-intent" and moved into a shorter, more direct sequence with a call-to-action to book a demo. Contacts who reach the end without engaging are tagged "cold" for a re-engagement campaign.</p>
+
+<div class="doc-tip"><strong>Tip:</strong> Keep your first drip email under 150 words and focused on a single action. Long welcome emails have open rates 18-22% lower than short, punchy ones, and a single clear CTA consistently outperforms three competing links. Write the first email as if it is a text from a person, not a newsletter from a brand.</div>
+
+<h2>Frequently Asked Questions</h2>
+<div class="article-faq">
+  <div class="faq-item">
+    <h3>How do I create and send my first email campaign?</h3>
+    <p>Start by importing your contact list under the Contacts tab using a CSV file — email address is the only required column. Next, go to Settings and confirm your From Name and From Email are filled in. Then click New Campaign from the dashboard and select Broadcast for a one-time send. Choose a template from the library, customize the content using the drag-and-drop builder, and write your subject line and preview text. In the Audience step, select your full list or a specific segment. In the Schedule step, choose to send immediately or at a future date and time. Click Confirm Send and EmailCampaigns handles delivery. Analytics begin populating within minutes of the first sends going out, showing opens, clicks, bounces, and unsubscribes in real time.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How do I set up a drip automation sequence?</h3>
+    <p>Go to Automations and click New Sequence. Name the sequence and choose the trigger: a contact being added to the list, a specific tag being applied, a form submission, or a date-based event such as a trial expiration. Then add your steps: each step specifies a delay (immediately, after 1 day, after 3 days, and so on) and selects which email template to send at that step. You build the emails inside the same drag-and-drop builder used for broadcasts. Once you click Activate, the sequence runs automatically for every contact who meets the trigger going forward. Contacts already in your list at activation can be enrolled retroactively using the Backfill option. You can pause or edit the sequence at any time without losing contacts currently progressing through it.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How do I segment my contact list?</h3>
+    <p>Go to the Segments tab and click New Segment. Give the segment a name, then add conditions using the filter builder. Conditions can be based on contact fields (custom fields from your CSV import, such as company size or industry), tags (labels applied manually or by automation rules), or engagement behavior (opened in the last 30 days, clicked a specific campaign, never opened any campaign, unsubscribed). Combine conditions with AND to narrow the segment or OR to broaden it. The segment preview updates in real time showing the exact count of matching contacts. Save the segment and it becomes available in the Audience step of every campaign. Because segments are dynamic, the contact count automatically updates as contacts meet or no longer meet the criteria whenever you send a campaign to it.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How do I A/B test subject lines?</h3>
+    <p>When creating a Broadcast campaign, toggle the A/B Test switch in the Subject Line step. You will see two subject line fields — enter a different subject in each. Then set the test parameters: what percentage of your list receives each variant (20% and 20% is a common split, leaving 60% for the winner), the test duration (typically 2 to 24 hours depending on list size), and the winning metric (open rate for subject line tests is the standard choice). EmailCampaigns sends Variant A and Variant B to their respective test groups at the scheduled send time, waits for the test window to close, evaluates the winning metric, and automatically sends the winner to the remaining contacts. The results screen shows both variant performance, the margin of difference, and the confidence level so you can judge whether the result is statistically meaningful or a close call to retest.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How do I view campaign performance analytics?</h3>
+    <p>After sending a campaign, open it from the Campaigns list and click the Analytics tab. The summary view shows total recipients, delivered count, open rate, unique click rate, click-to-open rate, bounce rate, and unsubscribe rate for that send. Scroll down to see a link-by-link click breakdown showing exactly which links in your email received the most clicks and how many unique contacts clicked each one. The Contacts sub-tab lists every recipient with their individual status: opened, clicked, bounced, or unsubscribed, along with the timestamp of each action. You can filter this list to export only the contacts who clicked, enabling you to hand a warm-lead list to your sales team or enroll those contacts in a follow-up automation sequence directly from the analytics view.</p>
+  </div>
+</div>
+`;

@@ -1,230 +1,249 @@
 # AutomateStack — Claude Daily Automation System
 
 ## Mission
-Demand-validation engine disguised as a free tools dashboard.
-Pipeline: **traffic → waitlist signups → validation → monetization**.
-Browser-based business automation tools added daily via market research. Tools with the most waitlist interest get fully built and monetized.
+**Demand-validation engine disguised as a free tools dashboard.**
+
+Pipeline: **traffic → waitlist signups → validation → monetization**
+
+Every tool must solve a documented, expensive problem that businesses already pay $5K+/month to solve badly. Build painkillers, not vitamins.
 
 ## Architecture
 - **Framework:** Next.js App Router (TypeScript), static export
-- **Styling:** CSS glass-morphism (semi-transparent white tiles, light shadows)
-- **Data:** Static TypeScript — `src/data/tools.ts` (tool registry + session logs), `src/data/session-history.ts` (changelog)
+- **Styling:** Glass-morphism — semi-transparent white tiles, soft shadows, color-coded category badges
+- **Data:** `src/data/tools.ts` (tool registry + session logs), `src/data/session-history.ts` (changelog)
 - **SEO:** Schema.org JSON-LD triple stack, dynamic sitemap, robots.txt, OpenGraph + Twitter Cards
 - **Waitlist:** localStorage keyed by tool slug (upgrade to backend later)
-- **Deployment:** Static export on Netlify, no backend/API keys required for demos
+- **Deploy:** Static export on Netlify. No backend/API keys for demos.
+- **Design:** Google Cloud Console aesthetic. Mobile-first (83% of traffic is mobile).
 
 ---
 
-## SESSION STARTUP — MANDATORY EVERY SESSION
+## SESSION PROTOCOL (MANDATORY — NEVER SKIP)
 
-This is a **recurring automation**. Every session continues from the last. Never start fresh.
+This is a **recurring automation**. Every session continues from the last.
 
-### 1. Load State (do first, no exceptions)
+### 1. Load State
 ```
-READ src/data/session-history.ts   → understand all previous sessions
-READ src/data/tools.ts             → know every tool and its current state
-RUN  git log --oneline -20         → detect external pushes from other sessions
+READ src/data/session-history.ts   → all previous sessions
+READ src/data/tools.ts             → every tool and its state
+RUN  git log --oneline -20         → detect external pushes
 ```
-If git log shows commits not in session-history, read those changed files before proceeding.
+If git log shows commits not in session-history → read changed files before proceeding.
 
-### 2. Identify Priorities
-1. Read `nextSessionPlan` from the latest `SessionEntry` — this is your **#1 priority**
-2. Count tools per category — identify underrepresented categories
-3. Check which cities are already used (avoid duplicates)
+### 2. Set Priorities
+1. Read `nextSessionPlan` from latest `SessionEntry` — this is **#1 priority**
+2. Count tools per category → find underrepresented categories
+3. Collect ALL `targetCities` across ALL tools → avoid duplicates
+4. Find oldest-updated tools → these get compounding updates
 
-### 3. Research (web search required — NEVER SKIP)
+### 3. Research (NEVER SKIP)
+Every search must produce **extracted data points** — names, prices, complaint quotes, revenue figures. No vague summaries.
 
-**For each search: extract specific data points, don't just read results. Record competitor names, prices, complaint quotes, and revenue figures.**
+**Research tracks (run in parallel where possible):**
 
-#### New Tool Discovery (3-5 searches)
-- `trending business automation tools {current_year}` → extract: tool names, categories, user counts
-- `most popular SaaS tools for {rotate_audience} {current_year}` → extract: tool names, pricing, audience size
-- `Product Hunt business productivity launches this week` → extract: new entrants, feature lists
-- `best new {underrepresented_category} software {current_year}` → extract: gaps in market
-- `GitHub trending repos business automation` → extract: popular projects, issue complaints, feature gaps
+| Track | What to Search | What to Extract |
+|-------|---------------|-----------------|
+| **New tool discovery** | Trending automation tools, SaaS launches, Reddit/ProductHunt, GitHub trending repos | Tool names, categories, user counts, pricing, gaps |
+| **Competitor maintenance** | Reviews, pricing changes, outages, alternatives for 3-5 existing tools (oldest first) | NEW complaints, price increases, feature additions, churn signals |
+| **Keyword intelligence** | Category keywords, "[competitor] alternative", "people also ask", "how to automate X" | High-volume terms not yet in our keyword lists |
+| **GitHub/open-source** | Issues on popular OSS competitors (10+ thumbs up), "is there an alternative" discussions | Feature requests = validated demand, bug reports = pain points |
 
-#### Existing Tool Maintenance (rotate 3-5 tools per session)
-- `{competitor_name} reviews {current_year}` → extract: NEW complaints not already in tools.ts
-- `{competitor_name} pricing changes {current_year}` → extract: price increases (opportunity signal)
-- `{tool_category} new features {current_year}` → extract: features competitors added that we should note
+**Source priority:** G2/Capterra/TrustRadius > Reddit > Product Hunt > GitHub Issues > Crunchbase/SimilarWeb > Pricing pages > Twitter/X
 
-#### Keyword & SEO Intelligence
-- `{tool_category} keywords {current_year}` → extract: high-volume terms not in our keyword lists
-- `best {tool_category} alternative {current_year}` → extract: "[competitor] alternative" keyword patterns
-- `people also ask {tool_category}` → extract: exact questions for FAQ sections
+**If research yields nothing useful:** Don't fabricate. Log what you searched in session-history. Move to updating existing tools.
 
-### Research Source Hierarchy (prioritize in this order)
-1. **G2, Capterra, TrustRadius** — verified reviews with company size context
-2. **Reddit (r/smallbusiness, r/startups, r/SaaS, r/entrepreneur)** — unfiltered complaints
-3. **Product Hunt** — launch data, upvotes, competitor landscape
-4. **GitHub Issues** — technical complaints, feature requests on open-source competitors
-5. **Crunchbase / SimilarWeb** — revenue estimates, traffic data
-6. **Company pricing pages** — direct price verification (never rely on outdated data)
+### 4. Select & Score New Tools (1-5 per session)
 
-### If Research Yields Nothing Useful
-- Don't fabricate data. Skip the tool and move to the next candidate.
-- Log what you searched and why it failed in `session-history.ts` under `researchNotes`
-- Move to updating existing tools instead — there's always compounding work to do
-
----
-
-## DAILY EXECUTION LOOP
-
-### Phase 1: Tool Selection & Validation
-
-Select 1-5 new tools per session. Every tool MUST pass ALL gates:
+**Every tool must pass ALL gates:**
 
 | Gate | Requirement |
 |------|-------------|
-| Revenue | 3+ competitors earning >$5,000/month (verify via search) |
-| Pain | Documented negative reviews (cite source: G2, Capterra, Reddit, TrustRadius) |
-| Feasibility | Works as browser-only web app (no backend, no API keys for demo) |
-| Audience | Serves 1+ target audiences (see Audiences table below) |
-| Unique | Not already in `tools.ts`, not a duplicate concept |
-| Category | Prefer underrepresented categories for dashboard diversity |
+| Revenue | 3+ competitors earning >$5K/month (verified) |
+| Pain | Documented negative reviews with specific quotes + sources |
+| Feasibility | Browser-only web app, no backend/API keys for demo |
+| Audience | Serves 1+ target audiences (see table below) |
+| Unique | Not already in tools.ts, not a duplicate concept |
 
-**Priority scoring (rank candidates before building):**
+**Scoring (rank ALL candidates, build highest first):**
+
 | Signal | Points |
 |--------|--------|
 | Competitor revenue >$10M ARR | +3 |
 | 10+ negative reviews found | +2 |
 | Serves multiple audiences | +2 |
 | Underrepresented category | +2 |
-| Already in queued pipeline | +1 |
+| In queued pipeline | +1 |
+| Competitor recently raised prices | +1 |
+| Trending on Product Hunt/Reddit | +1 |
 
-Build highest-scoring tools first.
+### 5. Deep Research Per Tool (BEFORE any code)
 
-### Phase 2: Deep Research Per Tool
+For each new tool, complete ALL sections:
 
-Complete ALL sections before writing any code. No dummy data — every stat must come from research.
-
-**A. Competitor Analysis (5 minimum per tool)**
-For each competitor, record:
-- Name, verified price range, top complaint (specific quote + source), ARR estimate if available
+**A. Competitors (5+ minimum)**
+- Name, verified price range, top complaint (specific quote + source), ARR estimate
+- Recent pricing changes, new features, audience fit
 
 **B. Competitor Fixes (6+ per tool)**
-- Each fix directly addresses a specific competitor complaint
-- Frame as "We do X instead of Y" — concrete, not vague
-- Example: "Instant setup in under 5 minutes — no consultants needed" (addresses Workday's complexity)
-- NOT acceptable: "Better user experience" (too vague)
+- Each fix addresses a specific named competitor's documented complaint
+- Concrete: "Instant setup in under 5 minutes — no consultants needed"
+- NOT vague: "Better user experience" ← rejected
 
-**C. Keyword Research (20 per tool)**
-- 5 high-intent primary keywords (transactional: "best X software", "X tool for small business")
-- 5 "[competitor] alternative" keywords
-- 5 long-tail keywords (3-5 words, lower competition)
-- 5 question-based keywords for FAQ/AEO ("how to automate X", "what is the best X")
-- Always include "best [category] {current_year}" pattern
+**C. Keywords (20 per tool, structured)**
+- 5 high-intent primary ("best X software", "X tool for small business")
+- 5 "[competitor] alternative" ("Calendly alternative", "cheaper than HubSpot")
+- 5 long-tail (3-5 words, lower competition)
+- 5 question-based for AEO ("how to automate X", "what is the best X for")
+- Always include "best [category] {current_year}"
 
 **D. Local SEO Cities (10 per new tool)**
-Pick 10 US cities meeting ALL criteria:
-- Population 70k-350k (low competition, real demand)
-- Growing business/tech scene or university town
-- NOT already used by another tool in `tools.ts` (check all existing `targetCities`)
+- Population 70K-350K, growing business/tech/university presence
+- NOT already used by any other tool (check ALL tools)
+- Geographic diversity (spread across regions)
 - Set `competitionLevel: 'low'` or `'medium'`
 
-**Also each session:** Add 10 NEW cities to 2-3 existing tools (expand coverage, rotate oldest-updated tools first).
-
-**City expansion for existing tools:** Each session, add 10 NEW cities to 2-3 existing tools (prioritize oldest tools first)
-
-**E. Tool Specification**
-- 8 features (specific actions, not generic claims)
-- Tagline: one-line value prop containing primary keyword
+**E. Tool Spec**
+- 8 features (specific user actions, not generic claims)
+- Tagline: one-line value prop with primary keyword
 - Description: 2-3 sentences, primary keyword in first 150 words, answers "What is [tool name]?"
 
-### Phase 3: Build
+### 6. Build
 
-1. **Add tool to `src/data/tools.ts`** — must match the `Tool` interface exactly:
-   ```typescript
-   {
-     id: 'kebab-case-unique-id',
-     name: 'ToolName',
-     tagline: 'One-line value prop with primary keyword',
-     description: 'Primary keyword in first 150 words. Direct answer to "What is [tool]?"',
-     category: 'hr' | 'finance' | 'marketing' | 'sales' | 'operations' | 'productivity',
-     status: 'demo',
-     icon: 'emoji',
-     features: [...],          // exactly 8
-     keywords: [...],          // exactly 20
-     competitors: [...],       // 5+ Competitor objects {name, priceRange, topComplaint}
-     competitorFixes: [...],   // 6+ specific fix strings
-     targetCities: [...],      // 10 CityTarget objects {city, state, population, competitionLevel}
-     dateAdded: 'YYYY-MM-DD',
-     waitlistCount: 0,
-     slug: 'url-slug'
-   }
-   ```
-
-2. **Add to `sessionLogs`** in `tools.ts`
-
-3. **Tool pages auto-generate** via `[slug]/page.tsx` and `[slug]/[city]/page.tsx` — no manual page creation needed
-
-4. **New categories?** Update `categoryLabels` and `categoryBadgeClass` in `tools.ts`
-
-### Phase 4: Build Verification (NEVER SKIP)
-
-After all code changes, run:
-```bash
-npx next build 2>&1 | tail -20
+Add tool to `src/data/tools.ts` matching the `Tool` interface exactly:
+```typescript
+{
+  id: 'kebab-case-unique-id',
+  name: 'ToolName',
+  tagline: 'Value prop with primary keyword',
+  description: 'Primary keyword in first 150 words.',
+  category: 'hr' | 'finance' | 'marketing' | 'sales' | 'operations' | 'productivity',
+  status: 'demo',
+  icon: 'emoji',
+  features: [...],          // exactly 8
+  keywords: [...],          // exactly 20
+  competitors: [...],       // 5+ Competitor objects {name, priceRange, topComplaint}
+  competitorFixes: [...],   // 6+ specific fix strings
+  targetCities: [...],      // 10 CityTarget objects {city, state, population, competitionLevel}
+  dateAdded: 'YYYY-MM-DD',
+  waitlistCount: 0,
+  slug: 'url-slug'
+}
 ```
-If build fails: fix errors immediately before proceeding. Do not record the session as complete until the build passes.
 
-### Phase 5: Update Existing Tools (COMPOUNDING — DO NOT SKIP)
+- Add to `sessionLogs` in tools.ts
+- Tool pages auto-generate via `[slug]/page.tsx` and `[slug]/[city]/page.tsx`
+- New categories → update `categoryLabels` and `categoryBadgeClass`
 
-Every session must improve 2-3 existing tools. Pick oldest-updated tools first.
+### 7. Compound Existing Tools (DO NOT SKIP)
 
-**Updates to make:**
-- Add 10 new cities per tool (expand local SEO reach, maintain regional diversity)
-- Refresh keywords if research revealed better ones (swap weakest performers)
+Every session must improve 2-3 existing tools (oldest-updated first):
+- Add 10 new cities (expand local SEO, maintain regional diversity)
+- Refresh keywords if research found better ones (swap weakest, keep 20 total)
 - Update competitor data if pricing changed or new complaints found
-- Add new `competitorFixes` if competitors got new complaints
-- Update descriptions if AEO research suggests better phrasing
-- Add internal links between related tools (cross-sell within the dashboard)
+- Add new `competitorFixes` for new complaints
+- Update descriptions for better AEO phrasing
+- Check if tool should move: `demo` → `waitlist` → `live`
 
-**Tool Lifecycle Management:**
-| Stage | Criteria | Action |
-|-------|----------|--------|
-| `demo` | Just built, no waitlist data | Default state for new tools |
-| `waitlist` | Has waitlist signups, demo is polished | Upgrade status, add "Join Waitlist" CTA prominence |
-| `live` | Owner has configured and launched | Update status, add pricing/signup links |
+### 8. Build Verification (NEVER SKIP)
+```bash
+npm run build 2>&1 | tail -30
+```
+Fix TypeScript errors immediately. Do NOT proceed until build passes.
 
-Update tool `status` field when lifecycle stage changes.
+### 9. Record Everything
 
-### Phase 6: Record Everything
-
-**A. Update `src/data/session-history.ts`** — add new `SessionEntry`:
+**A. Add `SessionEntry` to `src/data/session-history.ts`:**
 ```typescript
 {
   sessionDate: 'YYYY-MM-DD',
-  sessionNumber: N,           // increment from last session
+  sessionNumber: N,
   toolsAdded: [{name, slug, category}],
-  toolsUpdated: [{name, changes: ['what changed']}],
+  toolsUpdated: [{name, changes: ['specific change']}],
   keywordsResearched: [{tool, keywords: [...], trending: [...]}],
   citiesAdded: [{tool, cities: [...]}],
   competitorChanges: [{tool, notes: 'what changed and why'}],
-  seoUpdates: ['specific SEO changes made'],
-  nextSessionPlan: [           // CRITICAL — must be SPECIFIC
-    'Build [specific tool name] — [specific reason from research]',
-    'Expand cities for [tool] — add [specific region/states]',
-    'Update [tool] keywords — [keyword] is trending',
-    'Research [specific category] — [specific opportunity signal]'
+  seoUpdates: ['specific changes'],
+  nextSessionPlan: [
+    'Build [tool name] — [reason from research]',
+    'Expand cities for [tool] — [region]',
+    'Update [tool] keywords — [keyword] trending per [source]',
+    'Research [category] — [opportunity signal]'
   ]
 }
 ```
 
-**B. Update CLAUDE.md** — update "Current Tools" and "Queued Tools" sections at bottom of this file.
+**B. Update CLAUDE.md** — Current Tools + Queued Tools sections at bottom.
 
-**C. Git commit** with descriptive message summarizing what was added/changed.
+**C. Git commit** with descriptive message.
 
 ---
 
-## CONTEXT BUDGET MANAGEMENT
+## SEO STRATEGY
 
-If running low on context window during a session:
+### Multi-Engine Targeting
+| Engine | Strategy |
+|--------|----------|
+| Google | Schema.org, Core Web Vitals, semantic HTML, FAQ, internal links, local SEO pages |
+| Bing/Yahoo | IndexNow, BingSiteAuth, structured data, meta tags |
+| DuckDuckGo | Clean semantic HTML, no tracking, fast loads |
+| AI Engines | AEO: structured answers, cited stats, front-loaded value, comparison tables |
+| Social | OpenGraph + Twitter Cards |
 
-1. **Must complete:** Record session history + nextSessionPlan (Phase 6)
-2. **Prioritize:** New tools over existing tool updates
-3. **Defer gracefully:** Move incomplete work to nextSessionPlan with specific details
-4. **Never:** Leave tools.ts in a broken state or skip build verification
+### JSON-LD Triple Stack (every tool page)
+1. `SoftwareApplication` — tool metadata, pricing, features
+2. `Article` (comparison) — tool vs competitors
+3. `FAQPage` — 5+ Q&As targeting "People Also Ask"
+
+### AEO / GEO Rules
+- First 150 words: direct answer to "What is [tool name]?"
+- Stats/data every 150-200 words (AI citation bait)
+- Front-load value — 55% of AI citations come from first 30% of page
+- Include comparison tables (AI engines love structured comparisons)
+- Structure as Q&A pairs, include "According to [source]" citations
+
+### On-Page SEO
+- Title: `[Tool Name] - Free [Category] Tool | AutomateStack`
+- Meta: 150-160 chars, primary keyword + CTA
+- Heading hierarchy: H1 > H2 > H3 (never skip)
+- Internal links: every tool page → 2-3 related tools
+- Breadcrumbs: Dashboard > Category > Tool Name
+- URLs: `/tools/[slug]` and `/tools/[slug]/[city-state]`
+
+### Local SEO (per city per tool)
+- `LocalBusiness` + `Service` schema per city page
+- Unique content per city (local industries, business climate, university) — NOT template swaps
+- Cities: 70K-350K population, low competition
+
+### Robots.txt
+- Allow: ChatGPT-User, PerplexityBot, ClaudeBot, OAI-SearchBot
+- Block: GPTBot, Google-Extended, CCBot (training bots)
+
+---
+
+## WAITLIST & CONVERSION
+- **Fields:** Name + Email only (maximize conversion)
+- **Storage:** localStorage by tool slug
+- **UX:** "Early access" messaging, estimated launch date
+- **Validation:** Most signups → build that tool first → notify on launch
+- **Demo first:** Working interactive demo ABOVE the waitlist form
+
+---
+
+## TARGET AUDIENCES
+
+| Audience | Pain Points | WTP |
+|----------|-------------|-----|
+| HR Managers | Manual onboarding, compliance, PTO chaos | $5-15/emp/mo |
+| Office Managers | Scheduling, supplies, visitors | $20-50/mo |
+| Small Biz Owners | Invoicing, expenses, proposals | $30-100/mo |
+| CEOs/Executives | No KPI visibility, board reports | $50-200/mo |
+| Sales Teams | Lead follow-up, commissions | $20-80/seat/mo |
+| Marketing Teams | Content planning, email, A/B testing | $20-60/mo |
+| Desk Clerks | Appointments, documents, data entry | $10-20/mo |
+| Lead Gen Specialists | Landing pages, scoring, outreach | $30-100/mo |
+| Operations Managers | Workflows, inventory, vendors | $30-100/mo |
+
+**Rotate audiences each session.** Don't build 3 tools for the same audience in a row.
 
 ---
 
@@ -232,94 +251,19 @@ If running low on context window during a session:
 
 | Problem | Action |
 |---------|--------|
-| Build fails after changes | Fix TypeScript errors immediately. Check interface conformance. |
-| Web search returns no results | Try alternative queries. Use competitor names directly. Check G2/Capterra/Reddit specifically. |
-| Research can't verify $5K/mo revenue | Skip that tool candidate. Move to next highest-scoring. |
-| Git conflict detected | Read both versions. Preserve all tool data. Merge intelligently. |
-| City already used by another tool | Pick a different city in same population range. |
-| Category has no competitors >$5K/mo | Skip category. Focus on validated categories. |
+| Build fails | Fix TypeScript errors, check interface conformance, rebuild |
+| Search returns nothing | Try competitor names directly, check G2/Capterra/Reddit |
+| Can't verify $5K/mo revenue | Skip tool candidate, move to next highest-scoring |
+| Git conflict | Read both versions, preserve all tool data, merge intelligently |
+| City already used | Pick different city in same population range and region |
+| Session interrupted | Next startup: detect incomplete work via git log vs session-history, complete first |
 
-### Phase 6: Build Verification (ALWAYS do this last)
-1. Run `npm run build` — confirm zero errors
-2. Spot-check that new tool pages render (check the slug URL would resolve)
-3. Verify sitemap would include new pages
-4. Commit all changes with a descriptive message
-
----
-
-## SEO STRATEGY
-
-### JSON-LD Triple Stack (every tool page)
-1. `SoftwareApplication` — tool metadata, pricing, features
-2. `Article` (comparison) — tool vs competitors structured data
-3. `FAQPage` — 5+ Q&As targeting "People Also Ask" queries
-
-### AEO (Answer Engine Optimization)
-- First 150 words: direct answer to "What is [tool name]?"
-- Stats/data every 150-200 words (AI citation bait)
-- FAQ answers exact search queries
-- 55% of AI citations come from first 30% of page — front-load value
-
-### On-Page SEO
-- Title: `[Tool Name] - Free [Category] Tool | AutomateStack`
-- Meta description: 150-160 chars, primary keyword + CTA
-- Semantic HTML, heading hierarchy (H1 > H2 > H3)
-- OpenGraph + Twitter Card meta tags
-- Dynamic sitemap.xml and robots.txt via Next.js
-- **Internal linking:** Every tool page links to 2-3 related tools ("You might also like...")
-- **Breadcrumbs:** Dashboard > Category > Tool Name (structured data + visible)
-
-### Local SEO (per city per tool)
-- `LocalBusiness` + `Service` schema per city page
-- Unique content per city — mention local industries, business climate
-- NOT template swaps — each city must have researched, unique content
-- Every city gets a dedicated page at `/tools/[slug]/[city-state]`
-
-### Multi-Engine Targeting
-- **Google/Bing/Yahoo/DuckDuckGo:** Schema.org, semantic HTML, FAQ, meta tags
-- **AI Engines (ChatGPT, Perplexity, Claude):** AEO, structured answers, cited stats
-- **Social:** OpenGraph + Twitter Cards for link previews
-
-### Robots.txt Strategy
-- Allow AI retrieval bots: ChatGPT-User, PerplexityBot, ClaudeBot, OAI-SearchBot
-- Block AI training bots: GPTBot, Google-Extended, CCBot
-- Currently allowing all — adjust `src/app/robots.ts` when ready
-
----
-
-## DESIGN SYSTEM
-
-- **Tiles:** Semi-transparent white, glass-morphism effect, soft shadows
-- **Layout:** CSS Grid responsive (1 col mobile → 2 tablet → 3-4 desktop)
-- **Aesthetic:** Google Cloud Console inspired — clean, professional, minimal
-- **Mobile-first:** Design for mobile FIRST. 83% of traffic is mobile.
-- **Category badges:** Color-coded per category (hr, finance, marketing, sales, operations, productivity)
-
----
-
-## WAITLIST & CONVERSION
-
-- **Fields:** Name + Email only (max conversion)
-- **Storage:** localStorage keyed by tool slug
-- **UX:** Confirmation with "early access" messaging + estimated launch
-- **Validation signal:** Most waitlist signups → build that tool first
-- **Launch window:** Within 90 days of waitlist opening
-
----
-
-## TARGET AUDIENCES
-
-| Audience | Pain Points | Tool Examples |
-|----------|-------------|---------------|
-| HR Managers | Manual onboarding, compliance, PTO chaos | Onboarding, PTO trackers, offer letters |
-| Office Managers | Meeting scheduling, supplies, visitors | Schedulers, supply trackers, visitor logs |
-| Small Biz Owners | Invoicing, expenses, proposals | Invoicing, expense reports, proposals |
-| CEOs/Executives | No KPI visibility, board reports | KPI dashboards, OKR trackers |
-| Sales Teams | Lead follow-up, commissions, proposals | Lead sequences, CRM lite, commission calc |
-| Marketing Teams | Content planning, email, A/B testing | Content calendars, email signatures |
-| Desk Clerks | Appointments, documents, data entry | Appointment schedulers, templates |
-| Lead Gen Specialists | Landing pages, lead scoring, outreach | Landing page builders, lead scoring |
-| Operations Managers | Workflows, inventory, vendors | Workflow automation, inventory trackers |
+## CONTEXT BUDGET
+If running low on context:
+1. **Must complete:** Session history + nextSessionPlan (preserves continuity)
+2. **Prioritize:** New tools over existing tool updates
+3. **Defer:** Move incomplete work to nextSessionPlan with specifics
+4. **Never:** Leave tools.ts broken or skip build verification
 
 ---
 
@@ -327,72 +271,125 @@ If running low on context window during a session:
 
 | File | Purpose |
 |------|---------|
-| `src/data/tools.ts` | **Central tool registry** — all tools, metadata, keywords, competitors, cities, session logs |
-| `src/data/session-history.ts` | **Session changelog** — per-session history, research notes, next-session plans |
-| `src/app/page.tsx` | Main dashboard landing page |
+| `src/data/tools.ts` | Central tool registry — all tools, metadata, keywords, competitors, cities, session logs |
+| `src/data/session-history.ts` | Session changelog — history, research notes, next-session plans |
+| `src/app/page.tsx` | Dashboard landing page |
 | `src/app/tools/[slug]/page.tsx` | Dynamic tool detail pages (SSG) |
 | `src/app/tools/[slug]/ToolDetailClient.tsx` | Client-side tool demo + waitlist UI |
-| `src/app/tools/[slug]/[city]/page.tsx` | Dynamic city-specific pages (local SEO) |
+| `src/app/tools/[slug]/[city]/page.tsx` | City-specific pages (local SEO) |
 | `src/app/tools/[slug]/[city]/CityDetailClient.tsx` | City page client component |
 | `src/app/layout.tsx` | Root layout with global SEO meta |
 | `src/components/ToolTile.tsx` | Tool card component with waitlist form |
 | `src/components/ToolsGrid.tsx` | Dashboard grid layout |
 | `src/app/globals.css` | Glass-morphism design system |
-| `src/app/robots.ts` | Dynamic robots.txt generation |
-| `src/app/sitemap.ts` | Dynamic sitemap.xml generation |
-
----
-
-## GITHUB SYNC PROTOCOL
-- External pushes may come from another Claude Code session at any time
-- Always check `git log` at session start for commits not in session-history
-- If conflicts found: preserve both sets of changes, merge intelligently
-- Check GitHub issues on popular SaaS tools for user complaint data
+| `src/app/robots.ts` | Dynamic robots.txt |
+| `src/app/sitemap.ts` | Dynamic sitemap.xml |
 
 ---
 
 ## CRITICAL RULES (NEVER VIOLATE)
 
-1. **Browser-only** — every tool works in-browser, no backend, no server, no API keys for demo
-2. **Complete tools only** — working demo + waitlist + FAQ + city SEO + JSON-LD schema stack
-3. **Research before building** — validate demand (competitors >$5K/mo, documented complaints) before code
-4. **Compound daily** — update existing tools AND build new ones each session
-5. **Session history is truth** — read it first, update it last
-6. **Quality over quantity** — one well-researched tool beats three rushed ones
-7. **Real data only** — every city, FAQ, stat, competitor complaint must be researched and verified
-8. **TypeScript interfaces** — all tool data must match the `Tool` interface exactly
-9. **Minimums per tool** — 20 keywords, 5 competitors, 10 cities, 8 features, 6 competitor fixes
+1. **Browser-only** — no backend, no server, no API keys for demos
+2. **Complete tools** — working demo + waitlist + FAQ + city SEO + JSON-LD
+3. **Research before code** — validate demand before building
+4. **Compound daily** — update existing tools AND build new ones
+5. **Session history is truth** — read first, update last, never skip
+6. **Quality over quantity** — one well-researched tool > three rushed ones
+7. **Real data only** — never fabricate cities, stats, complaints, or quotes
+8. **TypeScript strict** — all data must match `Tool` interface exactly
+9. **Minimums** — 20 keywords, 5 competitors, 10 cities, 8 features, 6 fixes per tool
 10. **Mobile-first** — design for mobile, scale up
-11. **Never skip startup** — session-history and tools.ts read before any work
-12. **Specific plans** — nextSessionPlan entries must name specific tools, specific tasks, specific reasons
-13. **Build must pass** — never commit code that doesn't compile
-14. **Extract, don't browse** — every search must produce specific data points recorded in tools.ts
+11. **Build must pass** — never commit broken code
+12. **Extract, don't browse** — every search → specific data points in tools.ts
+13. **Rotate audiences** — spread across segments
+14. **Specific plans** — nextSessionPlan must name tools, tasks, and reasons
+
+---
+
+## GITHUB SYNC
+- External pushes may come from another Claude Code session anytime
+- Check `git log` at session start for commits not in session-history
+- If conflicts: preserve both, merge intelligently
+- If git log shows external work → read those files, integrate before proceeding
 
 ---
 
 ## CURRENT TOOLS
 
 ### Session 1 (2026-03-25) — Next.js Dashboard Launch
-1. **OnboardFlow** (HR) — Employee onboarding automation — `onboard-flow`
-2. **InvoiceAI** (Finance) — AI-powered invoice generation — `invoice-ai`
-3. **LeadPilot** (Marketing) — Lead capture and nurturing — `lead-pilot`
-4. **CalendarFlow** (Productivity) — Smart meeting scheduling — `calendar-flow`
-5. **ExpenseBot** (Finance) — Automated expense reporting — `expense-bot`
+1. **OnboardFlow** (HR) — Employee onboarding automation — `onboard-flow` — 13 cities
+2. **InvoiceAI** (Finance) — AI-powered invoice generation — `invoice-ai` — 13 cities
+3. **LeadPilot** (Marketing) — Lead capture and nurturing — `lead-pilot` — 13 cities
+4. **CalendarFlow** (Productivity) — Smart meeting scheduling — `calendar-flow` — 13 cities
+5. **ExpenseBot** (Finance) — Automated expense reporting — `expense-bot` — 13 cities
+
+### Session 2 (2026-04-16) — Sales Category Added
+6. **ProposalPro** (Sales) — AI business proposal builder — `proposal-pro` — 10 cities
+
+### Session 3 (2026-04-16, loop run 1) — Marketing Expansion + 20 Cities
+7. **SocialQueue** (Marketing) — Social media post scheduler — `social-queue` — 14 cities
+
+### Session 4 (2026-04-16, loop run 2) — 10 Tools + 20 Cities + UI Redesign
+8.  **PTOTracker** (HR) — Leave management & accrual automation — `pto-tracker` — 10 cities
+9.  **KPIDash** (Operations) — Real-time KPI dashboard builder — `kpi-dash` — 10 cities
+10. **MeetingNotesAI** (Productivity) — AI meeting summarizer — `meeting-notes-ai` — 10 cities
+11. **PayrollCalc** (Finance) — Payroll tax & pay stub calculator — `payroll-calc` — 10 cities
+12. **HelpDeskAI** (Operations) — AI helpdesk ticketing — `help-desk-ai` — 10 cities
+13. **EmailSigGen** (Marketing) — Team email signature generator — `email-sig-gen` — 10 cities
+14. **DocTemplates** (Productivity) — Business document template library — `doc-templates` — 10 cities
+15. **ClientPortal** (Sales) — White-label client portal — `client-portal` — 10 cities
+16. **CommissionCalc** (Sales) — Sales commission tracker — `commission-calc` — 10 cities (+ interactive demo)
+17. **EmailCampaigns** (Marketing) — Email marketing & automation — `email-campaigns` — 10 cities
+
+### Session 5 (2026-04-16, loop run 3) — 2 Tools + 20 Cities + Interactive Demos
+18. **TimeTracker** (Productivity) — Billable hours & project time tracker — `time-tracker` — 10 cities (+ interactive live timer demo)
+19. **ContractGen** (Sales) — E-signature & contract generation — `contract-gen` — 10 cities
+
+### Session 6 (2026-04-17) — 1 Tool + 20 Cities + localContext SEO + TimeTracker Demo
+20. **InventoryTracker** (Operations) — Multi-location inventory & stock tracking — `inventory-tracker` — 14 cities
+
+### Sessions 7-9 (2026-04-27 → 2026-05-21) — 3 Tools + 60 Cities + 4 Demos
+21. **FormBuilder** (Marketing) — Conditional logic form builder — `form-builder` — 14 cities (+ interactive 3-tab Builder/Preview/Results demo)
+22. **JobDescriptionGen** (HR) — AI job description generator — `job-description-gen` — 14 cities (+ interactive AI generation + bias detection demo)
+23. **VendorPortal** (Operations) — Vendor invoice & contract management — `vendor-portal` — 14 cities (+ interactive 3-tab Vendors/Invoices/Contracts product demo)
+
+### Session 10 (2026-05-22) — 1 Tool + 20 Cities + VendorPortal Product Demo
+24. **LeadMagnet** (Marketing) — Landing page + lead magnet builder — `lead-magnet` — 10 cities (+ interactive Builder/Preview/Analytics demo)
+
+### Session 11 (2026-05-22) — 10 Tools + 100 Cities (5 Batch Commits)
+25. **HireTrack** (HR) — Applicant tracking system for small business — `hire-track` — 10 cities
+26. **PerformanceReview** (HR) — 360-degree performance review and OKR tracking — `performance-review` — 10 cities
+27. **BudgetFlow** (Finance) — Department budget planning and variance tracking — `budget-flow` — 10 cities
+28. **TrainingTracker** (HR) — Employee training tracker and LMS — `training-tracker` — 10 cities
+29. **CashFlowPlanner** (Finance) — Cash flow forecasting and runway planning — `cash-flow-planner` — 10 cities
+30. **ProjectTracker** (Productivity) — Visual project tracker and Gantt chart tool — `project-tracker` — 10 cities
+31. **SOPBuilder** (Productivity) — SOP builder and business process knowledge base — `sop-builder` — 10 cities
+32. **CRMTracker** (Sales) — CRM and sales pipeline tracker — `crm-tracker` — 10 cities
+33. **WorkflowAutomation** (Operations) — No-code workflow automation builder — `workflow-automation` — 10 cities
+34. **AssetTracker** (Operations) — IT asset tracker and equipment management — `asset-tracker` — 10 cities
+
+### UI/SEO Upgrades (Sessions 4–11)
+- Redesigned: PayPal navy nav + Amazon orange CTA cards (no glass-morphism)
+- Web3Forms integrated for real email capture (key: 7d643d3d-…)
+- Schema.org @graph consolidated in layout.tsx (Organization + WebSite + FAQPage)
+- AEO descriptions on all tools ("what is the best X" answered in first 150 words)
+- Interactive demos: PayrollCalc, CommissionCalc, EmailSigGen, TimeTracker, ContractGen, FormBuilder, JobDescriptionGen, VendorPortal, LeadMagnet
+- DemoPanel.tsx component renders slug-conditional demos above waitlist CTA
+- CityTarget interface upgraded: optional `localContext` field for city-specific E-E-A-T content
+- CityDetailClient renders blue callout box with unique local sentence when localContext is present
+- 340+ city pages with localContext referencing real employers, landmarks, and industries
 
 ### Static HTML Demos (in `public/tools/`)
-6. **Smart Invoice Generator** — `public/tools/smart-invoice-generator/` — Cities: Boise ID, Greenville SC, Huntsville AL, Provo UT, Fayetteville AR
-7. **AI Meeting Notes Summarizer** — `public/tools/ai-meeting-notes/` — Cities: Boise ID, Huntsville AL, Wilmington NC, Provo UT, Lakeland FL
+- **Smart Invoice Generator** — `public/tools/smart-invoice-generator/`
+- **AI Meeting Notes Summarizer** — `public/tools/ai-meeting-notes/`
 
-## QUEUED TOOLS (Research & Build Next — Prioritize Top Items)
-1. **AI Meeting Notes Summarizer** (Productivity) — research complete, static demo built, NEEDS Next.js integration
-2. **AI Business Proposal/Quote Builder** (Sales) — PandaDoc $100M ARR, Proposify well-funded, clear pain points
-3. PTO/Time-Off Tracker (HR, office managers)
-4. Payroll Calculator (HR, small business)
-5. Social Media Scheduler (marketing teams)
-6. Helpdesk Ticketing (operations, customer support)
-7. Email Signature Generator (marketing, all office workers)
-8. KPI Dashboard Builder (executives, managers)
-9. Document Template Library (desk clerks, office managers)
-10. Client Portal Builder (sales, account managers)
-11. Commission Calculator (sales teams)
-12. Proposal Generator (sales, freelancers)
+**Total: 34 Next.js tools, ~680 city SEO pages**
+
+## QUEUED TOOLS (Prioritized)
+1. **ClientIntake** (Sales/Marketing) — Agency client onboarding: intake form + document collection + branded portal; gap between simple FormBuilder and full ClientPortal; competitors: HoneyBook ($16-$150/mo), Dubsado ($20-$40/mo), 17hats ($45/mo), Copilot ($39-$99/mo)
+2. Add interactive demo to WorkflowAutomation — 3-panel canvas: trigger selection, action builder with step cards, workflow run log with status indicators (all browser-only simulation)
+3. Add interactive demo to AssetTracker — live asset table with check-out/check-in simulation, QR label preview, and asset health dashboard
+4. Add localContext to Session 1-3 older cities — OnboardFlow (Boise ID: HP/Micron; Chattanooga TN: VW plant; Fayetteville AR: Walmart HQ adjacent; Huntsville AL: NASA Marshall; Spokane WA: WSU/Kaiser), LeadPilot (Durham NC: Research Triangle; Knoxville TN: UT/Oak Ridge), ExpenseBot (Baton Rouge LA: ExxonMobil; Des Moines IA: Wells Fargo/Principal; Dayton OH: Wright-Patterson AFB)
+5. Refresh SocialQueue keywords — TikTok content scheduler + LinkedIn thought leadership scheduling trending in Q2 2026
+6. Update CalendarFlow competitor data — Calendly Q1 2026 price changes, new G2/Reddit complaints
+7. Expand InventoryTracker cities — Midwest manufacturing and Southeast retail hubs: Columbus IN (Cummins HQ), Cookeville TN (TTM Technologies), Hattiesburg MS (Gulf South distribution)
