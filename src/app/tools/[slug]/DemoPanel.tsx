@@ -2159,6 +2159,308 @@ function LeadMagnetDemo() {
   );
 }
 
+/* ─── Workflow Automation ─── */
+
+const WF_TRIGGER_TYPES = [
+  { id: 'form', icon: '📝', label: 'Form Submitted' },
+  { id: 'schedule', icon: '⏰', label: 'Scheduled (Cron)' },
+  { id: 'webhook', icon: '🔗', label: 'Webhook Received' },
+  { id: 'email', icon: '📧', label: 'Email Received' },
+  { id: 'record', icon: '🗄️', label: 'Record Updated' },
+];
+
+const WF_ACTION_TYPES = [
+  { id: 'email', icon: '📧', label: 'Send Email' },
+  { id: 'record', icon: '🗄️', label: 'Update Record' },
+  { id: 'approval', icon: '✅', label: 'Request Approval' },
+  { id: 'slack', icon: '💬', label: 'Post to Slack' },
+  { id: 'task', icon: '📋', label: 'Create Task' },
+  { id: 'wait', icon: '⏳', label: 'Wait / Delay' },
+];
+
+interface WFStep {
+  id: string;
+  type: string;
+  label: string;
+  detail: string;
+  enabled: boolean;
+}
+
+const INIT_WF_STEPS: WFStep[] = [
+  { id: 'wf1', type: 'email', label: 'Send Email', detail: 'Send confirmation to submitter', enabled: true },
+  { id: 'wf2', type: 'record', label: 'Update Record', detail: 'Set status = "Received" in CRM', enabled: true },
+  { id: 'wf3', type: 'approval', label: 'Request Approval', detail: 'Notify Manager for review', enabled: true },
+  { id: 'wf4', type: 'slack', label: 'Post to Slack', detail: 'Alert #sales-leads channel', enabled: false },
+];
+
+const WF_MOCK_HISTORY = [
+  { id: 'run-0041', trigger: 'Form Submitted', timestamp: 'Today 2:14 PM', duration: '1.2s', status: 'success' as const, steps: 3 },
+  { id: 'run-0040', trigger: 'Form Submitted', timestamp: 'Today 11:47 AM', duration: '0.9s', status: 'success' as const, steps: 3 },
+  { id: 'run-0039', trigger: 'Scheduled', timestamp: 'Yesterday 9:00 AM', duration: '2.1s', status: 'success' as const, steps: 3 },
+  { id: 'run-0038', trigger: 'Webhook Received', timestamp: 'Yesterday 3:32 PM', duration: '0.8s', status: 'failed' as const, steps: 2 },
+  { id: 'run-0037', trigger: 'Form Submitted', timestamp: '2 days ago 4:18 PM', duration: '1.1s', status: 'success' as const, steps: 3 },
+];
+
+function WorkflowAutomationDemo() {
+  const [tab, setTab] = useState<'builder' | 'run' | 'history'>('builder');
+  const [triggerType, setTriggerType] = useState('form');
+  const [triggerSource, setTriggerSource] = useState('Contact Us Form');
+  const [steps, setSteps] = useState<WFStep[]>(INIT_WF_STEPS.map(s => ({ ...s })));
+  const [runState, setRunState] = useState<'idle' | 'running' | 'complete'>('idle');
+  const [stepStatuses, setStepStatuses] = useState<Record<string, 'pending' | 'running' | 'success' | 'error'>>({});
+  const [extraRuns, setExtraRuns] = useState(0);
+  const runTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const enabledSteps = steps.filter(s => s.enabled);
+  const totalRuns = WF_MOCK_HISTORY.length + extraRuns;
+  const successRate = Math.round(((WF_MOCK_HISTORY.filter(r => r.status === 'success').length + extraRuns) / Math.max(totalRuns, 1)) * 100);
+  const triggerInfo = WF_TRIGGER_TYPES.find(t => t.id === triggerType)!;
+
+  const moveStep = (id: string, dir: -1 | 1) => {
+    setSteps(prev => {
+      const i = prev.findIndex(s => s.id === id);
+      const j = i + dir;
+      if (j < 0 || j >= prev.length) return prev;
+      const next = [...prev];
+      [next[i], next[j]] = [next[j], next[i]];
+      return next;
+    });
+  };
+
+  const toggleStep = (id: string) => {
+    setSteps(prev => prev.map(s => s.id === id ? { ...s, enabled: !s.enabled } : s));
+  };
+
+  const addStep = (type: string) => {
+    const t = WF_ACTION_TYPES.find(a => a.id === type)!;
+    const details: Record<string, string> = {
+      email: 'Send notification email', record: 'Update record field', approval: 'Request team approval',
+      slack: 'Post update to channel', task: 'Create follow-up task', wait: 'Wait 24 hours',
+    };
+    setSteps(prev => [...prev, { id: `wf${prev.length + 10}`, type, label: t.label, detail: details[type] ?? t.label, enabled: true }]);
+  };
+
+  const startRun = () => {
+    if (enabledSteps.length === 0) return;
+    setRunState('running');
+    const initStatuses: Record<string, 'pending' | 'running' | 'success' | 'error'> = {};
+    enabledSteps.forEach(s => { initStatuses[s.id] = 'pending'; });
+    setStepStatuses(initStatuses);
+
+    let stepIdx = 0;
+    const runNext = () => {
+      if (stepIdx >= enabledSteps.length) {
+        setRunState('complete');
+        setExtraRuns(c => c + 1);
+        return;
+      }
+      const step = enabledSteps[stepIdx];
+      setStepStatuses(prev => ({ ...prev, [step.id]: 'running' }));
+      runTimerRef.current = setTimeout(() => {
+        const result: 'success' | 'error' = Math.random() > 0.1 ? 'success' : 'error';
+        setStepStatuses(prev => ({ ...prev, [step.id]: result }));
+        stepIdx++;
+        if (result === 'error') { setRunState('complete'); return; }
+        setTimeout(runNext, 200);
+      }, 700 + Math.random() * 600);
+    };
+    setTimeout(runNext, 400);
+  };
+
+  const resetRun = () => {
+    if (runTimerRef.current) clearTimeout(runTimerRef.current);
+    setRunState('idle');
+    setStepStatuses({});
+  };
+
+  const tabBtn = (t: 'builder' | 'run' | 'history', label: string) => (
+    <button
+      key={t}
+      onClick={() => { setTab(t); if (t === 'run') resetRun(); }}
+      style={{ padding: '8px 16px', background: tab === t ? 'var(--navy)' : '#f0f4f8', color: tab === t ? '#fff' : 'var(--text-secondary)', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 700, fontSize: '13px' }}
+    >
+      {label}
+    </button>
+  );
+
+  const stepIcon = (type: string) => WF_ACTION_TYPES.find(a => a.id === type)?.icon ?? '⚙️';
+
+  const statusBadge = (status: 'pending' | 'running' | 'success' | 'error') => {
+    const cfg = {
+      pending: { bg: '#f0f4f8', color: '#6b7280', text: '◯ Pending' },
+      running: { bg: '#fef3c7', color: '#92400e', text: '▶ Running…' },
+      success: { bg: '#dcfce7', color: '#15803d', text: '✓ Done' },
+      error: { bg: '#fee2e2', color: '#dc2626', text: '✕ Error' },
+    }[status];
+    return <span style={{ background: cfg.bg, color: cfg.color, borderRadius: '20px', fontSize: '11px', fontWeight: 700, padding: '2px 10px', whiteSpace: 'nowrap' as const }}>{cfg.text}</span>;
+  };
+
+  return (
+    <div>
+      <div style={{ display: 'flex', gap: '6px', marginBottom: '20px', flexWrap: 'wrap' }}>
+        {tabBtn('builder', '🔧 Builder')}
+        {tabBtn('run', '▶ Test Run')}
+        {tabBtn('history', `📋 History (${totalRuns})`)}
+      </div>
+
+      {/* ── Builder Tab ── */}
+      {tab === 'builder' && (
+        <div>
+          <div style={{ background: '#f0f7ff', border: '2px solid #bfdbfe', borderRadius: '10px', padding: '16px 20px', marginBottom: '16px' }}>
+            <div style={{ ...labelStyle, color: '#1d4ed8', marginBottom: '10px', display: 'block' }}>⚡ Trigger</div>
+            <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '12px' }}>
+              {WF_TRIGGER_TYPES.map(t => (
+                <button
+                  key={t.id}
+                  onClick={() => setTriggerType(t.id)}
+                  style={{ padding: '7px 12px', background: triggerType === t.id ? '#1d4ed8' : '#fff', color: triggerType === t.id ? '#fff' : 'var(--navy)', border: triggerType === t.id ? 'none' : '1px solid var(--border)', borderRadius: '8px', cursor: 'pointer', fontWeight: 700, fontSize: '12px' }}
+                >
+                  {t.icon} {t.label}
+                </button>
+              ))}
+            </div>
+            <div>
+              <label style={labelStyle}>Trigger Source / Name</label>
+              <input type="text" value={triggerSource} onChange={e => setTriggerSource(e.target.value)} style={{ ...inputStyle, boxSizing: 'border-box' as const }} placeholder="e.g., Contact Us Form" />
+            </div>
+          </div>
+
+          <div style={{ textAlign: 'center', fontSize: '20px', color: '#9ca3af', margin: '-4px 0 8px' }}>↓</div>
+
+          <div style={{ border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden', marginBottom: '14px' }}>
+            <div style={{ padding: '12px 16px', background: '#f8f9fa', borderBottom: '1px solid var(--border)', fontWeight: 700, fontSize: '13px', color: 'var(--navy)' }}>
+              ⚙️ Actions ({enabledSteps.length} active)
+            </div>
+            {steps.map((step, i) => (
+              <div
+                key={step.id}
+                style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 16px', borderBottom: i < steps.length - 1 ? '1px solid var(--border)' : 'none', background: !step.enabled ? '#fafafa' : i % 2 === 0 ? '#fff' : '#fafafa', opacity: step.enabled ? 1 : 0.5 }}
+              >
+                <span style={{ fontSize: '20px', flexShrink: 0 }}>{stepIcon(step.type)}</span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 700, fontSize: '13px', color: 'var(--navy)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    Step {i + 1}: {step.label}
+                    {!step.enabled && <span style={{ fontSize: '10px', background: '#f0f0f0', color: '#9ca3af', padding: '1px 6px', borderRadius: '4px', fontWeight: 600 }}>OFF</span>}
+                  </div>
+                  <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '2px' }}>{step.detail}</div>
+                </div>
+                <div style={{ display: 'flex', gap: '4px', flexShrink: 0 }}>
+                  <button onClick={() => toggleStep(step.id)} title={step.enabled ? 'Disable' : 'Enable'} style={{ ...iconBtnStyle, color: step.enabled ? '#16a34a' : '#9ca3af', fontSize: '16px' }}>{step.enabled ? '●' : '○'}</button>
+                  <button onClick={() => moveStep(step.id, -1)} disabled={i === 0} style={{ ...iconBtnStyle, opacity: i === 0 ? 0.3 : 1 }}>↑</button>
+                  <button onClick={() => moveStep(step.id, 1)} disabled={i === steps.length - 1} style={{ ...iconBtnStyle, opacity: i === steps.length - 1 ? 0.3 : 1 }}>↓</button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ background: '#f8f9fa', borderRadius: '8px', padding: '12px 16px' }}>
+            <div style={{ ...labelStyle, display: 'block', marginBottom: '8px' }}>+ Add Action Step</div>
+            <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+              {WF_ACTION_TYPES.map(a => (
+                <button key={a.id} onClick={() => addStep(a.id)} style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '5px 10px', background: '#fff', border: '1px solid var(--border)', borderRadius: '6px', cursor: 'pointer', fontSize: '12px', fontWeight: 600, color: 'var(--navy)' }}>
+                  {a.icon} {a.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Test Run Tab ── */}
+      {tab === 'run' && (
+        <div>
+          <div style={{ background: '#f0f7ff', border: '1px solid #bfdbfe', borderRadius: '10px', padding: '14px 18px', marginBottom: '18px' }}>
+            <div style={{ fontWeight: 700, fontSize: '13px', color: '#1d4ed8', marginBottom: '4px' }}>
+              {triggerInfo.icon} {triggerInfo.label}{triggerSource ? ` — "${triggerSource}"` : ''}
+            </div>
+            <div style={{ fontSize: '12px', color: '#6b7280' }}>{enabledSteps.length} active action{enabledSteps.length !== 1 ? 's' : ''} in sequence</div>
+          </div>
+
+          <div style={{ border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden', marginBottom: '16px' }}>
+            {enabledSteps.length === 0 ? (
+              <div style={{ padding: '24px', textAlign: 'center', color: 'var(--text-secondary)', fontSize: '14px' }}>Enable at least one step in the Builder to run a test.</div>
+            ) : enabledSteps.map((step, i) => {
+              const status = stepStatuses[step.id] ?? 'pending';
+              const statusBg = { pending: '#fff', running: '#fefce8', success: '#f0fdf4', error: '#fef2f2' }[status];
+              const circBg = { pending: '#e5e7eb', running: '#f59e0b', success: '#16a34a', error: '#dc2626' }[status];
+              const circColor = status === 'pending' ? '#6b7280' : '#fff';
+              return (
+                <div key={step.id} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '14px 18px', borderBottom: i < enabledSteps.length - 1 ? '1px solid var(--border)' : 'none', background: statusBg, transition: 'background 0.3s' }}>
+                  <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: circBg, color: circColor, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 800, flexShrink: 0, transition: 'all 0.3s' }}>
+                    {status === 'success' ? '✓' : status === 'error' ? '✕' : status === 'running' ? '▶' : String(i + 1)}
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontWeight: 700, fontSize: '13px', color: 'var(--navy)' }}>{stepIcon(step.type)} {step.label}</div>
+                    <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '2px' }}>{step.detail}</div>
+                  </div>
+                  {statusBadge(status)}
+                </div>
+              );
+            })}
+          </div>
+
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center' }}>
+            {runState === 'idle' && (
+              <button onClick={startRun} disabled={enabledSteps.length === 0} style={{ background: enabledSteps.length > 0 ? 'linear-gradient(to bottom,#f5c26b,#e47911)' : '#ccc', border: enabledSteps.length > 0 ? '1px solid #c07600' : 'none', color: enabledSteps.length > 0 ? '#111' : '#fff', fontWeight: 700, padding: '10px 26px', borderRadius: '6px', cursor: enabledSteps.length > 0 ? 'pointer' : 'not-allowed', fontSize: '14px' }}>
+                ▶ Run Test Workflow
+              </button>
+            )}
+            {runState === 'running' && (
+              <div style={{ fontSize: '14px', color: 'var(--text-secondary)', fontWeight: 600 }}>⟳ Executing workflow…</div>
+            )}
+            {runState === 'complete' && (
+              <>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', background: Object.values(stepStatuses).includes('error') ? '#fee2e2' : '#dcfce7', color: Object.values(stepStatuses).includes('error') ? '#dc2626' : '#15803d', borderRadius: '8px', padding: '10px 16px', fontWeight: 700, fontSize: '13px' }}>
+                  {Object.values(stepStatuses).includes('error') ? '✕ Workflow stopped — check step error' : '✓ Workflow completed successfully'}
+                </div>
+                <button onClick={resetRun} style={{ background: '#fff', border: '1px solid var(--border)', color: 'var(--text-secondary)', padding: '10px 16px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px' }}>↺ Run Again</button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* ── History Tab ── */}
+      {tab === 'history' && (
+        <div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '10px', marginBottom: '18px' }}>
+            {[
+              { label: 'Total Runs', value: String(totalRuns), color: 'var(--navy)' },
+              { label: 'Success Rate', value: `${successRate}%`, color: '#16a34a' },
+              { label: 'Avg Duration', value: '1.1s', color: 'var(--orange)' },
+              { label: 'Active Steps', value: String(enabledSteps.length), color: 'var(--navy)' },
+            ].map((s, i) => (
+              <div key={i} style={resultCard}>
+                <div style={resultLabel}>{s.label}</div>
+                <div style={{ fontSize: '22px', fontWeight: 800, color: s.color, marginTop: '4px' }}>{s.value}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ ...labelStyle, display: 'block', marginBottom: '10px' }}>Recent Workflow Runs</div>
+          <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
+            {[
+              ...(extraRuns > 0 ? [{ id: `run-${String(42 + extraRuns).padStart(4, '0')}`, trigger: triggerInfo.label, timestamp: 'Just now', duration: '1.0s', status: 'success' as const, steps: enabledSteps.length }] : []),
+              ...WF_MOCK_HISTORY,
+            ].slice(0, 6).map((run, i, arr) => (
+              <div key={run.id} style={{ padding: '13px 18px', borderBottom: i < arr.length - 1 ? '1px solid var(--border)' : 'none', background: i % 2 === 0 ? '#fff' : '#fafafa', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <code style={{ fontSize: '11px', color: '#9ca3af', fontFamily: 'monospace', flexShrink: 0 }}>{run.id}</code>
+                <div style={{ flex: 1, minWidth: '120px' }}>
+                  <div style={{ fontWeight: 700, fontSize: '13px', color: 'var(--navy)' }}>{run.trigger}</div>
+                  <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '1px' }}>{run.timestamp} · {run.steps} step{run.steps !== 1 ? 's' : ''} · {run.duration}</div>
+                </div>
+                <span style={{ background: run.status === 'success' ? '#dcfce7' : '#fee2e2', color: run.status === 'success' ? '#15803d' : '#dc2626', borderRadius: '20px', fontSize: '11px', fontWeight: 700, padding: '3px 10px', flexShrink: 0 }}>
+                  {run.status === 'success' ? '✓ Success' : '✕ Failed'}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ─── Shared styles ─── */
 const labelStyle: React.CSSProperties = {
   display: 'block',
@@ -2222,6 +2524,7 @@ const demoMap: Record<string, React.ReactNode> = {
   'job-description-gen': <JobDescriptionGenDemo />,
   'vendor-portal': <VendorPortalDemo />,
   'lead-magnet': <LeadMagnetDemo />,
+  'workflow-automation': <WorkflowAutomationDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {
