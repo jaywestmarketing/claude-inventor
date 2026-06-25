@@ -3,145 +3,202 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Tool, categoryLabels, categoryBadgeClass } from '@/data/tools';
+import DemoPanel from './DemoPanel';
+
+const WEB3FORMS_KEY = '7d643d3d-d3b6-4d77-8935-e7f138b84270';
 
 export default function ToolDetailClient({ tool }: { tool: Tool }) {
   const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleWaitlist = (e: React.FormEvent) => {
+  const handleWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-    const waitlist = JSON.parse(localStorage.getItem('waitlist') || '{}');
-    if (!waitlist[tool.id]) waitlist[tool.id] = [];
-    waitlist[tool.id].push({ email, timestamp: new Date().toISOString() });
-    localStorage.setItem('waitlist', JSON.stringify(waitlist));
-    setSubmitted(true);
+    if (!email || status === 'loading') return;
+    setStatus('loading');
+
+    try {
+      const stored = JSON.parse(localStorage.getItem('waitlist') || '{}');
+      if (!stored[tool.id]) stored[tool.id] = [];
+      stored[tool.id].push({ email, timestamp: new Date().toISOString() });
+      localStorage.setItem('waitlist', JSON.stringify(stored));
+    } catch { /* ok */ }
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Waitlist signup — ${tool.name} (tool page)`,
+          tool: tool.name,
+          tool_slug: tool.slug,
+          email,
+          from_name: 'AutomateStack Waitlist',
+        }),
+      });
+      const data = await res.json();
+      setStatus(data.success ? 'success' : 'error');
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
     <>
-      <div className="breadcrumb">
-        <Link href="/">&larr; Back to all tools</Link>
-      </div>
+      {/* Breadcrumb */}
+      <nav className="breadcrumb" aria-label="Breadcrumb">
+        <Link href="/">All Tools</Link>
+        {' › '}
+        <span style={{ color: 'var(--text-secondary)' }}>{categoryLabels[tool.category]}</span>
+        {' › '}
+        <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{tool.name}</span>
+      </nav>
 
-      <main className="container" style={{ maxWidth: '900px' }}>
-        <div className="animate-fade-in-up" style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '8px' }}>
-          <span style={{ fontSize: '40px' }}>{tool.icon}</span>
-          <div>
-            <h1 style={{ fontSize: '2rem', fontWeight: 800, letterSpacing: '-0.02em' }}>{tool.name}</h1>
-            <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
+      <main className="container" style={{ maxWidth: '960px', paddingTop: '32px' }}>
+
+        {/* Hero row */}
+        <div className="animate-fade-in-up" style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', marginBottom: '20px' }}>
+          <span style={{ fontSize: '44px', lineHeight: 1, flexShrink: 0 }}>{tool.icon}</span>
+          <div style={{ flex: 1 }}>
+            <h1 style={{ fontSize: '1.75rem', fontWeight: 800, letterSpacing: '-.02em', lineHeight: 1.2, marginBottom: '8px' }}>
+              {tool.name}
+            </h1>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               <span className={`category-badge ${categoryBadgeClass[tool.category]}`}>
                 {categoryLabels[tool.category]}
               </span>
-              <span className="status-demo">Demo</span>
+              <span className="status-demo">Free Demo</span>
             </div>
           </div>
         </div>
 
         <p className="animate-fade-in" style={{
           color: 'var(--text-secondary)',
-          fontSize: '1.05rem',
+          fontSize: '1rem',
           lineHeight: 1.7,
-          margin: '24px 0 40px'
+          marginBottom: '32px',
+          maxWidth: '760px',
         }}>
           {tool.description}
         </p>
 
+        {/* Interactive Demo (slug-specific) */}
+        <DemoPanel slug={tool.slug} toolName={tool.name} />
+
         {/* Waitlist CTA */}
-        <div className="tool-tile animate-fade-in-up" style={{ padding: '32px', marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '1.2rem', marginBottom: '12px' }}>Get Early Access</h2>
-          {submitted ? (
-            <div>
-              <p className="text-success" style={{ fontWeight: 600 }}>You&apos;re on the list!</p>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '6px' }}>
-                We&apos;ll email you as soon as {tool.name} is ready for full access.
-              </p>
-            </div>
+        <div className="animate-fade-in-up" style={{
+          background: 'var(--bg-white)',
+          border: '2px solid var(--orange)',
+          borderRadius: '10px',
+          padding: '28px 28px 24px',
+          marginBottom: '40px',
+          boxShadow: '0 2px 8px rgba(228,121,17,.12)',
+        }}>
+          <h2 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '6px' }}>
+            Get Early Access to {tool.name}
+          </h2>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '13.5px', marginBottom: '16px' }}>
+            {tool.name} is in demo mode. Join the waitlist — we&apos;ll email you the moment the full version launches.
+          </p>
+          {status === 'success' ? (
+            <p style={{ fontWeight: 700, color: 'var(--green)', fontSize: '15px' }}>
+              ✓ You&apos;re on the list! We&apos;ll notify you when {tool.name} is ready.
+            </p>
           ) : (
-            <>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginBottom: '16px' }}>
-                {tool.name} is currently in demo mode. Join the waitlist to be first in line when we launch the full version.
-              </p>
-              <form className="waitlist-form" onSubmit={handleWaitlist} style={{ maxWidth: '480px' }}>
-                <input
-                  type="email"
-                  className="waitlist-input"
-                  placeholder="you@company.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  aria-label={`Join waitlist for ${tool.name}`}
-                />
-                <button type="submit" className="waitlist-btn">Join Waitlist</button>
-              </form>
-            </>
+            <form className="waitlist-form" onSubmit={handleWaitlist} style={{ maxWidth: '480px' }}>
+              <input
+                type="email"
+                className="waitlist-input"
+                placeholder="you@company.com"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
+                disabled={status === 'loading'}
+                aria-label={`Join waitlist for ${tool.name}`}
+              />
+              <button type="submit" className="waitlist-btn" disabled={status === 'loading'}>
+                {status === 'loading' ? '…' : 'Join Waitlist'}
+              </button>
+            </form>
+          )}
+          {status === 'error' && (
+            <p style={{ color: 'var(--red)', fontSize: '12px', marginTop: '8px' }}>
+              Something went wrong — please try again.
+            </p>
           )}
         </div>
 
         {/* Features */}
         <section style={{ marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '20px' }}>Features</h2>
+          <h2 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '16px', borderBottom: '2px solid var(--orange)', paddingBottom: '10px', display: 'inline-block' }}>
+            Features
+          </h2>
           <div className="stagger-children" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-            gap: '12px'
+            gap: '10px',
+            marginTop: '16px',
           }}>
             {tool.features.map((feature, i) => (
-              <div key={i} className="tool-tile" style={{
-                padding: '16px 20px',
+              <div key={i} style={{
+                background: 'var(--bg-white)',
+                border: '1px solid var(--border)',
+                borderRadius: '8px',
+                padding: '14px 16px',
                 display: 'flex',
-                alignItems: 'center',
-                gap: '12px'
+                alignItems: 'flex-start',
+                gap: '10px',
+                fontSize: '14px',
+                boxShadow: '0 1px 3px rgba(15,17,17,.08)',
               }}>
-                <span style={{ color: 'var(--accent-success)', fontSize: '16px', flexShrink: 0 }}>&#10003;</span>
-                <span style={{ fontSize: '14px' }}>{feature}</span>
+                <span style={{ color: 'var(--green)', fontWeight: 800, flexShrink: 0, marginTop: '1px' }}>✓</span>
+                <span>{feature}</span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Competitor Comparison */}
+        {/* Competitor comparison */}
         <section style={{ marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '8px' }}>
+          <h2 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '8px', borderBottom: '2px solid var(--orange)', paddingBottom: '10px', display: 'inline-block' }}>
             Why Switch to {tool.name}?
           </h2>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginBottom: '20px' }}>
-            See how {tool.name} addresses the top complaints from users of leading alternatives.
+          <p style={{ color: 'var(--text-secondary)', fontSize: '13.5px', marginBottom: '20px', marginTop: '8px' }}>
+            {tool.name} directly addresses the top complaints from users of these alternatives.
           </p>
 
-          <div className="stagger-children" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div className="stagger-children" style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
             {tool.competitors.map((comp, i) => (
               <div key={i} className="competitor-card">
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginBottom: '8px',
-                  flexWrap: 'wrap',
-                  gap: '8px'
-                }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
                   <strong style={{ fontSize: '15px' }}>{comp.name}</strong>
                   <span className="competitor-price">{comp.priceRange}</span>
                 </div>
-                <p className="competitor-complaint">Common complaint: {comp.topComplaint}</p>
+                <p className="competitor-complaint">&ldquo;{comp.topComplaint}&rdquo;</p>
               </div>
             ))}
           </div>
 
-          <div style={{ marginTop: '24px' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '12px', color: 'var(--accent-success)' }}>
-              How {tool.name} is different:
+          <div style={{
+            background: '#e8f5e9',
+            border: '1px solid #c8e6c9',
+            borderRadius: '10px',
+            padding: '20px 22px',
+          }}>
+            <h3 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--green)', marginBottom: '12px' }}>
+              How {tool.name} fixes these problems:
             </h3>
             <ul style={{ listStyle: 'none', padding: 0 }}>
               {tool.competitorFixes.map((fix, i) => (
                 <li key={i} style={{
-                  padding: '8px 0',
-                  fontSize: '14px',
-                  color: 'var(--text-secondary)',
                   display: 'flex',
-                  gap: '10px'
+                  gap: '10px',
+                  alignItems: 'flex-start',
+                  fontSize: '13.5px',
+                  color: '#1b5e20',
+                  padding: '5px 0',
                 }}>
-                  <span style={{ color: 'var(--accent-success)', flexShrink: 0 }}>&#10003;</span>
+                  <span style={{ fontWeight: 800, flexShrink: 0 }}>✓</span>
                   {fix}
                 </li>
               ))}
@@ -149,13 +206,13 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
           </div>
         </section>
 
-        {/* Service Areas - Local SEO */}
+        {/* Local SEO city links */}
         <section style={{ marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '8px' }}>
+          <h2 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '8px', borderBottom: '2px solid var(--orange)', paddingBottom: '10px', display: 'inline-block' }}>
             Serving Businesses Nationwide
           </h2>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginBottom: '16px' }}>
-            {tool.name} is available to businesses everywhere, with optimized support for these growing markets:
+          <p style={{ color: 'var(--text-secondary)', fontSize: '13.5px', marginBottom: '16px', marginTop: '8px' }}>
+            {tool.name} is available everywhere, with locally optimized pages for these growing markets:
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {tool.targetCities.map((city, i) => (
@@ -169,11 +226,17 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
             ))}
           </div>
         </section>
-      </main>
 
-      <footer className="footer">
-        <p>AutomateStack &mdash; Free business automation tools, added daily.</p>
-      </footer>
+        {/* Related tools */}
+        <section style={{ marginBottom: '40px' }}>
+          <h2 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '6px', borderBottom: '2px solid var(--orange)', paddingBottom: '10px', display: 'inline-block' }}>
+            Related Tools
+          </h2>
+          <p style={{ marginTop: '8px' }}>
+            <Link href="/" style={{ fontSize: '14px' }}>← Browse all {19} free tools on AutomateStack</Link>
+          </p>
+        </section>
+      </main>
     </>
   );
 }

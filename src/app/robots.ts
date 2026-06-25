@@ -1,26 +1,30 @@
 import { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
+        disallow: '/admin',
       },
-      {
-        userAgent: 'GPTBot',
-        allow: '/',
-      },
+      // AI inference/citation bots — allow (these drive AEO citations)
       {
         userAgent: 'ChatGPT-User',
         allow: '/',
       },
       {
-        userAgent: 'Google-Extended',
+        userAgent: 'OAI-SearchBot',
         allow: '/',
       },
       {
-        userAgent: 'Applebot-Extended',
+        userAgent: 'PerplexityBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'ClaudeBot',
         allow: '/',
       },
       {
@@ -28,8 +32,21 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
-        userAgent: 'PerplexityBot',
+        userAgent: 'Applebot-Extended',
         allow: '/',
+      },
+      // Training/scraping bots — block (no value, consume bandwidth)
+      {
+        userAgent: 'GPTBot',
+        disallow: '/',
+      },
+      {
+        userAgent: 'Google-Extended',
+        disallow: '/',
+      },
+      {
+        userAgent: 'CCBot',
+        disallow: '/',
       },
     ],
     sitemap: 'https://automatestack.com/sitemap.xml',

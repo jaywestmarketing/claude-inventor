@@ -39,6 +39,6 @@
     "typescript": "^6.0.2"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^5.15.9"
+    "netlify-plugin-bundle-env": "^0.7.2"
   }
 }
