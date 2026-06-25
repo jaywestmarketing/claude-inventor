@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   title: 'Business Automation Blog | AutomateStack',
   description: 'Practical guides on AI search optimization, cash flow forecasting, CRM selection, SOP writing, and business automation — written for small business owners and operations teams.',
   alternates: {
-    canonical: 'https://automatestack.com/blog',
+    canonical: 'https://realetools.netlify.app/blog',
   },
   openGraph: {
     title: 'Business Automation Blog | AutomateStack',
     description: 'Practical guides on AI search optimization, cash flow forecasting, CRM selection, SOP writing, and business automation.',
     type: 'website',
-    url: 'https://automatestack.com/blog',
+    url: 'https://realetools.netlify.app/blog',
   },
 };
 

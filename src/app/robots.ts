@@ -49,6 +49,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/',
       },
     ],
-    sitemap: 'https://automatestack.com/sitemap.xml',
+    sitemap: 'https://realetools.netlify.app/sitemap.xml',
   };
 }

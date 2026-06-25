@@ -363,7 +363,7 @@ export default function AdminClient() {
               {
                 step: '1',
                 title: 'Create a GA4 Property',
-                body: 'Go to analytics.google.com → Admin → Create Property. Choose "Web", enter https://automatestack.com as the URL. Copy the Measurement ID (format: G-XXXXXXXXXX).',
+                body: 'Go to analytics.google.com → Admin → Create Property. Choose "Web", enter https://realetools.netlify.app as the URL. Copy the Measurement ID (format: G-XXXXXXXXXX).',
               },
               {
                 step: '2',

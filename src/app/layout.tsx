@@ -5,7 +5,7 @@ import './globals.css';
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
-const SITE_URL = 'https://automatestack.com';
+const SITE_URL = 'https://realetools.netlify.app';
 const SITE_NAME = 'AutomateStack';
 
 export const metadata: Metadata = {

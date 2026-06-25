@@ -86,7 +86,7 @@ export default async function CityPage({ params }: Props) {
       addressCountry: 'US',
     },
     priceRange: 'Free',
-    url: `https://automatestack.com/tools/${tool.slug}/${citySlug(city.city, city.state)}`,
+    url: `https://realetools.netlify.app/tools/${tool.slug}/${citySlug(city.city, city.state)}`,
   };
 
   const serviceJsonLd = {
