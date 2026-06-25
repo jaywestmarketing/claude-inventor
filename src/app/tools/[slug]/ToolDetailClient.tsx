@@ -29,11 +29,15 @@ export default function ToolDetailClient({ tool }: { tool: Tool }) {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `Waitlist signup — ${tool.name} (tool page)`,
-          tool: tool.name,
-          tool_slug: tool.slug,
-          email,
+          subject: `🔔 Waitlist: ${tool.name} [Tool Page]`,
           from_name: 'AutomateStack Waitlist',
+          replyto: email,
+          email,
+          tool_name: tool.name,
+          tool_slug: tool.slug,
+          tool_tagline: tool.tagline,
+          tool_category: tool.category,
+          source: 'tool-page',
         }),
       });
       const data = await res.json();
