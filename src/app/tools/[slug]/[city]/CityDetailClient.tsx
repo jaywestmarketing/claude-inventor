@@ -4,24 +4,56 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Tool, CityTarget, categoryLabels, categoryBadgeClass } from '@/data/tools';
 
+const WEB3FORMS_KEY = '7d643d3d-d3b6-4d77-8935-e7f138b84270';
+
 function citySlug(city: string, state: string): string {
   return `${city.toLowerCase().replace(/\s+/g, '-')}-${state.toLowerCase()}`;
 }
 
 export default function CityDetailClient({ tool, city }: { tool: Tool; city: CityTarget }) {
   const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleWaitlist = (e: React.FormEvent) => {
+  const handleWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-    const waitlist = JSON.parse(localStorage.getItem('waitlist') || '{}');
-    const key = `${tool.id}-${citySlug(city.city, city.state)}`;
-    if (!waitlist[key]) waitlist[key] = [];
-    waitlist[key].push({ email, timestamp: new Date().toISOString(), city: city.city, state: city.state });
-    localStorage.setItem('waitlist', JSON.stringify(waitlist));
-    setSubmitted(true);
+    if (!email || status === 'loading') return;
+    setStatus('loading');
+
+    try {
+      const waitlist = JSON.parse(localStorage.getItem('waitlist') || '{}');
+      const key = `${tool.id}-${citySlug(city.city, city.state)}`;
+      if (!waitlist[key]) waitlist[key] = [];
+      waitlist[key].push({ email, timestamp: new Date().toISOString(), city: city.city, state: city.state });
+      localStorage.setItem('waitlist', JSON.stringify(waitlist));
+    } catch { /* localStorage unavailable */ }
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `🔔 Waitlist: ${tool.name} in ${city.city}, ${city.state} [City Page]`,
+          from_name: 'AutomateStack Waitlist',
+          replyto: email,
+          email,
+          tool_name: tool.name,
+          tool_slug: tool.slug,
+          tool_tagline: tool.tagline,
+          tool_category: tool.category,
+          city: city.city,
+          state: city.state,
+          source: 'city-page',
+        }),
+      });
+      const data = await res.json();
+      setStatus(data.success ? 'success' : 'error');
+    } catch {
+      setStatus('error');
+    }
   };
+
+  const submitted = status === 'success';
 
   const otherCities = tool.targetCities.filter(
     c => !(c.city === city.city && c.state === city.state)
@@ -121,10 +153,18 @@ export default function CityDetailClient({ tool, city }: { tool: Tool; city: Cit
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  disabled={status === 'loading'}
                   aria-label={`Join ${tool.name} waitlist for ${city.city}, ${city.state}`}
                 />
-                <button type="submit" className="waitlist-btn">Join Waitlist</button>
+                <button type="submit" className="waitlist-btn" disabled={status === 'loading'}>
+                  {status === 'loading' ? '…' : 'Join Waitlist'}
+                </button>
               </form>
+              {status === 'error' && (
+                <p style={{ color: 'var(--red)', fontSize: '12px', marginTop: '8px' }}>
+                  Something went wrong — please try again.
+                </p>
+              )}
             </>
           )}
         </div>

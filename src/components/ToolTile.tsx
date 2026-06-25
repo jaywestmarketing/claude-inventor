@@ -30,11 +30,15 @@ export default function ToolTile({ tool }: { tool: Tool }) {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `New waitlist signup — ${tool.name}`,
-          tool: tool.name,
-          tool_slug: tool.slug,
-          email,
+          subject: `🔔 Waitlist: ${tool.name} [Dashboard]`,
           from_name: 'AutomateStack Waitlist',
+          replyto: email,
+          email,
+          tool_name: tool.name,
+          tool_slug: tool.slug,
+          tool_tagline: tool.tagline,
+          tool_category: tool.category,
+          source: 'dashboard-grid',
         }),
       });
       const data = await res.json();
@@ -119,7 +123,7 @@ export default function ToolTile({ tool }: { tool: Tool }) {
       <div className="tool-tile-bottom">
         {status === 'success' ? (
           <p className="waitlist-success">
-            ✓ You&apos;re on the list! We&apos;ll email you when {tool.name} launches.
+            ✓ You&apos;re on the list! We&apos;ll email you the moment {tool.name} early access opens.
           </p>
         ) : (
           <>
