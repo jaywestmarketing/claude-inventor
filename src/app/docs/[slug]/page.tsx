@@ -23,13 +23,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: doc.metaDescription,
     keywords: doc.keywords.join(', '),
     alternates: {
-      canonical: `https://automatestack.com/docs/${doc.slug}`,
+      canonical: `https://realetools.netlify.app/docs/${doc.slug}`,
     },
     openGraph: {
       title: doc.metaTitle,
       description: doc.metaDescription,
       type: 'article',
-      url: `https://automatestack.com/docs/${doc.slug}`,
+      url: `https://realetools.netlify.app/docs/${doc.slug}`,
       modifiedTime: doc.updatedAt,
     },
   };
@@ -55,16 +55,16 @@ export default async function DocPage({ params }: Props) {
     author: {
       '@type': 'Organization',
       name: 'AutomateStack',
-      url: 'https://automatestack.com/about',
+      url: 'https://realetools.netlify.app/about',
     },
     publisher: {
       '@type': 'Organization',
       name: 'AutomateStack',
-      url: 'https://automatestack.com',
+      url: 'https://realetools.netlify.app',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://automatestack.com/docs/${doc.slug}`,
+      '@id': `https://realetools.netlify.app/docs/${doc.slug}`,
     },
     keywords: doc.keywords.join(', '),
     articleSection: docCategoryLabels[doc.category],

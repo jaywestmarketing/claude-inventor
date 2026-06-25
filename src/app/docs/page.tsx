@@ -7,12 +7,12 @@ import { tools } from '@/data/tools';
 export const metadata: Metadata = {
   title: 'Documentation | AutomateStack',
   description: 'Step-by-step documentation for all 34 AutomateStack business automation tools — getting started guides, feature walkthroughs, and use case tutorials for HR, finance, sales, marketing, and operations teams.',
-  alternates: { canonical: 'https://automatestack.com/docs' },
+  alternates: { canonical: 'https://realetools.netlify.app/docs' },
   openGraph: {
     title: 'Documentation | AutomateStack',
     description: 'Step-by-step documentation for all 34 AutomateStack business automation tools.',
     type: 'website',
-    url: 'https://automatestack.com/docs',
+    url: 'https://realetools.netlify.app/docs',
   },
 };
 

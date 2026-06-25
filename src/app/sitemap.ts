@@ -10,7 +10,7 @@ function citySlug(city: string, state: string): string {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://automatestack.com';
+  const baseUrl = 'https://realetools.netlify.app';
 
   const toolPages = tools.map((tool) => ({
     url: `${baseUrl}/tools/${tool.slug}`,

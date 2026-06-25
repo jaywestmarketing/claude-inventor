@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   title: 'About AutomateStack | Business Automation Tools for Small Business',
   description: 'AutomateStack builds free business automation tools for small business — from HR onboarding and cash flow forecasting to CRM tracking and SOP management. Learn about our methodology and editorial standards.',
   alternates: {
-    canonical: 'https://automatestack.com/about',
+    canonical: 'https://realetools.netlify.app/about',
   },
   openGraph: {
     title: 'About AutomateStack | Business Automation Tools for Small Business',
     description: 'AutomateStack builds free business automation tools for small business — from HR onboarding and cash flow forecasting to CRM tracking and SOP management. Learn about our methodology and editorial standards.',
     type: 'website',
-    url: 'https://automatestack.com/about',
+    url: 'https://realetools.netlify.app/about',
   },
 };
 
@@ -20,7 +20,7 @@ export default function AboutPage() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'AutomateStack',
-    url: 'https://automatestack.com',
+    url: 'https://realetools.netlify.app',
     description: 'AutomateStack builds free business automation tools for small business owners, operations managers, and HR teams.',
     foundingDate: '2026',
     areaServed: 'United States',

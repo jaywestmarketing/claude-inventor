@@ -22,13 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.metaDescription,
     keywords: post.keywords.join(', '),
     alternates: {
-      canonical: `https://automatestack.com/blog/${post.slug}`,
+      canonical: `https://realetools.netlify.app/blog/${post.slug}`,
     },
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
       type: 'article',
-      url: `https://automatestack.com/blog/${post.slug}`,
+      url: `https://realetools.netlify.app/blog/${post.slug}`,
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       tags: post.tags,
@@ -53,20 +53,20 @@ export default async function BlogPostPage({ params }: Props) {
     author: {
       '@type': 'Person',
       name: 'AutomateStack Editorial Team',
-      url: 'https://automatestack.com/about',
+      url: 'https://realetools.netlify.app/about',
     },
     publisher: {
       '@type': 'Organization',
       name: 'AutomateStack',
-      url: 'https://automatestack.com',
+      url: 'https://realetools.netlify.app',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://automatestack.com/favicon.ico',
+        url: 'https://realetools.netlify.app/favicon.ico',
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://automatestack.com/blog/${post.slug}`,
+      '@id': `https://realetools.netlify.app/blog/${post.slug}`,
     },
     keywords: post.keywords.join(', '),
     articleSection: blogCategoryLabels[post.category],
