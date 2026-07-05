@@ -2513,6 +2513,513 @@ const iconBtnStyle: React.CSSProperties = {
   color: 'var(--text-secondary)',
 };
 
+/* ─── Asset Tracker Demo ─── */
+const AT_TODAY = '2026-07-05';
+
+interface ATAsset {
+  id: string; name: string; category: string;
+  assignee: string; status: 'available' | 'assigned' | 'maintenance';
+  checkoutDate: string; dueDate: string; warrantyExpiry: string; purchasePrice: number;
+}
+
+const AT_INIT: ATAsset[] = [
+  { id:'AS-001', name:'MacBook Pro 14"', category:'Laptop', assignee:'Sarah Chen', status:'assigned', checkoutDate:'2026-06-25', dueDate:'2026-07-20', warrantyExpiry:'2028-06-25', purchasePrice:2499 },
+  { id:'AS-002', name:'iPhone 14 Pro', category:'Phone', assignee:'', status:'available', checkoutDate:'', dueDate:'', warrantyExpiry:'2026-09-15', purchasePrice:999 },
+  { id:'AS-003', name:'Dell U2722D Monitor', category:'Display', assignee:'Marcus Thompson', status:'assigned', checkoutDate:'2026-06-10', dueDate:'2026-07-01', warrantyExpiry:'2029-01-10', purchasePrice:649 },
+  { id:'AS-004', name:'HP LaserJet Pro M428', category:'Printer', assignee:'', status:'maintenance', checkoutDate:'', dueDate:'', warrantyExpiry:'2026-08-01', purchasePrice:449 },
+  { id:'AS-005', name:'MacBook Air M2', category:'Laptop', assignee:'Elena Rodriguez', status:'assigned', checkoutDate:'2026-07-01', dueDate:'2026-08-01', warrantyExpiry:'2027-12-15', purchasePrice:1299 },
+  { id:'AS-006', name:'iPad Pro 12.9"', category:'Tablet', assignee:'', status:'available', checkoutDate:'', dueDate:'', warrantyExpiry:'2027-03-20', purchasePrice:1099 },
+  { id:'AS-007', name:'Lenovo ThinkPad X1', category:'Laptop', assignee:'James Kim', status:'assigned', checkoutDate:'2026-06-28', dueDate:'2026-07-28', warrantyExpiry:'2027-06-28', purchasePrice:1449 },
+  { id:'AS-008', name:'Cisco 8841 IP Phone', category:'Phone', assignee:'', status:'available', checkoutDate:'', dueDate:'', warrantyExpiry:'2026-07-25', purchasePrice:299 },
+  { id:'AS-009', name:'Dell XPS 15 9510', category:'Laptop', assignee:'Priya Patel', status:'assigned', checkoutDate:'2026-07-02', dueDate:'2026-08-15', warrantyExpiry:'2028-07-02', purchasePrice:1899 },
+  { id:'AS-010', name:'APC Smart-UPS 1500VA', category:'UPS', assignee:'', status:'maintenance', checkoutDate:'', dueDate:'', warrantyExpiry:'2026-08-10', purchasePrice:899 },
+];
+
+function atDaysUntil(dateStr: string): number {
+  if (!dateStr) return 9999;
+  return Math.floor((new Date(dateStr).getTime() - new Date(AT_TODAY).getTime()) / 86400000);
+}
+
+function ATQRCode({ value }: { value: string }) {
+  const SIZE = 21, CELL = 5;
+  let s = value.split('').reduce((h, c) => ((h * 33) ^ c.charCodeAt(0)) >>> 0, 5381);
+  const rng = () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 0xFFFFFFFF; };
+  const cells: boolean[][] = Array.from({ length: SIZE }, () =>
+    Array.from({ length: SIZE }, () => rng() > 0.4)
+  );
+  const fp = (tr: number, tc: number) => {
+    for (let r = 0; r < 7; r++) for (let c = 0; c < 7; c++)
+      if (tr+r < SIZE && tc+c < SIZE)
+        cells[tr+r][tc+c] = r===0||r===6||c===0||c===6||(r>=2&&r<=4&&c>=2&&c<=4);
+  };
+  fp(0,0); fp(0,SIZE-7); fp(SIZE-7,0);
+  for (let i=8;i<SIZE-8;i++) { cells[6][i]=i%2===0; cells[i][6]=i%2===0; }
+  const W = SIZE*CELL;
+  return (
+    <svg width={W} height={W} viewBox={`0 0 ${W} ${W}`} style={{ display:'block', border:'1px solid #e8e8e8', borderRadius:4 }}>
+      <rect width={W} height={W} fill="white"/>
+      {cells.flatMap((row,r) => row.map((on,c) =>
+        on ? <rect key={`${r}-${c}`} x={c*CELL} y={r*CELL} width={CELL} height={CELL} fill="#1a1a1a"/> : null
+      ))}
+    </svg>
+  );
+}
+
+const AT_STATUS_COLOR: Record<string,string> = { available:'#27ae60', assigned:'#2563eb', maintenance:'#e67e22' };
+const AT_STATUS_BG: Record<string,string>    = { available:'#e9f7ef', assigned:'#eff6ff', maintenance:'#fef3e2' };
+
+function AssetTrackerDemo() {
+  const [tab, setTab] = useState<'assets'|'qr'|'dash'>('assets');
+  const [assets, setAssets] = useState<ATAsset[]>(AT_INIT.map(a => ({ ...a })));
+  const [coId, setCoId] = useState<string|null>(null);
+  const [coName, setCoName] = useState('');
+  const [coDue, setCoDue] = useState('2026-08-05');
+  const [qrId, setQrId] = useState('AS-001');
+
+  const checkOut = (id: string) => { setCoId(id); setCoName(''); setCoDue('2026-08-05'); };
+  const confirmCheckOut = () => {
+    if (!coName.trim() || !coId) return;
+    setAssets(prev => prev.map(a =>
+      a.id === coId ? { ...a, status:'assigned' as const, assignee:coName.trim(), checkoutDate:AT_TODAY, dueDate:coDue } : a
+    ));
+    setCoId(null);
+  };
+  const returnAsset = (id: string) => {
+    setAssets(prev => prev.map(a =>
+      a.id === id ? { ...a, status:'available' as const, assignee:'', checkoutDate:'', dueDate:'' } : a
+    ));
+  };
+
+  const overdue = assets.filter(a => a.status==='assigned' && a.dueDate && a.dueDate < AT_TODAY);
+  const expiring = assets
+    .filter(a => { const d = atDaysUntil(a.warrantyExpiry); return d >= 0 && d <= 60; })
+    .sort((a,b) => atDaysUntil(a.warrantyExpiry) - atDaysUntil(b.warrantyExpiry));
+  const assigned = assets.filter(a => a.status==='assigned').length;
+  const available = assets.filter(a => a.status==='available').length;
+  const maintenance = assets.filter(a => a.status==='maintenance').length;
+  const totalValue = assets.reduce((s,a) => s + a.purchasePrice, 0);
+  const selectedAsset = assets.find(a => a.id === qrId);
+
+  const atTabBar = (
+    <div style={{ display:'flex', gap:0, marginBottom:20, borderBottom:'2px solid #e8e8e8' }}>
+      {([['assets','🗂️ Inventory'],['qr','🏷️ QR Labels'],['dash','📊 Dashboard']] as [typeof tab,string][]).map(([t,label]) => (
+        <button key={t} onClick={()=>setTab(t)} style={{ border:'none', background:'none', cursor:'pointer', padding:'8px 16px', fontWeight:tab===t?700:400, color:tab===t?'var(--orange)':'var(--text-secondary)', borderBottom:tab===t?'2px solid var(--orange)':'2px solid transparent', marginBottom:'-2px', fontSize:'13.5px', transition:'all .15s' }}>
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+
+  if (tab === 'assets') return (
+    <div>
+      {atTabBar}
+      <div style={{ fontSize:12, color:'var(--text-secondary)', marginBottom:12 }}>
+        {assets.length} total assets &nbsp;·&nbsp; {assigned} assigned &nbsp;·&nbsp; {available} available &nbsp;·&nbsp; {maintenance} in maintenance
+        {overdue.length > 0 && <span style={{ color:'#c0392b', fontWeight:600 }}> &nbsp;·&nbsp; ⚠️ {overdue.length} overdue</span>}
+      </div>
+
+      {coId && (
+        <div style={{ background:'#f0f7ff', border:'1px solid #2563eb', borderRadius:8, padding:'14px 16px', marginBottom:16 }}>
+          <div style={{ fontWeight:600, marginBottom:10, fontSize:13.5 }}>📤 Checking Out: {assets.find(a=>a.id===coId)?.name}</div>
+          <div style={{ display:'flex', gap:12, flexWrap:'wrap', alignItems:'flex-end' }}>
+            <div>
+              <label style={labelStyle}>Employee Name</label>
+              <input value={coName} onChange={e=>setCoName(e.target.value)} placeholder="e.g. Alex Johnson" style={{ ...inputStyle, width:170 }} autoFocus />
+            </div>
+            <div>
+              <label style={labelStyle}>Due Back</label>
+              <input type="date" value={coDue} onChange={e=>setCoDue(e.target.value)} style={{ ...inputStyle, width:140 }} />
+            </div>
+            <div style={{ display:'flex', gap:8 }}>
+              <button onClick={confirmCheckOut} disabled={!coName.trim()} style={{ background:'var(--navy)', color:'#fff', border:'none', borderRadius:6, padding:'7px 14px', cursor:coName.trim()?'pointer':'not-allowed', opacity:coName.trim()?1:0.5, fontWeight:600, fontSize:13 }}>
+                Confirm Check-Out
+              </button>
+              <button onClick={()=>setCoId(null)} style={{ background:'none', border:'1px solid #ccc', borderRadius:6, padding:'7px 12px', cursor:'pointer', fontSize:13 }}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div style={{ overflowX:'auto' }}>
+        <table style={{ width:'100%', borderCollapse:'collapse', fontSize:13 }}>
+          <thead>
+            <tr style={{ background:'#f8f9fa', borderBottom:'2px solid #e8e8e8' }}>
+              {['Asset ID','Name','Category','Status','Assigned To','Due Date','Action'].map(h => (
+                <th key={h} style={{ padding:'8px 12px', textAlign:'left', fontWeight:600, color:'var(--text-secondary)', whiteSpace:'nowrap', fontSize:12 }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {assets.map(a => {
+              const over = a.status==='assigned' && a.dueDate && a.dueDate < AT_TODAY;
+              return (
+                <tr key={a.id} style={{ borderBottom:'1px solid #f0f0f0', background:over?'#fff8f7':'white' }}>
+                  <td style={{ padding:'8px 12px', fontFamily:'monospace', fontSize:12, color:'#555' }}>{a.id}</td>
+                  <td style={{ padding:'8px 12px', fontWeight:500 }}>{a.name}</td>
+                  <td style={{ padding:'8px 12px', color:'var(--text-secondary)', fontSize:12 }}>{a.category}</td>
+                  <td style={{ padding:'8px 12px' }}>
+                    <span style={{ background:AT_STATUS_BG[a.status], color:AT_STATUS_COLOR[a.status], borderRadius:12, padding:'2px 10px', fontSize:12, fontWeight:600 }}>
+                      {a.status.charAt(0).toUpperCase()+a.status.slice(1)}
+                    </span>
+                    {over && <span style={{ marginLeft:4, fontSize:11, color:'#c0392b', fontWeight:700 }}>⚠️ Overdue</span>}
+                  </td>
+                  <td style={{ padding:'8px 12px', color:a.assignee?'#333':'#aaa', fontSize:12 }}>{a.assignee || '—'}</td>
+                  <td style={{ padding:'8px 12px', fontSize:12, color:over?'#c0392b':a.dueDate?'#333':'#aaa', fontWeight:over?700:400 }}>{a.dueDate || '—'}</td>
+                  <td style={{ padding:'8px 12px' }}>
+                    {a.status==='available' && (
+                      <button onClick={()=>checkOut(a.id)} style={{ background:'var(--navy)', color:'#fff', border:'none', borderRadius:6, padding:'4px 10px', cursor:'pointer', fontSize:12, whiteSpace:'nowrap' }}>
+                        📤 Check Out
+                      </button>
+                    )}
+                    {a.status==='assigned' && (
+                      <button onClick={()=>returnAsset(a.id)} style={{ background:'#27ae60', color:'#fff', border:'none', borderRadius:6, padding:'4px 10px', cursor:'pointer', fontSize:12, whiteSpace:'nowrap' }}>
+                        📥 Return
+                      </button>
+                    )}
+                    {a.status==='maintenance' && (
+                      <span style={{ fontSize:11, color:'var(--text-secondary)' }}>In Service</span>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+
+  if (tab === 'qr') return (
+    <div>
+      {atTabBar}
+      <div style={{ display:'flex', gap:24, flexWrap:'wrap' }}>
+        <div style={{ flex:'0 0 180px' }}>
+          <div style={{ fontWeight:600, fontSize:13, marginBottom:10, color:'var(--text-secondary)' }}>Select Asset</div>
+          <div style={{ display:'flex', flexDirection:'column', gap:6, maxHeight:300, overflowY:'auto' }}>
+            {assets.map(a => (
+              <button key={a.id} onClick={()=>setQrId(a.id)} style={{ background:qrId===a.id?'#eff6ff':'none', border:qrId===a.id?'1px solid #2563eb':'1px solid #e8e8e8', borderRadius:6, padding:'6px 10px', cursor:'pointer', textAlign:'left', fontSize:12 }}>
+                <div style={{ fontFamily:'monospace', color:'#888', fontSize:11 }}>{a.id}</div>
+                <div style={{ fontWeight:qrId===a.id?600:400, color:'#333' }}>{a.name}</div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {selectedAsset && (
+          <div style={{ flex:1, minWidth:260 }}>
+            <div style={{ fontWeight:600, fontSize:13, marginBottom:12, color:'var(--text-secondary)' }}>QR Asset Label Preview</div>
+            <div style={{ background:'white', border:'1px solid #e8e8e8', borderRadius:8, padding:'20px', display:'inline-flex', gap:16, alignItems:'flex-start', boxShadow:'0 2px 8px rgba(0,0,0,.06)' }}>
+              <ATQRCode value={selectedAsset.id + selectedAsset.name} />
+              <div>
+                <div style={{ fontWeight:800, fontSize:16, marginBottom:4 }}>{selectedAsset.name}</div>
+                <div style={{ fontFamily:'monospace', fontSize:13, color:'#666', marginBottom:8 }}>{selectedAsset.id}</div>
+                <div style={{ fontSize:12, color:'var(--text-secondary)' }}>Category: {selectedAsset.category}</div>
+                <div style={{ fontSize:12, color:'var(--text-secondary)' }}>
+                  Status: <span style={{ color:AT_STATUS_COLOR[selectedAsset.status], fontWeight:600 }}>
+                    {selectedAsset.status.charAt(0).toUpperCase()+selectedAsset.status.slice(1)}
+                  </span>
+                </div>
+                {selectedAsset.assignee && <div style={{ fontSize:12, color:'var(--text-secondary)' }}>Assigned: {selectedAsset.assignee}</div>}
+                <div style={{ fontSize:12, color:'var(--text-secondary)', marginBottom:12 }}>Warranty: {selectedAsset.warrantyExpiry}</div>
+                <button style={{ background:'var(--navy)', color:'#fff', border:'none', borderRadius:6, padding:'6px 14px', cursor:'pointer', fontSize:12, fontWeight:600 }}>
+                  🖨️ Print Label
+                </button>
+              </div>
+            </div>
+            <div style={{ fontSize:11, color:'var(--text-secondary)', marginTop:10 }}>Scan to report issues, request service, or check in/out from a mobile device.</div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
+  return (
+    <div>
+      {atTabBar}
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(140px, 1fr))', gap:12, marginBottom:24 }}>
+        {[
+          { label:'Total Assets', value:assets.length, icon:'🖥️', color:'var(--navy)' },
+          { label:'Assigned', value:assigned, icon:'👤', color:'#2563eb' },
+          { label:'Available', value:available, icon:'✅', color:'#27ae60' },
+          { label:'Maintenance', value:maintenance, icon:'🔧', color:'#e67e22' },
+          { label:'Overdue Returns', value:overdue.length, icon:'⚠️', color:overdue.length>0?'#c0392b':'#27ae60' },
+          { label:'Asset Value', value:`$${totalValue.toLocaleString()}`, icon:'💰', color:'var(--text-secondary)' },
+        ].map(card => (
+          <div key={card.label} style={{ background:'#f8f9fa', borderRadius:8, padding:'12px 14px', border:'1px solid #e8e8e8' }}>
+            <div style={{ fontSize:20, marginBottom:4 }}>{card.icon}</div>
+            <div style={{ fontSize:22, fontWeight:800, color:card.color }}>{card.value}</div>
+            <div style={{ fontSize:11, color:'var(--text-secondary)', fontWeight:500 }}>{card.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {overdue.length > 0 && (
+        <div style={{ marginBottom:20 }}>
+          <div style={{ fontWeight:700, fontSize:13.5, marginBottom:8, color:'#c0392b' }}>⚠️ Overdue Returns</div>
+          {overdue.map(a => (
+            <div key={a.id} style={{ background:'#fff8f7', border:'1px solid #f5c6c2', borderRadius:6, padding:'10px 14px', marginBottom:6, display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:8 }}>
+              <div>
+                <span style={{ fontWeight:600, fontSize:13 }}>{a.name}</span>
+                <span style={{ color:'var(--text-secondary)', fontSize:12, marginLeft:8 }}>({a.id})</span>
+                <div style={{ fontSize:12, color:'#c0392b' }}>Assigned to {a.assignee} · Due {a.dueDate} ({Math.abs(atDaysUntil(a.dueDate))} days overdue)</div>
+              </div>
+              <button onClick={()=>returnAsset(a.id)} style={{ background:'#c0392b', color:'#fff', border:'none', borderRadius:6, padding:'5px 12px', cursor:'pointer', fontSize:12, fontWeight:600 }}>
+                Mark Returned
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {expiring.length > 0 && (
+        <div>
+          <div style={{ fontWeight:700, fontSize:13.5, marginBottom:8, color:'#e67e22' }}>🔔 Warranties Expiring Within 60 Days</div>
+          {expiring.map(a => {
+            const days = atDaysUntil(a.warrantyExpiry);
+            const pct = Math.max(0, Math.min(100, (days/60)*100));
+            return (
+              <div key={a.id} style={{ background:'#fef9f0', border:'1px solid #fde5b4', borderRadius:6, padding:'10px 14px', marginBottom:6 }}>
+                <div style={{ display:'flex', justifyContent:'space-between', marginBottom:6, flexWrap:'wrap' }}>
+                  <span style={{ fontWeight:600, fontSize:13 }}>{a.name} <span style={{ fontFamily:'monospace', color:'#888', fontSize:11 }}>({a.id})</span></span>
+                  <span style={{ fontSize:12, color:days<=21?'#c0392b':'#e67e22', fontWeight:600 }}>{days} days · Expires {a.warrantyExpiry}</span>
+                </div>
+                <div style={{ height:6, background:'#f0f0f0', borderRadius:3, overflow:'hidden' }}>
+                  <div style={{ height:'100%', background:days<=21?'#e74c3c':'#e67e22', borderRadius:3, width:`${pct}%`, transition:'width .3s' }} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── Split Test Demo ─── */
+const ST_HISTORY = [
+  { name:'Homepage CTA Button Color', winner:'Variant B (Orange)', lift:'+23%', conf:'97%', date:'2026-06-15' },
+  { name:'Pricing Page Hero Headline', winner:'Variant A (Control)', lift:'0% (no significant lift)', conf:'91%', date:'2026-06-02' },
+  { name:'Email Subject Line: "Free" vs "Save Time"', winner:'Variant B ("Free Tool")', lift:'+31%', conf:'99%', date:'2026-05-22' },
+  { name:'Lead Form: 3 Fields vs 5 Fields', winner:'Variant A (3 fields)', lift:'+18%', conf:'96%', date:'2026-05-08' },
+];
+
+function stGetData(step: number) {
+  let s = 42;
+  const r = () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 0xFFFFFFFF; };
+  let va = 0, vb = 0, ca = 0, cb = 0;
+  for (let i = 0; i < step; i++) {
+    va += Math.floor(r() * 8) + 4;
+    vb += Math.floor(r() * 8) + 4;
+    ca += r() < 0.18 ? 1 : 0;
+    cb += r() < 0.28 ? 1 : 0;
+  }
+  return { va, vb, ca, cb };
+}
+
+const ST_MAX = 28;
+
+function SplitTestDemo() {
+  const [tab, setTab] = useState<'create'|'results'|'history'>('create');
+  const [testName, setTestName] = useState('Homepage Hero Headline Test');
+  const [varA, setVarA] = useState('Get Your Free Account Today');
+  const [varB, setVarB] = useState('Start Saving 10 Hours a Week — Free');
+  const [ctaA, setCtaA] = useState('Sign Up Free');
+  const [ctaB, setCtaB] = useState('Try It Free →');
+  const [launched, setLaunched] = useState(false);
+  const [simStep, setSimStep] = useState(0);
+  const [simRunning, setSimRunning] = useState(false);
+  const [concluded, setConcluded] = useState(false);
+
+  useEffect(() => {
+    if (!simRunning) return;
+    if (simStep >= ST_MAX) { setSimRunning(false); return; }
+    const t = setTimeout(() => setSimStep(s => s + 1), 140);
+    return () => clearTimeout(t);
+  }, [simRunning, simStep]);
+
+  const { va, vb, ca, cb } = stGetData(simStep);
+  const rateA = va > 0 ? (ca / va) * 100 : 0;
+  const rateB = vb > 0 ? (cb / vb) * 100 : 0;
+  const lift = rateA > 0 ? ((rateB - rateA) / rateA) * 100 : 0;
+  const totalConv = ca + cb;
+  const confidence = totalConv > 3 ? Math.min(99, 50 + totalConv * 2.8 + Math.abs(lift) * 0.45) : 0;
+  const isSignificant = confidence >= 95;
+  const winner = rateB >= rateA ? 'B' : 'A';
+
+  const launch = () => {
+    setLaunched(true); setSimStep(0); setSimRunning(true); setConcluded(false); setTab('results');
+  };
+
+  const stTabBar = (
+    <div style={{ display:'flex', gap:0, marginBottom:20, borderBottom:'2px solid #e8e8e8' }}>
+      {([['create','⚗️ Create Test'],['results','📈 Results'],['history','📋 History']] as [typeof tab,string][]).map(([t,label]) => (
+        <button key={t} onClick={()=>setTab(t)} style={{ border:'none', background:'none', cursor:'pointer', padding:'8px 16px', fontWeight:tab===t?700:400, color:tab===t?'var(--orange)':'var(--text-secondary)', borderBottom:tab===t?'2px solid var(--orange)':'2px solid transparent', marginBottom:'-2px', fontSize:'13.5px', transition:'all .15s' }}>
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+
+  if (tab === 'create') return (
+    <div>
+      {stTabBar}
+      <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:20, marginBottom:20 }}>
+        <div style={{ gridColumn:'1/-1' }}>
+          <label style={labelStyle}>Test Name</label>
+          <input value={testName} onChange={e=>setTestName(e.target.value)} style={inputStyle} />
+        </div>
+
+        <div style={{ background:'#f8faff', border:'1px solid #d0e4ff', borderRadius:8, padding:16 }}>
+          <div style={{ fontWeight:700, fontSize:13, color:'var(--navy)', marginBottom:12 }}>🅐 Variant A — Control</div>
+          <label style={labelStyle}>Headline</label>
+          <input value={varA} onChange={e=>setVarA(e.target.value)} style={{ ...inputStyle, marginBottom:10 }} />
+          <label style={labelStyle}>CTA Button Text</label>
+          <input value={ctaA} onChange={e=>setCtaA(e.target.value)} style={inputStyle} />
+          <div style={{ marginTop:12, padding:12, background:'white', borderRadius:6, border:'1px solid #e8e8e8', textAlign:'center' }}>
+            <div style={{ fontWeight:700, fontSize:15, marginBottom:8, color:'#333' }}>{varA||'(Headline A)'}</div>
+            <button style={{ background:'var(--navy)', color:'#fff', border:'none', borderRadius:6, padding:'8px 20px', fontWeight:600, fontSize:13, cursor:'default' }}>{ctaA||'CTA A'}</button>
+          </div>
+          <div style={{ fontSize:11, color:'var(--text-secondary)', marginTop:8, textAlign:'center' }}>50% of traffic</div>
+        </div>
+
+        <div style={{ background:'#fff8f3', border:'1px solid #fde5c5', borderRadius:8, padding:16 }}>
+          <div style={{ fontWeight:700, fontSize:13, color:'var(--orange)', marginBottom:12 }}>🅑 Variant B — Challenger</div>
+          <label style={labelStyle}>Headline</label>
+          <input value={varB} onChange={e=>setVarB(e.target.value)} style={{ ...inputStyle, marginBottom:10 }} />
+          <label style={labelStyle}>CTA Button Text</label>
+          <input value={ctaB} onChange={e=>setCtaB(e.target.value)} style={inputStyle} />
+          <div style={{ marginTop:12, padding:12, background:'white', borderRadius:6, border:'1px solid #e8e8e8', textAlign:'center' }}>
+            <div style={{ fontWeight:700, fontSize:15, marginBottom:8, color:'#333' }}>{varB||'(Headline B)'}</div>
+            <button style={{ background:'var(--orange)', color:'#fff', border:'none', borderRadius:6, padding:'8px 20px', fontWeight:600, fontSize:13, cursor:'default' }}>{ctaB||'CTA B'}</button>
+          </div>
+          <div style={{ fontSize:11, color:'var(--text-secondary)', marginTop:8, textAlign:'center' }}>50% of traffic</div>
+        </div>
+      </div>
+
+      <div style={{ textAlign:'center' }}>
+        <button onClick={launch} style={{ background:'var(--orange)', color:'#fff', border:'none', borderRadius:8, padding:'12px 32px', fontWeight:700, fontSize:15, cursor:'pointer' }}>
+          🚀 Launch A/B Test
+        </button>
+        <div style={{ fontSize:12, color:'var(--text-secondary)', marginTop:8 }}>Real-time Bayesian statistical analysis starts immediately</div>
+      </div>
+    </div>
+  );
+
+  if (tab === 'results') return (
+    <div>
+      {stTabBar}
+      {!launched ? (
+        <div style={{ textAlign:'center', padding:'40px 0', color:'var(--text-secondary)' }}>
+          <div style={{ fontSize:40, marginBottom:12 }}>📊</div>
+          <div>No active test. <button onClick={()=>setTab('create')} style={{ background:'none', border:'none', color:'var(--orange)', cursor:'pointer', fontWeight:600, textDecoration:'underline' }}>Create one first.</button></div>
+        </div>
+      ) : (
+        <>
+          <div style={{ fontWeight:700, fontSize:14, marginBottom:4 }}>{testName}</div>
+          <div style={{ fontSize:12, color:'var(--text-secondary)', marginBottom:16 }}>
+            {simRunning ? '🔴 Live — collecting traffic...' : '⏸️ Simulation complete'}
+            &nbsp;·&nbsp; Total visitors: {(va+vb).toLocaleString()}
+          </div>
+
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:16, marginBottom:20 }}>
+            {[
+              { label:'Variant A (Control)', visitors:va, conversions:ca, rate:rateA, col:'var(--navy)', bg:'#f8faff', bd:'#d0e4ff', hl:varA, cta:ctaA, win:winner==='A'&&isSignificant },
+              { label:'Variant B (Challenger)', visitors:vb, conversions:cb, rate:rateB, col:'var(--orange)', bg:'#fff8f3', bd:'#fde5c5', hl:varB, cta:ctaB, win:winner==='B'&&isSignificant },
+            ].map(v => (
+              <div key={v.label} style={{ background:v.bg, border:`1px solid ${v.bd}`, borderRadius:8, padding:16, position:'relative' }}>
+                {v.win && <div style={{ position:'absolute', top:-10, right:12, background:'#27ae60', color:'#fff', borderRadius:12, padding:'2px 10px', fontSize:11, fontWeight:700 }}>🏆 WINNER</div>}
+                <div style={{ fontWeight:700, fontSize:13, color:v.col, marginBottom:8 }}>{v.label}</div>
+                <div style={{ fontSize:12, color:'var(--text-secondary)', marginBottom:10, fontStyle:'italic', lineHeight:1.4 }}>"{v.hl}"</div>
+                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginBottom:10 }}>
+                  <div style={{ background:'white', borderRadius:6, padding:'8px', textAlign:'center' }}>
+                    <div style={{ fontSize:20, fontWeight:800, color:v.col }}>{v.visitors.toLocaleString()}</div>
+                    <div style={{ fontSize:10, color:'var(--text-secondary)' }}>Visitors</div>
+                  </div>
+                  <div style={{ background:'white', borderRadius:6, padding:'8px', textAlign:'center' }}>
+                    <div style={{ fontSize:20, fontWeight:800, color:v.col }}>{v.conversions}</div>
+                    <div style={{ fontSize:10, color:'var(--text-secondary)' }}>Conversions</div>
+                  </div>
+                </div>
+                <div style={{ textAlign:'center' }}>
+                  <span style={{ fontSize:28, fontWeight:800, color:v.col }}>{v.rate.toFixed(1)}%</span>
+                  <span style={{ fontSize:12, color:'var(--text-secondary)', marginLeft:4 }}>conv. rate</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ background:'#f8f9fa', borderRadius:8, padding:16, marginBottom:16 }}>
+            <div style={{ display:'flex', justifyContent:'space-between', marginBottom:8, flexWrap:'wrap', gap:8 }}>
+              <div style={{ fontWeight:600, fontSize:13 }}>Statistical Confidence</div>
+              <div style={{ fontWeight:700, fontSize:13, color:isSignificant?'#27ae60':confidence>80?'#e67e22':'var(--text-secondary)' }}>
+                {confidence.toFixed(0)}% {isSignificant && '✓ Significant'}
+              </div>
+            </div>
+            <div style={{ height:10, background:'#e8e8e8', borderRadius:5, overflow:'hidden', marginBottom:8 }}>
+              <div style={{ height:'100%', background:isSignificant?'#27ae60':confidence>80?'#e67e22':'var(--navy)', borderRadius:5, width:`${confidence}%`, transition:'width .3s' }} />
+            </div>
+            <div style={{ fontSize:12, color:'var(--text-secondary)' }}>
+              {isSignificant
+                ? `Variant ${winner} wins with ${lift>0?'+':''}${lift.toFixed(0)}% lift — safe to deploy.`
+                : confidence>50 ? 'Collecting more data for higher confidence...'
+                : 'Gathering initial traffic...'}
+            </div>
+            <div style={{ fontSize:11, color:'#aaa', marginTop:4 }}>Threshold: 95% Bayesian confidence for winner declaration</div>
+          </div>
+
+          {isSignificant && !concluded && (
+            <div style={{ textAlign:'center' }}>
+              <button onClick={()=>{ setConcluded(true); setSimRunning(false); }} style={{ background:'#27ae60', color:'#fff', border:'none', borderRadius:8, padding:'10px 24px', fontWeight:700, fontSize:14, cursor:'pointer' }}>
+                🏁 Declare Winner & Archive Test
+              </button>
+            </div>
+          )}
+          {concluded && (
+            <div style={{ background:'#e9f7ef', border:'1px solid #a9dfbf', borderRadius:8, padding:'14px 18px', textAlign:'center' }}>
+              <div style={{ fontWeight:700, color:'#27ae60', fontSize:15, marginBottom:4 }}>✅ Test Concluded — Variant {winner} deployed</div>
+              <div style={{ fontSize:12, color:'#555' }}>Results archived. <button onClick={()=>setTab('history')} style={{ background:'none', border:'none', color:'var(--orange)', cursor:'pointer', fontWeight:600, textDecoration:'underline' }}>View in history →</button></div>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+
+  return (
+    <div>
+      {stTabBar}
+      <div style={{ marginBottom:14, display:'flex', justifyContent:'space-between', alignItems:'center' }}>
+        <div style={{ fontSize:13, color:'var(--text-secondary)' }}>{ST_HISTORY.length} concluded tests</div>
+        <button onClick={()=>{ setLaunched(false); setSimStep(0); setConcluded(false); setTab('create'); }} style={{ background:'var(--navy)', color:'#fff', border:'none', borderRadius:6, padding:'6px 14px', cursor:'pointer', fontSize:13, fontWeight:600 }}>
+          + New Test
+        </button>
+      </div>
+      <div style={{ overflowX:'auto' }}>
+        <table style={{ width:'100%', borderCollapse:'collapse', fontSize:13 }}>
+          <thead>
+            <tr style={{ background:'#f8f9fa', borderBottom:'2px solid #e8e8e8' }}>
+              {['Test Name','Winner','Lift','Confidence','Date'].map(h => (
+                <th key={h} style={{ padding:'8px 12px', textAlign:'left', fontWeight:600, color:'var(--text-secondary)', fontSize:12 }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {ST_HISTORY.map((r,i) => (
+              <tr key={i} style={{ borderBottom:'1px solid #f0f0f0' }}>
+                <td style={{ padding:'8px 12px', fontWeight:500 }}>{r.name}</td>
+                <td style={{ padding:'8px 12px', fontSize:12 }}>{r.winner}</td>
+                <td style={{ padding:'8px 12px', fontWeight:700, color:r.lift.startsWith('+')?'#27ae60':'var(--text-secondary)' }}>{r.lift}</td>
+                <td style={{ padding:'8px 12px', fontSize:12, fontWeight:600, color:'#27ae60' }}>{r.conf}</td>
+                <td style={{ padding:'8px 12px', fontSize:12, color:'var(--text-secondary)' }}>{r.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main export ─── */
 const demoMap: Record<string, React.ReactNode> = {
   'payroll-calc': <PayrollDemo />,
@@ -2525,6 +3032,8 @@ const demoMap: Record<string, React.ReactNode> = {
   'vendor-portal': <VendorPortalDemo />,
   'lead-magnet': <LeadMagnetDemo />,
   'workflow-automation': <WorkflowAutomationDemo />,
+  'asset-tracker': <AssetTrackerDemo />,
+  'split-test': <SplitTestDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {
