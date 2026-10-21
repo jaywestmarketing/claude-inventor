@@ -1,7 +1,7 @@
 /**
  * AutomateHub Tools Registry
  * Central registry of all automation tools.
- * New tools are added here daily by Claude.
+ * New tools are added here daily by Joe, CEO of RealE.
  *
  * Each tool entry contains:
  * - id: unique slug

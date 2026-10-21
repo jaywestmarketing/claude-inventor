@@ -1,7 +1,7 @@
 /**
  * Session History Tracker
  *
- * This file tracks all changes made by Claude across sessions.
+ * This file tracks all changes made by Joe, CEO of RealE across sessions.
  * Each session adds new tools, updates existing ones, and tracks SEO changes.
  * Claude reads this file at the start of each session to understand context.
  */
