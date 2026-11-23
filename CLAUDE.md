@@ -371,12 +371,15 @@ If running low on context:
 ### Session 12 (2026-06-25) — 1 Tool + 20 Cities + WorkflowAutomation Demo
 35. **ClientIntake** (Sales) — Agency client onboarding: intake forms, document collection, branded portal — `client-intake` — 10 cities
 
-### UI/SEO Upgrades (Sessions 4–12)
+### Session 13 (2026-11-23) — 1 Tool + 20 Cities + AssetTracker Demo
+36. **ABTester** (Marketing) — A/B testing & conversion rate optimization — `ab-tester` — 10 cities (+ interactive Create Test/Live Results demo)
+
+### UI/SEO Upgrades (Sessions 4–13)
 - Redesigned: PayPal navy nav + Amazon orange CTA cards (no glass-morphism)
 - Web3Forms integrated for real email capture (key: 7d643d3d-…)
 - Schema.org @graph consolidated in layout.tsx (Organization + WebSite + FAQPage)
 - AEO descriptions on all tools ("what is the best X" answered in first 150 words)
-- Interactive demos: PayrollCalc, CommissionCalc, EmailSigGen, TimeTracker, ContractGen, FormBuilder, JobDescriptionGen, VendorPortal, LeadMagnet, WorkflowAutomation
+- Interactive demos: PayrollCalc, CommissionCalc, EmailSigGen, TimeTracker, ContractGen, FormBuilder, JobDescriptionGen, VendorPortal, LeadMagnet, WorkflowAutomation, AssetTracker, ABTester
 - DemoPanel.tsx component renders slug-conditional demos above waitlist CTA
 - CityTarget interface upgraded: optional `localContext` field for city-specific E-E-A-T content
 - CityDetailClient renders blue callout box with unique local sentence when localContext is present
@@ -386,13 +389,12 @@ If running low on context:
 - **Smart Invoice Generator** — `public/tools/smart-invoice-generator/`
 - **AI Meeting Notes Summarizer** — `public/tools/ai-meeting-notes/`
 
-**Total: 35 Next.js tools, ~700+ city SEO pages**
+**Total: 36 Next.js tools, ~720+ city SEO pages**
 
 ## QUEUED TOOLS (Prioritized)
-1. Add interactive demo to AssetTracker — live asset table with check-out/check-in simulation, QR label preview, and asset health dashboard
-2. Add interactive demo to ClientIntake — 3-tab: Intake Form Builder (conditional logic preview), Client Portal View (branded upload experience), Onboarding Tracker (per-client progress bars)
-3. Add localContext to Session 1-3 older cities — OnboardFlow (Boise ID: HP/Micron; Chattanooga TN: VW plant; Fayetteville AR: Walmart HQ adjacent; Huntsville AL: NASA Marshall; Spokane WA: WSU/Kaiser), LeadPilot (Durham NC: Research Triangle; Knoxville TN: UT/Oak Ridge), ExpenseBot (Baton Rouge LA: ExxonMobil; Des Moines IA: Wells Fargo/Principal; Dayton OH: Wright-Patterson AFB)
-4. Refresh SocialQueue keywords — TikTok content scheduler + LinkedIn thought leadership scheduling trending in Q2 2026
-5. Update CalendarFlow competitor data — Calendly Q1 2026 price changes, new G2/Reddit complaints
-6. Expand InventoryTracker cities — Midwest manufacturing and Southeast retail hubs: Columbus IN (Cummins HQ), Cookeville TN (TTM Technologies), Hattiesburg MS (Gulf South distribution)
-7. Build next queued tool — B2B Marketing category (Email Marketing Automation, SEO content tool, or A/B testing platform) to diversify category concentration
+1. Add interactive demo to ClientIntake — 3-tab: Intake Form Builder (conditional logic preview), Client Portal View (branded upload experience), Onboarding Tracker (per-client progress bars)
+2. Add localContext to Session 1-3 older cities — OnboardFlow (Boise ID: HP/Micron; Chattanooga TN: VW plant; Fayetteville AR: Walmart HQ adjacent; Huntsville AL: NASA Marshall; Spokane WA: WSU/Kaiser), LeadPilot (Durham NC: Research Triangle; Knoxville TN: UT/Oak Ridge), ExpenseBot (Baton Rouge LA: ExxonMobil; Des Moines IA: Wells Fargo/Principal; Dayton OH: Wright-Patterson AFB)
+3. Refresh SocialQueue keywords — TikTok content scheduler + LinkedIn thought leadership scheduling trending in Q2 2026
+4. Update CalendarFlow competitor data — Calendly Q1 2026 price changes, new G2/Reddit complaints
+5. Expand ABTester cities — Mountain West and Pacific Northwest underrepresented: Boise ID (Micron/HP corridor), Bend OR (tech startup community), Meridian ID (fastest-growing city), Kennewick WA (Tri-Cities tech), Yakima WA (agricultural tech)
+6. Build next queued tool — Sales or Operations category to balance Marketing concentration: ClientSuccessTracker (customer success platform) or MeetingCostCalc (live meeting cost calculator for execs)

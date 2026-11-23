@@ -2513,6 +2513,580 @@ const iconBtnStyle: React.CSSProperties = {
   color: 'var(--text-secondary)',
 };
 
+/* ─── Asset Tracker Demo ─── */
+type AssetStatus = 'Available' | 'Checked Out' | 'In Repair' | 'Retired';
+
+interface Asset {
+  id: string;
+  name: string;
+  category: string;
+  serial: string;
+  assignedTo: string | null;
+  status: AssetStatus;
+  purchaseDate: string;
+  value: string;
+  lastMaintenance: string;
+}
+
+const initialAssets: Asset[] = [
+  { id: 'AST-001', name: 'MacBook Pro 16"', category: 'Laptop', serial: 'C02XK1ABMD6R', assignedTo: 'Sarah Chen', status: 'Checked Out', purchaseDate: '2024-01-15', value: '$2,499', lastMaintenance: '2026-09-10' },
+  { id: 'AST-002', name: 'Dell XPS 15', category: 'Laptop', serial: 'F5KPQ7-BJMX', assignedTo: null, status: 'Available', purchaseDate: '2024-03-22', value: '$1,799', lastMaintenance: '2026-10-02' },
+  { id: 'AST-003', name: 'iPhone 16 Pro', category: 'Mobile', serial: 'DNPXR4W1Q3K9', assignedTo: 'Marcus Webb', status: 'Checked Out', purchaseDate: '2024-09-20', value: '$1,199', lastMaintenance: '2026-08-15' },
+  { id: 'AST-004', name: 'LG 27" 4K Monitor', category: 'Monitor', serial: '304NXBK29812', assignedTo: null, status: 'In Repair', purchaseDate: '2023-06-10', value: '$549', lastMaintenance: '2026-07-30' },
+  { id: 'AST-005', name: 'Lenovo ThinkPad X1', category: 'Laptop', serial: 'MP2GTYS78X', assignedTo: 'Priya Okonkwo', status: 'Checked Out', purchaseDate: '2024-02-08', value: '$1,649', lastMaintenance: '2026-11-01' },
+  { id: 'AST-006', name: 'Cisco IP Phone 8800', category: 'Phone', serial: 'FCH2309G0PK', assignedTo: null, status: 'Available', purchaseDate: '2023-11-14', value: '$189', lastMaintenance: '2026-10-20' },
+  { id: 'AST-007', name: 'HP LaserJet Pro', category: 'Printer', serial: 'CNBKR71094', assignedTo: null, status: 'Available', purchaseDate: '2023-08-05', value: '$349', lastMaintenance: '2026-06-15' },
+  { id: 'AST-008', name: 'Surface Pro 10', category: 'Laptop', serial: '00237-70000-00000-AAOEM', assignedTo: 'David Torres', status: 'Checked Out', purchaseDate: '2024-05-30', value: '$1,299', lastMaintenance: '2026-10-08' },
+];
+
+function AssetTrackerDemo() {
+  const [tab, setTab] = useState<'assets' | 'labels' | 'health'>('assets');
+  const [assets, setAssets] = useState<Asset[]>(initialAssets);
+  const [checkoutAsset, setCheckoutAsset] = useState<string | null>(null);
+  const [checkoutName, setCheckoutName] = useState('');
+  const [checkinAnim, setCheckinAnim] = useState<string | null>(null);
+  const [checkoutAnim, setCheckoutAnim] = useState<string | null>(null);
+  const [labelAsset, setLabelAsset] = useState<Asset>(initialAssets[0]);
+  const [filterStatus, setFilterStatus] = useState<string>('All');
+
+  const statusColor: Record<AssetStatus, string> = {
+    'Available': '#16a34a',
+    'Checked Out': '#2563eb',
+    'In Repair': '#d97706',
+    'Retired': '#6b7280',
+  };
+  const statusBg: Record<AssetStatus, string> = {
+    'Available': '#f0fdf4',
+    'Checked Out': '#eff6ff',
+    'In Repair': '#fffbeb',
+    'Retired': '#f9fafb',
+  };
+
+  const handleCheckin = (id: string) => {
+    setCheckinAnim(id);
+    setTimeout(() => {
+      setAssets(a => a.map(x => x.id === id ? { ...x, status: 'Available', assignedTo: null } : x));
+      setCheckinAnim(null);
+    }, 700);
+  };
+
+  const handleCheckout = () => {
+    if (!checkoutName.trim() || !checkoutAsset) return;
+    setCheckoutAnim(checkoutAsset);
+    setTimeout(() => {
+      setAssets(a => a.map(x => x.id === checkoutAsset ? { ...x, status: 'Checked Out', assignedTo: checkoutName.trim() } : x));
+      setCheckoutAsset(null);
+      setCheckoutName('');
+      setCheckoutAnim(null);
+    }, 700);
+  };
+
+  const filtered = filterStatus === 'All' ? assets : assets.filter(a => a.status === filterStatus);
+  const stats = {
+    total: assets.length,
+    available: assets.filter(a => a.status === 'Available').length,
+    checkedOut: assets.filter(a => a.status === 'Checked Out').length,
+    inRepair: assets.filter(a => a.status === 'In Repair').length,
+  };
+
+  const tabStyle = (active: boolean): React.CSSProperties => ({
+    padding: '8px 16px',
+    border: 'none',
+    borderBottom: active ? '2px solid var(--orange)' : '2px solid transparent',
+    background: 'transparent',
+    cursor: 'pointer',
+    fontWeight: active ? 700 : 500,
+    fontSize: '13.5px',
+    color: active ? 'var(--orange)' : 'var(--text-secondary)',
+    transition: 'all 0.15s',
+  });
+
+  const statCard = (label: string, val: number, color: string) => (
+    <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px', padding: '12px 16px', textAlign: 'center', flex: 1, minWidth: '90px' }}>
+      <div style={{ fontSize: '24px', fontWeight: 800, color }}>{val}</div>
+      <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '2px' }}>{label}</div>
+    </div>
+  );
+
+  return (
+    <div style={{ border: '1px solid #e5e7eb', borderRadius: '12px', overflow: 'hidden', background: '#f8fafc' }}>
+      {/* Header */}
+      <div style={{ background: 'var(--navy)', padding: '14px 20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <span style={{ fontSize: '18px' }}>🖥️</span>
+        <span style={{ color: '#fff', fontWeight: 700, fontSize: '14px' }}>AssetTracker — IT Asset Management</span>
+        <span style={{ marginLeft: 'auto', background: '#16a34a', color: '#fff', fontSize: '11px', borderRadius: '4px', padding: '2px 8px', fontWeight: 600 }}>Live Demo</span>
+      </div>
+
+      {/* Tabs */}
+      <div style={{ display: 'flex', borderBottom: '1px solid #e5e7eb', background: '#fff', paddingLeft: '12px' }}>
+        <button style={tabStyle(tab === 'assets')} onClick={() => setTab('assets')}>Assets</button>
+        <button style={tabStyle(tab === 'labels')} onClick={() => setTab('labels')}>QR Labels</button>
+        <button style={tabStyle(tab === 'health')} onClick={() => setTab('health')}>Health Dashboard</button>
+      </div>
+
+      <div style={{ padding: '20px' }}>
+        {/* ASSETS TAB */}
+        {tab === 'assets' && (
+          <div>
+            {/* Stats Row */}
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '16px', flexWrap: 'wrap' }}>
+              {statCard('Total Assets', stats.total, 'var(--navy)')}
+              {statCard('Available', stats.available, '#16a34a')}
+              {statCard('Checked Out', stats.checkedOut, '#2563eb')}
+              {statCard('In Repair', stats.inRepair, '#d97706')}
+            </div>
+
+            {/* Filter + Checkout prompt */}
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
+              <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)}
+                style={{ padding: '6px 10px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '13px', background: '#fff' }}>
+                <option>All</option>
+                <option>Available</option>
+                <option>Checked Out</option>
+                <option>In Repair</option>
+              </select>
+              <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+                Showing {filtered.length} of {assets.length} assets
+              </span>
+            </div>
+
+            {/* Checkout form */}
+            {checkoutAsset && (
+              <div style={{ background: '#eff6ff', border: '1px solid #93c5fd', borderRadius: '8px', padding: '12px 16px', marginBottom: '14px', display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '13px', fontWeight: 600, color: '#1e40af' }}>
+                  Check out {assets.find(a => a.id === checkoutAsset)?.name}:
+                </span>
+                <input
+                  type="text"
+                  placeholder="Assign to employee name..."
+                  value={checkoutName}
+                  onChange={e => setCheckoutName(e.target.value)}
+                  onKeyDown={e => { if (e.key === 'Enter') handleCheckout(); }}
+                  style={{ flex: 1, minWidth: '160px', padding: '6px 10px', border: '1px solid #93c5fd', borderRadius: '6px', fontSize: '13px' }}
+                  autoFocus
+                />
+                <button onClick={handleCheckout}
+                  style={{ padding: '6px 14px', background: '#2563eb', color: '#fff', border: 'none', borderRadius: '6px', fontSize: '13px', cursor: 'pointer', fontWeight: 600 }}>
+                  Confirm
+                </button>
+                <button onClick={() => { setCheckoutAsset(null); setCheckoutName(''); }}
+                  style={{ padding: '6px 10px', background: 'transparent', border: 'none', fontSize: '18px', cursor: 'pointer', color: '#6b7280' }}>✕</button>
+              </div>
+            )}
+
+            {/* Asset table */}
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+                <thead>
+                  <tr style={{ background: '#f1f5f9', textAlign: 'left' }}>
+                    {['Asset ID', 'Name', 'Category', 'Assigned To', 'Status', 'Value', 'Actions'].map(h => (
+                      <th key={h} style={{ padding: '8px 12px', fontWeight: 600, color: '#374151', fontSize: '12px', whiteSpace: 'nowrap' }}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {filtered.map(asset => (
+                    <tr key={asset.id}
+                      style={{
+                        borderBottom: '1px solid #f1f5f9',
+                        background: checkinAnim === asset.id || checkoutAnim === asset.id ? '#fef3c7' : '#fff',
+                        transition: 'background 0.3s',
+                      }}>
+                      <td style={{ padding: '10px 12px', fontFamily: 'monospace', fontSize: '12px', color: '#6b7280' }}>{asset.id}</td>
+                      <td style={{ padding: '10px 12px', fontWeight: 600, color: '#111827', whiteSpace: 'nowrap' }}>{asset.name}</td>
+                      <td style={{ padding: '10px 12px', color: '#6b7280' }}>{asset.category}</td>
+                      <td style={{ padding: '10px 12px', color: asset.assignedTo ? '#111827' : '#9ca3af', fontStyle: asset.assignedTo ? 'normal' : 'italic' }}>
+                        {asset.assignedTo ?? 'Unassigned'}
+                      </td>
+                      <td style={{ padding: '10px 12px' }}>
+                        <span style={{
+                          background: statusBg[asset.status],
+                          color: statusColor[asset.status],
+                          padding: '3px 8px',
+                          borderRadius: '12px',
+                          fontSize: '11px',
+                          fontWeight: 600,
+                          whiteSpace: 'nowrap',
+                        }}>{asset.status}</span>
+                      </td>
+                      <td style={{ padding: '10px 12px', color: '#374151' }}>{asset.value}</td>
+                      <td style={{ padding: '10px 12px', whiteSpace: 'nowrap' }}>
+                        {asset.status === 'Checked Out' && (
+                          <button onClick={() => handleCheckin(asset.id)}
+                            style={{ padding: '4px 10px', background: '#f0fdf4', color: '#16a34a', border: '1px solid #bbf7d0', borderRadius: '5px', fontSize: '12px', cursor: 'pointer', fontWeight: 600 }}>
+                            ↩ Check In
+                          </button>
+                        )}
+                        {asset.status === 'Available' && (
+                          <button onClick={() => { setCheckoutAsset(asset.id); setLabelAsset(asset); }}
+                            style={{ padding: '4px 10px', background: '#eff6ff', color: '#2563eb', border: '1px solid #bfdbfe', borderRadius: '5px', fontSize: '12px', cursor: 'pointer', fontWeight: 600 }}>
+                            ↗ Check Out
+                          </button>
+                        )}
+                        {asset.status === 'In Repair' && (
+                          <span style={{ fontSize: '11px', color: '#d97706' }}>⚙ Servicing</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {/* QR LABELS TAB */}
+        {tab === 'labels' && (
+          <div>
+            <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '16px' }}>
+              Select an asset to preview its printable QR label. Labels include the asset tag, serial number, and scan-to-assign QR code.
+            </p>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              {/* Asset selector */}
+              <div style={{ flex: '1', minWidth: '200px' }}>
+                <div style={{ fontSize: '12px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Select Asset</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', maxHeight: '320px', overflowY: 'auto' }}>
+                  {assets.map(a => (
+                    <button key={a.id} onClick={() => setLabelAsset(a)}
+                      style={{
+                        padding: '8px 12px',
+                        textAlign: 'left',
+                        border: labelAsset.id === a.id ? '2px solid var(--orange)' : '1px solid #e5e7eb',
+                        borderRadius: '6px',
+                        background: labelAsset.id === a.id ? '#fff7ed' : '#fff',
+                        cursor: 'pointer',
+                        fontSize: '12.5px',
+                      }}>
+                      <div style={{ fontWeight: 600 }}>{a.name}</div>
+                      <div style={{ color: '#6b7280', fontSize: '11px' }}>{a.id} · {a.category}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Label preview */}
+              <div style={{ flex: '1', minWidth: '220px' }}>
+                <div style={{ fontSize: '12px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Label Preview</div>
+                <div style={{
+                  border: '2px solid #e5e7eb',
+                  borderRadius: '10px',
+                  padding: '20px',
+                  background: '#fff',
+                  display: 'inline-block',
+                  minWidth: '220px',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                }}>
+                  <div style={{ textAlign: 'center', marginBottom: '14px' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#6b7280', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '4px' }}>AutomateStack IT</div>
+                    <div style={{ fontSize: '16px', fontWeight: 800, color: 'var(--navy)' }}>{labelAsset.name}</div>
+                  </div>
+                  {/* Mock QR code */}
+                  <div style={{ margin: '0 auto 14px', width: '90px', height: '90px', background: '#fff', border: '1px solid #e5e7eb', borderRadius: '6px', padding: '6px', display: 'flex', flexWrap: 'wrap', gap: '2px' }}>
+                    {Array.from({ length: 49 }, (_, i) => {
+                      const pattern = [1,1,1,1,1,1,1,1,0,1,0,0,0,0,1,0,1,0,0,1,0,0,1,0,1,0,0,1,0,0,1,0,1,0,0,1,0,0,1,1,0,1,0,1,1,1,1,0,1];
+                      return <div key={i} style={{ width: '10px', height: '10px', background: pattern[i] ? '#111' : '#fff', borderRadius: '1px' }} />;
+                    })}
+                  </div>
+                  <div style={{ fontSize: '11px', color: '#374151', textAlign: 'center' }}>
+                    <div style={{ marginBottom: '3px' }}><strong>Asset ID:</strong> {labelAsset.id}</div>
+                    <div style={{ marginBottom: '3px' }}><strong>Serial:</strong> <span style={{ fontFamily: 'monospace' }}>{labelAsset.serial}</span></div>
+                    <div style={{ marginBottom: '3px' }}><strong>Purchased:</strong> {labelAsset.purchaseDate}</div>
+                    <div style={{ marginBottom: '3px' }}><strong>Value:</strong> {labelAsset.value}</div>
+                    <div style={{ marginTop: '8px', fontSize: '10px', color: '#9ca3af' }}>Scan to view status & history</div>
+                  </div>
+                </div>
+                <div style={{ marginTop: '12px', display: 'flex', gap: '8px' }}>
+                  <button onClick={() => alert(`Label for ${labelAsset.id} sent to printer queue`)}
+                    style={{ padding: '7px 14px', background: 'var(--navy)', color: '#fff', border: 'none', borderRadius: '6px', fontSize: '12.5px', cursor: 'pointer', fontWeight: 600 }}>
+                    🖨 Print Label
+                  </button>
+                  <button onClick={() => alert(`PDF saved: ${labelAsset.id}-label.pdf`)}
+                    style={{ padding: '7px 14px', background: '#f1f5f9', color: '#374151', border: '1px solid #e5e7eb', borderRadius: '6px', fontSize: '12.5px', cursor: 'pointer', fontWeight: 600 }}>
+                    ↓ Save PDF
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* HEALTH DASHBOARD TAB */}
+        {tab === 'health' && (
+          <div>
+            {/* Summary cards */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '12px', marginBottom: '20px' }}>
+              {[
+                { label: 'Total Assets', value: assets.length, icon: '🖥️', color: 'var(--navy)', bg: '#eff6ff' },
+                { label: 'Operational', value: assets.filter(a => a.status !== 'In Repair' && a.status !== 'Retired').length, icon: '✅', color: '#16a34a', bg: '#f0fdf4' },
+                { label: 'Under Repair', value: assets.filter(a => a.status === 'In Repair').length, icon: '⚙️', color: '#d97706', bg: '#fffbeb' },
+                { label: 'Total Value', value: '$9,532', icon: '💰', color: '#7c3aed', bg: '#f5f3ff', isString: true },
+              ].map(c => (
+                <div key={c.label} style={{ background: c.bg, border: `1px solid ${c.color}30`, borderRadius: '10px', padding: '14px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '22px', marginBottom: '4px' }}>{c.icon}</div>
+                  <div style={{ fontSize: '20px', fontWeight: 800, color: c.color }}>{c.value}</div>
+                  <div style={{ fontSize: '11px', color: '#6b7280', marginTop: '2px' }}>{c.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Status breakdown bar */}
+            <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '10px', padding: '16px', marginBottom: '16px' }}>
+              <div style={{ fontSize: '13px', fontWeight: 700, marginBottom: '12px', color: '#111827' }}>Fleet Health Overview</div>
+              {(['Available', 'Checked Out', 'In Repair'] as AssetStatus[]).map(s => {
+                const count = assets.filter(a => a.status === s).length;
+                const pct = Math.round((count / assets.length) * 100);
+                return (
+                  <div key={s} style={{ marginBottom: '10px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12.5px', marginBottom: '4px' }}>
+                      <span style={{ color: '#374151' }}>{s}</span>
+                      <span style={{ fontWeight: 600, color: statusColor[s] }}>{count} assets ({pct}%)</span>
+                    </div>
+                    <div style={{ background: '#f1f5f9', borderRadius: '4px', height: '8px', overflow: 'hidden' }}>
+                      <div style={{ width: `${pct}%`, height: '100%', background: statusColor[s], borderRadius: '4px', transition: 'width 0.5s' }} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Maintenance alerts */}
+            <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: '10px', padding: '16px' }}>
+              <div style={{ fontSize: '13px', fontWeight: 700, marginBottom: '12px', color: '#111827' }}>Maintenance Alerts</div>
+              {[
+                { id: 'AST-004', name: 'LG 27" 4K Monitor', msg: 'Currently in repair — awaiting parts since Jul 30', color: '#dc2626', bg: '#fef2f2', icon: '🔴' },
+                { id: 'AST-007', name: 'HP LaserJet Pro', msg: 'Maintenance due — last serviced Jun 15 (158 days ago)', color: '#d97706', bg: '#fffbeb', icon: '🟡' },
+                { id: 'AST-003', name: 'iPhone 16 Pro', msg: 'Battery check recommended — last maintenance Aug 15', color: '#d97706', bg: '#fffbeb', icon: '🟡' },
+                { id: 'AST-001', name: 'MacBook Pro 16"', msg: 'Up to date — last serviced Sep 10', color: '#16a34a', bg: '#f0fdf4', icon: '🟢' },
+              ].map(alert => (
+                <div key={alert.id} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', padding: '10px', background: alert.bg, borderRadius: '8px', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '14px' }}>{alert.icon}</span>
+                  <div>
+                    <div style={{ fontSize: '13px', fontWeight: 600, color: '#111827' }}>{alert.name} <span style={{ color: '#9ca3af', fontSize: '11px', fontFamily: 'monospace' }}>({alert.id})</span></div>
+                    <div style={{ fontSize: '12px', color: alert.color, marginTop: '2px' }}>{alert.msg}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ─── ABTester Demo ─── */
+function ABTesterDemo() {
+  type TestTab = 'create' | 'results';
+  type TestStatus = 'draft' | 'running' | 'winner';
+
+  const [tab, setTab] = useState<TestTab>('create');
+  const [testName, setTestName] = useState('Homepage Hero CTA Test');
+  const [variantA, setVariantA] = useState('Start Your Free Trial');
+  const [variantB, setVariantB] = useState('See It in Action — Free');
+  const [goal, setGoal] = useState('Button Click');
+  const [status, setStatus] = useState<TestStatus>('draft');
+  const [runningTick, setRunningTick] = useState(0);
+  const [launched, setLaunched] = useState(false);
+
+  const mockResults = {
+    visitors: 1842 + runningTick * 23,
+    variantA: { visitors: 921 + runningTick * 11, conversions: 184 + runningTick * 2, rate: 0 },
+    variantB: { visitors: 921 + runningTick * 12, conversions: 231 + runningTick * 3, rate: 0 },
+  };
+  mockResults.variantA.rate = Math.round((mockResults.variantA.conversions / mockResults.variantA.visitors) * 1000) / 10;
+  mockResults.variantB.rate = Math.round((mockResults.variantB.conversions / mockResults.variantB.visitors) * 1000) / 10;
+  const uplift = Math.round(((mockResults.variantB.rate - mockResults.variantA.rate) / mockResults.variantA.rate) * 100);
+  const confidence = status === 'running' ? Math.min(60 + runningTick * 4, 97) : status === 'winner' ? 97 : 0;
+
+  const handleLaunch = () => {
+    setLaunched(true);
+    setStatus('running');
+    setTab('results');
+    let tick = 0;
+    const timer = setInterval(() => {
+      tick++;
+      setRunningTick(tick);
+      if (tick >= 10) {
+        clearInterval(timer);
+        setStatus('winner');
+      }
+    }, 400);
+  };
+
+  const tabStyle = (active: boolean): React.CSSProperties => ({
+    padding: '8px 18px',
+    border: 'none',
+    borderBottom: active ? '2px solid var(--orange)' : '2px solid transparent',
+    background: 'transparent',
+    cursor: 'pointer',
+    fontWeight: active ? 700 : 500,
+    fontSize: '13.5px',
+    color: active ? 'var(--orange)' : 'var(--text-secondary)',
+    transition: 'all 0.15s',
+  });
+
+  return (
+    <div style={{ border: '1px solid #e5e7eb', borderRadius: '12px', overflow: 'hidden', background: '#f8fafc' }}>
+      <div style={{ background: 'var(--navy)', padding: '14px 20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <span style={{ fontSize: '18px' }}>🧪</span>
+        <span style={{ color: '#fff', fontWeight: 700, fontSize: '14px' }}>ABTester — Conversion Optimization</span>
+        <span style={{ marginLeft: 'auto', background: status === 'winner' ? '#16a34a' : status === 'running' ? '#d97706' : '#6b7280', color: '#fff', fontSize: '11px', borderRadius: '4px', padding: '2px 8px', fontWeight: 600 }}>
+          {status === 'winner' ? '🏆 Winner Found' : status === 'running' ? '▶ Running' : 'Draft'}
+        </span>
+      </div>
+
+      <div style={{ display: 'flex', borderBottom: '1px solid #e5e7eb', background: '#fff', paddingLeft: '12px' }}>
+        <button style={tabStyle(tab === 'create')} onClick={() => setTab('create')}>Create Test</button>
+        <button style={tabStyle(tab === 'results')} onClick={() => setTab('results')}>
+          Live Results {status !== 'draft' && <span style={{ background: '#fee2e2', color: '#dc2626', borderRadius: '10px', padding: '1px 6px', fontSize: '11px', marginLeft: '4px' }}>{mockResults.visitors.toLocaleString()}</span>}
+        </button>
+      </div>
+
+      <div style={{ padding: '20px' }}>
+        {tab === 'create' && (
+          <div>
+            <div style={{ marginBottom: '16px' }}>
+              <label style={{ fontSize: '12px', fontWeight: 600, color: '#374151', display: 'block', marginBottom: '5px' }}>Test Name</label>
+              <input value={testName} onChange={e => setTestName(e.target.value)}
+                style={{ width: '100%', padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: '8px', fontSize: '13.5px', boxSizing: 'border-box' }} />
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '16px' }}>
+              <div>
+                <label style={{ fontSize: '12px', fontWeight: 600, color: '#374151', display: 'block', marginBottom: '5px' }}>
+                  <span style={{ background: '#e0e7ff', color: '#3730a3', borderRadius: '4px', padding: '1px 6px', fontSize: '11px', marginRight: '6px' }}>A</span>
+                  Control Variant
+                </label>
+                <input value={variantA} onChange={e => setVariantA(e.target.value)}
+                  style={{ width: '100%', padding: '8px 12px', border: '2px solid #818cf8', borderRadius: '8px', fontSize: '13.5px', boxSizing: 'border-box' }} />
+                <div style={{ marginTop: '8px', background: '#eff6ff', borderRadius: '8px', padding: '12px', textAlign: 'center', border: '2px solid #818cf8' }}>
+                  <button style={{ background: '#818cf8', color: '#fff', border: 'none', borderRadius: '6px', padding: '8px 20px', fontSize: '13px', fontWeight: 600, cursor: 'default' }}>{variantA || 'Enter CTA text...'}</button>
+                </div>
+              </div>
+              <div>
+                <label style={{ fontSize: '12px', fontWeight: 600, color: '#374151', display: 'block', marginBottom: '5px' }}>
+                  <span style={{ background: '#fef3c7', color: '#92400e', borderRadius: '4px', padding: '1px 6px', fontSize: '11px', marginRight: '6px' }}>B</span>
+                  Test Variant
+                </label>
+                <input value={variantB} onChange={e => setVariantB(e.target.value)}
+                  style={{ width: '100%', padding: '8px 12px', border: '2px solid var(--orange)', borderRadius: '8px', fontSize: '13.5px', boxSizing: 'border-box' }} />
+                <div style={{ marginTop: '8px', background: '#fffbeb', borderRadius: '8px', padding: '12px', textAlign: 'center', border: '2px solid var(--orange)' }}>
+                  <button style={{ background: 'var(--orange)', color: '#fff', border: 'none', borderRadius: '6px', padding: '8px 20px', fontSize: '13px', fontWeight: 600, cursor: 'default' }}>{variantB || 'Enter CTA text...'}</button>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ marginBottom: '20px' }}>
+              <label style={{ fontSize: '12px', fontWeight: 600, color: '#374151', display: 'block', marginBottom: '5px' }}>Conversion Goal</label>
+              <select value={goal} onChange={e => setGoal(e.target.value)}
+                style={{ width: '100%', padding: '8px 12px', border: '1px solid #d1d5db', borderRadius: '8px', fontSize: '13.5px', background: '#fff', boxSizing: 'border-box' }}>
+                <option>Button Click</option>
+                <option>Form Submission</option>
+                <option>Page Scroll 50%</option>
+                <option>Add to Cart</option>
+                <option>Email Signup</option>
+                <option>Video Play</option>
+              </select>
+            </div>
+
+            <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '8px', padding: '12px 16px', marginBottom: '20px', fontSize: '13px', color: '#166534' }}>
+              ✅ <strong>50/50 traffic split</strong> configured — 921 visitors per variant at current traffic levels. Statistical significance target: <strong>95% confidence</strong>.
+            </div>
+
+            <button onClick={handleLaunch} disabled={launched}
+              style={{ width: '100%', padding: '12px', background: launched ? '#9ca3af' : 'var(--orange)', color: '#fff', border: 'none', borderRadius: '8px', fontSize: '14px', fontWeight: 700, cursor: launched ? 'not-allowed' : 'pointer', transition: 'background 0.2s' }}>
+              {launched ? '▶ Test Running — View Results →' : '🚀 Launch A/B Test'}
+            </button>
+          </div>
+        )}
+
+        {tab === 'results' && (
+          <div>
+            {status === 'draft' && (
+              <div style={{ textAlign: 'center', padding: '40px 20px', color: '#9ca3af' }}>
+                <div style={{ fontSize: '36px', marginBottom: '10px' }}>📊</div>
+                <div style={{ fontSize: '14px', fontWeight: 500 }}>Create and launch a test to see live results here.</div>
+                <button onClick={() => setTab('create')} style={{ marginTop: '14px', padding: '8px 20px', background: 'var(--orange)', color: '#fff', border: 'none', borderRadius: '8px', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }}>Create Test →</button>
+              </div>
+            )}
+
+            {status !== 'draft' && (
+              <div>
+                <div style={{ display: 'flex', gap: '10px', marginBottom: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+                  <div style={{ fontSize: '13.5px', fontWeight: 700, color: '#111827' }}>{testName}</div>
+                  <div style={{ marginLeft: 'auto', fontSize: '12px', color: '#6b7280' }}>Goal: <strong>{goal}</strong></div>
+                </div>
+
+                {/* Summary stats */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '10px', marginBottom: '20px' }}>
+                  {[
+                    { label: 'Total Visitors', value: mockResults.visitors.toLocaleString(), color: 'var(--navy)', bg: '#eff6ff' },
+                    { label: 'Uplift (B vs A)', value: `+${uplift}%`, color: '#16a34a', bg: '#f0fdf4' },
+                    { label: 'Confidence', value: `${confidence}%`, color: confidence >= 95 ? '#16a34a' : '#d97706', bg: confidence >= 95 ? '#f0fdf4' : '#fffbeb' },
+                  ].map(s => (
+                    <div key={s.label} style={{ background: s.bg, border: `1px solid ${s.color}25`, borderRadius: '8px', padding: '12px', textAlign: 'center' }}>
+                      <div style={{ fontSize: '20px', fontWeight: 800, color: s.color }}>{s.value}</div>
+                      <div style={{ fontSize: '11px', color: '#6b7280', marginTop: '2px' }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Variant bars */}
+                {[
+                  { label: variantA, key: 'variantA' as const, color: '#818cf8', bg: '#eff6ff', badge: 'A' },
+                  { label: variantB, key: 'variantB' as const, color: 'var(--orange)', bg: '#fffbeb', badge: 'B', winner: status === 'winner' },
+                ].map(v => {
+                  const data = mockResults[v.key];
+                  const maxRate = Math.max(mockResults.variantA.rate, mockResults.variantB.rate);
+                  const barWidth = maxRate > 0 ? Math.round((data.rate / maxRate) * 100) : 0;
+                  return (
+                    <div key={v.badge} style={{ background: v.bg, border: `1px solid ${v.color}40`, borderRadius: '10px', padding: '14px 16px', marginBottom: '12px', position: 'relative' }}>
+                      {v.winner && (
+                        <div style={{ position: 'absolute', top: '10px', right: '12px', background: '#16a34a', color: '#fff', fontSize: '11px', borderRadius: '4px', padding: '2px 8px', fontWeight: 700 }}>🏆 WINNER</div>
+                      )}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                        <span style={{ background: v.color, color: '#fff', borderRadius: '4px', padding: '1px 7px', fontSize: '12px', fontWeight: 700 }}>{v.badge}</span>
+                        <span style={{ fontSize: '13px', fontWeight: 600, color: '#111827' }}>{v.label}</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: '24px', marginBottom: '10px', fontSize: '12.5px', flexWrap: 'wrap' }}>
+                        <span><strong style={{ color: v.color }}>{data.visitors.toLocaleString()}</strong> <span style={{ color: '#6b7280' }}>visitors</span></span>
+                        <span><strong style={{ color: v.color }}>{data.conversions.toLocaleString()}</strong> <span style={{ color: '#6b7280' }}>conversions</span></span>
+                        <span><strong style={{ color: v.color, fontSize: '15px' }}>{data.rate}%</strong> <span style={{ color: '#6b7280' }}>conv. rate</span></span>
+                      </div>
+                      <div style={{ background: '#e5e7eb', borderRadius: '4px', height: '8px', overflow: 'hidden' }}>
+                        <div style={{ width: `${barWidth}%`, height: '100%', background: v.color, borderRadius: '4px', transition: 'width 0.5s ease' }} />
+                      </div>
+                    </div>
+                  );
+                })}
+
+                {status === 'winner' && (
+                  <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '10px', padding: '16px', marginTop: '8px', display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <div>
+                      <div style={{ fontSize: '14px', fontWeight: 700, color: '#166534' }}>🏆 Variant B wins at 97% confidence</div>
+                      <div style={{ fontSize: '12.5px', color: '#16a34a', marginTop: '4px' }}>"{variantB}" converts {uplift}% better than the control. Ready to deploy.</div>
+                    </div>
+                    <button onClick={() => alert('Variant B deployed as the new default!')}
+                      style={{ marginLeft: 'auto', padding: '8px 18px', background: '#16a34a', color: '#fff', border: 'none', borderRadius: '8px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap' }}>
+                      Deploy Winner →
+                    </button>
+                  </div>
+                )}
+
+                {status === 'running' && (
+                  <div style={{ background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '8px', padding: '12px 16px', marginTop: '8px', fontSize: '12.5px', color: '#92400e' }}>
+                    ⏳ Collecting data... {confidence}% confidence reached. Need 95% to declare a winner.
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main export ─── */
 const demoMap: Record<string, React.ReactNode> = {
   'payroll-calc': <PayrollDemo />,
@@ -2525,6 +3099,8 @@ const demoMap: Record<string, React.ReactNode> = {
   'vendor-portal': <VendorPortalDemo />,
   'lead-magnet': <LeadMagnetDemo />,
   'workflow-automation': <WorkflowAutomationDemo />,
+  'asset-tracker': <AssetTrackerDemo />,
+  'ab-tester': <ABTesterDemo />,
 };
 
 export default function DemoPanel({ slug, toolName }: DemoPanelProps) {

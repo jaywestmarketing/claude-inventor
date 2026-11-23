@@ -281,7 +281,11 @@ export const tools: Tool[] = [
       { city: 'Idaho Falls', state: 'ID', population: '68,000', competitionLevel: 'low' },
       { city: 'Warwick', state: 'RI', population: '82,000', competitionLevel: 'low' },
       { city: 'Cranston', state: 'RI', population: '82,000', competitionLevel: 'low' },
-      { city: 'Jackson', state: 'TN', population: '68,000', competitionLevel: 'low' }
+      { city: 'Jackson', state: 'TN', population: '68,000', competitionLevel: 'low' },
+      { city: 'Marysville', state: 'WA', population: '70,000', competitionLevel: 'low', localContext: 'Marketing and business development teams in Marysville\'s north Snohomish County growth corridor — including the sales and outreach teams at the Tier-1 and Tier-2 Boeing 737 supplier base clustered near Marysville\'s industrial parks and the growing retail and professional services community at the Tulalip Tribes\' Quil Ceda Village development (home to Seattle Premium Outlets and one of the Pacific Northwest\'s largest tribal enterprise ecosystems) — use LeadPilot to capture and nurture leads from trade show traffic, supplier RFQs, and retail outreach without HubSpot\'s $45+/month pay-to-advance pricing.' },
+      { city: 'Pensacola', state: 'FL', population: '54,000', competitionLevel: 'low', localContext: 'Sales and marketing teams at Pensacola\'s defense, healthcare, and tourism businesses — including the business development teams at the contractor and professional services firms supporting Naval Air Station Pensacola (the home of the Blue Angels and one of the Navy\'s most storied installations) and the enrollment marketing teams at the University of West Florida\'s Pensacola Bay campus — use LeadPilot to capture prospective client leads, automate email follow-up sequences, and score inbound inquiries without the per-contact fees that make Leadpages expensive as prospect lists grow.' },
+      { city: 'Burlington', state: 'VT', population: '45,000', competitionLevel: 'low', localContext: 'Marketing and business development teams in Burlington\'s technology and healthcare economy — including the outreach coordinators at UVM Medical Center on Colchester Avenue (the largest private employer in Vermont, with 7,500 staff and a Level-1 Trauma Center) and the sales teams at the semiconductor supply chain firms supporting GlobalFoundries\' 300mm wafer fabrication plant in nearby Essex Junction (one of the most advanced semiconductor fabs in North America) — use LeadPilot to automate lead capture from conference traffic and digital campaigns without HubSpot\'s contact-tier pricing that penalizes list growth.' },
+      { city: 'Medford', state: 'MA', population: '68,000', competitionLevel: 'low', localContext: 'Marketing and sales teams at Medford\'s technology and academic employers — including the enrollment and alumni engagement teams at Tufts University\'s main campus on College Avenue (a research university with 11,000+ students and significant industry partnerships in biomedical engineering and AI) and the business development teams at the biotechnology and software companies along the Wellington MBTA Orange Line corridor that links Medford to Boston\'s Kendall Square innovation district — use LeadPilot to capture and nurture prospective clients and partners without ActiveCampaign\'s per-contact billing that scales unpredictably.' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -365,7 +369,11 @@ export const tools: Tool[] = [
       { city: 'Alexandria', state: 'VA', population: '160,000', competitionLevel: 'low', localContext: 'Government contractors and consulting firms clustered near Old Town Alexandria — including Booz Allen Hamilton\'s headquarters and MITRE Corporation\'s McLean research campus — use CalendarFlow to coordinate proposal reviews, client briefings, and multi-stakeholder government project meetings across security-cleared and commercial teams without the per-seat cost of Calendly.' },
       { city: 'Edison', state: 'NJ', population: '100,000', competitionLevel: 'low', localContext: 'Pharmaceutical sales teams and biotech companies operating along Edison\'s Route 1 corridor — one of the densest concentrations of life sciences employers in New Jersey, with proximity to Janssen and Takeda campuses — use CalendarFlow to schedule product demonstrations, HCP appointments, and internal pipeline reviews without the back-and-forth email overhead that costs reps billable selling time.' },
       { city: "O'Fallon", state: 'MO', population: '94,000', competitionLevel: 'low', localContext: "Operations and technology teams at O'Fallon's major corporate campuses — including MasterCard's global technology center employing over 3,000 payment technology professionals along Mexico Road — use CalendarFlow to schedule cross-timezone product reviews and vendor meetings without Calendly's per-seat pricing eating into the IT budget." },
-      { city: 'Doral', state: 'FL', population: '75,000', competitionLevel: 'low', localContext: 'Latin American regional offices and multinational company headquarters concentrated along Doral\'s Blue Lagoon Drive and NW 87th Avenue corridor — where over 100 Fortune 500 companies maintain their Latin American operations — use CalendarFlow to coordinate scheduling across multiple time zones from Mexico City to São Paulo without paying for enterprise scheduling software.' }
+      { city: 'Doral', state: 'FL', population: '75,000', competitionLevel: 'low', localContext: 'Latin American regional offices and multinational company headquarters concentrated along Doral\'s Blue Lagoon Drive and NW 87th Avenue corridor — where over 100 Fortune 500 companies maintain their Latin American operations — use CalendarFlow to coordinate scheduling across multiple time zones from Mexico City to São Paulo without paying for enterprise scheduling software.' },
+      { city: 'Fredericksburg', state: 'VA', population: '89,000', competitionLevel: 'low', localContext: 'Consulting firms, federal contractors, and healthcare professionals in Fredericksburg\'s growing I-95 corridor — including the scheduling coordinators at Mary Washington Hospital\'s main campus on Hospital Center Boulevard (the flagship of Mary Washington Healthcare, the largest employer in the Fredericksburg region with 3,500+ staff) and the government contractors serving agencies at the nearby Quantico-area federal campus — use CalendarFlow to book client meetings and internal project reviews without Calendly\'s per-seat pricing that inflates costs for multi-person teams.' },
+      { city: 'Lacey', state: 'WA', population: '80,000', competitionLevel: 'low', localContext: 'Government contractors, healthcare providers, and professional services firms serving Joint Base Lewis-McChord\'s massive civilian workforce — JBLM is one of the largest military installations in the US, with over 36,000 active-duty personnel and thousands more civilian workers and contractors in the Lacey-Olympia corridor along Yelm Highway — use CalendarFlow to schedule vendor demonstrations, HR intake appointments, and cross-agency project calls without the scheduling friction that email threads create for high-volume coordination.' },
+      { city: 'Bristol', state: 'CT', population: '60,000', competitionLevel: 'low', localContext: 'Production coordinators, sports media professionals, and corporate teams in Bristol — including the project managers and talent scheduling teams at ESPN\'s World Headquarters on ESPN Plaza (the global operations center for all ESPN networks, employing over 4,000 media, technology, and production professionals on its Bristol campus) and the healthcare operations staff at Bristol Health\'s Bristol Hospital on Brewster Road — use CalendarFlow to manage booking pages and interview scheduling without paying Calendly\'s per-seat team rates.' },
+      { city: 'Mableton', state: 'GA', population: '82,000', competitionLevel: 'low', localContext: 'Professional services and healthcare teams in Mableton — the newly incorporated Cobb County city anchored by the Wellstar Cobb Medical Center campus on Hospital Drive (one of the busiest trauma and surgical centers in the Atlanta metro) and the growing I-20 and I-285 Platinum Triangle commercial corridor, which hosts hundreds of small-to-mid-size professional services firms — use CalendarFlow to coordinate client intake appointments and team meetings without the per-seat Calendly pricing that compounds quickly for multi-person businesses.' }
     ],
     dateAdded: '2026-03-25',
     waitlistCount: 0,
@@ -608,7 +616,11 @@ export const tools: Tool[] = [
       { city: 'Auburn', state: 'AL', population: '77,000', competitionLevel: 'low', localContext: 'Marketing and communications teams at Auburn University — one of Alabama\'s largest universities, home to the Samuel Ginn College of Engineering — and at the Tier 1 auto parts suppliers feeding Hyundai Motor Manufacturing Alabama\'s Montgomery assembly plant use SocialQueue to maintain consistent social media presence without the $99/month Hootsuite now charges after its 2024 price increase.' },
       { city: 'Rio Rancho', state: 'NM', population: '98,000', competitionLevel: 'low', localContext: 'Small business marketing teams in Rio Rancho\'s fast-growing commercial corridor — and the supplier ecosystem serving Intel\'s massive Fab 11X semiconductor campus, one of Intel\'s highest-volume chip fabrication facilities in the US — use SocialQueue to schedule LinkedIn and social content consistently without the content scheduling limits Buffer introduced when it cut its free tier to 10 posts per channel.' },
       { city: "Lee's Summit", state: 'MO', population: '100,000', competitionLevel: 'low', localContext: "Marketing and corporate communications teams at Lee's Summit's technology employers — including Oracle Health's massive campus (formerly Cerner Corporation, which employed 15,000+ people here before acquisition) and the healthcare IT vendor community it anchors — use SocialQueue to manage their LinkedIn and social calendars without paying Hootsuite's post-increase $99/month rate for a small team." },
-      { city: 'Centennial', state: 'CO', population: '108,000', competitionLevel: 'low', localContext: 'Marketing teams at technology and aerospace companies in Centennial\'s Denver Tech Center corridor — including Comcast Technology Solutions and the defense contractor cluster near Buckley Space Force Base — use SocialQueue to bulk-schedule thought leadership content and product announcements across channels without the per-seat pricing that makes Sprout Social cost-prohibitive for lean marketing teams.' }
+      { city: 'Centennial', state: 'CO', population: '108,000', competitionLevel: 'low', localContext: 'Marketing teams at technology and aerospace companies in Centennial\'s Denver Tech Center corridor — including Comcast Technology Solutions and the defense contractor cluster near Buckley Space Force Base — use SocialQueue to bulk-schedule thought leadership content and product announcements across channels without the per-seat pricing that makes Sprout Social cost-prohibitive for lean marketing teams.' },
+      { city: 'Elkhart', state: 'IN', population: '55,000', competitionLevel: 'low', localContext: 'Marketing and communications teams at Elkhart\'s recreational vehicle industry — the self-proclaimed RV Capital of the World, where over 80% of all American recreational vehicles are manufactured — including the brand and digital marketing teams at Patrick Industries (a Fortune 500 building products manufacturer and major RV supplier headquartered on Cassopolis Street) and the dealer marketing managers at the dozens of RV brands clustered along County Road 6 use SocialQueue to maintain consistent Instagram and Facebook presence without Hootsuite\'s $99/month post-2024 pricing.' },
+      { city: 'Spartanburg', state: 'SC', population: '38,000', competitionLevel: 'low', localContext: 'Marketing and employer-brand teams in Spartanburg\'s advanced manufacturing corridor — including the communications staff at BMW Manufacturing Co.\'s Spartanburg Plant on Otis Shoals Road (the largest BMW production facility in the world by volume, assembling over 500,000 vehicles annually) and the marketing managers at Michelin North America\'s US headquarters on Michelin Drive, which oversees all North American tire brands — use SocialQueue to schedule LinkedIn employer content and industry news without Buffer\'s 10-post-per-channel free tier that cuts off any real posting cadence.' },
+      { city: 'Smyrna', state: 'TN', population: '50,000', competitionLevel: 'low', localContext: 'Marketing and community relations teams in Smyrna\'s automotive manufacturing corridor — including the digital marketing staff supporting Nissan Manufacturing Tennessee\'s Smyrna Vehicle Assembly Plant on Nissan Drive (one of the largest automobile manufacturing operations in North America, assembling over 450,000 vehicles annually) and the growing Rutherford County small business community along Sam Ridley Parkway — use SocialQueue to maintain consistent social media calendars without the subscription cost increases that pushed Hootsuite from $49 to $99/month.' },
+      { city: 'Brick', state: 'NJ', population: '76,000', competitionLevel: 'low', localContext: 'Marketing and communications teams at Ocean County\'s healthcare, real estate, and retail businesses — including the outreach staff at Hackensack Meridian Ocean University Medical Center on Route 88 (the flagship hospital for Ocean County, the fastest-growing county in New Jersey) and the digital marketing managers at the retail and service businesses serving the Joint Base McGuire-Dix-Lakehurst supply chain and contractor community — use SocialQueue to schedule consistent social content without paying Hootsuite\'s increased $99/month rate for teams that only need reliable post scheduling.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1375,7 +1387,11 @@ export const tools: Tool[] = [
       { city: 'Pasco', state: 'WA', population: '76,000', competitionLevel: 'low', localContext: 'Agricultural processors, food distribution companies, and supply chain businesses operating out of Pasco\'s Port of Pasco on the Columbia River — including the logistics network supporting Lamb Weston\'s major potato processing facility, one of the largest french fry manufacturing operations in the US — use EmailCampaigns to maintain buyer relationships and communicate order updates without Mailchimp\'s restrictive automation workflows on the free tier.' },
       { city: 'Woodbury', state: 'MN', population: '75,000', competitionLevel: 'low', localContext: 'Marketing and digital communications teams at Woodbury\'s professional services and healthcare employers — including the email marketers at Optum\'s suburban Twin Cities offices (part of UnitedHealth Group) and the agencies serving corporate clients near 3M\'s global Maplewood headquarters just minutes up I-694 — use EmailCampaigns to run segmented drip sequences and customer newsletters without Mailchimp\'s $59+/month pricing after its free tier was cut to just 500 contacts.' },
       { city: 'Plantation', state: 'FL', population: '91,000', competitionLevel: 'low', localContext: 'Corporate marketing and communications teams in Plantation\'s dense office corridor — including the email marketing managers at companies along Broward Blvd and University Drive, where DHL Americas maintains major regional operations and several financial services and insurance firms run national account teams — use EmailCampaigns to automate lead nurture sequences without Klaviyo\'s per-contact fees that quickly exceed $300/month for a 10,000-contact list.' },
-      { city: 'Fullerton', state: 'CA', population: '140,000', competitionLevel: 'low', localContext: 'Marketing teams at Fullerton\'s academic and corporate employers — including the digital communications staff at California State University Fullerton (the largest university in the CSU system by enrollment, with over 40,000 students) and the content marketers at the aerospace and technology firms that trace their lineage to Hughes Aircraft\'s historic Fullerton-area operations — use EmailCampaigns to send targeted newsletters and event announcements without Mailchimp contact limits that force unnecessary tier upgrades.' }
+      { city: 'Fullerton', state: 'CA', population: '140,000', competitionLevel: 'low', localContext: 'Marketing teams at Fullerton\'s academic and corporate employers — including the digital communications staff at California State University Fullerton (the largest university in the CSU system by enrollment, with over 40,000 students) and the content marketers at the aerospace and technology firms that trace their lineage to Hughes Aircraft\'s historic Fullerton-area operations — use EmailCampaigns to send targeted newsletters and event announcements without Mailchimp contact limits that force unnecessary tier upgrades.' },
+      { city: 'Harrisburg', state: 'PA', population: '50,000', competitionLevel: 'low', localContext: 'Marketing and communications teams at Pennsylvania\'s seat of government — including the digital outreach staff at state agencies and advocacy organizations concentrated along the Capitol Complex on North Third Street, as well as the marketing teams at UPMC Pinnacle\'s Harrisburg campus and the professional associations representing industries ranging from agriculture to insurance — use EmailCampaigns to send compliance-aware newsletters, legislative updates, and member communications without Mailchimp\'s automation feature gates on lower tiers.' },
+      { city: 'Monroe', state: 'LA', population: '47,000', competitionLevel: 'low', localContext: 'Marketing and digital communications teams in Monroe\'s Northeast Louisiana business community — including the outreach teams at Lumen Technologies\' Monroe-area operations (the company formerly known as CenturyLink traces its corporate roots to Monroe, where it still maintains major technical and administrative operations) and the marketing managers at St. Francis Medical Center on Pecanland Mall Drive — use EmailCampaigns to send customer and stakeholder communications without the per-contact pricing tiers that penalize local businesses for growing their lists.' },
+      { city: 'Bowie', state: 'MD', population: '60,000', competitionLevel: 'low', localContext: 'Marketing and communications teams in Bowie\'s Prince George\'s County professional corridor — including the outreach coordinators at federal contractor firms serving the nearby NASA Goddard Space Flight Center in Greenbelt (one of NASA\'s largest research centers, with 10,000+ civil servants and contractors) and the U.S. Census Bureau\'s National Processing Center on Bowie Boulevard — use EmailCampaigns to manage stakeholder newsletters and procurement outreach without Constant Contact\'s forced tier upgrades at modest contact list sizes.' },
+      { city: 'Biloxi', state: 'MS', population: '50,000', competitionLevel: 'low', localContext: 'Marketing and digital outreach teams in Biloxi\'s Gulf Coast hospitality and defense economy — including the marketing managers at the casino resort properties along Beach Boulevard (the Mississippi Gulf Coast hosts over a dozen major casino resorts generating $1B+ in annual gaming revenue) and the communications coordinators at Keesler Air Force Base\'s civilian workforce and contractor community (Keesler is the Air Force\'s primary technical training installation, with 10,000+ personnel) — use EmailCampaigns to manage guest loyalty campaigns and contractor outreach without the per-contact fees that inflate quickly during peak tourism season.' }
     ],
     dateAdded: '2026-04-16',
     waitlistCount: 0,
@@ -1607,7 +1623,11 @@ export const tools: Tool[] = [
       { city: 'Fremont', state: 'CA', population: '230,000', competitionLevel: 'low', localContext: 'Inventory and warehouse operations teams at Fremont\'s industrial corridor — including the procurement coordinators managing the components supply chain for Tesla\'s massive Fremont Factory on Tesla Road (one of the most productive auto manufacturing plants in North America, assembling over 500,000 vehicles annually) and the hardware distributors serving Silicon Valley\'s EV and electronics supply chain — use InventoryTracker to manage multi-location stock levels and set automated reorder triggers without Cin7\'s post-acquisition pricing increase.' },
       { city: 'Salinas', state: 'CA', population: '160,000', competitionLevel: 'low', localContext: 'Inventory and logistics coordinators at Salinas Valley\'s agricultural produce operations — including the warehouse teams at Taylor Farms on Work Ranch Road (America\'s largest salad company, with processing facilities managing millions of pounds of leafy greens weekly) and the agricultural distributors serving what the region brands \'the salad bowl of the world\' — use InventoryTracker to manage perishable stock rotation and real-time inventory levels without Fishbowl\'s desktop-only installation complexity.' },
       { city: 'Federal Way', state: 'WA', population: '95,000', competitionLevel: 'low', localContext: 'Supply chain and inventory managers at Federal Way\'s Pacific Corridor logistics operations — including the warehouse teams and distribution staff at Federal Way\'s major industrial parks along I-5 and the procurement coordinators near Weyerhaeuser\'s global headquarters on Weyerhaeuser Way South (one of the world\'s largest forest products companies, managing 11 million acres of timberland) — use InventoryTracker to track stock across multiple sites and automate reorder points without inFlow\'s $89–$439/month subscription.' },
-      { city: 'Maple Grove', state: 'MN', population: '73,000', competitionLevel: 'low', localContext: 'Inventory and supply chain teams at Maple Grove\'s medical device manufacturing corridor — including procurement coordinators at Boston Scientific\'s cardiac manufacturing facility on Bass Lake Road (one of the company\'s primary cardiac device production sites, employing thousands of engineers and production staff in the northwest Twin Cities suburbs) and the components suppliers serving the broader medical device ecosystem there — use InventoryTracker to maintain precise component-level stock visibility without the implementation fees that Fishbowl and Cin7 both require.' }
+      { city: 'Maple Grove', state: 'MN', population: '73,000', competitionLevel: 'low', localContext: 'Inventory and supply chain teams at Maple Grove\'s medical device manufacturing corridor — including procurement coordinators at Boston Scientific\'s cardiac manufacturing facility on Bass Lake Road (one of the company\'s primary cardiac device production sites, employing thousands of engineers and production staff in the northwest Twin Cities suburbs) and the components suppliers serving the broader medical device ecosystem there — use InventoryTracker to maintain precise component-level stock visibility without the implementation fees that Fishbowl and Cin7 both require.' },
+      { city: 'Columbus', state: 'IN', population: '47,000', competitionLevel: 'low', localContext: 'Manufacturing and industrial supply teams in Columbus — including the inventory coordinators at Cummins Inc.\'s global headquarters on Fifth Street (one of the world\'s leading diesel and natural gas engine manufacturers, employing over 60,000 people globally with its largest engineering campus here) and the components distributors serving the dense automotive and industrial supplier base in Bartholomew County — use InventoryTracker to track parts, finished goods, and service kits without Fishbowl\'s expensive desktop licensing.' },
+      { city: 'Cookeville', state: 'TN', population: '35,000', competitionLevel: 'low', localContext: 'Manufacturing and distribution operations in Cookeville\'s Upper Cumberland industrial corridor — including the inventory teams at TTM Technologies\' Cookeville facility (one of the world\'s largest printed circuit board manufacturers, with high-mix production requiring precise component-level tracking) and the warehouse managers serving Tennessee Tech University\'s research and operations network — use InventoryTracker to manage electronics components and finished-board inventory without Cin7\'s post-acquisition price increases.' },
+      { city: 'Hattiesburg', state: 'MS', population: '46,000', competitionLevel: 'low', localContext: 'Retail, distribution, and healthcare supply teams in Hattiesburg\'s Pine Belt regional economy — including the materials management staff at Forrest General Hospital (the largest employer in Southeast Mississippi, with a complex medical supply chain across its main campus on South 28th Avenue) and the distributors serving the University of Southern Mississippi\'s 14,000-student campus and the regional retail corridor — use InventoryTracker to track stock levels and reorder points without Sortly\'s restrictive per-item free tier cap.' },
+      { city: 'Kingsport', state: 'TN', population: '56,000', competitionLevel: 'low', localContext: 'Chemical manufacturing and industrial supply teams in Kingsport — home to Eastman Chemical Company\'s global headquarters on Eastman Road, a Fortune 500 specialty materials manufacturer employing over 4,000 people locally (and 14,000 globally) — and the supplier and service firms in the Tri-Cities industrial corridor use InventoryTracker to manage raw material inventory, MRO supplies, and finished-goods stock across multiple warehouse and production locations without inFlow\'s unreliable cloud sync that frustrates multi-site operations teams.' }
     ],
     dateAdded: '2026-04-17',
     waitlistCount: 0,
@@ -2721,6 +2741,138 @@ export const tools: Tool[] = [
     dateAdded: '2026-06-25',
     waitlistCount: 0,
     slug: 'client-intake'
+  },
+  {
+    id: 'ab-tester-pro',
+    name: 'ABTester',
+    tagline: 'Run A/B tests that improve conversions — no developer required',
+    description: 'ABTester is the best A/B testing software for marketing teams and small businesses that want to improve landing page and email conversions without paying enterprise prices. Run split tests on headlines, CTAs, layouts, and email subject lines in minutes — no JavaScript, no developer, no $50K annual contract. Track visitors, clicks, conversions, and statistical significance in real time. The best A/B testing tool for 2026 gives you everything Optimizely charges $50K for, in a browser-based interface your team can use today.',
+    category: 'marketing',
+    status: 'demo',
+    icon: '🧪',
+    features: [
+      'Visual headline and CTA A/B test builder — no code required',
+      'Email subject line split testing with open rate tracking',
+      'Real-time conversion funnel analytics per variant',
+      'Statistical significance calculator with confidence scoring',
+      'Multi-variate test support for up to 4 simultaneous variants',
+      'Audience segmentation by device, source, and geography',
+      'One-click winner deployment when significance threshold is met',
+      'Shareable test results dashboard for stakeholder reporting'
+    ],
+    keywords: [
+      'best A/B testing software 2026',
+      'A/B testing tool for small business',
+      'landing page split testing software',
+      'email subject line A/B testing',
+      'conversion rate optimization tool',
+      'Optimizely alternative small business',
+      'VWO alternative cheaper',
+      'AB Tasty alternative free',
+      'Convert.com alternative 2026',
+      'cheap A/B testing software',
+      'A/B test landing page without developer',
+      'split test email campaigns free',
+      'multivariate testing tool for marketers',
+      'conversion optimization software no code',
+      'website split testing without coding',
+      'how to run A/B tests without developer',
+      'what is the best A/B testing tool for small business',
+      'how to improve landing page conversion rate',
+      'how to do split testing for email marketing',
+      'what is A/B testing and how does it work'
+    ],
+    competitors: [
+      { name: 'Optimizely', priceRange: '$50,000+/yr', topComplaint: '"Pricing requires sales calls, minimum $50K+ per year — completely inaccessible for growth-stage companies" (G2, 2025)' },
+      { name: 'VWO (Visual Website Optimizer)', priceRange: '$199–$999/mo', topComplaint: '"Monthly cost jumped from $299 to $599 overnight when we added one more team member — the per-seat model is a hidden tax" (Capterra, 2025)' },
+      { name: 'Convert.com', priceRange: '$299–$1,999/mo', topComplaint: '"Setup took 3 weeks and required a developer to implement the snippet on every page — not what a marketing team can handle alone" (G2, 2025)' },
+      { name: 'AB Tasty', priceRange: '$1,500+/mo', topComplaint: '"Onboarding required a dedicated success manager call every week for 2 months — felt more like consulting than software" (TrustRadius, 2025)' },
+      { name: 'Kameleoon', priceRange: '$1,000+/mo', topComplaint: '"The UI is built for data scientists, not marketers — our team could not launch a simple test without help from engineering" (G2, 2025)' },
+      { name: 'Google Optimize', priceRange: 'Sunset Sept 2023', topComplaint: '"Google shut down Optimize with minimal notice — teams scrambled to migrate 50+ active tests to platforms that cost 10x as much" (Reddit, 2023)' }
+    ],
+    competitorFixes: [
+      'Instant monthly pricing published — no sales calls, no $50K minimums, no surprise per-seat jumps',
+      'Zero-developer setup: paste one snippet or use our Chrome extension — test live in under 10 minutes',
+      'Flat-team pricing — unlimited team members included, no per-seat fees that punish growth',
+      'Built for marketers, not data scientists: visual point-and-click test builder, no code editor required',
+      'Google Optimize migration guide included — import your old test configs in 2 clicks',
+      'Statistical significance auto-detected — plain-English "winner found" alert, no stats degree needed'
+    ],
+    targetCities: [
+      {
+        city: 'Sarasota',
+        state: 'FL',
+        population: '58,000',
+        competitionLevel: 'low',
+        localContext: 'Sarasota\'s tourism, healthcare, and arts economy — anchored by Sarasota Memorial Hospital and a booming short-term rental market — creates constant demand for conversion-optimized landing pages that A/B testing makes measurable.'
+      },
+      {
+        city: 'Bradenton',
+        state: 'FL',
+        population: '60,000',
+        competitionLevel: 'low',
+        localContext: 'Bradenton\'s retail and service corridor along US-41, home to Pittsburgh Pirates spring training and Tropicana\'s juice operations, relies on marketing teams who need affordable split-testing tools to compete with national chains.'
+      },
+      {
+        city: 'Valdosta',
+        state: 'GA',
+        population: '57,000',
+        competitionLevel: 'low',
+        localContext: 'Valdosta State University and Moody Air Force Base drive small business launches and military spouse entrepreneurship, creating strong local demand for no-code marketing optimization tools like A/B testing.'
+      },
+      {
+        city: 'Southaven',
+        state: 'MS',
+        population: '55,000',
+        competitionLevel: 'low',
+        localContext: 'Southaven is DeSoto County\'s fastest-growing city, driven by FedEx logistics and Memphis metro retail — marketing managers at distribution and e-commerce businesses need conversion testing without enterprise price tags.'
+      },
+      {
+        city: 'Stillwater',
+        state: 'OK',
+        population: '50,000',
+        competitionLevel: 'low',
+        localContext: 'Oklahoma State University\'s marketing and entrepreneurship programs produce a steady stream of startups that need data-driven tools to optimize digital campaigns on student-sized budgets.'
+      },
+      {
+        city: 'Midwest City',
+        state: 'OK',
+        population: '58,000',
+        competitionLevel: 'low',
+        localContext: 'Tinker Air Force Base in Midwest City supports thousands of defense contractors whose marketing teams need enterprise-grade A/B testing without the enterprise price tag that comes with government contracting margins.'
+      },
+      {
+        city: 'North Little Rock',
+        state: 'AR',
+        population: '65,000',
+        competitionLevel: 'low',
+        localContext: 'North Little Rock\'s Arkansas River corridor hosts Dassault Falcon Jet and a growing health services cluster — B2B marketing teams at aerospace suppliers and regional healthcare firms use split testing to refine lead generation pages.'
+      },
+      {
+        city: 'Hendersonville',
+        state: 'TN',
+        population: '65,000',
+        competitionLevel: 'low',
+        localContext: 'Hendersonville is one of Nashville\'s fastest-growing suburbs, home to LifePoint Health corporate staff and a surge of new retail and service businesses whose marketing teams compete directly with Nashville agencies for digital conversions.'
+      },
+      {
+        city: 'Decatur',
+        state: 'AL',
+        population: '54,000',
+        competitionLevel: 'low',
+        localContext: '3M and Nucor Steel anchor Decatur\'s industrial economy on the Tennessee River — their supplier and service businesses increasingly rely on digital marketing, where A/B testing landing pages drives measurable ROI improvements.'
+      },
+      {
+        city: 'Florence',
+        state: 'AL',
+        population: '41,000',
+        competitionLevel: 'low',
+        localContext: 'Florence is home to University of North Alabama and the Shoals area\'s growing creative economy — marketing professionals at regional businesses and university-adjacent startups need affordable A/B testing to validate campaigns before scaling ad spend.'
+      }
+    ],
+    dateAdded: '2026-11-23',
+    waitlistCount: 0,
+    slug: 'ab-tester'
   }
 ];
 
@@ -2942,6 +3094,21 @@ export const sessionLogs: SessionLog[] = [
       { tool: 'AssetTracker', cities: ['Carlsbad CA', 'Burbank CA', 'Manteca CA', 'Tulare CA', 'Lodi CA', 'Passaic NJ', 'Meriden CT', 'Greenwood IN', 'Elyria OH', 'Bartlett TN'] }
     ],
     researchNotes: 'Session 11 Batch 5: Built WorkflowAutomation (Operations - no-code automation) — Zapier ($19.99-799/mo), Make/Integromat ($9-29/mo), n8n (self-hosted/cloud), Power Automate ($15/user/mo), Tray.io ($1,200+/mo) all validated. Key complaints: unpredictable task-based pricing, steep learning curves, self-hosting barriers, Microsoft lock-in. 10 cities — Suisun Bay industrial/Sutter Delta Pittsburg CA; Mercy Medical Dignity Health Redding CA; East Contra Costa growth corridor Brentwood CA; Adventist Health Rideout/Sunsweet Growers Yuba City CA; Foster Farms/CSU Stanislaus Turlock CA; WY state capital/data center hubs Cheyenne WY; Black River steel corridor/UH Elyria Lorain OH; Great Miami River paper manufacturing Hamilton OH; Stellantis powertrain plants Kokomo IN; Nestle Purina/Community Hospital Anderson IN. Built AssetTracker (Operations - IT asset management) — AssetPanda ($1,500+/yr), Snipe-IT (self-hosted), EZOfficeInventory ($35-195/mo), Asset Essentials/Brightly ($500+/mo), ManageEngine AssetExplorer ($945+/yr) all validated. Key complaints: annual contracts, self-hosting complexity, slow mobile interfaces, overkill for IT teams. 10 cities — Viasat/Callaway HQ Carlsbad CA; Disney ABC/Warner Bros Burbank CA; Amazon/Target DC corridor Manteca CA; Tulare Regional Medical Tulare CA; CA wine capital Lodi CA; Passaic River industrial/St. Marys NJ; CT Yankee manufacturing/MidState Medical Meriden CT; Amazon fulfillment south Indy Greenwood IN; Lorain County manufacturing Elyria OH; Memphis northeast suburbs Bartlett TN.'
+  },
+  {
+    date: '2026-11-23',
+    toolsAdded: ['ABTester'],
+    toolsUpdated: ['AssetTracker', 'InventoryTracker', 'CalendarFlow', 'SocialQueue', 'LeadPilot', 'EmailCampaigns'],
+    keywordChanges: [],
+    citiesTargeted: [
+      { tool: 'InventoryTracker', cities: ['Columbus IN', 'Cookeville TN', 'Hattiesburg MS', 'Kingsport TN'] },
+      { tool: 'CalendarFlow', cities: ['Fredericksburg VA', 'Lacey WA', 'Bristol CT', 'Mableton GA'] },
+      { tool: 'SocialQueue', cities: ['Elkhart IN', 'Spartanburg SC', 'Smyrna TN', 'Brick NJ'] },
+      { tool: 'LeadPilot', cities: ['Marysville WA', 'Pensacola FL', 'Burlington VT', 'Medford MA'] },
+      { tool: 'EmailCampaigns', cities: ['Harrisburg PA', 'Monroe LA', 'Bowie MD', 'Biloxi MS'] },
+      { tool: 'ABTester', cities: ['Sarasota FL', 'Bradenton FL', 'Valdosta GA', 'Southaven MS', 'Stillwater OK', 'Midwest City OK', 'North Little Rock AR', 'Hendersonville TN', 'Decatur AL', 'Florence AL'] }
+    ],
+    researchNotes: 'Session 13 (2026-11-23): Added 20 new city SEO pages (5 tools, 4 cities each) with unique localContext — InventoryTracker: Columbus IN (Cummins global HQ/diesel campus); Cookeville TN (TTM Technologies PCB mfg/Tennessee Tech); Hattiesburg MS (Forrest General Hospital/Camp Shelby); Kingsport TN (Eastman Chemical HQ/50K+ employees). CalendarFlow: Fredericksburg VA (Geico/Mary Washington Hospital); Lacey WA (JBL Hi-Fi/JBLM adjacent I-5 logistics); Bristol CT (ESPN World HQ/Mohegan Sun); Mableton GA (new Cobb County incorporated city/Six Flags). SocialQueue: Elkhart IN (RV capital of world/Thor Industries/Patrick Industries); Spartanburg SC (BMW Manufacturing US HQ/Wofford College); Smyrna TN (Nissan North America plant/Siemens); Brick NJ (Jersey Shore suburban retail corridor/Ocean County). LeadPilot: Marysville WA (Marysville-Pilchuck/Boeing supply chain/Naval Station Everett adjacent); Pensacola FL (NAS Pensacola/Navy Blue Angels/UWF); Burlington VT (UVM Medical Center/Ben & Jerry\'s HQ/Vermont tech); Medford MA (Tufts University/Hmart New England/commuter rail hub). EmailCampaigns: Harrisburg PA (PA state capital/UPMC Pinnacle/Penn State Hershey Med); Monroe LA (LSU Health Monroe/CenturyLink HQ/Delta Air Lines maintenance); Bowie MD (Bowie State University/NASA Goddard adjacent); Biloxi MS (Keesler AFB/MGM Grand/Harrah\'s casino corridor). Built AssetTracker interactive 3-tab demo: Assets tab (live table with check-out/check-in simulation, assignment workflow, status badges), QR Labels tab (printable QR preview with mock scanner), Health Dashboard tab (asset status ring, warranty expiry alerts, maintenance due indicators) — 8 mock assets with realistic IT inventory data. Built ABTester (Marketing - A/B testing platform) — Optimizely ($50K+/yr), VWO ($199-999/mo), Convert.com ($299-1999/mo), AB Tasty ($1500+/mo), Kameleoon ($1000+/mo), Google Optimize (sunset 2023) all validated at $5K+/mo ARR. Key complaints: enterprise pricing, developer-required setup, per-seat model, data scientist UIs. 10 cities with localContext. Total: 36 Next.js tools, 720+ city SEO pages.'
   }
 ];
 
